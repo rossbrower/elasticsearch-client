@@ -35,6 +35,26 @@ namespace Elasticsearch.Client
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-refresh.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage IndicesRefreshPost(Func<IndicesRefreshParameters, IndicesRefreshParameters> options)
+        {
+            string uri = "/_refresh";
+            IndicesRefreshParameters parameters = options.Invoke(new IndicesRefreshParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-refresh.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> IndicesRefreshPostAsync(Func<IndicesRefreshParameters, IndicesRefreshParameters> options)
+        {
+            string uri = "/_refresh";
+            IndicesRefreshParameters parameters = options.Invoke(new IndicesRefreshParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-refresh.html"/></summary>
         private HttpResponseMessage IndicesRefreshGet()
         {
             string uri = "/_refresh";
@@ -45,6 +65,26 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> IndicesRefreshGetAsync()
         {
             string uri = "/_refresh";
+            return await this.ExecuteAsync("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-refresh.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage IndicesRefreshGet(Func<IndicesRefreshParameters, IndicesRefreshParameters> options)
+        {
+            string uri = "/_refresh";
+            IndicesRefreshParameters parameters = options.Invoke(new IndicesRefreshParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-refresh.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> IndicesRefreshGetAsync(Func<IndicesRefreshParameters, IndicesRefreshParameters> options)
+        {
+            string uri = "/_refresh";
+            IndicesRefreshParameters parameters = options.Invoke(new IndicesRefreshParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("GET", uri);
         }
         
@@ -66,6 +106,28 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-refresh.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage IndicesRefreshPost(string index, Func<IndicesRefreshParameters, IndicesRefreshParameters> options)
+        {
+            string uri = string.Format("/{0}/_refresh", index);
+            IndicesRefreshParameters parameters = options.Invoke(new IndicesRefreshParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-refresh.html"/></summary>
+        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> IndicesRefreshPostAsync(string index, Func<IndicesRefreshParameters, IndicesRefreshParameters> options)
+        {
+            string uri = string.Format("/{0}/_refresh", index);
+            IndicesRefreshParameters parameters = options.Invoke(new IndicesRefreshParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-refresh.html"/></summary>
+        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         private HttpResponseMessage IndicesRefreshGet(string index)
         {
             string uri = string.Format("/{0}/_refresh", index);
@@ -77,6 +139,28 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> IndicesRefreshGetAsync(string index)
         {
             string uri = string.Format("/{0}/_refresh", index);
+            return await this.ExecuteAsync("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-refresh.html"/></summary>
+        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage IndicesRefreshGet(string index, Func<IndicesRefreshParameters, IndicesRefreshParameters> options)
+        {
+            string uri = string.Format("/{0}/_refresh", index);
+            IndicesRefreshParameters parameters = options.Invoke(new IndicesRefreshParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-refresh.html"/></summary>
+        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> IndicesRefreshGetAsync(string index, Func<IndicesRefreshParameters, IndicesRefreshParameters> options)
+        {
+            string uri = string.Format("/{0}/_refresh", index);
+            IndicesRefreshParameters parameters = options.Invoke(new IndicesRefreshParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("GET", uri);
         }
     }

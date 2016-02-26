@@ -35,6 +35,26 @@ namespace Elasticsearch.Client
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-segments.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage CatSegments(Func<CatSegmentsParameters, CatSegmentsParameters> options)
+        {
+            string uri = "/_cat/segments";
+            CatSegmentsParameters parameters = options.Invoke(new CatSegmentsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-segments.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> CatSegmentsAsync(Func<CatSegmentsParameters, CatSegmentsParameters> options)
+        {
+            string uri = "/_cat/segments";
+            CatSegmentsParameters parameters = options.Invoke(new CatSegmentsParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-segments.html"/></summary>
         /// <param name="index">A comma-separated list of index names to limit the returned information</param>
         private HttpResponseMessage CatSegments(string index)
         {
@@ -47,6 +67,28 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> CatSegmentsAsync(string index)
         {
             string uri = string.Format("/_cat/segments/{0}", index);
+            return await this.ExecuteAsync("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-segments.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to limit the returned information</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage CatSegments(string index, Func<CatSegmentsParameters, CatSegmentsParameters> options)
+        {
+            string uri = string.Format("/_cat/segments/{0}", index);
+            CatSegmentsParameters parameters = options.Invoke(new CatSegmentsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-segments.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to limit the returned information</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> CatSegmentsAsync(string index, Func<CatSegmentsParameters, CatSegmentsParameters> options)
+        {
+            string uri = string.Format("/_cat/segments/{0}", index);
+            CatSegmentsParameters parameters = options.Invoke(new CatSegmentsParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("GET", uri);
         }
     }

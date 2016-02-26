@@ -38,6 +38,28 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
         /// <param name="body">The search definition template and its params</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchTemplateGet(Stream body, Func<SearchTemplateParameters, SearchTemplateParameters> options)
+        {
+            string uri = "/_search/template";
+            SearchTemplateParameters parameters = options.Invoke(new SearchTemplateParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
+        /// <param name="body">The search definition template and its params</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchTemplateGetAsync(Stream body, Func<SearchTemplateParameters, SearchTemplateParameters> options)
+        {
+            string uri = "/_search/template";
+            SearchTemplateParameters parameters = options.Invoke(new SearchTemplateParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
+        /// <param name="body">The search definition template and its params</param>
         private HttpResponseMessage SearchTemplateGet(Byte[] body)
         {
             string uri = "/_search/template";
@@ -49,6 +71,28 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> SearchTemplateGetAsync(Byte[] body)
         {
             string uri = "/_search/template";
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
+        /// <param name="body">The search definition template and its params</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchTemplateGet(Byte[] body, Func<SearchTemplateParameters, SearchTemplateParameters> options)
+        {
+            string uri = "/_search/template";
+            SearchTemplateParameters parameters = options.Invoke(new SearchTemplateParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
+        /// <param name="body">The search definition template and its params</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchTemplateGetAsync(Byte[] body, Func<SearchTemplateParameters, SearchTemplateParameters> options)
+        {
+            string uri = "/_search/template";
+            SearchTemplateParameters parameters = options.Invoke(new SearchTemplateParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("GET", uri, body);
         }
         
@@ -70,6 +114,28 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
         /// <param name="body">The search definition template and its params</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchTemplateGet(string body, Func<SearchTemplateParameters, SearchTemplateParameters> options)
+        {
+            string uri = "/_search/template";
+            SearchTemplateParameters parameters = options.Invoke(new SearchTemplateParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
+        /// <param name="body">The search definition template and its params</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchTemplateGetAsync(string body, Func<SearchTemplateParameters, SearchTemplateParameters> options)
+        {
+            string uri = "/_search/template";
+            SearchTemplateParameters parameters = options.Invoke(new SearchTemplateParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
+        /// <param name="body">The search definition template and its params</param>
         private HttpResponseMessage SearchTemplatePost(Stream body)
         {
             string uri = "/_search/template";
@@ -81,6 +147,28 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> SearchTemplatePostAsync(Stream body)
         {
             string uri = "/_search/template";
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
+        /// <param name="body">The search definition template and its params</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchTemplatePost(Stream body, Func<SearchTemplateParameters, SearchTemplateParameters> options)
+        {
+            string uri = "/_search/template";
+            SearchTemplateParameters parameters = options.Invoke(new SearchTemplateParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
+        /// <param name="body">The search definition template and its params</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchTemplatePostAsync(Stream body, Func<SearchTemplateParameters, SearchTemplateParameters> options)
+        {
+            string uri = "/_search/template";
+            SearchTemplateParameters parameters = options.Invoke(new SearchTemplateParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -102,6 +190,28 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
         /// <param name="body">The search definition template and its params</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchTemplatePost(Byte[] body, Func<SearchTemplateParameters, SearchTemplateParameters> options)
+        {
+            string uri = "/_search/template";
+            SearchTemplateParameters parameters = options.Invoke(new SearchTemplateParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
+        /// <param name="body">The search definition template and its params</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchTemplatePostAsync(Byte[] body, Func<SearchTemplateParameters, SearchTemplateParameters> options)
+        {
+            string uri = "/_search/template";
+            SearchTemplateParameters parameters = options.Invoke(new SearchTemplateParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
+        /// <param name="body">The search definition template and its params</param>
         private HttpResponseMessage SearchTemplatePost(string body)
         {
             string uri = "/_search/template";
@@ -113,6 +223,28 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> SearchTemplatePostAsync(string body)
         {
             string uri = "/_search/template";
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
+        /// <param name="body">The search definition template and its params</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchTemplatePost(string body, Func<SearchTemplateParameters, SearchTemplateParameters> options)
+        {
+            string uri = "/_search/template";
+            SearchTemplateParameters parameters = options.Invoke(new SearchTemplateParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
+        /// <param name="body">The search definition template and its params</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchTemplatePostAsync(string body, Func<SearchTemplateParameters, SearchTemplateParameters> options)
+        {
+            string uri = "/_search/template";
+            SearchTemplateParameters parameters = options.Invoke(new SearchTemplateParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -137,6 +269,30 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
         /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The search definition template and its params</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchTemplateGet(string index, Stream body, Func<SearchTemplateParameters, SearchTemplateParameters> options)
+        {
+            string uri = string.Format("/{0}/_search/template", index);
+            SearchTemplateParameters parameters = options.Invoke(new SearchTemplateParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The search definition template and its params</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchTemplateGetAsync(string index, Stream body, Func<SearchTemplateParameters, SearchTemplateParameters> options)
+        {
+            string uri = string.Format("/{0}/_search/template", index);
+            SearchTemplateParameters parameters = options.Invoke(new SearchTemplateParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The search definition template and its params</param>
         private HttpResponseMessage SearchTemplateGet(string index, Byte[] body)
         {
             string uri = string.Format("/{0}/_search/template", index);
@@ -149,6 +305,30 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> SearchTemplateGetAsync(string index, Byte[] body)
         {
             string uri = string.Format("/{0}/_search/template", index);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The search definition template and its params</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchTemplateGet(string index, Byte[] body, Func<SearchTemplateParameters, SearchTemplateParameters> options)
+        {
+            string uri = string.Format("/{0}/_search/template", index);
+            SearchTemplateParameters parameters = options.Invoke(new SearchTemplateParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The search definition template and its params</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchTemplateGetAsync(string index, Byte[] body, Func<SearchTemplateParameters, SearchTemplateParameters> options)
+        {
+            string uri = string.Format("/{0}/_search/template", index);
+            SearchTemplateParameters parameters = options.Invoke(new SearchTemplateParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("GET", uri, body);
         }
         
@@ -173,6 +353,30 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
         /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The search definition template and its params</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchTemplateGet(string index, string body, Func<SearchTemplateParameters, SearchTemplateParameters> options)
+        {
+            string uri = string.Format("/{0}/_search/template", index);
+            SearchTemplateParameters parameters = options.Invoke(new SearchTemplateParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The search definition template and its params</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchTemplateGetAsync(string index, string body, Func<SearchTemplateParameters, SearchTemplateParameters> options)
+        {
+            string uri = string.Format("/{0}/_search/template", index);
+            SearchTemplateParameters parameters = options.Invoke(new SearchTemplateParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The search definition template and its params</param>
         private HttpResponseMessage SearchTemplatePost(string index, Stream body)
         {
             string uri = string.Format("/{0}/_search/template", index);
@@ -185,6 +389,30 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> SearchTemplatePostAsync(string index, Stream body)
         {
             string uri = string.Format("/{0}/_search/template", index);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The search definition template and its params</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchTemplatePost(string index, Stream body, Func<SearchTemplateParameters, SearchTemplateParameters> options)
+        {
+            string uri = string.Format("/{0}/_search/template", index);
+            SearchTemplateParameters parameters = options.Invoke(new SearchTemplateParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The search definition template and its params</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchTemplatePostAsync(string index, Stream body, Func<SearchTemplateParameters, SearchTemplateParameters> options)
+        {
+            string uri = string.Format("/{0}/_search/template", index);
+            SearchTemplateParameters parameters = options.Invoke(new SearchTemplateParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -209,6 +437,30 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
         /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The search definition template and its params</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchTemplatePost(string index, Byte[] body, Func<SearchTemplateParameters, SearchTemplateParameters> options)
+        {
+            string uri = string.Format("/{0}/_search/template", index);
+            SearchTemplateParameters parameters = options.Invoke(new SearchTemplateParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The search definition template and its params</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchTemplatePostAsync(string index, Byte[] body, Func<SearchTemplateParameters, SearchTemplateParameters> options)
+        {
+            string uri = string.Format("/{0}/_search/template", index);
+            SearchTemplateParameters parameters = options.Invoke(new SearchTemplateParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The search definition template and its params</param>
         private HttpResponseMessage SearchTemplatePost(string index, string body)
         {
             string uri = string.Format("/{0}/_search/template", index);
@@ -221,6 +473,30 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> SearchTemplatePostAsync(string index, string body)
         {
             string uri = string.Format("/{0}/_search/template", index);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The search definition template and its params</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchTemplatePost(string index, string body, Func<SearchTemplateParameters, SearchTemplateParameters> options)
+        {
+            string uri = string.Format("/{0}/_search/template", index);
+            SearchTemplateParameters parameters = options.Invoke(new SearchTemplateParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The search definition template and its params</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchTemplatePostAsync(string index, string body, Func<SearchTemplateParameters, SearchTemplateParameters> options)
+        {
+            string uri = string.Format("/{0}/_search/template", index);
+            SearchTemplateParameters parameters = options.Invoke(new SearchTemplateParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -248,6 +524,32 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
         /// <param name="body">The search definition template and its params</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchTemplateGet(string index, string type, Stream body, Func<SearchTemplateParameters, SearchTemplateParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_search/template", index, type);
+            SearchTemplateParameters parameters = options.Invoke(new SearchTemplateParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
+        /// <param name="body">The search definition template and its params</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchTemplateGetAsync(string index, string type, Stream body, Func<SearchTemplateParameters, SearchTemplateParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_search/template", index, type);
+            SearchTemplateParameters parameters = options.Invoke(new SearchTemplateParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
+        /// <param name="body">The search definition template and its params</param>
         private HttpResponseMessage SearchTemplateGet(string index, string type, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/_search/template", index, type);
@@ -261,6 +563,32 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> SearchTemplateGetAsync(string index, string type, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/_search/template", index, type);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
+        /// <param name="body">The search definition template and its params</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchTemplateGet(string index, string type, Byte[] body, Func<SearchTemplateParameters, SearchTemplateParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_search/template", index, type);
+            SearchTemplateParameters parameters = options.Invoke(new SearchTemplateParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
+        /// <param name="body">The search definition template and its params</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchTemplateGetAsync(string index, string type, Byte[] body, Func<SearchTemplateParameters, SearchTemplateParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_search/template", index, type);
+            SearchTemplateParameters parameters = options.Invoke(new SearchTemplateParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("GET", uri, body);
         }
         
@@ -288,6 +616,32 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
         /// <param name="body">The search definition template and its params</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchTemplateGet(string index, string type, string body, Func<SearchTemplateParameters, SearchTemplateParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_search/template", index, type);
+            SearchTemplateParameters parameters = options.Invoke(new SearchTemplateParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
+        /// <param name="body">The search definition template and its params</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchTemplateGetAsync(string index, string type, string body, Func<SearchTemplateParameters, SearchTemplateParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_search/template", index, type);
+            SearchTemplateParameters parameters = options.Invoke(new SearchTemplateParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
+        /// <param name="body">The search definition template and its params</param>
         private HttpResponseMessage SearchTemplatePost(string index, string type, Stream body)
         {
             string uri = string.Format("/{0}/{1}/_search/template", index, type);
@@ -301,6 +655,32 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> SearchTemplatePostAsync(string index, string type, Stream body)
         {
             string uri = string.Format("/{0}/{1}/_search/template", index, type);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
+        /// <param name="body">The search definition template and its params</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchTemplatePost(string index, string type, Stream body, Func<SearchTemplateParameters, SearchTemplateParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_search/template", index, type);
+            SearchTemplateParameters parameters = options.Invoke(new SearchTemplateParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
+        /// <param name="body">The search definition template and its params</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchTemplatePostAsync(string index, string type, Stream body, Func<SearchTemplateParameters, SearchTemplateParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_search/template", index, type);
+            SearchTemplateParameters parameters = options.Invoke(new SearchTemplateParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -328,6 +708,32 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
         /// <param name="body">The search definition template and its params</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchTemplatePost(string index, string type, Byte[] body, Func<SearchTemplateParameters, SearchTemplateParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_search/template", index, type);
+            SearchTemplateParameters parameters = options.Invoke(new SearchTemplateParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
+        /// <param name="body">The search definition template and its params</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchTemplatePostAsync(string index, string type, Byte[] body, Func<SearchTemplateParameters, SearchTemplateParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_search/template", index, type);
+            SearchTemplateParameters parameters = options.Invoke(new SearchTemplateParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
+        /// <param name="body">The search definition template and its params</param>
         private HttpResponseMessage SearchTemplatePost(string index, string type, string body)
         {
             string uri = string.Format("/{0}/{1}/_search/template", index, type);
@@ -341,6 +747,32 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> SearchTemplatePostAsync(string index, string type, string body)
         {
             string uri = string.Format("/{0}/{1}/_search/template", index, type);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
+        /// <param name="body">The search definition template and its params</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchTemplatePost(string index, string type, string body, Func<SearchTemplateParameters, SearchTemplateParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_search/template", index, type);
+            SearchTemplateParameters parameters = options.Invoke(new SearchTemplateParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
+        /// <param name="body">The search definition template and its params</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchTemplatePostAsync(string index, string type, string body, Func<SearchTemplateParameters, SearchTemplateParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_search/template", index, type);
+            SearchTemplateParameters parameters = options.Invoke(new SearchTemplateParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("POST", uri, body);
         }
     }

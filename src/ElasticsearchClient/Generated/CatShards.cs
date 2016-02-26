@@ -35,6 +35,26 @@ namespace Elasticsearch.Client
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-shards.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage CatShards(Func<CatShardsParameters, CatShardsParameters> options)
+        {
+            string uri = "/_cat/shards";
+            CatShardsParameters parameters = options.Invoke(new CatShardsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-shards.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> CatShardsAsync(Func<CatShardsParameters, CatShardsParameters> options)
+        {
+            string uri = "/_cat/shards";
+            CatShardsParameters parameters = options.Invoke(new CatShardsParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-shards.html"/></summary>
         /// <param name="index">A comma-separated list of index names to limit the returned information</param>
         private HttpResponseMessage CatShards(string index)
         {
@@ -47,6 +67,28 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> CatShardsAsync(string index)
         {
             string uri = string.Format("/_cat/shards/{0}", index);
+            return await this.ExecuteAsync("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-shards.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to limit the returned information</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage CatShards(string index, Func<CatShardsParameters, CatShardsParameters> options)
+        {
+            string uri = string.Format("/_cat/shards/{0}", index);
+            CatShardsParameters parameters = options.Invoke(new CatShardsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-shards.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to limit the returned information</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> CatShardsAsync(string index, Func<CatShardsParameters, CatShardsParameters> options)
+        {
+            string uri = string.Format("/_cat/shards/{0}", index);
+            CatShardsParameters parameters = options.Invoke(new CatShardsParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("GET", uri);
         }
     }

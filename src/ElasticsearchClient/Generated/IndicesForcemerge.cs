@@ -35,6 +35,26 @@ namespace Elasticsearch.Client
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-forcemerge.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage IndicesForcemergePost(Func<IndicesForcemergeParameters, IndicesForcemergeParameters> options)
+        {
+            string uri = "/_forcemerge";
+            IndicesForcemergeParameters parameters = options.Invoke(new IndicesForcemergeParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-forcemerge.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> IndicesForcemergePostAsync(Func<IndicesForcemergeParameters, IndicesForcemergeParameters> options)
+        {
+            string uri = "/_forcemerge";
+            IndicesForcemergeParameters parameters = options.Invoke(new IndicesForcemergeParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-forcemerge.html"/></summary>
         private HttpResponseMessage IndicesForcemergeGet()
         {
             string uri = "/_forcemerge";
@@ -45,6 +65,26 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> IndicesForcemergeGetAsync()
         {
             string uri = "/_forcemerge";
+            return await this.ExecuteAsync("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-forcemerge.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage IndicesForcemergeGet(Func<IndicesForcemergeParameters, IndicesForcemergeParameters> options)
+        {
+            string uri = "/_forcemerge";
+            IndicesForcemergeParameters parameters = options.Invoke(new IndicesForcemergeParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-forcemerge.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> IndicesForcemergeGetAsync(Func<IndicesForcemergeParameters, IndicesForcemergeParameters> options)
+        {
+            string uri = "/_forcemerge";
+            IndicesForcemergeParameters parameters = options.Invoke(new IndicesForcemergeParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("GET", uri);
         }
         
@@ -66,6 +106,28 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-forcemerge.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage IndicesForcemergePost(string index, Func<IndicesForcemergeParameters, IndicesForcemergeParameters> options)
+        {
+            string uri = string.Format("/{0}/_forcemerge", index);
+            IndicesForcemergeParameters parameters = options.Invoke(new IndicesForcemergeParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-forcemerge.html"/></summary>
+        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> IndicesForcemergePostAsync(string index, Func<IndicesForcemergeParameters, IndicesForcemergeParameters> options)
+        {
+            string uri = string.Format("/{0}/_forcemerge", index);
+            IndicesForcemergeParameters parameters = options.Invoke(new IndicesForcemergeParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-forcemerge.html"/></summary>
+        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         private HttpResponseMessage IndicesForcemergeGet(string index)
         {
             string uri = string.Format("/{0}/_forcemerge", index);
@@ -77,6 +139,28 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> IndicesForcemergeGetAsync(string index)
         {
             string uri = string.Format("/{0}/_forcemerge", index);
+            return await this.ExecuteAsync("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-forcemerge.html"/></summary>
+        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage IndicesForcemergeGet(string index, Func<IndicesForcemergeParameters, IndicesForcemergeParameters> options)
+        {
+            string uri = string.Format("/{0}/_forcemerge", index);
+            IndicesForcemergeParameters parameters = options.Invoke(new IndicesForcemergeParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-forcemerge.html"/></summary>
+        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> IndicesForcemergeGetAsync(string index, Func<IndicesForcemergeParameters, IndicesForcemergeParameters> options)
+        {
+            string uri = string.Format("/{0}/_forcemerge", index);
+            IndicesForcemergeParameters parameters = options.Invoke(new IndicesForcemergeParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("GET", uri);
         }
     }

@@ -35,5 +35,27 @@ namespace Elasticsearch.Client
             string uri = string.Format("/_search/template/{0}", id);
             return await this.ExecuteAsync("GET", uri);
         }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        /// <param name="id">Template ID</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage GetTemplate(string id, Func<GetTemplateParameters, GetTemplateParameters> options)
+        {
+            string uri = string.Format("/_search/template/{0}", id);
+            GetTemplateParameters parameters = options.Invoke(new GetTemplateParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        /// <param name="id">Template ID</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> GetTemplateAsync(string id, Func<GetTemplateParameters, GetTemplateParameters> options)
+        {
+            string uri = string.Format("/_search/template/{0}", id);
+            GetTemplateParameters parameters = options.Invoke(new GetTemplateParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri);
+        }
     }
 }

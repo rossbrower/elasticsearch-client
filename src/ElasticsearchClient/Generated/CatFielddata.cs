@@ -35,6 +35,26 @@ namespace Elasticsearch.Client
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-fielddata.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage CatFielddata(Func<CatFielddataParameters, CatFielddataParameters> options)
+        {
+            string uri = "/_cat/fielddata";
+            CatFielddataParameters parameters = options.Invoke(new CatFielddataParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-fielddata.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> CatFielddataAsync(Func<CatFielddataParameters, CatFielddataParameters> options)
+        {
+            string uri = "/_cat/fielddata";
+            CatFielddataParameters parameters = options.Invoke(new CatFielddataParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-fielddata.html"/></summary>
         /// <param name="fields">A comma-separated list of fields to return the fielddata size</param>
         private HttpResponseMessage CatFielddata(string fields)
         {
@@ -47,6 +67,28 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> CatFielddataAsync(string fields)
         {
             string uri = string.Format("/_cat/fielddata/{0}", fields);
+            return await this.ExecuteAsync("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-fielddata.html"/></summary>
+        /// <param name="fields">A comma-separated list of fields to return the fielddata size</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage CatFielddata(string fields, Func<CatFielddataParameters, CatFielddataParameters> options)
+        {
+            string uri = string.Format("/_cat/fielddata/{0}", fields);
+            CatFielddataParameters parameters = options.Invoke(new CatFielddataParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-fielddata.html"/></summary>
+        /// <param name="fields">A comma-separated list of fields to return the fielddata size</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> CatFielddataAsync(string fields, Func<CatFielddataParameters, CatFielddataParameters> options)
+        {
+            string uri = string.Format("/_cat/fielddata/{0}", fields);
+            CatFielddataParameters parameters = options.Invoke(new CatFielddataParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("GET", uri);
         }
     }

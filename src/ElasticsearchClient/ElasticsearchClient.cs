@@ -14,42 +14,48 @@ namespace Elasticsearch.Client
             mConnectionPool = pool;
         }
 
-        public async Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri)
+        private async Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri)
         {
             return await ExecuteAsyncImpl(httpMethod, uri);
         }
 
-        public async Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri, Stream body)
+        private async Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri, Stream body)
         {
-            return await ExecuteAsyncImpl(httpMethod, uri, new StreamContent(body));
+            return await ExecuteAsyncImpl(httpMethod, uri, body == null
+                ? null
+                : new StreamContent(body));
         }
 
-        public async Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri, byte[] body)
+        private async Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri, byte[] body)
         {
-            return await ExecuteAsyncImpl(httpMethod, uri, new ByteArrayContent(body));
+            return await ExecuteAsyncImpl(httpMethod, uri, body == null
+                ? null
+                : new ByteArrayContent(body));
         }
 
-        public async Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri, string body)
+        private async Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri, string body)
         {
-            return await ExecuteAsyncImpl(httpMethod, uri, new StringContent(body, Encoding.UTF8, "application/json"));
+            return await ExecuteAsyncImpl(httpMethod, uri, body == null
+                ? null
+                : new StringContent(body, Encoding.UTF8, "application/json"));
         }
 
-        public HttpResponseMessage Execute(string httpMethod, string uri)
+        private HttpResponseMessage Execute(string httpMethod, string uri)
         {
             return ExecuteAsync(httpMethod, uri).Result;
         }
 
-        public HttpResponseMessage Execute(string httpMethod, string uri, Stream body)
+        private HttpResponseMessage Execute(string httpMethod, string uri, Stream body)
         {
             return ExecuteAsync(httpMethod, uri, body).Result;
         }
 
-        public HttpResponseMessage Execute(string httpMethod, string uri, byte[] body)
+        private HttpResponseMessage Execute(string httpMethod, string uri, byte[] body)
         {
             return ExecuteAsync(httpMethod, uri, body).Result;
         }
 
-        public HttpResponseMessage Execute(string httpMethod, string uri, string body)
+        private HttpResponseMessage Execute(string httpMethod, string uri, string body)
         {
             return ExecuteAsync(httpMethod, uri, body).Result;
         }

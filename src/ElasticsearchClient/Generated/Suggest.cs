@@ -38,6 +38,28 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
         /// <param name="body">The request definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SuggestPost(Stream body, Func<SuggestParameters, SuggestParameters> options)
+        {
+            string uri = "/_suggest";
+            SuggestParameters parameters = options.Invoke(new SuggestParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <param name="body">The request definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SuggestPostAsync(Stream body, Func<SuggestParameters, SuggestParameters> options)
+        {
+            string uri = "/_suggest";
+            SuggestParameters parameters = options.Invoke(new SuggestParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <param name="body">The request definition</param>
         private HttpResponseMessage SuggestPost(Byte[] body)
         {
             string uri = "/_suggest";
@@ -49,6 +71,28 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> SuggestPostAsync(Byte[] body)
         {
             string uri = "/_suggest";
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <param name="body">The request definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SuggestPost(Byte[] body, Func<SuggestParameters, SuggestParameters> options)
+        {
+            string uri = "/_suggest";
+            SuggestParameters parameters = options.Invoke(new SuggestParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <param name="body">The request definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SuggestPostAsync(Byte[] body, Func<SuggestParameters, SuggestParameters> options)
+        {
+            string uri = "/_suggest";
+            SuggestParameters parameters = options.Invoke(new SuggestParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -70,6 +114,28 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
         /// <param name="body">The request definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SuggestPost(string body, Func<SuggestParameters, SuggestParameters> options)
+        {
+            string uri = "/_suggest";
+            SuggestParameters parameters = options.Invoke(new SuggestParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <param name="body">The request definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SuggestPostAsync(string body, Func<SuggestParameters, SuggestParameters> options)
+        {
+            string uri = "/_suggest";
+            SuggestParameters parameters = options.Invoke(new SuggestParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <param name="body">The request definition</param>
         private HttpResponseMessage SuggestGet(Stream body)
         {
             string uri = "/_suggest";
@@ -81,6 +147,28 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> SuggestGetAsync(Stream body)
         {
             string uri = "/_suggest";
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <param name="body">The request definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SuggestGet(Stream body, Func<SuggestParameters, SuggestParameters> options)
+        {
+            string uri = "/_suggest";
+            SuggestParameters parameters = options.Invoke(new SuggestParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <param name="body">The request definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SuggestGetAsync(Stream body, Func<SuggestParameters, SuggestParameters> options)
+        {
+            string uri = "/_suggest";
+            SuggestParameters parameters = options.Invoke(new SuggestParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("GET", uri, body);
         }
         
@@ -102,6 +190,28 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
         /// <param name="body">The request definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SuggestGet(Byte[] body, Func<SuggestParameters, SuggestParameters> options)
+        {
+            string uri = "/_suggest";
+            SuggestParameters parameters = options.Invoke(new SuggestParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <param name="body">The request definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SuggestGetAsync(Byte[] body, Func<SuggestParameters, SuggestParameters> options)
+        {
+            string uri = "/_suggest";
+            SuggestParameters parameters = options.Invoke(new SuggestParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <param name="body">The request definition</param>
         private HttpResponseMessage SuggestGet(string body)
         {
             string uri = "/_suggest";
@@ -113,6 +223,28 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> SuggestGetAsync(string body)
         {
             string uri = "/_suggest";
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <param name="body">The request definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SuggestGet(string body, Func<SuggestParameters, SuggestParameters> options)
+        {
+            string uri = "/_suggest";
+            SuggestParameters parameters = options.Invoke(new SuggestParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <param name="body">The request definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SuggestGetAsync(string body, Func<SuggestParameters, SuggestParameters> options)
+        {
+            string uri = "/_suggest";
+            SuggestParameters parameters = options.Invoke(new SuggestParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("GET", uri, body);
         }
         
@@ -137,6 +269,30 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The request definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SuggestPost(string index, Stream body, Func<SuggestParameters, SuggestParameters> options)
+        {
+            string uri = string.Format("/{0}/_suggest", index);
+            SuggestParameters parameters = options.Invoke(new SuggestParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The request definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SuggestPostAsync(string index, Stream body, Func<SuggestParameters, SuggestParameters> options)
+        {
+            string uri = string.Format("/{0}/_suggest", index);
+            SuggestParameters parameters = options.Invoke(new SuggestParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The request definition</param>
         private HttpResponseMessage SuggestPost(string index, Byte[] body)
         {
             string uri = string.Format("/{0}/_suggest", index);
@@ -149,6 +305,30 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> SuggestPostAsync(string index, Byte[] body)
         {
             string uri = string.Format("/{0}/_suggest", index);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The request definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SuggestPost(string index, Byte[] body, Func<SuggestParameters, SuggestParameters> options)
+        {
+            string uri = string.Format("/{0}/_suggest", index);
+            SuggestParameters parameters = options.Invoke(new SuggestParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The request definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SuggestPostAsync(string index, Byte[] body, Func<SuggestParameters, SuggestParameters> options)
+        {
+            string uri = string.Format("/{0}/_suggest", index);
+            SuggestParameters parameters = options.Invoke(new SuggestParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -173,6 +353,30 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The request definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SuggestPost(string index, string body, Func<SuggestParameters, SuggestParameters> options)
+        {
+            string uri = string.Format("/{0}/_suggest", index);
+            SuggestParameters parameters = options.Invoke(new SuggestParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The request definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SuggestPostAsync(string index, string body, Func<SuggestParameters, SuggestParameters> options)
+        {
+            string uri = string.Format("/{0}/_suggest", index);
+            SuggestParameters parameters = options.Invoke(new SuggestParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The request definition</param>
         private HttpResponseMessage SuggestGet(string index, Stream body)
         {
             string uri = string.Format("/{0}/_suggest", index);
@@ -185,6 +389,30 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> SuggestGetAsync(string index, Stream body)
         {
             string uri = string.Format("/{0}/_suggest", index);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The request definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SuggestGet(string index, Stream body, Func<SuggestParameters, SuggestParameters> options)
+        {
+            string uri = string.Format("/{0}/_suggest", index);
+            SuggestParameters parameters = options.Invoke(new SuggestParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The request definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SuggestGetAsync(string index, Stream body, Func<SuggestParameters, SuggestParameters> options)
+        {
+            string uri = string.Format("/{0}/_suggest", index);
+            SuggestParameters parameters = options.Invoke(new SuggestParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("GET", uri, body);
         }
         
@@ -209,6 +437,30 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The request definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SuggestGet(string index, Byte[] body, Func<SuggestParameters, SuggestParameters> options)
+        {
+            string uri = string.Format("/{0}/_suggest", index);
+            SuggestParameters parameters = options.Invoke(new SuggestParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The request definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SuggestGetAsync(string index, Byte[] body, Func<SuggestParameters, SuggestParameters> options)
+        {
+            string uri = string.Format("/{0}/_suggest", index);
+            SuggestParameters parameters = options.Invoke(new SuggestParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The request definition</param>
         private HttpResponseMessage SuggestGet(string index, string body)
         {
             string uri = string.Format("/{0}/_suggest", index);
@@ -221,6 +473,30 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> SuggestGetAsync(string index, string body)
         {
             string uri = string.Format("/{0}/_suggest", index);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The request definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SuggestGet(string index, string body, Func<SuggestParameters, SuggestParameters> options)
+        {
+            string uri = string.Format("/{0}/_suggest", index);
+            SuggestParameters parameters = options.Invoke(new SuggestParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The request definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SuggestGetAsync(string index, string body, Func<SuggestParameters, SuggestParameters> options)
+        {
+            string uri = string.Format("/{0}/_suggest", index);
+            SuggestParameters parameters = options.Invoke(new SuggestParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("GET", uri, body);
         }
     }

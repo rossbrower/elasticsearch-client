@@ -35,6 +35,26 @@ namespace Elasticsearch.Client
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-stats.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage ClusterStats(Func<ClusterStatsParameters, ClusterStatsParameters> options)
+        {
+            string uri = "/_cluster/stats";
+            ClusterStatsParameters parameters = options.Invoke(new ClusterStatsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-stats.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> ClusterStatsAsync(Func<ClusterStatsParameters, ClusterStatsParameters> options)
+        {
+            string uri = "/_cluster/stats";
+            ClusterStatsParameters parameters = options.Invoke(new ClusterStatsParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-stats.html"/></summary>
         /// <param name="node_id">A comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes</param>
         private HttpResponseMessage ClusterStats(string node_id)
         {
@@ -47,6 +67,28 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> ClusterStatsAsync(string node_id)
         {
             string uri = string.Format("/_cluster/stats/nodes/{0}", node_id);
+            return await this.ExecuteAsync("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-stats.html"/></summary>
+        /// <param name="node_id">A comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage ClusterStats(string node_id, Func<ClusterStatsParameters, ClusterStatsParameters> options)
+        {
+            string uri = string.Format("/_cluster/stats/nodes/{0}", node_id);
+            ClusterStatsParameters parameters = options.Invoke(new ClusterStatsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-stats.html"/></summary>
+        /// <param name="node_id">A comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> ClusterStatsAsync(string node_id, Func<ClusterStatsParameters, ClusterStatsParameters> options)
+        {
+            string uri = string.Format("/_cluster/stats/nodes/{0}", node_id);
+            ClusterStatsParameters parameters = options.Invoke(new ClusterStatsParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("GET", uri);
         }
     }

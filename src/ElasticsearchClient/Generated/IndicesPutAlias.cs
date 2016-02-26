@@ -44,6 +44,32 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names the alias should point to (supports wildcards); use `_all` to perform the operation on all indices.</param>
         /// <param name="name">The name of the alias to be created or updated</param>
         /// <param name="body">The settings for the alias, such as `routing` or `filter`</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage IndicesPutAliasPut(string index, string name, Stream body, Func<IndicesPutAliasParameters, IndicesPutAliasParameters> options)
+        {
+            string uri = string.Format("/{0}/_alias/{1}", index, name);
+            IndicesPutAliasParameters parameters = options.Invoke(new IndicesPutAliasParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
+        /// <param name="index">A comma-separated list of index names the alias should point to (supports wildcards); use `_all` to perform the operation on all indices.</param>
+        /// <param name="name">The name of the alias to be created or updated</param>
+        /// <param name="body">The settings for the alias, such as `routing` or `filter`</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> IndicesPutAliasPutAsync(string index, string name, Stream body, Func<IndicesPutAliasParameters, IndicesPutAliasParameters> options)
+        {
+            string uri = string.Format("/{0}/_alias/{1}", index, name);
+            IndicesPutAliasParameters parameters = options.Invoke(new IndicesPutAliasParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
+        /// <param name="index">A comma-separated list of index names the alias should point to (supports wildcards); use `_all` to perform the operation on all indices.</param>
+        /// <param name="name">The name of the alias to be created or updated</param>
+        /// <param name="body">The settings for the alias, such as `routing` or `filter`</param>
         private HttpResponseMessage IndicesPutAliasPut(string index, string name, Byte[] body)
         {
             string uri = string.Format("/{0}/_alias/{1}", index, name);
@@ -57,6 +83,32 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> IndicesPutAliasPutAsync(string index, string name, Byte[] body)
         {
             string uri = string.Format("/{0}/_alias/{1}", index, name);
+            return await this.ExecuteAsync("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
+        /// <param name="index">A comma-separated list of index names the alias should point to (supports wildcards); use `_all` to perform the operation on all indices.</param>
+        /// <param name="name">The name of the alias to be created or updated</param>
+        /// <param name="body">The settings for the alias, such as `routing` or `filter`</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage IndicesPutAliasPut(string index, string name, Byte[] body, Func<IndicesPutAliasParameters, IndicesPutAliasParameters> options)
+        {
+            string uri = string.Format("/{0}/_alias/{1}", index, name);
+            IndicesPutAliasParameters parameters = options.Invoke(new IndicesPutAliasParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
+        /// <param name="index">A comma-separated list of index names the alias should point to (supports wildcards); use `_all` to perform the operation on all indices.</param>
+        /// <param name="name">The name of the alias to be created or updated</param>
+        /// <param name="body">The settings for the alias, such as `routing` or `filter`</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> IndicesPutAliasPutAsync(string index, string name, Byte[] body, Func<IndicesPutAliasParameters, IndicesPutAliasParameters> options)
+        {
+            string uri = string.Format("/{0}/_alias/{1}", index, name);
+            IndicesPutAliasParameters parameters = options.Invoke(new IndicesPutAliasParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("PUT", uri, body);
         }
         
@@ -84,6 +136,32 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names the alias should point to (supports wildcards); use `_all` to perform the operation on all indices.</param>
         /// <param name="name">The name of the alias to be created or updated</param>
         /// <param name="body">The settings for the alias, such as `routing` or `filter`</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage IndicesPutAliasPut(string index, string name, string body, Func<IndicesPutAliasParameters, IndicesPutAliasParameters> options)
+        {
+            string uri = string.Format("/{0}/_alias/{1}", index, name);
+            IndicesPutAliasParameters parameters = options.Invoke(new IndicesPutAliasParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
+        /// <param name="index">A comma-separated list of index names the alias should point to (supports wildcards); use `_all` to perform the operation on all indices.</param>
+        /// <param name="name">The name of the alias to be created or updated</param>
+        /// <param name="body">The settings for the alias, such as `routing` or `filter`</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> IndicesPutAliasPutAsync(string index, string name, string body, Func<IndicesPutAliasParameters, IndicesPutAliasParameters> options)
+        {
+            string uri = string.Format("/{0}/_alias/{1}", index, name);
+            IndicesPutAliasParameters parameters = options.Invoke(new IndicesPutAliasParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
+        /// <param name="index">A comma-separated list of index names the alias should point to (supports wildcards); use `_all` to perform the operation on all indices.</param>
+        /// <param name="name">The name of the alias to be created or updated</param>
+        /// <param name="body">The settings for the alias, such as `routing` or `filter`</param>
         private HttpResponseMessage IndicesPutAliasPost(string index, string name, Stream body)
         {
             string uri = string.Format("/{0}/_alias/{1}", index, name);
@@ -97,6 +175,32 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> IndicesPutAliasPostAsync(string index, string name, Stream body)
         {
             string uri = string.Format("/{0}/_alias/{1}", index, name);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
+        /// <param name="index">A comma-separated list of index names the alias should point to (supports wildcards); use `_all` to perform the operation on all indices.</param>
+        /// <param name="name">The name of the alias to be created or updated</param>
+        /// <param name="body">The settings for the alias, such as `routing` or `filter`</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage IndicesPutAliasPost(string index, string name, Stream body, Func<IndicesPutAliasParameters, IndicesPutAliasParameters> options)
+        {
+            string uri = string.Format("/{0}/_alias/{1}", index, name);
+            IndicesPutAliasParameters parameters = options.Invoke(new IndicesPutAliasParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
+        /// <param name="index">A comma-separated list of index names the alias should point to (supports wildcards); use `_all` to perform the operation on all indices.</param>
+        /// <param name="name">The name of the alias to be created or updated</param>
+        /// <param name="body">The settings for the alias, such as `routing` or `filter`</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> IndicesPutAliasPostAsync(string index, string name, Stream body, Func<IndicesPutAliasParameters, IndicesPutAliasParameters> options)
+        {
+            string uri = string.Format("/{0}/_alias/{1}", index, name);
+            IndicesPutAliasParameters parameters = options.Invoke(new IndicesPutAliasParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -124,6 +228,32 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names the alias should point to (supports wildcards); use `_all` to perform the operation on all indices.</param>
         /// <param name="name">The name of the alias to be created or updated</param>
         /// <param name="body">The settings for the alias, such as `routing` or `filter`</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage IndicesPutAliasPost(string index, string name, Byte[] body, Func<IndicesPutAliasParameters, IndicesPutAliasParameters> options)
+        {
+            string uri = string.Format("/{0}/_alias/{1}", index, name);
+            IndicesPutAliasParameters parameters = options.Invoke(new IndicesPutAliasParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
+        /// <param name="index">A comma-separated list of index names the alias should point to (supports wildcards); use `_all` to perform the operation on all indices.</param>
+        /// <param name="name">The name of the alias to be created or updated</param>
+        /// <param name="body">The settings for the alias, such as `routing` or `filter`</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> IndicesPutAliasPostAsync(string index, string name, Byte[] body, Func<IndicesPutAliasParameters, IndicesPutAliasParameters> options)
+        {
+            string uri = string.Format("/{0}/_alias/{1}", index, name);
+            IndicesPutAliasParameters parameters = options.Invoke(new IndicesPutAliasParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
+        /// <param name="index">A comma-separated list of index names the alias should point to (supports wildcards); use `_all` to perform the operation on all indices.</param>
+        /// <param name="name">The name of the alias to be created or updated</param>
+        /// <param name="body">The settings for the alias, such as `routing` or `filter`</param>
         private HttpResponseMessage IndicesPutAliasPost(string index, string name, string body)
         {
             string uri = string.Format("/{0}/_alias/{1}", index, name);
@@ -137,6 +267,32 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> IndicesPutAliasPostAsync(string index, string name, string body)
         {
             string uri = string.Format("/{0}/_alias/{1}", index, name);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
+        /// <param name="index">A comma-separated list of index names the alias should point to (supports wildcards); use `_all` to perform the operation on all indices.</param>
+        /// <param name="name">The name of the alias to be created or updated</param>
+        /// <param name="body">The settings for the alias, such as `routing` or `filter`</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage IndicesPutAliasPost(string index, string name, string body, Func<IndicesPutAliasParameters, IndicesPutAliasParameters> options)
+        {
+            string uri = string.Format("/{0}/_alias/{1}", index, name);
+            IndicesPutAliasParameters parameters = options.Invoke(new IndicesPutAliasParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
+        /// <param name="index">A comma-separated list of index names the alias should point to (supports wildcards); use `_all` to perform the operation on all indices.</param>
+        /// <param name="name">The name of the alias to be created or updated</param>
+        /// <param name="body">The settings for the alias, such as `routing` or `filter`</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> IndicesPutAliasPostAsync(string index, string name, string body, Func<IndicesPutAliasParameters, IndicesPutAliasParameters> options)
+        {
+            string uri = string.Format("/{0}/_alias/{1}", index, name);
+            IndicesPutAliasParameters parameters = options.Invoke(new IndicesPutAliasParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("POST", uri, body);
         }
     }

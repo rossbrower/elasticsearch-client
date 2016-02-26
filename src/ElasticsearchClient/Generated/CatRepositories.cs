@@ -33,5 +33,25 @@ namespace Elasticsearch.Client
             string uri = "/_cat/repositories";
             return await this.ExecuteAsync("GET", uri);
         }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-repositories.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage CatRepositories(Func<CatRepositoriesParameters, CatRepositoriesParameters> options)
+        {
+            string uri = "/_cat/repositories";
+            CatRepositoriesParameters parameters = options.Invoke(new CatRepositoriesParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-repositories.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> CatRepositoriesAsync(Func<CatRepositoriesParameters, CatRepositoriesParameters> options)
+        {
+            string uri = "/_cat/repositories";
+            CatRepositoriesParameters parameters = options.Invoke(new CatRepositoriesParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri);
+        }
     }
 }

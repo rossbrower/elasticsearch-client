@@ -33,5 +33,25 @@ namespace Elasticsearch.Client
             string uri = "/_cluster/settings";
             return await this.ExecuteAsync("GET", uri);
         }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-update-settings.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage ClusterGetSettings(Func<ClusterGetSettingsParameters, ClusterGetSettingsParameters> options)
+        {
+            string uri = "/_cluster/settings";
+            ClusterGetSettingsParameters parameters = options.Invoke(new ClusterGetSettingsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-update-settings.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> ClusterGetSettingsAsync(Func<ClusterGetSettingsParameters, ClusterGetSettingsParameters> options)
+        {
+            string uri = "/_cluster/settings";
+            ClusterGetSettingsParameters parameters = options.Invoke(new ClusterGetSettingsParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri);
+        }
     }
 }

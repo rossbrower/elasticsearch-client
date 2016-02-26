@@ -38,6 +38,28 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
         /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage BulkPost(Stream body, Func<BulkParameters, BulkParameters> options)
+        {
+            string uri = "/_bulk";
+            BulkParameters parameters = options.Invoke(new BulkParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
+        /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> BulkPostAsync(Stream body, Func<BulkParameters, BulkParameters> options)
+        {
+            string uri = "/_bulk";
+            BulkParameters parameters = options.Invoke(new BulkParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
+        /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
         private HttpResponseMessage BulkPost(Byte[] body)
         {
             string uri = "/_bulk";
@@ -49,6 +71,28 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> BulkPostAsync(Byte[] body)
         {
             string uri = "/_bulk";
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
+        /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage BulkPost(Byte[] body, Func<BulkParameters, BulkParameters> options)
+        {
+            string uri = "/_bulk";
+            BulkParameters parameters = options.Invoke(new BulkParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
+        /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> BulkPostAsync(Byte[] body, Func<BulkParameters, BulkParameters> options)
+        {
+            string uri = "/_bulk";
+            BulkParameters parameters = options.Invoke(new BulkParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -70,6 +114,28 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
         /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage BulkPost(string body, Func<BulkParameters, BulkParameters> options)
+        {
+            string uri = "/_bulk";
+            BulkParameters parameters = options.Invoke(new BulkParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
+        /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> BulkPostAsync(string body, Func<BulkParameters, BulkParameters> options)
+        {
+            string uri = "/_bulk";
+            BulkParameters parameters = options.Invoke(new BulkParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
+        /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
         private HttpResponseMessage BulkPut(Stream body)
         {
             string uri = "/_bulk";
@@ -81,6 +147,28 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> BulkPutAsync(Stream body)
         {
             string uri = "/_bulk";
+            return await this.ExecuteAsync("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
+        /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage BulkPut(Stream body, Func<BulkParameters, BulkParameters> options)
+        {
+            string uri = "/_bulk";
+            BulkParameters parameters = options.Invoke(new BulkParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
+        /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> BulkPutAsync(Stream body, Func<BulkParameters, BulkParameters> options)
+        {
+            string uri = "/_bulk";
+            BulkParameters parameters = options.Invoke(new BulkParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("PUT", uri, body);
         }
         
@@ -102,6 +190,28 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
         /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage BulkPut(Byte[] body, Func<BulkParameters, BulkParameters> options)
+        {
+            string uri = "/_bulk";
+            BulkParameters parameters = options.Invoke(new BulkParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
+        /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> BulkPutAsync(Byte[] body, Func<BulkParameters, BulkParameters> options)
+        {
+            string uri = "/_bulk";
+            BulkParameters parameters = options.Invoke(new BulkParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
+        /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
         private HttpResponseMessage BulkPut(string body)
         {
             string uri = "/_bulk";
@@ -113,6 +223,28 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> BulkPutAsync(string body)
         {
             string uri = "/_bulk";
+            return await this.ExecuteAsync("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
+        /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage BulkPut(string body, Func<BulkParameters, BulkParameters> options)
+        {
+            string uri = "/_bulk";
+            BulkParameters parameters = options.Invoke(new BulkParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
+        /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> BulkPutAsync(string body, Func<BulkParameters, BulkParameters> options)
+        {
+            string uri = "/_bulk";
+            BulkParameters parameters = options.Invoke(new BulkParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("PUT", uri, body);
         }
         
@@ -137,6 +269,30 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
         /// <param name="index">Default index for items which don't provide one</param>
         /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage BulkPost(string index, Stream body, Func<BulkParameters, BulkParameters> options)
+        {
+            string uri = string.Format("/{0}/_bulk", index);
+            BulkParameters parameters = options.Invoke(new BulkParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
+        /// <param name="index">Default index for items which don't provide one</param>
+        /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> BulkPostAsync(string index, Stream body, Func<BulkParameters, BulkParameters> options)
+        {
+            string uri = string.Format("/{0}/_bulk", index);
+            BulkParameters parameters = options.Invoke(new BulkParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
+        /// <param name="index">Default index for items which don't provide one</param>
+        /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
         private HttpResponseMessage BulkPost(string index, Byte[] body)
         {
             string uri = string.Format("/{0}/_bulk", index);
@@ -149,6 +305,30 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> BulkPostAsync(string index, Byte[] body)
         {
             string uri = string.Format("/{0}/_bulk", index);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
+        /// <param name="index">Default index for items which don't provide one</param>
+        /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage BulkPost(string index, Byte[] body, Func<BulkParameters, BulkParameters> options)
+        {
+            string uri = string.Format("/{0}/_bulk", index);
+            BulkParameters parameters = options.Invoke(new BulkParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
+        /// <param name="index">Default index for items which don't provide one</param>
+        /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> BulkPostAsync(string index, Byte[] body, Func<BulkParameters, BulkParameters> options)
+        {
+            string uri = string.Format("/{0}/_bulk", index);
+            BulkParameters parameters = options.Invoke(new BulkParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -173,6 +353,30 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
         /// <param name="index">Default index for items which don't provide one</param>
         /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage BulkPost(string index, string body, Func<BulkParameters, BulkParameters> options)
+        {
+            string uri = string.Format("/{0}/_bulk", index);
+            BulkParameters parameters = options.Invoke(new BulkParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
+        /// <param name="index">Default index for items which don't provide one</param>
+        /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> BulkPostAsync(string index, string body, Func<BulkParameters, BulkParameters> options)
+        {
+            string uri = string.Format("/{0}/_bulk", index);
+            BulkParameters parameters = options.Invoke(new BulkParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
+        /// <param name="index">Default index for items which don't provide one</param>
+        /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
         private HttpResponseMessage BulkPut(string index, Stream body)
         {
             string uri = string.Format("/{0}/_bulk", index);
@@ -185,6 +389,30 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> BulkPutAsync(string index, Stream body)
         {
             string uri = string.Format("/{0}/_bulk", index);
+            return await this.ExecuteAsync("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
+        /// <param name="index">Default index for items which don't provide one</param>
+        /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage BulkPut(string index, Stream body, Func<BulkParameters, BulkParameters> options)
+        {
+            string uri = string.Format("/{0}/_bulk", index);
+            BulkParameters parameters = options.Invoke(new BulkParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
+        /// <param name="index">Default index for items which don't provide one</param>
+        /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> BulkPutAsync(string index, Stream body, Func<BulkParameters, BulkParameters> options)
+        {
+            string uri = string.Format("/{0}/_bulk", index);
+            BulkParameters parameters = options.Invoke(new BulkParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("PUT", uri, body);
         }
         
@@ -209,6 +437,30 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
         /// <param name="index">Default index for items which don't provide one</param>
         /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage BulkPut(string index, Byte[] body, Func<BulkParameters, BulkParameters> options)
+        {
+            string uri = string.Format("/{0}/_bulk", index);
+            BulkParameters parameters = options.Invoke(new BulkParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
+        /// <param name="index">Default index for items which don't provide one</param>
+        /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> BulkPutAsync(string index, Byte[] body, Func<BulkParameters, BulkParameters> options)
+        {
+            string uri = string.Format("/{0}/_bulk", index);
+            BulkParameters parameters = options.Invoke(new BulkParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
+        /// <param name="index">Default index for items which don't provide one</param>
+        /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
         private HttpResponseMessage BulkPut(string index, string body)
         {
             string uri = string.Format("/{0}/_bulk", index);
@@ -221,6 +473,30 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> BulkPutAsync(string index, string body)
         {
             string uri = string.Format("/{0}/_bulk", index);
+            return await this.ExecuteAsync("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
+        /// <param name="index">Default index for items which don't provide one</param>
+        /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage BulkPut(string index, string body, Func<BulkParameters, BulkParameters> options)
+        {
+            string uri = string.Format("/{0}/_bulk", index);
+            BulkParameters parameters = options.Invoke(new BulkParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
+        /// <param name="index">Default index for items which don't provide one</param>
+        /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> BulkPutAsync(string index, string body, Func<BulkParameters, BulkParameters> options)
+        {
+            string uri = string.Format("/{0}/_bulk", index);
+            BulkParameters parameters = options.Invoke(new BulkParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("PUT", uri, body);
         }
         
@@ -248,6 +524,32 @@ namespace Elasticsearch.Client
         /// <param name="index">Default index for items which don't provide one</param>
         /// <param name="type">Default document type for items which don't provide one</param>
         /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage BulkPost(string index, string type, Stream body, Func<BulkParameters, BulkParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_bulk", index, type);
+            BulkParameters parameters = options.Invoke(new BulkParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
+        /// <param name="index">Default index for items which don't provide one</param>
+        /// <param name="type">Default document type for items which don't provide one</param>
+        /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> BulkPostAsync(string index, string type, Stream body, Func<BulkParameters, BulkParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_bulk", index, type);
+            BulkParameters parameters = options.Invoke(new BulkParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
+        /// <param name="index">Default index for items which don't provide one</param>
+        /// <param name="type">Default document type for items which don't provide one</param>
+        /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
         private HttpResponseMessage BulkPost(string index, string type, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/_bulk", index, type);
@@ -261,6 +563,32 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> BulkPostAsync(string index, string type, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/_bulk", index, type);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
+        /// <param name="index">Default index for items which don't provide one</param>
+        /// <param name="type">Default document type for items which don't provide one</param>
+        /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage BulkPost(string index, string type, Byte[] body, Func<BulkParameters, BulkParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_bulk", index, type);
+            BulkParameters parameters = options.Invoke(new BulkParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
+        /// <param name="index">Default index for items which don't provide one</param>
+        /// <param name="type">Default document type for items which don't provide one</param>
+        /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> BulkPostAsync(string index, string type, Byte[] body, Func<BulkParameters, BulkParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_bulk", index, type);
+            BulkParameters parameters = options.Invoke(new BulkParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -288,6 +616,32 @@ namespace Elasticsearch.Client
         /// <param name="index">Default index for items which don't provide one</param>
         /// <param name="type">Default document type for items which don't provide one</param>
         /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage BulkPost(string index, string type, string body, Func<BulkParameters, BulkParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_bulk", index, type);
+            BulkParameters parameters = options.Invoke(new BulkParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
+        /// <param name="index">Default index for items which don't provide one</param>
+        /// <param name="type">Default document type for items which don't provide one</param>
+        /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> BulkPostAsync(string index, string type, string body, Func<BulkParameters, BulkParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_bulk", index, type);
+            BulkParameters parameters = options.Invoke(new BulkParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
+        /// <param name="index">Default index for items which don't provide one</param>
+        /// <param name="type">Default document type for items which don't provide one</param>
+        /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
         private HttpResponseMessage BulkPut(string index, string type, Stream body)
         {
             string uri = string.Format("/{0}/{1}/_bulk", index, type);
@@ -301,6 +655,32 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> BulkPutAsync(string index, string type, Stream body)
         {
             string uri = string.Format("/{0}/{1}/_bulk", index, type);
+            return await this.ExecuteAsync("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
+        /// <param name="index">Default index for items which don't provide one</param>
+        /// <param name="type">Default document type for items which don't provide one</param>
+        /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage BulkPut(string index, string type, Stream body, Func<BulkParameters, BulkParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_bulk", index, type);
+            BulkParameters parameters = options.Invoke(new BulkParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
+        /// <param name="index">Default index for items which don't provide one</param>
+        /// <param name="type">Default document type for items which don't provide one</param>
+        /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> BulkPutAsync(string index, string type, Stream body, Func<BulkParameters, BulkParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_bulk", index, type);
+            BulkParameters parameters = options.Invoke(new BulkParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("PUT", uri, body);
         }
         
@@ -328,6 +708,32 @@ namespace Elasticsearch.Client
         /// <param name="index">Default index for items which don't provide one</param>
         /// <param name="type">Default document type for items which don't provide one</param>
         /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage BulkPut(string index, string type, Byte[] body, Func<BulkParameters, BulkParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_bulk", index, type);
+            BulkParameters parameters = options.Invoke(new BulkParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
+        /// <param name="index">Default index for items which don't provide one</param>
+        /// <param name="type">Default document type for items which don't provide one</param>
+        /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> BulkPutAsync(string index, string type, Byte[] body, Func<BulkParameters, BulkParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_bulk", index, type);
+            BulkParameters parameters = options.Invoke(new BulkParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
+        /// <param name="index">Default index for items which don't provide one</param>
+        /// <param name="type">Default document type for items which don't provide one</param>
+        /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
         private HttpResponseMessage BulkPut(string index, string type, string body)
         {
             string uri = string.Format("/{0}/{1}/_bulk", index, type);
@@ -341,6 +747,32 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> BulkPutAsync(string index, string type, string body)
         {
             string uri = string.Format("/{0}/{1}/_bulk", index, type);
+            return await this.ExecuteAsync("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
+        /// <param name="index">Default index for items which don't provide one</param>
+        /// <param name="type">Default document type for items which don't provide one</param>
+        /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage BulkPut(string index, string type, string body, Func<BulkParameters, BulkParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_bulk", index, type);
+            BulkParameters parameters = options.Invoke(new BulkParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-bulk.html"/></summary>
+        /// <param name="index">Default index for items which don't provide one</param>
+        /// <param name="type">Default document type for items which don't provide one</param>
+        /// <param name="body">The operation definition and data (action-data pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> BulkPutAsync(string index, string type, string body, Func<BulkParameters, BulkParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_bulk", index, type);
+            BulkParameters parameters = options.Invoke(new BulkParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("PUT", uri, body);
         }
     }

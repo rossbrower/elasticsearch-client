@@ -35,5 +35,27 @@ namespace Elasticsearch.Client
             string uri = string.Format("/{0}/_close", index);
             return await this.ExecuteAsync("POST", uri);
         }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-open-close.html"/></summary>
+        /// <param name="index">A comma separated list of indices to close</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage IndicesClose(string index, Func<IndicesCloseParameters, IndicesCloseParameters> options)
+        {
+            string uri = string.Format("/{0}/_close", index);
+            IndicesCloseParameters parameters = options.Invoke(new IndicesCloseParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-open-close.html"/></summary>
+        /// <param name="index">A comma separated list of indices to close</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> IndicesCloseAsync(string index, Func<IndicesCloseParameters, IndicesCloseParameters> options)
+        {
+            string uri = string.Format("/{0}/_close", index);
+            IndicesCloseParameters parameters = options.Invoke(new IndicesCloseParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri);
+        }
     }
 }

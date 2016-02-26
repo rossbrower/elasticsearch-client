@@ -44,6 +44,32 @@ namespace Elasticsearch.Client
         /// <param name="lang">Script language</param>
         /// <param name="id">Script ID</param>
         /// <param name="body">The document</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage PutScriptPut(string lang, string id, Stream body, Func<PutScriptParameters, PutScriptParameters> options)
+        {
+            string uri = string.Format("/_scripts/{0}/{1}", lang, id);
+            PutScriptParameters parameters = options.Invoke(new PutScriptParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-scripting.html"/></summary>
+        /// <param name="lang">Script language</param>
+        /// <param name="id">Script ID</param>
+        /// <param name="body">The document</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> PutScriptPutAsync(string lang, string id, Stream body, Func<PutScriptParameters, PutScriptParameters> options)
+        {
+            string uri = string.Format("/_scripts/{0}/{1}", lang, id);
+            PutScriptParameters parameters = options.Invoke(new PutScriptParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-scripting.html"/></summary>
+        /// <param name="lang">Script language</param>
+        /// <param name="id">Script ID</param>
+        /// <param name="body">The document</param>
         private HttpResponseMessage PutScriptPut(string lang, string id, Byte[] body)
         {
             string uri = string.Format("/_scripts/{0}/{1}", lang, id);
@@ -57,6 +83,32 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> PutScriptPutAsync(string lang, string id, Byte[] body)
         {
             string uri = string.Format("/_scripts/{0}/{1}", lang, id);
+            return await this.ExecuteAsync("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-scripting.html"/></summary>
+        /// <param name="lang">Script language</param>
+        /// <param name="id">Script ID</param>
+        /// <param name="body">The document</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage PutScriptPut(string lang, string id, Byte[] body, Func<PutScriptParameters, PutScriptParameters> options)
+        {
+            string uri = string.Format("/_scripts/{0}/{1}", lang, id);
+            PutScriptParameters parameters = options.Invoke(new PutScriptParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-scripting.html"/></summary>
+        /// <param name="lang">Script language</param>
+        /// <param name="id">Script ID</param>
+        /// <param name="body">The document</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> PutScriptPutAsync(string lang, string id, Byte[] body, Func<PutScriptParameters, PutScriptParameters> options)
+        {
+            string uri = string.Format("/_scripts/{0}/{1}", lang, id);
+            PutScriptParameters parameters = options.Invoke(new PutScriptParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("PUT", uri, body);
         }
         
@@ -84,6 +136,32 @@ namespace Elasticsearch.Client
         /// <param name="lang">Script language</param>
         /// <param name="id">Script ID</param>
         /// <param name="body">The document</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage PutScriptPut(string lang, string id, string body, Func<PutScriptParameters, PutScriptParameters> options)
+        {
+            string uri = string.Format("/_scripts/{0}/{1}", lang, id);
+            PutScriptParameters parameters = options.Invoke(new PutScriptParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-scripting.html"/></summary>
+        /// <param name="lang">Script language</param>
+        /// <param name="id">Script ID</param>
+        /// <param name="body">The document</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> PutScriptPutAsync(string lang, string id, string body, Func<PutScriptParameters, PutScriptParameters> options)
+        {
+            string uri = string.Format("/_scripts/{0}/{1}", lang, id);
+            PutScriptParameters parameters = options.Invoke(new PutScriptParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-scripting.html"/></summary>
+        /// <param name="lang">Script language</param>
+        /// <param name="id">Script ID</param>
+        /// <param name="body">The document</param>
         private HttpResponseMessage PutScriptPost(string lang, string id, Stream body)
         {
             string uri = string.Format("/_scripts/{0}/{1}", lang, id);
@@ -97,6 +175,32 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> PutScriptPostAsync(string lang, string id, Stream body)
         {
             string uri = string.Format("/_scripts/{0}/{1}", lang, id);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-scripting.html"/></summary>
+        /// <param name="lang">Script language</param>
+        /// <param name="id">Script ID</param>
+        /// <param name="body">The document</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage PutScriptPost(string lang, string id, Stream body, Func<PutScriptParameters, PutScriptParameters> options)
+        {
+            string uri = string.Format("/_scripts/{0}/{1}", lang, id);
+            PutScriptParameters parameters = options.Invoke(new PutScriptParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-scripting.html"/></summary>
+        /// <param name="lang">Script language</param>
+        /// <param name="id">Script ID</param>
+        /// <param name="body">The document</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> PutScriptPostAsync(string lang, string id, Stream body, Func<PutScriptParameters, PutScriptParameters> options)
+        {
+            string uri = string.Format("/_scripts/{0}/{1}", lang, id);
+            PutScriptParameters parameters = options.Invoke(new PutScriptParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -124,6 +228,32 @@ namespace Elasticsearch.Client
         /// <param name="lang">Script language</param>
         /// <param name="id">Script ID</param>
         /// <param name="body">The document</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage PutScriptPost(string lang, string id, Byte[] body, Func<PutScriptParameters, PutScriptParameters> options)
+        {
+            string uri = string.Format("/_scripts/{0}/{1}", lang, id);
+            PutScriptParameters parameters = options.Invoke(new PutScriptParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-scripting.html"/></summary>
+        /// <param name="lang">Script language</param>
+        /// <param name="id">Script ID</param>
+        /// <param name="body">The document</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> PutScriptPostAsync(string lang, string id, Byte[] body, Func<PutScriptParameters, PutScriptParameters> options)
+        {
+            string uri = string.Format("/_scripts/{0}/{1}", lang, id);
+            PutScriptParameters parameters = options.Invoke(new PutScriptParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-scripting.html"/></summary>
+        /// <param name="lang">Script language</param>
+        /// <param name="id">Script ID</param>
+        /// <param name="body">The document</param>
         private HttpResponseMessage PutScriptPost(string lang, string id, string body)
         {
             string uri = string.Format("/_scripts/{0}/{1}", lang, id);
@@ -137,6 +267,32 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> PutScriptPostAsync(string lang, string id, string body)
         {
             string uri = string.Format("/_scripts/{0}/{1}", lang, id);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-scripting.html"/></summary>
+        /// <param name="lang">Script language</param>
+        /// <param name="id">Script ID</param>
+        /// <param name="body">The document</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage PutScriptPost(string lang, string id, string body, Func<PutScriptParameters, PutScriptParameters> options)
+        {
+            string uri = string.Format("/_scripts/{0}/{1}", lang, id);
+            PutScriptParameters parameters = options.Invoke(new PutScriptParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-scripting.html"/></summary>
+        /// <param name="lang">Script language</param>
+        /// <param name="id">Script ID</param>
+        /// <param name="body">The document</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> PutScriptPostAsync(string lang, string id, string body, Func<PutScriptParameters, PutScriptParameters> options)
+        {
+            string uri = string.Format("/_scripts/{0}/{1}", lang, id);
+            PutScriptParameters parameters = options.Invoke(new PutScriptParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("POST", uri, body);
         }
     }

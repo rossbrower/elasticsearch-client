@@ -35,6 +35,26 @@ namespace Elasticsearch.Client
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-shards-stores.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage IndicesShardStores(Func<IndicesShardStoresParameters, IndicesShardStoresParameters> options)
+        {
+            string uri = "/_shard_stores";
+            IndicesShardStoresParameters parameters = options.Invoke(new IndicesShardStoresParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-shards-stores.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> IndicesShardStoresAsync(Func<IndicesShardStoresParameters, IndicesShardStoresParameters> options)
+        {
+            string uri = "/_shard_stores";
+            IndicesShardStoresParameters parameters = options.Invoke(new IndicesShardStoresParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-shards-stores.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         private HttpResponseMessage IndicesShardStores(string index)
         {
@@ -47,6 +67,28 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> IndicesShardStoresAsync(string index)
         {
             string uri = string.Format("/{0}/_shard_stores", index);
+            return await this.ExecuteAsync("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-shards-stores.html"/></summary>
+        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage IndicesShardStores(string index, Func<IndicesShardStoresParameters, IndicesShardStoresParameters> options)
+        {
+            string uri = string.Format("/{0}/_shard_stores", index);
+            IndicesShardStoresParameters parameters = options.Invoke(new IndicesShardStoresParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-shards-stores.html"/></summary>
+        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> IndicesShardStoresAsync(string index, Func<IndicesShardStoresParameters, IndicesShardStoresParameters> options)
+        {
+            string uri = string.Format("/{0}/_shard_stores", index);
+            IndicesShardStoresParameters parameters = options.Invoke(new IndicesShardStoresParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("GET", uri);
         }
     }

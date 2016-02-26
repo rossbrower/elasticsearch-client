@@ -35,5 +35,27 @@ namespace Elasticsearch.Client
             string uri = string.Format("/{0}", index);
             return await this.ExecuteAsync("HEAD", uri);
         }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-exists.html"/></summary>
+        /// <param name="index">A comma-separated list of indices to check</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage IndicesExists(string index, Func<IndicesExistsParameters, IndicesExistsParameters> options)
+        {
+            string uri = string.Format("/{0}", index);
+            IndicesExistsParameters parameters = options.Invoke(new IndicesExistsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("HEAD", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-exists.html"/></summary>
+        /// <param name="index">A comma-separated list of indices to check</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> IndicesExistsAsync(string index, Func<IndicesExistsParameters, IndicesExistsParameters> options)
+        {
+            string uri = string.Format("/{0}", index);
+            IndicesExistsParameters parameters = options.Invoke(new IndicesExistsParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("HEAD", uri);
+        }
     }
 }

@@ -38,6 +38,28 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
         /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchExistsPost(Stream body, Func<SearchExistsParameters, SearchExistsParameters> options)
+        {
+            string uri = "/_search/exists";
+            SearchExistsParameters parameters = options.Invoke(new SearchExistsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
+        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchExistsPostAsync(Stream body, Func<SearchExistsParameters, SearchExistsParameters> options)
+        {
+            string uri = "/_search/exists";
+            SearchExistsParameters parameters = options.Invoke(new SearchExistsParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
+        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         private HttpResponseMessage SearchExistsPost(Byte[] body)
         {
             string uri = "/_search/exists";
@@ -49,6 +71,28 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> SearchExistsPostAsync(Byte[] body)
         {
             string uri = "/_search/exists";
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
+        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchExistsPost(Byte[] body, Func<SearchExistsParameters, SearchExistsParameters> options)
+        {
+            string uri = "/_search/exists";
+            SearchExistsParameters parameters = options.Invoke(new SearchExistsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
+        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchExistsPostAsync(Byte[] body, Func<SearchExistsParameters, SearchExistsParameters> options)
+        {
+            string uri = "/_search/exists";
+            SearchExistsParameters parameters = options.Invoke(new SearchExistsParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -70,6 +114,28 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
         /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchExistsPost(string body, Func<SearchExistsParameters, SearchExistsParameters> options)
+        {
+            string uri = "/_search/exists";
+            SearchExistsParameters parameters = options.Invoke(new SearchExistsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
+        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchExistsPostAsync(string body, Func<SearchExistsParameters, SearchExistsParameters> options)
+        {
+            string uri = "/_search/exists";
+            SearchExistsParameters parameters = options.Invoke(new SearchExistsParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
+        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         private HttpResponseMessage SearchExistsGet(Stream body)
         {
             string uri = "/_search/exists";
@@ -81,6 +147,28 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> SearchExistsGetAsync(Stream body)
         {
             string uri = "/_search/exists";
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
+        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchExistsGet(Stream body, Func<SearchExistsParameters, SearchExistsParameters> options)
+        {
+            string uri = "/_search/exists";
+            SearchExistsParameters parameters = options.Invoke(new SearchExistsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
+        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchExistsGetAsync(Stream body, Func<SearchExistsParameters, SearchExistsParameters> options)
+        {
+            string uri = "/_search/exists";
+            SearchExistsParameters parameters = options.Invoke(new SearchExistsParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("GET", uri, body);
         }
         
@@ -102,6 +190,28 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
         /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchExistsGet(Byte[] body, Func<SearchExistsParameters, SearchExistsParameters> options)
+        {
+            string uri = "/_search/exists";
+            SearchExistsParameters parameters = options.Invoke(new SearchExistsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
+        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchExistsGetAsync(Byte[] body, Func<SearchExistsParameters, SearchExistsParameters> options)
+        {
+            string uri = "/_search/exists";
+            SearchExistsParameters parameters = options.Invoke(new SearchExistsParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
+        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         private HttpResponseMessage SearchExistsGet(string body)
         {
             string uri = "/_search/exists";
@@ -113,6 +223,28 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> SearchExistsGetAsync(string body)
         {
             string uri = "/_search/exists";
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
+        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchExistsGet(string body, Func<SearchExistsParameters, SearchExistsParameters> options)
+        {
+            string uri = "/_search/exists";
+            SearchExistsParameters parameters = options.Invoke(new SearchExistsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
+        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchExistsGetAsync(string body, Func<SearchExistsParameters, SearchExistsParameters> options)
+        {
+            string uri = "/_search/exists";
+            SearchExistsParameters parameters = options.Invoke(new SearchExistsParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("GET", uri, body);
         }
         
@@ -137,6 +269,30 @@ namespace Elasticsearch.Client
         /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
         /// <param name="index">A comma-separated list of indices to restrict the results</param>
         /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchExistsPost(string index, Stream body, Func<SearchExistsParameters, SearchExistsParameters> options)
+        {
+            string uri = string.Format("/{0}/_search/exists", index);
+            SearchExistsParameters parameters = options.Invoke(new SearchExistsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
+        /// <param name="index">A comma-separated list of indices to restrict the results</param>
+        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchExistsPostAsync(string index, Stream body, Func<SearchExistsParameters, SearchExistsParameters> options)
+        {
+            string uri = string.Format("/{0}/_search/exists", index);
+            SearchExistsParameters parameters = options.Invoke(new SearchExistsParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
+        /// <param name="index">A comma-separated list of indices to restrict the results</param>
+        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         private HttpResponseMessage SearchExistsPost(string index, Byte[] body)
         {
             string uri = string.Format("/{0}/_search/exists", index);
@@ -149,6 +305,30 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> SearchExistsPostAsync(string index, Byte[] body)
         {
             string uri = string.Format("/{0}/_search/exists", index);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
+        /// <param name="index">A comma-separated list of indices to restrict the results</param>
+        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchExistsPost(string index, Byte[] body, Func<SearchExistsParameters, SearchExistsParameters> options)
+        {
+            string uri = string.Format("/{0}/_search/exists", index);
+            SearchExistsParameters parameters = options.Invoke(new SearchExistsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
+        /// <param name="index">A comma-separated list of indices to restrict the results</param>
+        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchExistsPostAsync(string index, Byte[] body, Func<SearchExistsParameters, SearchExistsParameters> options)
+        {
+            string uri = string.Format("/{0}/_search/exists", index);
+            SearchExistsParameters parameters = options.Invoke(new SearchExistsParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -173,6 +353,30 @@ namespace Elasticsearch.Client
         /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
         /// <param name="index">A comma-separated list of indices to restrict the results</param>
         /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchExistsPost(string index, string body, Func<SearchExistsParameters, SearchExistsParameters> options)
+        {
+            string uri = string.Format("/{0}/_search/exists", index);
+            SearchExistsParameters parameters = options.Invoke(new SearchExistsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
+        /// <param name="index">A comma-separated list of indices to restrict the results</param>
+        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchExistsPostAsync(string index, string body, Func<SearchExistsParameters, SearchExistsParameters> options)
+        {
+            string uri = string.Format("/{0}/_search/exists", index);
+            SearchExistsParameters parameters = options.Invoke(new SearchExistsParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
+        /// <param name="index">A comma-separated list of indices to restrict the results</param>
+        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         private HttpResponseMessage SearchExistsGet(string index, Stream body)
         {
             string uri = string.Format("/{0}/_search/exists", index);
@@ -185,6 +389,30 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> SearchExistsGetAsync(string index, Stream body)
         {
             string uri = string.Format("/{0}/_search/exists", index);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
+        /// <param name="index">A comma-separated list of indices to restrict the results</param>
+        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchExistsGet(string index, Stream body, Func<SearchExistsParameters, SearchExistsParameters> options)
+        {
+            string uri = string.Format("/{0}/_search/exists", index);
+            SearchExistsParameters parameters = options.Invoke(new SearchExistsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
+        /// <param name="index">A comma-separated list of indices to restrict the results</param>
+        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchExistsGetAsync(string index, Stream body, Func<SearchExistsParameters, SearchExistsParameters> options)
+        {
+            string uri = string.Format("/{0}/_search/exists", index);
+            SearchExistsParameters parameters = options.Invoke(new SearchExistsParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("GET", uri, body);
         }
         
@@ -209,6 +437,30 @@ namespace Elasticsearch.Client
         /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
         /// <param name="index">A comma-separated list of indices to restrict the results</param>
         /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchExistsGet(string index, Byte[] body, Func<SearchExistsParameters, SearchExistsParameters> options)
+        {
+            string uri = string.Format("/{0}/_search/exists", index);
+            SearchExistsParameters parameters = options.Invoke(new SearchExistsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
+        /// <param name="index">A comma-separated list of indices to restrict the results</param>
+        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchExistsGetAsync(string index, Byte[] body, Func<SearchExistsParameters, SearchExistsParameters> options)
+        {
+            string uri = string.Format("/{0}/_search/exists", index);
+            SearchExistsParameters parameters = options.Invoke(new SearchExistsParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
+        /// <param name="index">A comma-separated list of indices to restrict the results</param>
+        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         private HttpResponseMessage SearchExistsGet(string index, string body)
         {
             string uri = string.Format("/{0}/_search/exists", index);
@@ -221,6 +473,30 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> SearchExistsGetAsync(string index, string body)
         {
             string uri = string.Format("/{0}/_search/exists", index);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
+        /// <param name="index">A comma-separated list of indices to restrict the results</param>
+        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchExistsGet(string index, string body, Func<SearchExistsParameters, SearchExistsParameters> options)
+        {
+            string uri = string.Format("/{0}/_search/exists", index);
+            SearchExistsParameters parameters = options.Invoke(new SearchExistsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
+        /// <param name="index">A comma-separated list of indices to restrict the results</param>
+        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchExistsGetAsync(string index, string body, Func<SearchExistsParameters, SearchExistsParameters> options)
+        {
+            string uri = string.Format("/{0}/_search/exists", index);
+            SearchExistsParameters parameters = options.Invoke(new SearchExistsParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("GET", uri, body);
         }
         
@@ -248,6 +524,32 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of indices to restrict the results</param>
         /// <param name="type">A comma-separated list of types to restrict the results</param>
         /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchExistsPost(string index, string type, Stream body, Func<SearchExistsParameters, SearchExistsParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_search/exists", index, type);
+            SearchExistsParameters parameters = options.Invoke(new SearchExistsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
+        /// <param name="index">A comma-separated list of indices to restrict the results</param>
+        /// <param name="type">A comma-separated list of types to restrict the results</param>
+        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchExistsPostAsync(string index, string type, Stream body, Func<SearchExistsParameters, SearchExistsParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_search/exists", index, type);
+            SearchExistsParameters parameters = options.Invoke(new SearchExistsParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
+        /// <param name="index">A comma-separated list of indices to restrict the results</param>
+        /// <param name="type">A comma-separated list of types to restrict the results</param>
+        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         private HttpResponseMessage SearchExistsPost(string index, string type, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/_search/exists", index, type);
@@ -261,6 +563,32 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> SearchExistsPostAsync(string index, string type, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/_search/exists", index, type);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
+        /// <param name="index">A comma-separated list of indices to restrict the results</param>
+        /// <param name="type">A comma-separated list of types to restrict the results</param>
+        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchExistsPost(string index, string type, Byte[] body, Func<SearchExistsParameters, SearchExistsParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_search/exists", index, type);
+            SearchExistsParameters parameters = options.Invoke(new SearchExistsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
+        /// <param name="index">A comma-separated list of indices to restrict the results</param>
+        /// <param name="type">A comma-separated list of types to restrict the results</param>
+        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchExistsPostAsync(string index, string type, Byte[] body, Func<SearchExistsParameters, SearchExistsParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_search/exists", index, type);
+            SearchExistsParameters parameters = options.Invoke(new SearchExistsParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -288,6 +616,32 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of indices to restrict the results</param>
         /// <param name="type">A comma-separated list of types to restrict the results</param>
         /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchExistsPost(string index, string type, string body, Func<SearchExistsParameters, SearchExistsParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_search/exists", index, type);
+            SearchExistsParameters parameters = options.Invoke(new SearchExistsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
+        /// <param name="index">A comma-separated list of indices to restrict the results</param>
+        /// <param name="type">A comma-separated list of types to restrict the results</param>
+        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchExistsPostAsync(string index, string type, string body, Func<SearchExistsParameters, SearchExistsParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_search/exists", index, type);
+            SearchExistsParameters parameters = options.Invoke(new SearchExistsParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
+        /// <param name="index">A comma-separated list of indices to restrict the results</param>
+        /// <param name="type">A comma-separated list of types to restrict the results</param>
+        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         private HttpResponseMessage SearchExistsGet(string index, string type, Stream body)
         {
             string uri = string.Format("/{0}/{1}/_search/exists", index, type);
@@ -301,6 +655,32 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> SearchExistsGetAsync(string index, string type, Stream body)
         {
             string uri = string.Format("/{0}/{1}/_search/exists", index, type);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
+        /// <param name="index">A comma-separated list of indices to restrict the results</param>
+        /// <param name="type">A comma-separated list of types to restrict the results</param>
+        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchExistsGet(string index, string type, Stream body, Func<SearchExistsParameters, SearchExistsParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_search/exists", index, type);
+            SearchExistsParameters parameters = options.Invoke(new SearchExistsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
+        /// <param name="index">A comma-separated list of indices to restrict the results</param>
+        /// <param name="type">A comma-separated list of types to restrict the results</param>
+        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchExistsGetAsync(string index, string type, Stream body, Func<SearchExistsParameters, SearchExistsParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_search/exists", index, type);
+            SearchExistsParameters parameters = options.Invoke(new SearchExistsParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("GET", uri, body);
         }
         
@@ -328,6 +708,32 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of indices to restrict the results</param>
         /// <param name="type">A comma-separated list of types to restrict the results</param>
         /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchExistsGet(string index, string type, Byte[] body, Func<SearchExistsParameters, SearchExistsParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_search/exists", index, type);
+            SearchExistsParameters parameters = options.Invoke(new SearchExistsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
+        /// <param name="index">A comma-separated list of indices to restrict the results</param>
+        /// <param name="type">A comma-separated list of types to restrict the results</param>
+        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchExistsGetAsync(string index, string type, Byte[] body, Func<SearchExistsParameters, SearchExistsParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_search/exists", index, type);
+            SearchExistsParameters parameters = options.Invoke(new SearchExistsParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
+        /// <param name="index">A comma-separated list of indices to restrict the results</param>
+        /// <param name="type">A comma-separated list of types to restrict the results</param>
+        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         private HttpResponseMessage SearchExistsGet(string index, string type, string body)
         {
             string uri = string.Format("/{0}/{1}/_search/exists", index, type);
@@ -341,6 +747,32 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> SearchExistsGetAsync(string index, string type, string body)
         {
             string uri = string.Format("/{0}/{1}/_search/exists", index, type);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
+        /// <param name="index">A comma-separated list of indices to restrict the results</param>
+        /// <param name="type">A comma-separated list of types to restrict the results</param>
+        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchExistsGet(string index, string type, string body, Func<SearchExistsParameters, SearchExistsParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_search/exists", index, type);
+            SearchExistsParameters parameters = options.Invoke(new SearchExistsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/search-exists.html"/></summary>
+        /// <param name="index">A comma-separated list of indices to restrict the results</param>
+        /// <param name="type">A comma-separated list of types to restrict the results</param>
+        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchExistsGetAsync(string index, string type, string body, Func<SearchExistsParameters, SearchExistsParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_search/exists", index, type);
+            SearchExistsParameters parameters = options.Invoke(new SearchExistsParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("GET", uri, body);
         }
     }

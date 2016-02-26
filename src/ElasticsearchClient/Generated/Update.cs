@@ -47,6 +47,34 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document</param>
         /// <param name="id">Document ID</param>
         /// <param name="body">The request definition using either `script` or partial `doc`</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage Update(string index, string type, string id, Stream body, Func<UpdateParameters, UpdateParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/{2}/_update", index, type, id);
+            UpdateParameters parameters = options.Invoke(new UpdateParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-update.html"/></summary>
+        /// <param name="index">The name of the index</param>
+        /// <param name="type">The type of the document</param>
+        /// <param name="id">Document ID</param>
+        /// <param name="body">The request definition using either `script` or partial `doc`</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> UpdateAsync(string index, string type, string id, Stream body, Func<UpdateParameters, UpdateParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/{2}/_update", index, type, id);
+            UpdateParameters parameters = options.Invoke(new UpdateParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-update.html"/></summary>
+        /// <param name="index">The name of the index</param>
+        /// <param name="type">The type of the document</param>
+        /// <param name="id">Document ID</param>
+        /// <param name="body">The request definition using either `script` or partial `doc`</param>
         private HttpResponseMessage Update(string index, string type, string id, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/{2}/_update", index, type, id);
@@ -69,6 +97,34 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document</param>
         /// <param name="id">Document ID</param>
         /// <param name="body">The request definition using either `script` or partial `doc`</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage Update(string index, string type, string id, Byte[] body, Func<UpdateParameters, UpdateParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/{2}/_update", index, type, id);
+            UpdateParameters parameters = options.Invoke(new UpdateParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-update.html"/></summary>
+        /// <param name="index">The name of the index</param>
+        /// <param name="type">The type of the document</param>
+        /// <param name="id">Document ID</param>
+        /// <param name="body">The request definition using either `script` or partial `doc`</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> UpdateAsync(string index, string type, string id, Byte[] body, Func<UpdateParameters, UpdateParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/{2}/_update", index, type, id);
+            UpdateParameters parameters = options.Invoke(new UpdateParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-update.html"/></summary>
+        /// <param name="index">The name of the index</param>
+        /// <param name="type">The type of the document</param>
+        /// <param name="id">Document ID</param>
+        /// <param name="body">The request definition using either `script` or partial `doc`</param>
         private HttpResponseMessage Update(string index, string type, string id, string body)
         {
             string uri = string.Format("/{0}/{1}/{2}/_update", index, type, id);
@@ -83,6 +139,34 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> UpdateAsync(string index, string type, string id, string body)
         {
             string uri = string.Format("/{0}/{1}/{2}/_update", index, type, id);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-update.html"/></summary>
+        /// <param name="index">The name of the index</param>
+        /// <param name="type">The type of the document</param>
+        /// <param name="id">Document ID</param>
+        /// <param name="body">The request definition using either `script` or partial `doc`</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage Update(string index, string type, string id, string body, Func<UpdateParameters, UpdateParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/{2}/_update", index, type, id);
+            UpdateParameters parameters = options.Invoke(new UpdateParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-update.html"/></summary>
+        /// <param name="index">The name of the index</param>
+        /// <param name="type">The type of the document</param>
+        /// <param name="id">Document ID</param>
+        /// <param name="body">The request definition using either `script` or partial `doc`</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> UpdateAsync(string index, string type, string id, string body, Func<UpdateParameters, UpdateParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/{2}/_update", index, type, id);
+            UpdateParameters parameters = options.Invoke(new UpdateParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("POST", uri, body);
         }
     }

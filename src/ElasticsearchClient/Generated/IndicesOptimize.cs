@@ -35,6 +35,26 @@ namespace Elasticsearch.Client
         }
         
         /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/indices-optimize.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage IndicesOptimizePost(Func<IndicesOptimizeParameters, IndicesOptimizeParameters> options)
+        {
+            string uri = "/_optimize";
+            IndicesOptimizeParameters parameters = options.Invoke(new IndicesOptimizeParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/indices-optimize.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> IndicesOptimizePostAsync(Func<IndicesOptimizeParameters, IndicesOptimizeParameters> options)
+        {
+            string uri = "/_optimize";
+            IndicesOptimizeParameters parameters = options.Invoke(new IndicesOptimizeParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/indices-optimize.html"/></summary>
         private HttpResponseMessage IndicesOptimizeGet()
         {
             string uri = "/_optimize";
@@ -45,6 +65,26 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> IndicesOptimizeGetAsync()
         {
             string uri = "/_optimize";
+            return await this.ExecuteAsync("GET", uri);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/indices-optimize.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage IndicesOptimizeGet(Func<IndicesOptimizeParameters, IndicesOptimizeParameters> options)
+        {
+            string uri = "/_optimize";
+            IndicesOptimizeParameters parameters = options.Invoke(new IndicesOptimizeParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/indices-optimize.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> IndicesOptimizeGetAsync(Func<IndicesOptimizeParameters, IndicesOptimizeParameters> options)
+        {
+            string uri = "/_optimize";
+            IndicesOptimizeParameters parameters = options.Invoke(new IndicesOptimizeParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("GET", uri);
         }
         
@@ -66,6 +106,28 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/indices-optimize.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage IndicesOptimizePost(string index, Func<IndicesOptimizeParameters, IndicesOptimizeParameters> options)
+        {
+            string uri = string.Format("/{0}/_optimize", index);
+            IndicesOptimizeParameters parameters = options.Invoke(new IndicesOptimizeParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/indices-optimize.html"/></summary>
+        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> IndicesOptimizePostAsync(string index, Func<IndicesOptimizeParameters, IndicesOptimizeParameters> options)
+        {
+            string uri = string.Format("/{0}/_optimize", index);
+            IndicesOptimizeParameters parameters = options.Invoke(new IndicesOptimizeParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/indices-optimize.html"/></summary>
+        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         private HttpResponseMessage IndicesOptimizeGet(string index)
         {
             string uri = string.Format("/{0}/_optimize", index);
@@ -77,6 +139,28 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> IndicesOptimizeGetAsync(string index)
         {
             string uri = string.Format("/{0}/_optimize", index);
+            return await this.ExecuteAsync("GET", uri);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/indices-optimize.html"/></summary>
+        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage IndicesOptimizeGet(string index, Func<IndicesOptimizeParameters, IndicesOptimizeParameters> options)
+        {
+            string uri = string.Format("/{0}/_optimize", index);
+            IndicesOptimizeParameters parameters = options.Invoke(new IndicesOptimizeParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri);
+        }
+        
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.1/indices-optimize.html"/></summary>
+        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> IndicesOptimizeGetAsync(string index, Func<IndicesOptimizeParameters, IndicesOptimizeParameters> options)
+        {
+            string uri = string.Format("/{0}/_optimize", index);
+            IndicesOptimizeParameters parameters = options.Invoke(new IndicesOptimizeParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("GET", uri);
         }
     }

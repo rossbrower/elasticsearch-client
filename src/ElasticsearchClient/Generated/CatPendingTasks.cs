@@ -33,5 +33,25 @@ namespace Elasticsearch.Client
             string uri = "/_cat/pending_tasks";
             return await this.ExecuteAsync("GET", uri);
         }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-pending-tasks.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage CatPendingTasks(Func<CatPendingTasksParameters, CatPendingTasksParameters> options)
+        {
+            string uri = "/_cat/pending_tasks";
+            CatPendingTasksParameters parameters = options.Invoke(new CatPendingTasksParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-pending-tasks.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> CatPendingTasksAsync(Func<CatPendingTasksParameters, CatPendingTasksParameters> options)
+        {
+            string uri = "/_cat/pending_tasks";
+            CatPendingTasksParameters parameters = options.Invoke(new CatPendingTasksParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri);
+        }
     }
 }

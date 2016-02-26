@@ -35,6 +35,26 @@ namespace Elasticsearch.Client
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-allocation.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage CatAllocation(Func<CatAllocationParameters, CatAllocationParameters> options)
+        {
+            string uri = "/_cat/allocation";
+            CatAllocationParameters parameters = options.Invoke(new CatAllocationParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-allocation.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> CatAllocationAsync(Func<CatAllocationParameters, CatAllocationParameters> options)
+        {
+            string uri = "/_cat/allocation";
+            CatAllocationParameters parameters = options.Invoke(new CatAllocationParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-allocation.html"/></summary>
         /// <param name="node_id">A comma-separated list of node IDs or names to limit the returned information</param>
         private HttpResponseMessage CatAllocation(string node_id)
         {
@@ -47,6 +67,28 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> CatAllocationAsync(string node_id)
         {
             string uri = string.Format("/_cat/allocation/{0}", node_id);
+            return await this.ExecuteAsync("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-allocation.html"/></summary>
+        /// <param name="node_id">A comma-separated list of node IDs or names to limit the returned information</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage CatAllocation(string node_id, Func<CatAllocationParameters, CatAllocationParameters> options)
+        {
+            string uri = string.Format("/_cat/allocation/{0}", node_id);
+            CatAllocationParameters parameters = options.Invoke(new CatAllocationParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-allocation.html"/></summary>
+        /// <param name="node_id">A comma-separated list of node IDs or names to limit the returned information</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> CatAllocationAsync(string node_id, Func<CatAllocationParameters, CatAllocationParameters> options)
+        {
+            string uri = string.Format("/_cat/allocation/{0}", node_id);
+            CatAllocationParameters parameters = options.Invoke(new CatAllocationParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("GET", uri);
         }
     }

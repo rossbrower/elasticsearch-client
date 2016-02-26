@@ -35,6 +35,26 @@ namespace Elasticsearch.Client
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-shards.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchShardsGet(Func<SearchShardsParameters, SearchShardsParameters> options)
+        {
+            string uri = "/_search_shards";
+            SearchShardsParameters parameters = options.Invoke(new SearchShardsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-shards.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchShardsGetAsync(Func<SearchShardsParameters, SearchShardsParameters> options)
+        {
+            string uri = "/_search_shards";
+            SearchShardsParameters parameters = options.Invoke(new SearchShardsParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-shards.html"/></summary>
         private HttpResponseMessage SearchShardsPost()
         {
             string uri = "/_search_shards";
@@ -45,6 +65,26 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> SearchShardsPostAsync()
         {
             string uri = "/_search_shards";
+            return await this.ExecuteAsync("POST", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-shards.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchShardsPost(Func<SearchShardsParameters, SearchShardsParameters> options)
+        {
+            string uri = "/_search_shards";
+            SearchShardsParameters parameters = options.Invoke(new SearchShardsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-shards.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchShardsPostAsync(Func<SearchShardsParameters, SearchShardsParameters> options)
+        {
+            string uri = "/_search_shards";
+            SearchShardsParameters parameters = options.Invoke(new SearchShardsParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("POST", uri);
         }
         
@@ -66,6 +106,28 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-shards.html"/></summary>
         /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchShardsGet(string index, Func<SearchShardsParameters, SearchShardsParameters> options)
+        {
+            string uri = string.Format("/{0}/_search_shards", index);
+            SearchShardsParameters parameters = options.Invoke(new SearchShardsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-shards.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchShardsGetAsync(string index, Func<SearchShardsParameters, SearchShardsParameters> options)
+        {
+            string uri = string.Format("/{0}/_search_shards", index);
+            SearchShardsParameters parameters = options.Invoke(new SearchShardsParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-shards.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
         private HttpResponseMessage SearchShardsPost(string index)
         {
             string uri = string.Format("/{0}/_search_shards", index);
@@ -77,6 +139,28 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> SearchShardsPostAsync(string index)
         {
             string uri = string.Format("/{0}/_search_shards", index);
+            return await this.ExecuteAsync("POST", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-shards.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchShardsPost(string index, Func<SearchShardsParameters, SearchShardsParameters> options)
+        {
+            string uri = string.Format("/{0}/_search_shards", index);
+            SearchShardsParameters parameters = options.Invoke(new SearchShardsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-shards.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchShardsPostAsync(string index, Func<SearchShardsParameters, SearchShardsParameters> options)
+        {
+            string uri = string.Format("/{0}/_search_shards", index);
+            SearchShardsParameters parameters = options.Invoke(new SearchShardsParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("POST", uri);
         }
         
@@ -101,6 +185,30 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-shards.html"/></summary>
         /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchShardsGet(string index, string type, Func<SearchShardsParameters, SearchShardsParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_search_shards", index, type);
+            SearchShardsParameters parameters = options.Invoke(new SearchShardsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-shards.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchShardsGetAsync(string index, string type, Func<SearchShardsParameters, SearchShardsParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_search_shards", index, type);
+            SearchShardsParameters parameters = options.Invoke(new SearchShardsParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-shards.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
         private HttpResponseMessage SearchShardsPost(string index, string type)
         {
             string uri = string.Format("/{0}/{1}/_search_shards", index, type);
@@ -113,6 +221,30 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> SearchShardsPostAsync(string index, string type)
         {
             string uri = string.Format("/{0}/{1}/_search_shards", index, type);
+            return await this.ExecuteAsync("POST", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-shards.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SearchShardsPost(string index, string type, Func<SearchShardsParameters, SearchShardsParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_search_shards", index, type);
+            SearchShardsParameters parameters = options.Invoke(new SearchShardsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-shards.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SearchShardsPostAsync(string index, string type, Func<SearchShardsParameters, SearchShardsParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_search_shards", index, type);
+            SearchShardsParameters parameters = options.Invoke(new SearchShardsParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("POST", uri);
         }
     }

@@ -37,5 +37,29 @@ namespace Elasticsearch.Client
             string uri = string.Format("/_scripts/{0}/{1}", lang, id);
             return await this.ExecuteAsync("DELETE", uri);
         }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-scripting.html"/></summary>
+        /// <param name="lang">Script language</param>
+        /// <param name="id">Script ID</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage DeleteScript(string lang, string id, Func<DeleteScriptParameters, DeleteScriptParameters> options)
+        {
+            string uri = string.Format("/_scripts/{0}/{1}", lang, id);
+            DeleteScriptParameters parameters = options.Invoke(new DeleteScriptParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("DELETE", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-scripting.html"/></summary>
+        /// <param name="lang">Script language</param>
+        /// <param name="id">Script ID</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> DeleteScriptAsync(string lang, string id, Func<DeleteScriptParameters, DeleteScriptParameters> options)
+        {
+            string uri = string.Format("/_scripts/{0}/{1}", lang, id);
+            DeleteScriptParameters parameters = options.Invoke(new DeleteScriptParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("DELETE", uri);
+        }
     }
 }

@@ -38,6 +38,28 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
         /// <param name="body">The scroll ID if not passed by URL or query parameter.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage ScrollGet(Stream body, Func<ScrollParameters, ScrollParameters> options)
+        {
+            string uri = "/_search/scroll";
+            ScrollParameters parameters = options.Invoke(new ScrollParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
+        /// <param name="body">The scroll ID if not passed by URL or query parameter.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> ScrollGetAsync(Stream body, Func<ScrollParameters, ScrollParameters> options)
+        {
+            string uri = "/_search/scroll";
+            ScrollParameters parameters = options.Invoke(new ScrollParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
+        /// <param name="body">The scroll ID if not passed by URL or query parameter.</param>
         private HttpResponseMessage ScrollGet(Byte[] body)
         {
             string uri = "/_search/scroll";
@@ -49,6 +71,28 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> ScrollGetAsync(Byte[] body)
         {
             string uri = "/_search/scroll";
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
+        /// <param name="body">The scroll ID if not passed by URL or query parameter.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage ScrollGet(Byte[] body, Func<ScrollParameters, ScrollParameters> options)
+        {
+            string uri = "/_search/scroll";
+            ScrollParameters parameters = options.Invoke(new ScrollParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
+        /// <param name="body">The scroll ID if not passed by URL or query parameter.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> ScrollGetAsync(Byte[] body, Func<ScrollParameters, ScrollParameters> options)
+        {
+            string uri = "/_search/scroll";
+            ScrollParameters parameters = options.Invoke(new ScrollParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("GET", uri, body);
         }
         
@@ -70,6 +114,28 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
         /// <param name="body">The scroll ID if not passed by URL or query parameter.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage ScrollGet(string body, Func<ScrollParameters, ScrollParameters> options)
+        {
+            string uri = "/_search/scroll";
+            ScrollParameters parameters = options.Invoke(new ScrollParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
+        /// <param name="body">The scroll ID if not passed by URL or query parameter.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> ScrollGetAsync(string body, Func<ScrollParameters, ScrollParameters> options)
+        {
+            string uri = "/_search/scroll";
+            ScrollParameters parameters = options.Invoke(new ScrollParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
+        /// <param name="body">The scroll ID if not passed by URL or query parameter.</param>
         private HttpResponseMessage ScrollPost(Stream body)
         {
             string uri = "/_search/scroll";
@@ -81,6 +147,28 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> ScrollPostAsync(Stream body)
         {
             string uri = "/_search/scroll";
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
+        /// <param name="body">The scroll ID if not passed by URL or query parameter.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage ScrollPost(Stream body, Func<ScrollParameters, ScrollParameters> options)
+        {
+            string uri = "/_search/scroll";
+            ScrollParameters parameters = options.Invoke(new ScrollParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
+        /// <param name="body">The scroll ID if not passed by URL or query parameter.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> ScrollPostAsync(Stream body, Func<ScrollParameters, ScrollParameters> options)
+        {
+            string uri = "/_search/scroll";
+            ScrollParameters parameters = options.Invoke(new ScrollParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -102,6 +190,28 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
         /// <param name="body">The scroll ID if not passed by URL or query parameter.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage ScrollPost(Byte[] body, Func<ScrollParameters, ScrollParameters> options)
+        {
+            string uri = "/_search/scroll";
+            ScrollParameters parameters = options.Invoke(new ScrollParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
+        /// <param name="body">The scroll ID if not passed by URL or query parameter.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> ScrollPostAsync(Byte[] body, Func<ScrollParameters, ScrollParameters> options)
+        {
+            string uri = "/_search/scroll";
+            ScrollParameters parameters = options.Invoke(new ScrollParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
+        /// <param name="body">The scroll ID if not passed by URL or query parameter.</param>
         private HttpResponseMessage ScrollPost(string body)
         {
             string uri = "/_search/scroll";
@@ -113,6 +223,28 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> ScrollPostAsync(string body)
         {
             string uri = "/_search/scroll";
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
+        /// <param name="body">The scroll ID if not passed by URL or query parameter.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage ScrollPost(string body, Func<ScrollParameters, ScrollParameters> options)
+        {
+            string uri = "/_search/scroll";
+            ScrollParameters parameters = options.Invoke(new ScrollParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
+        /// <param name="body">The scroll ID if not passed by URL or query parameter.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> ScrollPostAsync(string body, Func<ScrollParameters, ScrollParameters> options)
+        {
+            string uri = "/_search/scroll";
+            ScrollParameters parameters = options.Invoke(new ScrollParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -137,6 +269,30 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
         /// <param name="scroll_id">The scroll ID</param>
         /// <param name="body">The scroll ID if not passed by URL or query parameter.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage ScrollGet(string scroll_id, Stream body, Func<ScrollParameters, ScrollParameters> options)
+        {
+            string uri = string.Format("/_search/scroll/{0}", scroll_id);
+            ScrollParameters parameters = options.Invoke(new ScrollParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
+        /// <param name="scroll_id">The scroll ID</param>
+        /// <param name="body">The scroll ID if not passed by URL or query parameter.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> ScrollGetAsync(string scroll_id, Stream body, Func<ScrollParameters, ScrollParameters> options)
+        {
+            string uri = string.Format("/_search/scroll/{0}", scroll_id);
+            ScrollParameters parameters = options.Invoke(new ScrollParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
+        /// <param name="scroll_id">The scroll ID</param>
+        /// <param name="body">The scroll ID if not passed by URL or query parameter.</param>
         private HttpResponseMessage ScrollGet(string scroll_id, Byte[] body)
         {
             string uri = string.Format("/_search/scroll/{0}", scroll_id);
@@ -149,6 +305,30 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> ScrollGetAsync(string scroll_id, Byte[] body)
         {
             string uri = string.Format("/_search/scroll/{0}", scroll_id);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
+        /// <param name="scroll_id">The scroll ID</param>
+        /// <param name="body">The scroll ID if not passed by URL or query parameter.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage ScrollGet(string scroll_id, Byte[] body, Func<ScrollParameters, ScrollParameters> options)
+        {
+            string uri = string.Format("/_search/scroll/{0}", scroll_id);
+            ScrollParameters parameters = options.Invoke(new ScrollParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
+        /// <param name="scroll_id">The scroll ID</param>
+        /// <param name="body">The scroll ID if not passed by URL or query parameter.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> ScrollGetAsync(string scroll_id, Byte[] body, Func<ScrollParameters, ScrollParameters> options)
+        {
+            string uri = string.Format("/_search/scroll/{0}", scroll_id);
+            ScrollParameters parameters = options.Invoke(new ScrollParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("GET", uri, body);
         }
         
@@ -173,6 +353,30 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
         /// <param name="scroll_id">The scroll ID</param>
         /// <param name="body">The scroll ID if not passed by URL or query parameter.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage ScrollGet(string scroll_id, string body, Func<ScrollParameters, ScrollParameters> options)
+        {
+            string uri = string.Format("/_search/scroll/{0}", scroll_id);
+            ScrollParameters parameters = options.Invoke(new ScrollParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
+        /// <param name="scroll_id">The scroll ID</param>
+        /// <param name="body">The scroll ID if not passed by URL or query parameter.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> ScrollGetAsync(string scroll_id, string body, Func<ScrollParameters, ScrollParameters> options)
+        {
+            string uri = string.Format("/_search/scroll/{0}", scroll_id);
+            ScrollParameters parameters = options.Invoke(new ScrollParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
+        /// <param name="scroll_id">The scroll ID</param>
+        /// <param name="body">The scroll ID if not passed by URL or query parameter.</param>
         private HttpResponseMessage ScrollPost(string scroll_id, Stream body)
         {
             string uri = string.Format("/_search/scroll/{0}", scroll_id);
@@ -185,6 +389,30 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> ScrollPostAsync(string scroll_id, Stream body)
         {
             string uri = string.Format("/_search/scroll/{0}", scroll_id);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
+        /// <param name="scroll_id">The scroll ID</param>
+        /// <param name="body">The scroll ID if not passed by URL or query parameter.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage ScrollPost(string scroll_id, Stream body, Func<ScrollParameters, ScrollParameters> options)
+        {
+            string uri = string.Format("/_search/scroll/{0}", scroll_id);
+            ScrollParameters parameters = options.Invoke(new ScrollParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
+        /// <param name="scroll_id">The scroll ID</param>
+        /// <param name="body">The scroll ID if not passed by URL or query parameter.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> ScrollPostAsync(string scroll_id, Stream body, Func<ScrollParameters, ScrollParameters> options)
+        {
+            string uri = string.Format("/_search/scroll/{0}", scroll_id);
+            ScrollParameters parameters = options.Invoke(new ScrollParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -209,6 +437,30 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
         /// <param name="scroll_id">The scroll ID</param>
         /// <param name="body">The scroll ID if not passed by URL or query parameter.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage ScrollPost(string scroll_id, Byte[] body, Func<ScrollParameters, ScrollParameters> options)
+        {
+            string uri = string.Format("/_search/scroll/{0}", scroll_id);
+            ScrollParameters parameters = options.Invoke(new ScrollParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
+        /// <param name="scroll_id">The scroll ID</param>
+        /// <param name="body">The scroll ID if not passed by URL or query parameter.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> ScrollPostAsync(string scroll_id, Byte[] body, Func<ScrollParameters, ScrollParameters> options)
+        {
+            string uri = string.Format("/_search/scroll/{0}", scroll_id);
+            ScrollParameters parameters = options.Invoke(new ScrollParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
+        /// <param name="scroll_id">The scroll ID</param>
+        /// <param name="body">The scroll ID if not passed by URL or query parameter.</param>
         private HttpResponseMessage ScrollPost(string scroll_id, string body)
         {
             string uri = string.Format("/_search/scroll/{0}", scroll_id);
@@ -221,6 +473,30 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> ScrollPostAsync(string scroll_id, string body)
         {
             string uri = string.Format("/_search/scroll/{0}", scroll_id);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
+        /// <param name="scroll_id">The scroll ID</param>
+        /// <param name="body">The scroll ID if not passed by URL or query parameter.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage ScrollPost(string scroll_id, string body, Func<ScrollParameters, ScrollParameters> options)
+        {
+            string uri = string.Format("/_search/scroll/{0}", scroll_id);
+            ScrollParameters parameters = options.Invoke(new ScrollParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
+        /// <param name="scroll_id">The scroll ID</param>
+        /// <param name="body">The scroll ID if not passed by URL or query parameter.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> ScrollPostAsync(string scroll_id, string body, Func<ScrollParameters, ScrollParameters> options)
+        {
+            string uri = string.Format("/_search/scroll/{0}", scroll_id);
+            ScrollParameters parameters = options.Invoke(new ScrollParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("POST", uri, body);
         }
     }

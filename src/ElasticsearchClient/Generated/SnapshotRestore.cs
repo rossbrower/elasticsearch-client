@@ -44,6 +44,32 @@ namespace Elasticsearch.Client
         /// <param name="snapshot">A snapshot name</param>
         /// <param name="repository">A repository name</param>
         /// <param name="body">Details of what to restore</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SnapshotRestore(string snapshot, string repository, Stream body, Func<SnapshotRestoreParameters, SnapshotRestoreParameters> options)
+        {
+            string uri = string.Format("/_0/{1}/{0}/_restore", snapshot, repository);
+            SnapshotRestoreParameters parameters = options.Invoke(new SnapshotRestoreParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
+        /// <param name="snapshot">A snapshot name</param>
+        /// <param name="repository">A repository name</param>
+        /// <param name="body">Details of what to restore</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SnapshotRestoreAsync(string snapshot, string repository, Stream body, Func<SnapshotRestoreParameters, SnapshotRestoreParameters> options)
+        {
+            string uri = string.Format("/_0/{1}/{0}/_restore", snapshot, repository);
+            SnapshotRestoreParameters parameters = options.Invoke(new SnapshotRestoreParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
+        /// <param name="snapshot">A snapshot name</param>
+        /// <param name="repository">A repository name</param>
+        /// <param name="body">Details of what to restore</param>
         private HttpResponseMessage SnapshotRestore(string snapshot, string repository, Byte[] body)
         {
             string uri = string.Format("/_0/{1}/{0}/_restore", snapshot, repository);
@@ -64,6 +90,32 @@ namespace Elasticsearch.Client
         /// <param name="snapshot">A snapshot name</param>
         /// <param name="repository">A repository name</param>
         /// <param name="body">Details of what to restore</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SnapshotRestore(string snapshot, string repository, Byte[] body, Func<SnapshotRestoreParameters, SnapshotRestoreParameters> options)
+        {
+            string uri = string.Format("/_0/{1}/{0}/_restore", snapshot, repository);
+            SnapshotRestoreParameters parameters = options.Invoke(new SnapshotRestoreParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
+        /// <param name="snapshot">A snapshot name</param>
+        /// <param name="repository">A repository name</param>
+        /// <param name="body">Details of what to restore</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SnapshotRestoreAsync(string snapshot, string repository, Byte[] body, Func<SnapshotRestoreParameters, SnapshotRestoreParameters> options)
+        {
+            string uri = string.Format("/_0/{1}/{0}/_restore", snapshot, repository);
+            SnapshotRestoreParameters parameters = options.Invoke(new SnapshotRestoreParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
+        /// <param name="snapshot">A snapshot name</param>
+        /// <param name="repository">A repository name</param>
+        /// <param name="body">Details of what to restore</param>
         private HttpResponseMessage SnapshotRestore(string snapshot, string repository, string body)
         {
             string uri = string.Format("/_0/{1}/{0}/_restore", snapshot, repository);
@@ -77,6 +129,32 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> SnapshotRestoreAsync(string snapshot, string repository, string body)
         {
             string uri = string.Format("/_0/{1}/{0}/_restore", snapshot, repository);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
+        /// <param name="snapshot">A snapshot name</param>
+        /// <param name="repository">A repository name</param>
+        /// <param name="body">Details of what to restore</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SnapshotRestore(string snapshot, string repository, string body, Func<SnapshotRestoreParameters, SnapshotRestoreParameters> options)
+        {
+            string uri = string.Format("/_0/{1}/{0}/_restore", snapshot, repository);
+            SnapshotRestoreParameters parameters = options.Invoke(new SnapshotRestoreParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
+        /// <param name="snapshot">A snapshot name</param>
+        /// <param name="repository">A repository name</param>
+        /// <param name="body">Details of what to restore</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SnapshotRestoreAsync(string snapshot, string repository, string body, Func<SnapshotRestoreParameters, SnapshotRestoreParameters> options)
+        {
+            string uri = string.Format("/_0/{1}/{0}/_restore", snapshot, repository);
+            SnapshotRestoreParameters parameters = options.Invoke(new SnapshotRestoreParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("POST", uri, body);
         }
     }

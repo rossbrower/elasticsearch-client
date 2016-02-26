@@ -33,5 +33,25 @@ namespace Elasticsearch.Client
             string uri = "/_cat/thread_pool";
             return await this.ExecuteAsync("GET", uri);
         }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-thread-pool.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage CatThreadPool(Func<CatThreadPoolParameters, CatThreadPoolParameters> options)
+        {
+            string uri = "/_cat/thread_pool";
+            CatThreadPoolParameters parameters = options.Invoke(new CatThreadPoolParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-thread-pool.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> CatThreadPoolAsync(Func<CatThreadPoolParameters, CatThreadPoolParameters> options)
+        {
+            string uri = "/_cat/thread_pool";
+            CatThreadPoolParameters parameters = options.Invoke(new CatThreadPoolParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri);
+        }
     }
 }

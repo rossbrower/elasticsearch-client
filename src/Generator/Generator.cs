@@ -17,7 +17,7 @@ namespace Elasticsearch.Client.Generator
         private static readonly TextInfo TextInfo;
         private static readonly CodeDomProvider Provider;
         private static readonly CodeNamespaceImport[] Imports;
-        private static Type[] MethodTypes;
+        private static Type[] BodyTypes;
 
         static Generator()
         {
@@ -31,7 +31,7 @@ namespace Elasticsearch.Client.Generator
                 new CodeNamespaceImport("System.Net.Http"),
                 new CodeNamespaceImport("System.Threading.Tasks")
             };
-            MethodTypes = new[]
+            BodyTypes = new[]
             {
                 typeof (Stream),
                 typeof (byte[]),
@@ -69,30 +69,48 @@ namespace Elasticsearch.Client.Generator
 
         private static void GenerateCode(MethodDescription description, string outputPath)
         {
-            if (string.IsNullOrEmpty(outputPath))
-            {
-                outputPath = ".";
-            }
             if (description == null)
             {
                 throw new ArgumentNullException(nameof(description));
             }
-            var compileUnit = new CodeCompileUnit();            
+            var fileName = GetMethodName(description.Name);
+            string paramClassName = null;
+            if (description.UrlParams.Count > 0)
+            {
+                paramClassName = fileName + "Parameters";
+                var paramMethods = GenerateParameterMethods(paramClassName, description);
+                WriteClass(paramClassName, paramMethods, outputPath, baseType: "Parameters");
+            }            
+            var methods = GenerateMethods(fileName, description, paramClassName);
+            WriteClass(ClassName, methods, outputPath, fileName, isPartial: true);
+        }
+
+        private static void WriteClass(string className, IEnumerable<CodeTypeMember> members, string outputPath, 
+            string fileName = null, string baseType = null, bool isPartial = false)
+        {
+            if (fileName == null)
+            {
+                fileName = className;
+            }
+            var compileUnit = new CodeCompileUnit();
             var namespc = new CodeNamespace(Namespace);
             compileUnit.Namespaces.Add(namespc);
             namespc.Imports.AddRange(Imports);
-            var clss = new CodeTypeDeclaration(ClassName)
+            var clss = new CodeTypeDeclaration(className)
             {
                 Attributes = MemberAttributes.Public,
-                IsPartial = true
+                IsPartial = isPartial,               
             };
-            namespc.Types.Add(clss);
-            var baseName = GetMethodName(description.Name);
-            foreach (var codeMemberMethod in GenerateMethods(baseName, description))
+            if (baseType != null)
             {
-                clss.Members.Add(codeMemberMethod);
+                clss.BaseTypes.Add(baseType);
             }
-            var outputFile = Path.Combine(outputPath, baseName + ".cs");
+            namespc.Types.Add(clss);
+            foreach (var codeMember in members)
+            {
+                clss.Members.Add(codeMember);
+            }
+            var outputFile = Path.Combine(outputPath, fileName + ".cs");
             using (var tw = File.CreateText(outputFile))
             {
                 Provider.GenerateCodeFromCompileUnit(compileUnit, tw, new CodeGeneratorOptions
@@ -102,7 +120,61 @@ namespace Elasticsearch.Client.Generator
             }
         }
 
-        private static IEnumerable<CodeMemberMethod> GenerateMethods(string baseName, MethodDescription description)
+        private static IEnumerable<CodeTypeMember> GenerateParameterMethods(string className,
+            MethodDescription description)
+        {
+            foreach (var parameter in description.UrlParams)
+            {
+                var method = new CodeMemberMethod
+                {
+                    Name = parameter.Name,
+                    ReturnType = new CodeTypeReference(className),
+                    Attributes = MemberAttributes.Public                    
+                };
+                method.Comments.Add(GetSummaryComment(parameter.Description));
+                CodeParameterDeclarationExpression parameterDeclaration;
+                switch (parameter.Type)
+                {
+                    case null:
+                        //todo these seem to be incomplete in the spec.
+                        continue;
+                    case "text":
+                    case "list":
+                    case "enum":
+                    case "string":
+                    case "time":
+                    case "duration":
+                        parameterDeclaration = new CodeParameterDeclarationExpression(typeof (string), "value");
+                        break;
+                    case "boolean":
+                        parameterDeclaration = new CodeParameterDeclarationExpression(typeof (bool), "value");
+                        break;
+                    case "number":
+                        parameterDeclaration = new CodeParameterDeclarationExpression(typeof (long), "value");
+                        break;
+                    default:
+                        throw new InvalidDataException("Unknown parameter type " + parameter.Type);
+                }
+                method.Parameters.Add(parameterDeclaration);
+                var paramDescription = "";
+                if (parameter.Options != null && parameter.Options.Count > 0)
+                {
+                    paramDescription += $"<para>Options: {string.Join(",", parameter.Options)}</para>";
+                }
+                if (parameter.Default != null)
+                {
+                    paramDescription += $"<para>Default: {parameter.Default}</para>";
+                }
+                method.Comments.Add(GetParameterCommentStatement("value", paramDescription));
+                method.Statements.Add(new CodeMethodInvokeExpression(new CodeThisReferenceExpression(), "SetValue",
+                    new CodePrimitiveExpression(parameter.Name),
+                    new CodeVariableReferenceExpression("value")));
+                method.Statements.Add(new CodeMethodReturnStatement(new CodeThisReferenceExpression()));
+                yield return method;
+            }
+        }
+
+        private static IEnumerable<CodeMemberMethod> GenerateMethods(string baseName, MethodDescription description, string parameterType = null)
         {
             var methods = new List<CodeMemberMethod>();
             HashSet<string> signatures = new HashSet<string>();
@@ -129,47 +201,82 @@ namespace Elasticsearch.Client.Generator
                 if (description.Methods.Count == 1)
                 {
                     var httpMethod = description.Methods[0];
-                    methods.AddRange(GenerateOverloads(baseName, httpMethod, urlPath, parts, description));
+                    methods.AddRange(GenerateOverloads(baseName, httpMethod, urlPath, parts, description, parameterType));
                 }
                 else
                 {
                     methods.AddRange(description.Methods.SelectMany(httpMethod =>
                     {
                         var newMethodName = baseName + httpMethod.ToLower().ToCamelCase();
-                        return GenerateOverloads(newMethodName, httpMethod, urlPath, parts, description);
+                        return GenerateOverloads(newMethodName, httpMethod, urlPath, parts, description, parameterType);
                     }));
                 }
             }
             return methods;
         }
 
-        private static IEnumerable<CodeMemberMethod> GenerateOverloads(string methodName, string httpMethod, string urlPath, IList<Parameter> urlParts, MethodDescription description)
+        private static IEnumerable<CodeMemberMethod> GenerateOverloads(string methodName, string httpMethod,
+            string urlPath,
+            IList<Parameter> urlParts, MethodDescription description, string parameterType = null)
         {
             var docLink = description.DocumentationLink;
             var body = description.Body;
             if (body == null)
             {
-                yield return GenerateMethod(methodName, docLink, httpMethod, urlPath, urlParts);
-                yield return GenerateMethod(methodName, docLink, httpMethod, urlPath, urlParts, true);
+                yield return NoBodyNoParams(methodName, docLink, httpMethod, urlPath, urlParts);
+                yield return NoBodyNoParams(methodName, docLink, httpMethod, urlPath, urlParts, true);
+                if (parameterType != null)
+                {
+                    yield return NoBodyWithParams(methodName, docLink, httpMethod, urlPath, urlParts, parameterType);
+                    yield return
+                        NoBodyWithParams(methodName, docLink, httpMethod, urlPath, urlParts, parameterType, true);
+                }
             }
             else
             {
-                foreach (var methodType in MethodTypes)
+                foreach (var bodyType in BodyTypes)
                 {
-                    yield return GenerateMethod(methodName, docLink, httpMethod, urlPath, urlParts, body, methodType);
-                    yield return GenerateMethod(methodName, docLink, httpMethod, urlPath, urlParts, body, methodType, true);
+                    yield return BodyNoParams(methodName, docLink, httpMethod, urlPath, urlParts, body, bodyType);
+                    yield return BodyNoParams(methodName, docLink, httpMethod, urlPath, urlParts, body, bodyType, true);
+                    if (parameterType != null)
+                    {
+                        yield return
+                            BodyWithParams(methodName, docLink, httpMethod, urlPath, urlParts, body, bodyType,
+                                parameterType);
+                        yield return
+                            BodyWithParams(methodName, docLink, httpMethod, urlPath, urlParts, body, bodyType,
+                                parameterType, true);
+                    }
                 }
             }
-        } 
+        }
 
-        private static CodeMemberMethod GenerateMethod(string name, string docLink, string httpMethod, string uri,
+        private static CodeMemberMethod NoBodyNoParams(string name, string docLink, string httpMethod, string uri,
             IList<Parameter> urlParts, bool async = false)
         {
-            return GenerateMethod(name, docLink, httpMethod, uri, urlParts, null, null, async);
+            return GenerateMethod(name, docLink, httpMethod, uri, urlParts, null, null, null, async);
+        }
+
+        private static CodeMemberMethod NoBodyWithParams(string name, string docLink, string httpMethod, string uri,
+            IList<Parameter> urlParts, string parameterType, bool async = false)
+        {
+            return GenerateMethod(name, docLink, httpMethod, uri, urlParts, null, null, parameterType, async);
+        }
+
+        private static CodeMemberMethod BodyNoParams(string name, string docLink, string httpMethod, string uri,
+            IList<Parameter> urlParts, Parameter body, Type bodyType, bool async = false)
+        {
+            return GenerateMethod(name, docLink, httpMethod, uri, urlParts, body, bodyType, null, async);
+        }
+
+        private static CodeMemberMethod BodyWithParams(string name, string docLink, string httpMethod, string uri,
+            IList<Parameter> urlParts, Parameter body, Type bodyType, string parameterType, bool async = false)
+        {
+            return GenerateMethod(name, docLink, httpMethod, uri, urlParts, body, bodyType, parameterType, async);
         }
 
         private static CodeMemberMethod GenerateMethod(string name, string docLink, string httpMethod, string uri, 
-            IList<Parameter> urlParts, Parameter body, Type bodyType, bool async = false)
+            IList<Parameter> urlParts, Parameter body, Type bodyType, string parameterType = null, bool async = false)
         {
             var method = new CodeMemberMethod
             {
@@ -177,15 +284,9 @@ namespace Elasticsearch.Client.Generator
                 ReturnType = new CodeTypeReference(async ? "async Task<HttpResponseMessage>" : "HttpResponseMessage")
             };
             method.Comments.Add(GetDocumentationComment(docLink));
-            CodeExpression thisRef;
-            if (async)
-            {
-                thisRef = new CodeVariableReferenceExpression("await this");
-            }
-            else
-            {
-                thisRef = new CodeThisReferenceExpression();
-            }
+            //set the uri variable to pass into the execute function.
+            var setUri = new CodeVariableDeclarationStatement(typeof(string), "uri");
+            method.Statements.Add(setUri);
             CodeExpression uriValueExpression;
             if (urlParts.Count == 0)
             {
@@ -196,37 +297,46 @@ namespace Elasticsearch.Client.Generator
                 var stringTypeRef = new CodeTypeReferenceExpression(typeof (string));
                 uriValueExpression = new CodeMethodInvokeExpression(stringTypeRef, "Format",
                     new CodePrimitiveExpression(uri));
+            }                        
+            setUri.InitExpression = uriValueExpression;            
+            //return the result of the execute method
+            CodeExpression thisRef;
+            if (async)
+            {
+                thisRef = new CodeVariableReferenceExpression("await this");
             }
-            var setUri = new CodeVariableDeclarationStatement(typeof(string), "uri", uriValueExpression);
-            method.Statements.Add(setUri);
+            else
+            {
+                thisRef = new CodeThisReferenceExpression();
+            }
             var executeInvoke = new CodeMethodInvokeExpression(thisRef, async ? "ExecuteAsync" : "Execute",
-                new CodePrimitiveExpression(httpMethod), new CodeVariableReferenceExpression("uri"));
-            method.Statements.Add(new CodeMethodReturnStatement(executeInvoke));
+                new CodePrimitiveExpression(httpMethod), new CodeVariableReferenceExpression("uri"));            
             var i = 0;     
             foreach(var urlPart in urlParts)
             {
                 //add param comment to method.
                 method.Comments.Add(GetParameterCommentStatement(urlPart.Name, urlPart.Description));
                 //add parameter to method.
-                Type parameterType;
+                Type urlPathType;
                 switch (urlPart.Type)
                 {
                     case "list":
                     case "string":
-                        parameterType = typeof (string);
+                        urlPathType = typeof (string);
                         break;
                     default:
                         throw new InvalidDataException("Unknown parameter type " + urlPart.Type);
                 }
-                method.Parameters.Add(new CodeParameterDeclarationExpression(parameterType, urlPart.Name));
+                method.Parameters.Add(new CodeParameterDeclarationExpression(urlPathType, urlPart.Name));
                 //mutate the format string and add parameters to the string.format call.
                 uri = uri.Replace(urlPart.Name, i.ToString());
                 ((CodeMethodInvokeExpression)uriValueExpression).Parameters[0] = new CodePrimitiveExpression(uri);
                 ((CodeMethodInvokeExpression)uriValueExpression).Parameters.Add(new CodeVariableReferenceExpression(urlPart.Name));
                 i++;
-            }
+            }            
             if (body != null)
             {
+                //add method parameter for the body type and pass the reference to the execute method.
                 CodeParameterDeclarationExpression paramDeclare;
                 if (bodyType == typeof (string))
                 {
@@ -240,6 +350,26 @@ namespace Elasticsearch.Client.Generator
                 method.Comments.Add(GetParameterCommentStatement(body.Name, body.Description));
                 executeInvoke.Parameters.Add(new CodeVariableReferenceExpression("body"));
             }
+            if (parameterType != null)
+            {
+                //add method parameter for the parameter setter function;
+                var funcType = new CodeTypeReference("Func");
+                funcType.TypeArguments.Add(parameterType);
+                funcType.TypeArguments.Add(parameterType);
+                const string parameters = "parameters";
+                const string options = "options";
+                method.Parameters.Add(new CodeParameterDeclarationExpression(funcType, options));
+                method.Comments.Add(GetParameterCommentStatement("options",
+                    "The function to set optional url parameters."));
+                //create the params object and pass it to the function.
+                method.Statements.Add(new CodeVariableDeclarationStatement(parameterType, parameters,
+                    new CodeMethodInvokeExpression(new CodeVariableReferenceExpression(options),
+                        "Invoke", new CodeObjectCreateExpression(parameterType))));
+                method.Statements.Add(new CodeAssignStatement(new CodeVariableReferenceExpression("uri"),
+                    new CodeMethodInvokeExpression(new CodeVariableReferenceExpression(parameters), "GetUri",
+                        new CodeVariableReferenceExpression("uri"))));
+            }
+            method.Statements.Add(new CodeMethodReturnStatement(executeInvoke));
             return method;
         }
 
@@ -403,9 +533,14 @@ namespace Elasticsearch.Client.Generator
             return methodName;
         }
 
+        private static CodeCommentStatement GetSummaryComment(string summary)
+        {
+            return new CodeCommentStatement($"<summary>{summary}</summary>", true);
+        }
+
         private static CodeCommentStatement GetDocumentationComment(string documentationLink)
         {
-            return new CodeCommentStatement($"<summary><see href=\"{documentationLink}\"/></summary>", true);
+            return GetSummaryComment($"<see href=\"{documentationLink}\"/>");
         }
 
         private static CodeCommentStatement GetParameterCommentStatement(string parameter, string description)

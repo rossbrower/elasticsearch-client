@@ -33,5 +33,25 @@ namespace Elasticsearch.Client
             string uri = "/_cat/plugins";
             return await this.ExecuteAsync("GET", uri);
         }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-plugins.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage CatPlugins(Func<CatPluginsParameters, CatPluginsParameters> options)
+        {
+            string uri = "/_cat/plugins";
+            CatPluginsParameters parameters = options.Invoke(new CatPluginsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-plugins.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> CatPluginsAsync(Func<CatPluginsParameters, CatPluginsParameters> options)
+        {
+            string uri = "/_cat/plugins";
+            CatPluginsParameters parameters = options.Invoke(new CatPluginsParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri);
+        }
     }
 }

@@ -44,6 +44,32 @@ namespace Elasticsearch.Client
         /// <param name="snapshot">A snapshot name</param>
         /// <param name="repository">A repository name</param>
         /// <param name="body">The snapshot definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SnapshotCreatePut(string snapshot, string repository, Stream body, Func<SnapshotCreateParameters, SnapshotCreateParameters> options)
+        {
+            string uri = string.Format("/_0/{1}/{0}", snapshot, repository);
+            SnapshotCreateParameters parameters = options.Invoke(new SnapshotCreateParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
+        /// <param name="snapshot">A snapshot name</param>
+        /// <param name="repository">A repository name</param>
+        /// <param name="body">The snapshot definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SnapshotCreatePutAsync(string snapshot, string repository, Stream body, Func<SnapshotCreateParameters, SnapshotCreateParameters> options)
+        {
+            string uri = string.Format("/_0/{1}/{0}", snapshot, repository);
+            SnapshotCreateParameters parameters = options.Invoke(new SnapshotCreateParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
+        /// <param name="snapshot">A snapshot name</param>
+        /// <param name="repository">A repository name</param>
+        /// <param name="body">The snapshot definition</param>
         private HttpResponseMessage SnapshotCreatePut(string snapshot, string repository, Byte[] body)
         {
             string uri = string.Format("/_0/{1}/{0}", snapshot, repository);
@@ -57,6 +83,32 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> SnapshotCreatePutAsync(string snapshot, string repository, Byte[] body)
         {
             string uri = string.Format("/_0/{1}/{0}", snapshot, repository);
+            return await this.ExecuteAsync("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
+        /// <param name="snapshot">A snapshot name</param>
+        /// <param name="repository">A repository name</param>
+        /// <param name="body">The snapshot definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SnapshotCreatePut(string snapshot, string repository, Byte[] body, Func<SnapshotCreateParameters, SnapshotCreateParameters> options)
+        {
+            string uri = string.Format("/_0/{1}/{0}", snapshot, repository);
+            SnapshotCreateParameters parameters = options.Invoke(new SnapshotCreateParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
+        /// <param name="snapshot">A snapshot name</param>
+        /// <param name="repository">A repository name</param>
+        /// <param name="body">The snapshot definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SnapshotCreatePutAsync(string snapshot, string repository, Byte[] body, Func<SnapshotCreateParameters, SnapshotCreateParameters> options)
+        {
+            string uri = string.Format("/_0/{1}/{0}", snapshot, repository);
+            SnapshotCreateParameters parameters = options.Invoke(new SnapshotCreateParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("PUT", uri, body);
         }
         
@@ -84,6 +136,32 @@ namespace Elasticsearch.Client
         /// <param name="snapshot">A snapshot name</param>
         /// <param name="repository">A repository name</param>
         /// <param name="body">The snapshot definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SnapshotCreatePut(string snapshot, string repository, string body, Func<SnapshotCreateParameters, SnapshotCreateParameters> options)
+        {
+            string uri = string.Format("/_0/{1}/{0}", snapshot, repository);
+            SnapshotCreateParameters parameters = options.Invoke(new SnapshotCreateParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
+        /// <param name="snapshot">A snapshot name</param>
+        /// <param name="repository">A repository name</param>
+        /// <param name="body">The snapshot definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SnapshotCreatePutAsync(string snapshot, string repository, string body, Func<SnapshotCreateParameters, SnapshotCreateParameters> options)
+        {
+            string uri = string.Format("/_0/{1}/{0}", snapshot, repository);
+            SnapshotCreateParameters parameters = options.Invoke(new SnapshotCreateParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
+        /// <param name="snapshot">A snapshot name</param>
+        /// <param name="repository">A repository name</param>
+        /// <param name="body">The snapshot definition</param>
         private HttpResponseMessage SnapshotCreatePost(string snapshot, string repository, Stream body)
         {
             string uri = string.Format("/_0/{1}/{0}", snapshot, repository);
@@ -97,6 +175,32 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> SnapshotCreatePostAsync(string snapshot, string repository, Stream body)
         {
             string uri = string.Format("/_0/{1}/{0}", snapshot, repository);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
+        /// <param name="snapshot">A snapshot name</param>
+        /// <param name="repository">A repository name</param>
+        /// <param name="body">The snapshot definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SnapshotCreatePost(string snapshot, string repository, Stream body, Func<SnapshotCreateParameters, SnapshotCreateParameters> options)
+        {
+            string uri = string.Format("/_0/{1}/{0}", snapshot, repository);
+            SnapshotCreateParameters parameters = options.Invoke(new SnapshotCreateParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
+        /// <param name="snapshot">A snapshot name</param>
+        /// <param name="repository">A repository name</param>
+        /// <param name="body">The snapshot definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SnapshotCreatePostAsync(string snapshot, string repository, Stream body, Func<SnapshotCreateParameters, SnapshotCreateParameters> options)
+        {
+            string uri = string.Format("/_0/{1}/{0}", snapshot, repository);
+            SnapshotCreateParameters parameters = options.Invoke(new SnapshotCreateParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -124,6 +228,32 @@ namespace Elasticsearch.Client
         /// <param name="snapshot">A snapshot name</param>
         /// <param name="repository">A repository name</param>
         /// <param name="body">The snapshot definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SnapshotCreatePost(string snapshot, string repository, Byte[] body, Func<SnapshotCreateParameters, SnapshotCreateParameters> options)
+        {
+            string uri = string.Format("/_0/{1}/{0}", snapshot, repository);
+            SnapshotCreateParameters parameters = options.Invoke(new SnapshotCreateParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
+        /// <param name="snapshot">A snapshot name</param>
+        /// <param name="repository">A repository name</param>
+        /// <param name="body">The snapshot definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SnapshotCreatePostAsync(string snapshot, string repository, Byte[] body, Func<SnapshotCreateParameters, SnapshotCreateParameters> options)
+        {
+            string uri = string.Format("/_0/{1}/{0}", snapshot, repository);
+            SnapshotCreateParameters parameters = options.Invoke(new SnapshotCreateParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
+        /// <param name="snapshot">A snapshot name</param>
+        /// <param name="repository">A repository name</param>
+        /// <param name="body">The snapshot definition</param>
         private HttpResponseMessage SnapshotCreatePost(string snapshot, string repository, string body)
         {
             string uri = string.Format("/_0/{1}/{0}", snapshot, repository);
@@ -137,6 +267,32 @@ namespace Elasticsearch.Client
         private async Task<HttpResponseMessage> SnapshotCreatePostAsync(string snapshot, string repository, string body)
         {
             string uri = string.Format("/_0/{1}/{0}", snapshot, repository);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
+        /// <param name="snapshot">A snapshot name</param>
+        /// <param name="repository">A repository name</param>
+        /// <param name="body">The snapshot definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage SnapshotCreatePost(string snapshot, string repository, string body, Func<SnapshotCreateParameters, SnapshotCreateParameters> options)
+        {
+            string uri = string.Format("/_0/{1}/{0}", snapshot, repository);
+            SnapshotCreateParameters parameters = options.Invoke(new SnapshotCreateParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
+        /// <param name="snapshot">A snapshot name</param>
+        /// <param name="repository">A repository name</param>
+        /// <param name="body">The snapshot definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> SnapshotCreatePostAsync(string snapshot, string repository, string body, Func<SnapshotCreateParameters, SnapshotCreateParameters> options)
+        {
+            string uri = string.Format("/_0/{1}/{0}", snapshot, repository);
+            SnapshotCreateParameters parameters = options.Invoke(new SnapshotCreateParameters());
+            uri = parameters.GetUri(uri);
             return await this.ExecuteAsync("POST", uri, body);
         }
     }

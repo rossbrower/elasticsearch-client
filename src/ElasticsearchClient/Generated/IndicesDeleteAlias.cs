@@ -37,5 +37,29 @@ namespace Elasticsearch.Client
             string uri = string.Format("/{0}/_alias/{1}", index, name);
             return await this.ExecuteAsync("DELETE", uri);
         }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
+        /// <param name="index">A comma-separated list of index names (supports wildcards); use `_all` for all indices</param>
+        /// <param name="name">A comma-separated list of aliases to delete (supports wildcards); use `_all` to delete all aliases for the specified indices.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private HttpResponseMessage IndicesDeleteAlias(string index, string name, Func<IndicesDeleteAliasParameters, IndicesDeleteAliasParameters> options)
+        {
+            string uri = string.Format("/{0}/_alias/{1}", index, name);
+            IndicesDeleteAliasParameters parameters = options.Invoke(new IndicesDeleteAliasParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("DELETE", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
+        /// <param name="index">A comma-separated list of index names (supports wildcards); use `_all` for all indices</param>
+        /// <param name="name">A comma-separated list of aliases to delete (supports wildcards); use `_all` to delete all aliases for the specified indices.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        private async Task<HttpResponseMessage> IndicesDeleteAliasAsync(string index, string name, Func<IndicesDeleteAliasParameters, IndicesDeleteAliasParameters> options)
+        {
+            string uri = string.Format("/{0}/_alias/{1}", index, name);
+            IndicesDeleteAliasParameters parameters = options.Invoke(new IndicesDeleteAliasParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("DELETE", uri);
+        }
     }
 }
