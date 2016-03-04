@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using Microsoft.CSharp;
 using Newtonsoft.Json;
 
@@ -14,6 +13,7 @@ namespace Elasticsearch.Client.Generator
     public static class Generator
     {
         private const string Namespace = "Elasticsearch.Client";
+        private const string TestNamespace = "Elasticsearch.Client.UnitTests";
         private const string ClassName = "ElasticsearchClient";
         private static readonly TextInfo TextInfo;
         private static readonly CodeDomProvider Provider;
@@ -40,7 +40,6 @@ namespace Elasticsearch.Client.Generator
                 new CodeNamespaceImport("System.Net"),
                 new CodeNamespaceImport("System.Net.Http"),
                 new CodeNamespaceImport("System.Threading.Tasks"),
-                new CodeNamespaceImport("Elasticsearch.Client"),
                 new CodeNamespaceImport("Microsoft.VisualStudio.TestTools.UnitTesting") 
             };
             BodyTypes = new[]
@@ -91,83 +90,112 @@ namespace Elasticsearch.Client.Generator
             {
                 paramClassName = fileName + "Parameters";
                 var paramMethods = GenerateParameterMethods(paramClassName, description).ToArray();
-                WriteClass(paramClassName, paramMethods, Imports, outputPath, baseType: "Parameters");
+                WriteClass(Namespace, paramClassName, paramMethods, Imports, outputPath, baseType: "Parameters");
             }            
             var methods = GenerateMethods(fileName, description, paramClassName).ToArray();
-            WriteClass(ClassName, methods, Imports, outputPath, fileName, isPartial: true);
-            //WriteTestClass(fileName, methods, testPath);
+            WriteClass(Namespace, ClassName, methods, Imports, outputPath, fileName, isPartial: true);
+            WriteTestClass(fileName, methods, testPath);
         }
 
         private static void WriteTestClass(string apiName, IList<CodeMemberMethod> methods, string outputDir)
         {
-            var members = new List<CodeTypeMember>();            
-            var clientVariable = new CodeMemberField("ElasticsearchClient", "Client")
+            var testMembers = new List<CodeTypeMember>();
+            const string clientField = "mClient";
+            const string clientType = "ElasticsearchClient";
+            var clientVariable = new CodeMemberField(clientType, clientField)
             {
-                Attributes = MemberAttributes.Public | MemberAttributes.Static
+                Attributes = MemberAttributes.Private
             };
-            clientVariable.InitExpression = new CodeObjectCreateExpression("ElasticsearchClient",
-                new CodeObjectCreateExpression("SingleConnectionPool"));
-            members.Add(clientVariable);
-            var testMethod = new CodeMemberMethod
+            testMembers.Add(clientVariable);
+            var constructor = new CodeConstructor
             {
-                Name = "Test" + apiName,
                 Attributes = MemberAttributes.Public
             };
-            members.Add(testMethod);
-            testMethod.CustomAttributes.Add(new CodeAttributeDeclaration("TestMethod"));
-            var apiInvokes = new List<CodeMethodInvokeExpression>();
-            HashSet<string> visited = new HashSet<string>();
+            constructor.Parameters.Add(new CodeParameterDeclarationExpression(clientType, "client"));
+            constructor.Statements.Add(new CodeAssignStatement(
+                new CodeFieldReferenceExpression(new CodeThisReferenceExpression(), clientField),
+                new CodeVariableReferenceExpression("client")));
+            testMembers.Add(constructor);
             foreach (var method in methods)
             {
-                var invoke = new CodeMethodInvokeExpression(new CodeVariableReferenceExpression("Client"),
-                    method.Name);
-                apiInvokes.Add(invoke);
+                if (method.Name.EndsWith("Async"))
+                {
+                    continue;
+                }
+                var methodName = method.Name;
+                var testMethod = new CodeMemberMethod
+                {
+                    Name = "Test" + methodName,
+                    Attributes = MemberAttributes.Public,
+                    ReturnType = new CodeTypeReference("async Task")
+                };
+                testMembers.Add(testMethod);
+                testMethod.Parameters.AddRange(method.Parameters);
+                testMethod.Parameters.Add(new CodeParameterDeclarationExpression(
+                    "HttpStatusCode", "expectedStatusCode"));
+                testMethod.Parameters.Add(new CodeParameterDeclarationExpression(
+                    typeof (string), "expectedContent"));
+                //invoke sync method.
+                var syncClientRef = new CodeVariableReferenceExpression(clientField);
+                var syncInvoke = new CodeMethodInvokeExpression(syncClientRef, methodName);
+                var syncResponse = new CodeVariableDeclarationStatement(
+                    new CodeTypeReference("HttpResponseMessage"), "syncResponse", syncInvoke);                                
                 foreach (CodeParameterDeclarationExpression parameter in method.Parameters)
                 {
-                    if (!visited.Contains(parameter.Name))
-                    {
-                        if (parameter.Name == "body")
-                        {
-                        }
-                        else
-                        {
-                            var methodName = parameter.Name.ToCamelCase();
-                            var paramMethod = new CodeMemberMethod
-                            {
-                                Name = methodName,
-                                Attributes = MemberAttributes.Public,
-                                ReturnType = parameter.Type
-                            };
-                            members.Add(paramMethod);                            
-                            var paramGet = new CodeMethodInvokeExpression(new CodeThisReferenceExpression(), methodName);
-                            testMethod.Statements.Add(new CodeVariableDeclarationStatement(parameter.Type,
-                                parameter.Name, paramGet));
-                        }
-                        visited.Add(parameter.Name);
-                    }
-                    invoke.Parameters.Add(new CodeVariableReferenceExpression(parameter.Name));
+                    syncInvoke.Parameters.Add(new CodeVariableReferenceExpression(parameter.Name));
                 }
-            }
-            foreach (var codeStatement in apiInvokes)
-            {
-                testMethod.Statements.Add(codeStatement);
+                testMethod.Statements.Add(syncResponse);
+                testMethod.Statements.Add(new CodeMethodInvokeExpression(new CodeTypeReferenceExpression("Assert"),
+                    "AreEqual", new CodeVariableReferenceExpression("expectedStatusCode"),
+                    new CodePropertyReferenceExpression(new CodeVariableReferenceExpression("syncResponse"), "StatusCode")));
+                var syncContentInvoke = new CodeMethodInvokeExpression(new CodePropertyReferenceExpression(
+                    new CodeVariableReferenceExpression("await syncResponse"), "Content"), "ReadAsStringAsync");
+                var syncContentAsString = new CodeVariableDeclarationStatement(typeof (string), 
+                    "syncContent", syncContentInvoke);
+                testMethod.Statements.Add(syncContentAsString);
+                testMethod.Statements.Add(new CodeMethodInvokeExpression(new CodeTypeReferenceExpression("Assert"),
+                    "AreEqual", new CodeVariableReferenceExpression("expectedContent"),
+                    new CodeVariableReferenceExpression("syncContent")));
+
+                //invoke Async method.
+                var asyncClientRef = new CodeVariableReferenceExpression("await "+ clientField);
+                var asyncInvoke = new CodeMethodInvokeExpression(asyncClientRef, methodName+"Async");
+                var asyncResponse = new CodeVariableDeclarationStatement(
+                    new CodeTypeReference("HttpResponseMessage"), "asyncResponse", asyncInvoke);
+                foreach (CodeParameterDeclarationExpression parameter in method.Parameters)
+                {
+                    asyncInvoke.Parameters.Add(new CodeVariableReferenceExpression(parameter.Name));
+                }
+                testMethod.Statements.Add(asyncResponse);
+                testMethod.Statements.Add(new CodeMethodInvokeExpression(new CodeTypeReferenceExpression("Assert"),
+                    "AreEqual", new CodeVariableReferenceExpression("expectedStatusCode"),
+                    new CodePropertyReferenceExpression(new CodeVariableReferenceExpression("asyncResponse"), "StatusCode")));
+                var asyncContentInvoke = new CodeMethodInvokeExpression(new CodePropertyReferenceExpression(
+                    new CodeVariableReferenceExpression("await asyncResponse"), "Content"), "ReadAsStringAsync");
+                var asyncContentAsString = new CodeVariableDeclarationStatement(typeof(string),
+                    "asyncContent", asyncContentInvoke);
+                testMethod.Statements.Add(asyncContentAsString);
+                testMethod.Statements.Add(new CodeMethodInvokeExpression(new CodeTypeReferenceExpression("Assert"),
+                    "AreEqual", new CodeVariableReferenceExpression("expectedContent"),
+                    new CodeVariableReferenceExpression("asyncContent")));
+                testMethod.Statements.Add(new CodeMethodInvokeExpression(new CodeTypeReferenceExpression("Assert"),
+                    "AreEqual", new CodeVariableReferenceExpression("syncContent"),
+                    new CodeVariableReferenceExpression("asyncContent")));
             }
             var testClassName = apiName + "Tests";
-            WriteClass(testClassName, members.ToArray(), TestImports, outputDir, 
-                attributes: new CodeAttributeDeclaration("TestClass"));
+            WriteClass(TestNamespace, testClassName, testMembers.ToArray(), TestImports, outputDir);
         }
 
-        private static void WriteClass(string className, CodeTypeMember[] members, 
-            CodeNamespaceImport[] imports, string outputPath, 
-            string fileName = null, string baseType = null, bool isPartial = false, 
-            bool isAbstract = false, params CodeAttributeDeclaration[] attributes)
+        private static void WriteClass(string @namespace, string className, CodeTypeMember[] members, 
+            CodeNamespaceImport[] imports, string outputPath, string fileName = null, 
+            string baseType = null, bool isPartial = false)
         {
             if (fileName == null)
             {
                 fileName = className;
             }
             var compileUnit = new CodeCompileUnit();
-            var namespc = new CodeNamespace(Namespace);
+            var namespc = new CodeNamespace(@namespace);
             compileUnit.Namespaces.Add(namespc);
             namespc.Imports.AddRange(imports);
             var clss = new CodeTypeDeclaration(className)
@@ -175,14 +203,6 @@ namespace Elasticsearch.Client.Generator
                 Attributes = MemberAttributes.Public,
                 IsPartial = isPartial
             };
-            if (isAbstract)
-            {
-                clss.TypeAttributes = TypeAttributes.Abstract;
-            }
-            if (attributes != null && attributes.Length > 0)
-            {
-                clss.CustomAttributes.AddRange(attributes);
-            }
             if (baseType != null)
             {
                 clss.BaseTypes.Add(baseType);

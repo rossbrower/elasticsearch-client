@@ -12,6 +12,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generator", "Generator\Generator.csproj", "{A8A69692-6499-47B5-BC3A-381FE5D2C25B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{18D2C32D-86BE-496C-989B-1CF9B8C1EBAA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B195B916-E6E2-4004-9E3A-0903DFBDA530} = {B195B916-E6E2-4004-9E3A-0903DFBDA530}
+		{A8A69692-6499-47B5-BC3A-381FE5D2C25B} = {A8A69692-6499-47B5-BC3A-381FE5D2C25B}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +32,10 @@ Global
 		{A8A69692-6499-47B5-BC3A-381FE5D2C25B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8A69692-6499-47B5-BC3A-381FE5D2C25B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8A69692-6499-47B5-BC3A-381FE5D2C25B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18D2C32D-86BE-496C-989B-1CF9B8C1EBAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18D2C32D-86BE-496C-989B-1CF9B8C1EBAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18D2C32D-86BE-496C-989B-1CF9B8C1EBAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18D2C32D-86BE-496C-989B-1CF9B8C1EBAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
