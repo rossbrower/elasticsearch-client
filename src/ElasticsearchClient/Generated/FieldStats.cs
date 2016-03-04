@@ -22,7 +22,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
         /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
-        private HttpResponseMessage FieldStatsGet(Stream body)
+        public virtual HttpResponseMessage FieldStatsGet(Stream body)
         {
             string uri = "/_field_stats";
             return this.Execute("GET", uri, body);
@@ -30,7 +30,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
         /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
-        private async Task<HttpResponseMessage> FieldStatsGetAsync(Stream body)
+        public virtual async Task<HttpResponseMessage> FieldStatsGetAsync(Stream body)
         {
             string uri = "/_field_stats";
             return await this.ExecuteAsync("GET", uri, body);
@@ -39,7 +39,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
         /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage FieldStatsGet(Stream body, Func<FieldStatsParameters, FieldStatsParameters> options)
+        public virtual HttpResponseMessage FieldStatsGet(Stream body, Func<FieldStatsParameters, FieldStatsParameters> options)
         {
             string uri = "/_field_stats";
             FieldStatsParameters parameters = options.Invoke(new FieldStatsParameters());
@@ -50,7 +50,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
         /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> FieldStatsGetAsync(Stream body, Func<FieldStatsParameters, FieldStatsParameters> options)
+        public virtual async Task<HttpResponseMessage> FieldStatsGetAsync(Stream body, Func<FieldStatsParameters, FieldStatsParameters> options)
         {
             string uri = "/_field_stats";
             FieldStatsParameters parameters = options.Invoke(new FieldStatsParameters());
@@ -60,7 +60,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
         /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
-        private HttpResponseMessage FieldStatsGet(Byte[] body)
+        public virtual HttpResponseMessage FieldStatsGet(Byte[] body)
         {
             string uri = "/_field_stats";
             return this.Execute("GET", uri, body);
@@ -68,7 +68,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
         /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
-        private async Task<HttpResponseMessage> FieldStatsGetAsync(Byte[] body)
+        public virtual async Task<HttpResponseMessage> FieldStatsGetAsync(Byte[] body)
         {
             string uri = "/_field_stats";
             return await this.ExecuteAsync("GET", uri, body);
@@ -77,45 +77,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
         /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage FieldStatsGet(Byte[] body, Func<FieldStatsParameters, FieldStatsParameters> options)
-        {
-            string uri = "/_field_stats";
-            FieldStatsParameters parameters = options.Invoke(new FieldStatsParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
-        /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> FieldStatsGetAsync(Byte[] body, Func<FieldStatsParameters, FieldStatsParameters> options)
-        {
-            string uri = "/_field_stats";
-            FieldStatsParameters parameters = options.Invoke(new FieldStatsParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
-        /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
-        private HttpResponseMessage FieldStatsGet(string body)
-        {
-            string uri = "/_field_stats";
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
-        /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
-        private async Task<HttpResponseMessage> FieldStatsGetAsync(string body)
-        {
-            string uri = "/_field_stats";
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
-        /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage FieldStatsGet(string body, Func<FieldStatsParameters, FieldStatsParameters> options)
+        public virtual HttpResponseMessage FieldStatsGet(Byte[] body, Func<FieldStatsParameters, FieldStatsParameters> options)
         {
             string uri = "/_field_stats";
             FieldStatsParameters parameters = options.Invoke(new FieldStatsParameters());
@@ -126,7 +88,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
         /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> FieldStatsGetAsync(string body, Func<FieldStatsParameters, FieldStatsParameters> options)
+        public virtual async Task<HttpResponseMessage> FieldStatsGetAsync(Byte[] body, Func<FieldStatsParameters, FieldStatsParameters> options)
         {
             string uri = "/_field_stats";
             FieldStatsParameters parameters = options.Invoke(new FieldStatsParameters());
@@ -136,7 +98,45 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
         /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
-        private HttpResponseMessage FieldStatsPost(Stream body)
+        public virtual HttpResponseMessage FieldStatsGet(string body)
+        {
+            string uri = "/_field_stats";
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
+        /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
+        public virtual async Task<HttpResponseMessage> FieldStatsGetAsync(string body)
+        {
+            string uri = "/_field_stats";
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
+        /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage FieldStatsGet(string body, Func<FieldStatsParameters, FieldStatsParameters> options)
+        {
+            string uri = "/_field_stats";
+            FieldStatsParameters parameters = options.Invoke(new FieldStatsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
+        /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> FieldStatsGetAsync(string body, Func<FieldStatsParameters, FieldStatsParameters> options)
+        {
+            string uri = "/_field_stats";
+            FieldStatsParameters parameters = options.Invoke(new FieldStatsParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
+        /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
+        public virtual HttpResponseMessage FieldStatsPost(Stream body)
         {
             string uri = "/_field_stats";
             return this.Execute("POST", uri, body);
@@ -144,7 +144,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
         /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
-        private async Task<HttpResponseMessage> FieldStatsPostAsync(Stream body)
+        public virtual async Task<HttpResponseMessage> FieldStatsPostAsync(Stream body)
         {
             string uri = "/_field_stats";
             return await this.ExecuteAsync("POST", uri, body);
@@ -153,7 +153,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
         /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage FieldStatsPost(Stream body, Func<FieldStatsParameters, FieldStatsParameters> options)
+        public virtual HttpResponseMessage FieldStatsPost(Stream body, Func<FieldStatsParameters, FieldStatsParameters> options)
         {
             string uri = "/_field_stats";
             FieldStatsParameters parameters = options.Invoke(new FieldStatsParameters());
@@ -164,45 +164,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
         /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> FieldStatsPostAsync(Stream body, Func<FieldStatsParameters, FieldStatsParameters> options)
-        {
-            string uri = "/_field_stats";
-            FieldStatsParameters parameters = options.Invoke(new FieldStatsParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
-        /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
-        private HttpResponseMessage FieldStatsPost(Byte[] body)
-        {
-            string uri = "/_field_stats";
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
-        /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
-        private async Task<HttpResponseMessage> FieldStatsPostAsync(Byte[] body)
-        {
-            string uri = "/_field_stats";
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
-        /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage FieldStatsPost(Byte[] body, Func<FieldStatsParameters, FieldStatsParameters> options)
-        {
-            string uri = "/_field_stats";
-            FieldStatsParameters parameters = options.Invoke(new FieldStatsParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
-        /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> FieldStatsPostAsync(Byte[] body, Func<FieldStatsParameters, FieldStatsParameters> options)
+        public virtual async Task<HttpResponseMessage> FieldStatsPostAsync(Stream body, Func<FieldStatsParameters, FieldStatsParameters> options)
         {
             string uri = "/_field_stats";
             FieldStatsParameters parameters = options.Invoke(new FieldStatsParameters());
@@ -212,7 +174,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
         /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
-        private HttpResponseMessage FieldStatsPost(string body)
+        public virtual HttpResponseMessage FieldStatsPost(Byte[] body)
         {
             string uri = "/_field_stats";
             return this.Execute("POST", uri, body);
@@ -220,7 +182,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
         /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
-        private async Task<HttpResponseMessage> FieldStatsPostAsync(string body)
+        public virtual async Task<HttpResponseMessage> FieldStatsPostAsync(Byte[] body)
         {
             string uri = "/_field_stats";
             return await this.ExecuteAsync("POST", uri, body);
@@ -229,7 +191,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
         /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage FieldStatsPost(string body, Func<FieldStatsParameters, FieldStatsParameters> options)
+        public virtual HttpResponseMessage FieldStatsPost(Byte[] body, Func<FieldStatsParameters, FieldStatsParameters> options)
         {
             string uri = "/_field_stats";
             FieldStatsParameters parameters = options.Invoke(new FieldStatsParameters());
@@ -240,7 +202,45 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
         /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> FieldStatsPostAsync(string body, Func<FieldStatsParameters, FieldStatsParameters> options)
+        public virtual async Task<HttpResponseMessage> FieldStatsPostAsync(Byte[] body, Func<FieldStatsParameters, FieldStatsParameters> options)
+        {
+            string uri = "/_field_stats";
+            FieldStatsParameters parameters = options.Invoke(new FieldStatsParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
+        /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
+        public virtual HttpResponseMessage FieldStatsPost(string body)
+        {
+            string uri = "/_field_stats";
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
+        /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
+        public virtual async Task<HttpResponseMessage> FieldStatsPostAsync(string body)
+        {
+            string uri = "/_field_stats";
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
+        /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage FieldStatsPost(string body, Func<FieldStatsParameters, FieldStatsParameters> options)
+        {
+            string uri = "/_field_stats";
+            FieldStatsParameters parameters = options.Invoke(new FieldStatsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
+        /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> FieldStatsPostAsync(string body, Func<FieldStatsParameters, FieldStatsParameters> options)
         {
             string uri = "/_field_stats";
             FieldStatsParameters parameters = options.Invoke(new FieldStatsParameters());
@@ -251,7 +251,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
-        private HttpResponseMessage FieldStatsGet(string index, Stream body)
+        public virtual HttpResponseMessage FieldStatsGet(string index, Stream body)
         {
             string uri = string.Format("/{0}/_field_stats", index);
             return this.Execute("GET", uri, body);
@@ -260,7 +260,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
-        private async Task<HttpResponseMessage> FieldStatsGetAsync(string index, Stream body)
+        public virtual async Task<HttpResponseMessage> FieldStatsGetAsync(string index, Stream body)
         {
             string uri = string.Format("/{0}/_field_stats", index);
             return await this.ExecuteAsync("GET", uri, body);
@@ -270,7 +270,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage FieldStatsGet(string index, Stream body, Func<FieldStatsParameters, FieldStatsParameters> options)
+        public virtual HttpResponseMessage FieldStatsGet(string index, Stream body, Func<FieldStatsParameters, FieldStatsParameters> options)
         {
             string uri = string.Format("/{0}/_field_stats", index);
             FieldStatsParameters parameters = options.Invoke(new FieldStatsParameters());
@@ -282,7 +282,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> FieldStatsGetAsync(string index, Stream body, Func<FieldStatsParameters, FieldStatsParameters> options)
+        public virtual async Task<HttpResponseMessage> FieldStatsGetAsync(string index, Stream body, Func<FieldStatsParameters, FieldStatsParameters> options)
         {
             string uri = string.Format("/{0}/_field_stats", index);
             FieldStatsParameters parameters = options.Invoke(new FieldStatsParameters());
@@ -293,7 +293,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
-        private HttpResponseMessage FieldStatsGet(string index, Byte[] body)
+        public virtual HttpResponseMessage FieldStatsGet(string index, Byte[] body)
         {
             string uri = string.Format("/{0}/_field_stats", index);
             return this.Execute("GET", uri, body);
@@ -302,7 +302,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
-        private async Task<HttpResponseMessage> FieldStatsGetAsync(string index, Byte[] body)
+        public virtual async Task<HttpResponseMessage> FieldStatsGetAsync(string index, Byte[] body)
         {
             string uri = string.Format("/{0}/_field_stats", index);
             return await this.ExecuteAsync("GET", uri, body);
@@ -312,49 +312,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage FieldStatsGet(string index, Byte[] body, Func<FieldStatsParameters, FieldStatsParameters> options)
-        {
-            string uri = string.Format("/{0}/_field_stats", index);
-            FieldStatsParameters parameters = options.Invoke(new FieldStatsParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
-        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> FieldStatsGetAsync(string index, Byte[] body, Func<FieldStatsParameters, FieldStatsParameters> options)
-        {
-            string uri = string.Format("/{0}/_field_stats", index);
-            FieldStatsParameters parameters = options.Invoke(new FieldStatsParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
-        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
-        private HttpResponseMessage FieldStatsGet(string index, string body)
-        {
-            string uri = string.Format("/{0}/_field_stats", index);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
-        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
-        private async Task<HttpResponseMessage> FieldStatsGetAsync(string index, string body)
-        {
-            string uri = string.Format("/{0}/_field_stats", index);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
-        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage FieldStatsGet(string index, string body, Func<FieldStatsParameters, FieldStatsParameters> options)
+        public virtual HttpResponseMessage FieldStatsGet(string index, Byte[] body, Func<FieldStatsParameters, FieldStatsParameters> options)
         {
             string uri = string.Format("/{0}/_field_stats", index);
             FieldStatsParameters parameters = options.Invoke(new FieldStatsParameters());
@@ -366,7 +324,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> FieldStatsGetAsync(string index, string body, Func<FieldStatsParameters, FieldStatsParameters> options)
+        public virtual async Task<HttpResponseMessage> FieldStatsGetAsync(string index, Byte[] body, Func<FieldStatsParameters, FieldStatsParameters> options)
         {
             string uri = string.Format("/{0}/_field_stats", index);
             FieldStatsParameters parameters = options.Invoke(new FieldStatsParameters());
@@ -377,7 +335,49 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
-        private HttpResponseMessage FieldStatsPost(string index, Stream body)
+        public virtual HttpResponseMessage FieldStatsGet(string index, string body)
+        {
+            string uri = string.Format("/{0}/_field_stats", index);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
+        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
+        public virtual async Task<HttpResponseMessage> FieldStatsGetAsync(string index, string body)
+        {
+            string uri = string.Format("/{0}/_field_stats", index);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
+        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage FieldStatsGet(string index, string body, Func<FieldStatsParameters, FieldStatsParameters> options)
+        {
+            string uri = string.Format("/{0}/_field_stats", index);
+            FieldStatsParameters parameters = options.Invoke(new FieldStatsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
+        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> FieldStatsGetAsync(string index, string body, Func<FieldStatsParameters, FieldStatsParameters> options)
+        {
+            string uri = string.Format("/{0}/_field_stats", index);
+            FieldStatsParameters parameters = options.Invoke(new FieldStatsParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
+        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
+        public virtual HttpResponseMessage FieldStatsPost(string index, Stream body)
         {
             string uri = string.Format("/{0}/_field_stats", index);
             return this.Execute("POST", uri, body);
@@ -386,7 +386,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
-        private async Task<HttpResponseMessage> FieldStatsPostAsync(string index, Stream body)
+        public virtual async Task<HttpResponseMessage> FieldStatsPostAsync(string index, Stream body)
         {
             string uri = string.Format("/{0}/_field_stats", index);
             return await this.ExecuteAsync("POST", uri, body);
@@ -396,7 +396,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage FieldStatsPost(string index, Stream body, Func<FieldStatsParameters, FieldStatsParameters> options)
+        public virtual HttpResponseMessage FieldStatsPost(string index, Stream body, Func<FieldStatsParameters, FieldStatsParameters> options)
         {
             string uri = string.Format("/{0}/_field_stats", index);
             FieldStatsParameters parameters = options.Invoke(new FieldStatsParameters());
@@ -408,49 +408,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> FieldStatsPostAsync(string index, Stream body, Func<FieldStatsParameters, FieldStatsParameters> options)
-        {
-            string uri = string.Format("/{0}/_field_stats", index);
-            FieldStatsParameters parameters = options.Invoke(new FieldStatsParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
-        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
-        private HttpResponseMessage FieldStatsPost(string index, Byte[] body)
-        {
-            string uri = string.Format("/{0}/_field_stats", index);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
-        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
-        private async Task<HttpResponseMessage> FieldStatsPostAsync(string index, Byte[] body)
-        {
-            string uri = string.Format("/{0}/_field_stats", index);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
-        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage FieldStatsPost(string index, Byte[] body, Func<FieldStatsParameters, FieldStatsParameters> options)
-        {
-            string uri = string.Format("/{0}/_field_stats", index);
-            FieldStatsParameters parameters = options.Invoke(new FieldStatsParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
-        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> FieldStatsPostAsync(string index, Byte[] body, Func<FieldStatsParameters, FieldStatsParameters> options)
+        public virtual async Task<HttpResponseMessage> FieldStatsPostAsync(string index, Stream body, Func<FieldStatsParameters, FieldStatsParameters> options)
         {
             string uri = string.Format("/{0}/_field_stats", index);
             FieldStatsParameters parameters = options.Invoke(new FieldStatsParameters());
@@ -461,7 +419,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
-        private HttpResponseMessage FieldStatsPost(string index, string body)
+        public virtual HttpResponseMessage FieldStatsPost(string index, Byte[] body)
         {
             string uri = string.Format("/{0}/_field_stats", index);
             return this.Execute("POST", uri, body);
@@ -470,7 +428,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
-        private async Task<HttpResponseMessage> FieldStatsPostAsync(string index, string body)
+        public virtual async Task<HttpResponseMessage> FieldStatsPostAsync(string index, Byte[] body)
         {
             string uri = string.Format("/{0}/_field_stats", index);
             return await this.ExecuteAsync("POST", uri, body);
@@ -480,7 +438,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage FieldStatsPost(string index, string body, Func<FieldStatsParameters, FieldStatsParameters> options)
+        public virtual HttpResponseMessage FieldStatsPost(string index, Byte[] body, Func<FieldStatsParameters, FieldStatsParameters> options)
         {
             string uri = string.Format("/{0}/_field_stats", index);
             FieldStatsParameters parameters = options.Invoke(new FieldStatsParameters());
@@ -492,7 +450,49 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> FieldStatsPostAsync(string index, string body, Func<FieldStatsParameters, FieldStatsParameters> options)
+        public virtual async Task<HttpResponseMessage> FieldStatsPostAsync(string index, Byte[] body, Func<FieldStatsParameters, FieldStatsParameters> options)
+        {
+            string uri = string.Format("/{0}/_field_stats", index);
+            FieldStatsParameters parameters = options.Invoke(new FieldStatsParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
+        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
+        public virtual HttpResponseMessage FieldStatsPost(string index, string body)
+        {
+            string uri = string.Format("/{0}/_field_stats", index);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
+        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
+        public virtual async Task<HttpResponseMessage> FieldStatsPostAsync(string index, string body)
+        {
+            string uri = string.Format("/{0}/_field_stats", index);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
+        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage FieldStatsPost(string index, string body, Func<FieldStatsParameters, FieldStatsParameters> options)
+        {
+            string uri = string.Format("/{0}/_field_stats", index);
+            FieldStatsParameters parameters = options.Invoke(new FieldStatsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
+        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">Field json objects containing the name and optionally a range to filter out indices result, that have results outside the defined bounds</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> FieldStatsPostAsync(string index, string body, Func<FieldStatsParameters, FieldStatsParameters> options)
         {
             string uri = string.Format("/{0}/_field_stats", index);
             FieldStatsParameters parameters = options.Invoke(new FieldStatsParameters());

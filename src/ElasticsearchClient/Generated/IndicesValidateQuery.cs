@@ -22,7 +22,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
         /// <param name="body">The query definition specified with the Query DSL</param>
-        private HttpResponseMessage IndicesValidateQueryGet(Stream body)
+        public virtual HttpResponseMessage IndicesValidateQueryGet(Stream body)
         {
             string uri = "/_validate/query";
             return this.Execute("GET", uri, body);
@@ -30,7 +30,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
         /// <param name="body">The query definition specified with the Query DSL</param>
-        private async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(Stream body)
+        public virtual async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(Stream body)
         {
             string uri = "/_validate/query";
             return await this.ExecuteAsync("GET", uri, body);
@@ -39,7 +39,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
         /// <param name="body">The query definition specified with the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesValidateQueryGet(Stream body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
+        public virtual HttpResponseMessage IndicesValidateQueryGet(Stream body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
         {
             string uri = "/_validate/query";
             IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
@@ -50,7 +50,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
         /// <param name="body">The query definition specified with the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(Stream body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(Stream body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
         {
             string uri = "/_validate/query";
             IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
@@ -60,7 +60,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
         /// <param name="body">The query definition specified with the Query DSL</param>
-        private HttpResponseMessage IndicesValidateQueryGet(Byte[] body)
+        public virtual HttpResponseMessage IndicesValidateQueryGet(Byte[] body)
         {
             string uri = "/_validate/query";
             return this.Execute("GET", uri, body);
@@ -68,7 +68,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
         /// <param name="body">The query definition specified with the Query DSL</param>
-        private async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(Byte[] body)
+        public virtual async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(Byte[] body)
         {
             string uri = "/_validate/query";
             return await this.ExecuteAsync("GET", uri, body);
@@ -77,45 +77,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
         /// <param name="body">The query definition specified with the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesValidateQueryGet(Byte[] body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
-        {
-            string uri = "/_validate/query";
-            IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
-        /// <param name="body">The query definition specified with the Query DSL</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(Byte[] body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
-        {
-            string uri = "/_validate/query";
-            IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
-        /// <param name="body">The query definition specified with the Query DSL</param>
-        private HttpResponseMessage IndicesValidateQueryGet(string body)
-        {
-            string uri = "/_validate/query";
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
-        /// <param name="body">The query definition specified with the Query DSL</param>
-        private async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(string body)
-        {
-            string uri = "/_validate/query";
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
-        /// <param name="body">The query definition specified with the Query DSL</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesValidateQueryGet(string body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
+        public virtual HttpResponseMessage IndicesValidateQueryGet(Byte[] body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
         {
             string uri = "/_validate/query";
             IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
@@ -126,7 +88,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
         /// <param name="body">The query definition specified with the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(string body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(Byte[] body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
         {
             string uri = "/_validate/query";
             IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
@@ -136,7 +98,45 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
         /// <param name="body">The query definition specified with the Query DSL</param>
-        private HttpResponseMessage IndicesValidateQueryPost(Stream body)
+        public virtual HttpResponseMessage IndicesValidateQueryGet(string body)
+        {
+            string uri = "/_validate/query";
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
+        /// <param name="body">The query definition specified with the Query DSL</param>
+        public virtual async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(string body)
+        {
+            string uri = "/_validate/query";
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
+        /// <param name="body">The query definition specified with the Query DSL</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage IndicesValidateQueryGet(string body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
+        {
+            string uri = "/_validate/query";
+            IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
+        /// <param name="body">The query definition specified with the Query DSL</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(string body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
+        {
+            string uri = "/_validate/query";
+            IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
+        /// <param name="body">The query definition specified with the Query DSL</param>
+        public virtual HttpResponseMessage IndicesValidateQueryPost(Stream body)
         {
             string uri = "/_validate/query";
             return this.Execute("POST", uri, body);
@@ -144,7 +144,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
         /// <param name="body">The query definition specified with the Query DSL</param>
-        private async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(Stream body)
+        public virtual async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(Stream body)
         {
             string uri = "/_validate/query";
             return await this.ExecuteAsync("POST", uri, body);
@@ -153,7 +153,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
         /// <param name="body">The query definition specified with the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesValidateQueryPost(Stream body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
+        public virtual HttpResponseMessage IndicesValidateQueryPost(Stream body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
         {
             string uri = "/_validate/query";
             IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
@@ -164,45 +164,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
         /// <param name="body">The query definition specified with the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(Stream body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
-        {
-            string uri = "/_validate/query";
-            IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
-        /// <param name="body">The query definition specified with the Query DSL</param>
-        private HttpResponseMessage IndicesValidateQueryPost(Byte[] body)
-        {
-            string uri = "/_validate/query";
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
-        /// <param name="body">The query definition specified with the Query DSL</param>
-        private async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(Byte[] body)
-        {
-            string uri = "/_validate/query";
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
-        /// <param name="body">The query definition specified with the Query DSL</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesValidateQueryPost(Byte[] body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
-        {
-            string uri = "/_validate/query";
-            IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
-        /// <param name="body">The query definition specified with the Query DSL</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(Byte[] body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(Stream body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
         {
             string uri = "/_validate/query";
             IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
@@ -212,7 +174,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
         /// <param name="body">The query definition specified with the Query DSL</param>
-        private HttpResponseMessage IndicesValidateQueryPost(string body)
+        public virtual HttpResponseMessage IndicesValidateQueryPost(Byte[] body)
         {
             string uri = "/_validate/query";
             return this.Execute("POST", uri, body);
@@ -220,7 +182,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
         /// <param name="body">The query definition specified with the Query DSL</param>
-        private async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(string body)
+        public virtual async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(Byte[] body)
         {
             string uri = "/_validate/query";
             return await this.ExecuteAsync("POST", uri, body);
@@ -229,7 +191,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
         /// <param name="body">The query definition specified with the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesValidateQueryPost(string body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
+        public virtual HttpResponseMessage IndicesValidateQueryPost(Byte[] body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
         {
             string uri = "/_validate/query";
             IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
@@ -240,7 +202,45 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
         /// <param name="body">The query definition specified with the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(string body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(Byte[] body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
+        {
+            string uri = "/_validate/query";
+            IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
+        /// <param name="body">The query definition specified with the Query DSL</param>
+        public virtual HttpResponseMessage IndicesValidateQueryPost(string body)
+        {
+            string uri = "/_validate/query";
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
+        /// <param name="body">The query definition specified with the Query DSL</param>
+        public virtual async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(string body)
+        {
+            string uri = "/_validate/query";
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
+        /// <param name="body">The query definition specified with the Query DSL</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage IndicesValidateQueryPost(string body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
+        {
+            string uri = "/_validate/query";
+            IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
+        /// <param name="body">The query definition specified with the Query DSL</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(string body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
         {
             string uri = "/_validate/query";
             IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
@@ -251,7 +251,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The query definition specified with the Query DSL</param>
-        private HttpResponseMessage IndicesValidateQueryGet(string index, Stream body)
+        public virtual HttpResponseMessage IndicesValidateQueryGet(string index, Stream body)
         {
             string uri = string.Format("/{0}/_validate/query", index);
             return this.Execute("GET", uri, body);
@@ -260,7 +260,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The query definition specified with the Query DSL</param>
-        private async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(string index, Stream body)
+        public virtual async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(string index, Stream body)
         {
             string uri = string.Format("/{0}/_validate/query", index);
             return await this.ExecuteAsync("GET", uri, body);
@@ -270,7 +270,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The query definition specified with the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesValidateQueryGet(string index, Stream body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
+        public virtual HttpResponseMessage IndicesValidateQueryGet(string index, Stream body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
         {
             string uri = string.Format("/{0}/_validate/query", index);
             IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
@@ -282,7 +282,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The query definition specified with the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(string index, Stream body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(string index, Stream body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
         {
             string uri = string.Format("/{0}/_validate/query", index);
             IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
@@ -293,7 +293,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The query definition specified with the Query DSL</param>
-        private HttpResponseMessage IndicesValidateQueryGet(string index, Byte[] body)
+        public virtual HttpResponseMessage IndicesValidateQueryGet(string index, Byte[] body)
         {
             string uri = string.Format("/{0}/_validate/query", index);
             return this.Execute("GET", uri, body);
@@ -302,7 +302,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The query definition specified with the Query DSL</param>
-        private async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(string index, Byte[] body)
+        public virtual async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(string index, Byte[] body)
         {
             string uri = string.Format("/{0}/_validate/query", index);
             return await this.ExecuteAsync("GET", uri, body);
@@ -312,49 +312,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The query definition specified with the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesValidateQueryGet(string index, Byte[] body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
-        {
-            string uri = string.Format("/{0}/_validate/query", index);
-            IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="body">The query definition specified with the Query DSL</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(string index, Byte[] body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
-        {
-            string uri = string.Format("/{0}/_validate/query", index);
-            IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="body">The query definition specified with the Query DSL</param>
-        private HttpResponseMessage IndicesValidateQueryGet(string index, string body)
-        {
-            string uri = string.Format("/{0}/_validate/query", index);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="body">The query definition specified with the Query DSL</param>
-        private async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(string index, string body)
-        {
-            string uri = string.Format("/{0}/_validate/query", index);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="body">The query definition specified with the Query DSL</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesValidateQueryGet(string index, string body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
+        public virtual HttpResponseMessage IndicesValidateQueryGet(string index, Byte[] body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
         {
             string uri = string.Format("/{0}/_validate/query", index);
             IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
@@ -366,7 +324,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The query definition specified with the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(string index, string body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(string index, Byte[] body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
         {
             string uri = string.Format("/{0}/_validate/query", index);
             IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
@@ -377,7 +335,49 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The query definition specified with the Query DSL</param>
-        private HttpResponseMessage IndicesValidateQueryPost(string index, Stream body)
+        public virtual HttpResponseMessage IndicesValidateQueryGet(string index, string body)
+        {
+            string uri = string.Format("/{0}/_validate/query", index);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The query definition specified with the Query DSL</param>
+        public virtual async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(string index, string body)
+        {
+            string uri = string.Format("/{0}/_validate/query", index);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The query definition specified with the Query DSL</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage IndicesValidateQueryGet(string index, string body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
+        {
+            string uri = string.Format("/{0}/_validate/query", index);
+            IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The query definition specified with the Query DSL</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(string index, string body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
+        {
+            string uri = string.Format("/{0}/_validate/query", index);
+            IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The query definition specified with the Query DSL</param>
+        public virtual HttpResponseMessage IndicesValidateQueryPost(string index, Stream body)
         {
             string uri = string.Format("/{0}/_validate/query", index);
             return this.Execute("POST", uri, body);
@@ -386,7 +386,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The query definition specified with the Query DSL</param>
-        private async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(string index, Stream body)
+        public virtual async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(string index, Stream body)
         {
             string uri = string.Format("/{0}/_validate/query", index);
             return await this.ExecuteAsync("POST", uri, body);
@@ -396,7 +396,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The query definition specified with the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesValidateQueryPost(string index, Stream body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
+        public virtual HttpResponseMessage IndicesValidateQueryPost(string index, Stream body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
         {
             string uri = string.Format("/{0}/_validate/query", index);
             IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
@@ -408,49 +408,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The query definition specified with the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(string index, Stream body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
-        {
-            string uri = string.Format("/{0}/_validate/query", index);
-            IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="body">The query definition specified with the Query DSL</param>
-        private HttpResponseMessage IndicesValidateQueryPost(string index, Byte[] body)
-        {
-            string uri = string.Format("/{0}/_validate/query", index);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="body">The query definition specified with the Query DSL</param>
-        private async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(string index, Byte[] body)
-        {
-            string uri = string.Format("/{0}/_validate/query", index);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="body">The query definition specified with the Query DSL</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesValidateQueryPost(string index, Byte[] body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
-        {
-            string uri = string.Format("/{0}/_validate/query", index);
-            IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="body">The query definition specified with the Query DSL</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(string index, Byte[] body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(string index, Stream body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
         {
             string uri = string.Format("/{0}/_validate/query", index);
             IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
@@ -461,7 +419,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The query definition specified with the Query DSL</param>
-        private HttpResponseMessage IndicesValidateQueryPost(string index, string body)
+        public virtual HttpResponseMessage IndicesValidateQueryPost(string index, Byte[] body)
         {
             string uri = string.Format("/{0}/_validate/query", index);
             return this.Execute("POST", uri, body);
@@ -470,7 +428,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The query definition specified with the Query DSL</param>
-        private async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(string index, string body)
+        public virtual async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(string index, Byte[] body)
         {
             string uri = string.Format("/{0}/_validate/query", index);
             return await this.ExecuteAsync("POST", uri, body);
@@ -480,7 +438,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The query definition specified with the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesValidateQueryPost(string index, string body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
+        public virtual HttpResponseMessage IndicesValidateQueryPost(string index, Byte[] body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
         {
             string uri = string.Format("/{0}/_validate/query", index);
             IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
@@ -492,7 +450,49 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The query definition specified with the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(string index, string body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(string index, Byte[] body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
+        {
+            string uri = string.Format("/{0}/_validate/query", index);
+            IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The query definition specified with the Query DSL</param>
+        public virtual HttpResponseMessage IndicesValidateQueryPost(string index, string body)
+        {
+            string uri = string.Format("/{0}/_validate/query", index);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The query definition specified with the Query DSL</param>
+        public virtual async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(string index, string body)
+        {
+            string uri = string.Format("/{0}/_validate/query", index);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The query definition specified with the Query DSL</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage IndicesValidateQueryPost(string index, string body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
+        {
+            string uri = string.Format("/{0}/_validate/query", index);
+            IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The query definition specified with the Query DSL</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(string index, string body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
         {
             string uri = string.Format("/{0}/_validate/query", index);
             IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
@@ -504,7 +504,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="type">A comma-separated list of document types to restrict the operation; leave empty to perform the operation on all types</param>
         /// <param name="body">The query definition specified with the Query DSL</param>
-        private HttpResponseMessage IndicesValidateQueryGet(string index, string type, Stream body)
+        public virtual HttpResponseMessage IndicesValidateQueryGet(string index, string type, Stream body)
         {
             string uri = string.Format("/{0}/{1}/_validate/query", index, type);
             return this.Execute("GET", uri, body);
@@ -514,7 +514,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="type">A comma-separated list of document types to restrict the operation; leave empty to perform the operation on all types</param>
         /// <param name="body">The query definition specified with the Query DSL</param>
-        private async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(string index, string type, Stream body)
+        public virtual async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(string index, string type, Stream body)
         {
             string uri = string.Format("/{0}/{1}/_validate/query", index, type);
             return await this.ExecuteAsync("GET", uri, body);
@@ -525,7 +525,7 @@ namespace Elasticsearch.Client
         /// <param name="type">A comma-separated list of document types to restrict the operation; leave empty to perform the operation on all types</param>
         /// <param name="body">The query definition specified with the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesValidateQueryGet(string index, string type, Stream body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
+        public virtual HttpResponseMessage IndicesValidateQueryGet(string index, string type, Stream body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_validate/query", index, type);
             IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
@@ -538,7 +538,7 @@ namespace Elasticsearch.Client
         /// <param name="type">A comma-separated list of document types to restrict the operation; leave empty to perform the operation on all types</param>
         /// <param name="body">The query definition specified with the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(string index, string type, Stream body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(string index, string type, Stream body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_validate/query", index, type);
             IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
@@ -550,7 +550,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="type">A comma-separated list of document types to restrict the operation; leave empty to perform the operation on all types</param>
         /// <param name="body">The query definition specified with the Query DSL</param>
-        private HttpResponseMessage IndicesValidateQueryGet(string index, string type, Byte[] body)
+        public virtual HttpResponseMessage IndicesValidateQueryGet(string index, string type, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/_validate/query", index, type);
             return this.Execute("GET", uri, body);
@@ -560,7 +560,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="type">A comma-separated list of document types to restrict the operation; leave empty to perform the operation on all types</param>
         /// <param name="body">The query definition specified with the Query DSL</param>
-        private async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(string index, string type, Byte[] body)
+        public virtual async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(string index, string type, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/_validate/query", index, type);
             return await this.ExecuteAsync("GET", uri, body);
@@ -571,53 +571,7 @@ namespace Elasticsearch.Client
         /// <param name="type">A comma-separated list of document types to restrict the operation; leave empty to perform the operation on all types</param>
         /// <param name="body">The query definition specified with the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesValidateQueryGet(string index, string type, Byte[] body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_validate/query", index, type);
-            IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="type">A comma-separated list of document types to restrict the operation; leave empty to perform the operation on all types</param>
-        /// <param name="body">The query definition specified with the Query DSL</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(string index, string type, Byte[] body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_validate/query", index, type);
-            IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="type">A comma-separated list of document types to restrict the operation; leave empty to perform the operation on all types</param>
-        /// <param name="body">The query definition specified with the Query DSL</param>
-        private HttpResponseMessage IndicesValidateQueryGet(string index, string type, string body)
-        {
-            string uri = string.Format("/{0}/{1}/_validate/query", index, type);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="type">A comma-separated list of document types to restrict the operation; leave empty to perform the operation on all types</param>
-        /// <param name="body">The query definition specified with the Query DSL</param>
-        private async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(string index, string type, string body)
-        {
-            string uri = string.Format("/{0}/{1}/_validate/query", index, type);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="type">A comma-separated list of document types to restrict the operation; leave empty to perform the operation on all types</param>
-        /// <param name="body">The query definition specified with the Query DSL</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesValidateQueryGet(string index, string type, string body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
+        public virtual HttpResponseMessage IndicesValidateQueryGet(string index, string type, Byte[] body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_validate/query", index, type);
             IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
@@ -630,7 +584,7 @@ namespace Elasticsearch.Client
         /// <param name="type">A comma-separated list of document types to restrict the operation; leave empty to perform the operation on all types</param>
         /// <param name="body">The query definition specified with the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(string index, string type, string body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(string index, string type, Byte[] body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_validate/query", index, type);
             IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
@@ -642,7 +596,53 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="type">A comma-separated list of document types to restrict the operation; leave empty to perform the operation on all types</param>
         /// <param name="body">The query definition specified with the Query DSL</param>
-        private HttpResponseMessage IndicesValidateQueryPost(string index, string type, Stream body)
+        public virtual HttpResponseMessage IndicesValidateQueryGet(string index, string type, string body)
+        {
+            string uri = string.Format("/{0}/{1}/_validate/query", index, type);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="type">A comma-separated list of document types to restrict the operation; leave empty to perform the operation on all types</param>
+        /// <param name="body">The query definition specified with the Query DSL</param>
+        public virtual async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(string index, string type, string body)
+        {
+            string uri = string.Format("/{0}/{1}/_validate/query", index, type);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="type">A comma-separated list of document types to restrict the operation; leave empty to perform the operation on all types</param>
+        /// <param name="body">The query definition specified with the Query DSL</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage IndicesValidateQueryGet(string index, string type, string body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_validate/query", index, type);
+            IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="type">A comma-separated list of document types to restrict the operation; leave empty to perform the operation on all types</param>
+        /// <param name="body">The query definition specified with the Query DSL</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(string index, string type, string body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_validate/query", index, type);
+            IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="type">A comma-separated list of document types to restrict the operation; leave empty to perform the operation on all types</param>
+        /// <param name="body">The query definition specified with the Query DSL</param>
+        public virtual HttpResponseMessage IndicesValidateQueryPost(string index, string type, Stream body)
         {
             string uri = string.Format("/{0}/{1}/_validate/query", index, type);
             return this.Execute("POST", uri, body);
@@ -652,7 +652,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="type">A comma-separated list of document types to restrict the operation; leave empty to perform the operation on all types</param>
         /// <param name="body">The query definition specified with the Query DSL</param>
-        private async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(string index, string type, Stream body)
+        public virtual async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(string index, string type, Stream body)
         {
             string uri = string.Format("/{0}/{1}/_validate/query", index, type);
             return await this.ExecuteAsync("POST", uri, body);
@@ -663,7 +663,7 @@ namespace Elasticsearch.Client
         /// <param name="type">A comma-separated list of document types to restrict the operation; leave empty to perform the operation on all types</param>
         /// <param name="body">The query definition specified with the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesValidateQueryPost(string index, string type, Stream body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
+        public virtual HttpResponseMessage IndicesValidateQueryPost(string index, string type, Stream body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_validate/query", index, type);
             IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
@@ -676,53 +676,7 @@ namespace Elasticsearch.Client
         /// <param name="type">A comma-separated list of document types to restrict the operation; leave empty to perform the operation on all types</param>
         /// <param name="body">The query definition specified with the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(string index, string type, Stream body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_validate/query", index, type);
-            IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="type">A comma-separated list of document types to restrict the operation; leave empty to perform the operation on all types</param>
-        /// <param name="body">The query definition specified with the Query DSL</param>
-        private HttpResponseMessage IndicesValidateQueryPost(string index, string type, Byte[] body)
-        {
-            string uri = string.Format("/{0}/{1}/_validate/query", index, type);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="type">A comma-separated list of document types to restrict the operation; leave empty to perform the operation on all types</param>
-        /// <param name="body">The query definition specified with the Query DSL</param>
-        private async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(string index, string type, Byte[] body)
-        {
-            string uri = string.Format("/{0}/{1}/_validate/query", index, type);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="type">A comma-separated list of document types to restrict the operation; leave empty to perform the operation on all types</param>
-        /// <param name="body">The query definition specified with the Query DSL</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesValidateQueryPost(string index, string type, Byte[] body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_validate/query", index, type);
-            IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="type">A comma-separated list of document types to restrict the operation; leave empty to perform the operation on all types</param>
-        /// <param name="body">The query definition specified with the Query DSL</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(string index, string type, Byte[] body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(string index, string type, Stream body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_validate/query", index, type);
             IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
@@ -734,7 +688,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="type">A comma-separated list of document types to restrict the operation; leave empty to perform the operation on all types</param>
         /// <param name="body">The query definition specified with the Query DSL</param>
-        private HttpResponseMessage IndicesValidateQueryPost(string index, string type, string body)
+        public virtual HttpResponseMessage IndicesValidateQueryPost(string index, string type, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/_validate/query", index, type);
             return this.Execute("POST", uri, body);
@@ -744,7 +698,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="type">A comma-separated list of document types to restrict the operation; leave empty to perform the operation on all types</param>
         /// <param name="body">The query definition specified with the Query DSL</param>
-        private async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(string index, string type, string body)
+        public virtual async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(string index, string type, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/_validate/query", index, type);
             return await this.ExecuteAsync("POST", uri, body);
@@ -755,7 +709,7 @@ namespace Elasticsearch.Client
         /// <param name="type">A comma-separated list of document types to restrict the operation; leave empty to perform the operation on all types</param>
         /// <param name="body">The query definition specified with the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesValidateQueryPost(string index, string type, string body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
+        public virtual HttpResponseMessage IndicesValidateQueryPost(string index, string type, Byte[] body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_validate/query", index, type);
             IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
@@ -768,7 +722,53 @@ namespace Elasticsearch.Client
         /// <param name="type">A comma-separated list of document types to restrict the operation; leave empty to perform the operation on all types</param>
         /// <param name="body">The query definition specified with the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(string index, string type, string body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(string index, string type, Byte[] body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_validate/query", index, type);
+            IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="type">A comma-separated list of document types to restrict the operation; leave empty to perform the operation on all types</param>
+        /// <param name="body">The query definition specified with the Query DSL</param>
+        public virtual HttpResponseMessage IndicesValidateQueryPost(string index, string type, string body)
+        {
+            string uri = string.Format("/{0}/{1}/_validate/query", index, type);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="type">A comma-separated list of document types to restrict the operation; leave empty to perform the operation on all types</param>
+        /// <param name="body">The query definition specified with the Query DSL</param>
+        public virtual async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(string index, string type, string body)
+        {
+            string uri = string.Format("/{0}/{1}/_validate/query", index, type);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="type">A comma-separated list of document types to restrict the operation; leave empty to perform the operation on all types</param>
+        /// <param name="body">The query definition specified with the Query DSL</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage IndicesValidateQueryPost(string index, string type, string body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_validate/query", index, type);
+            IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="type">A comma-separated list of document types to restrict the operation; leave empty to perform the operation on all types</param>
+        /// <param name="body">The query definition specified with the Query DSL</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(string index, string type, string body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_validate/query", index, type);
             IndicesValidateQueryParameters parameters = options.Invoke(new IndicesValidateQueryParameters());

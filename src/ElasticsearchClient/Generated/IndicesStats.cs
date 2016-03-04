@@ -21,14 +21,14 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-stats.html"/></summary>
-        private HttpResponseMessage IndicesStats()
+        public virtual HttpResponseMessage IndicesStats()
         {
             string uri = "/_stats";
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-stats.html"/></summary>
-        private async Task<HttpResponseMessage> IndicesStatsAsync()
+        public virtual async Task<HttpResponseMessage> IndicesStatsAsync()
         {
             string uri = "/_stats";
             return await this.ExecuteAsync("GET", uri);
@@ -36,7 +36,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-stats.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesStats(Func<IndicesStatsParameters, IndicesStatsParameters> options)
+        public virtual HttpResponseMessage IndicesStats(Func<IndicesStatsParameters, IndicesStatsParameters> options)
         {
             string uri = "/_stats";
             IndicesStatsParameters parameters = options.Invoke(new IndicesStatsParameters());
@@ -46,7 +46,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-stats.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesStatsAsync(Func<IndicesStatsParameters, IndicesStatsParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesStatsAsync(Func<IndicesStatsParameters, IndicesStatsParameters> options)
         {
             string uri = "/_stats";
             IndicesStatsParameters parameters = options.Invoke(new IndicesStatsParameters());
@@ -56,7 +56,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-stats.html"/></summary>
         /// <param name="metric">Limit the information returned the specific metrics.</param>
-        private HttpResponseMessage IndicesStats(string metric)
+        public virtual HttpResponseMessage IndicesStats(string metric)
         {
             string uri = string.Format("/_stats/{0}", metric);
             return this.Execute("GET", uri);
@@ -64,7 +64,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-stats.html"/></summary>
         /// <param name="metric">Limit the information returned the specific metrics.</param>
-        private async Task<HttpResponseMessage> IndicesStatsAsync(string metric)
+        public virtual async Task<HttpResponseMessage> IndicesStatsAsync(string metric)
         {
             string uri = string.Format("/_stats/{0}", metric);
             return await this.ExecuteAsync("GET", uri);
@@ -73,7 +73,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-stats.html"/></summary>
         /// <param name="metric">Limit the information returned the specific metrics.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesStats(string metric, Func<IndicesStatsParameters, IndicesStatsParameters> options)
+        public virtual HttpResponseMessage IndicesStats(string metric, Func<IndicesStatsParameters, IndicesStatsParameters> options)
         {
             string uri = string.Format("/_stats/{0}", metric);
             IndicesStatsParameters parameters = options.Invoke(new IndicesStatsParameters());
@@ -84,7 +84,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-stats.html"/></summary>
         /// <param name="metric">Limit the information returned the specific metrics.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesStatsAsync(string metric, Func<IndicesStatsParameters, IndicesStatsParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesStatsAsync(string metric, Func<IndicesStatsParameters, IndicesStatsParameters> options)
         {
             string uri = string.Format("/_stats/{0}", metric);
             IndicesStatsParameters parameters = options.Invoke(new IndicesStatsParameters());
@@ -95,7 +95,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-stats.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="metric">Limit the information returned the specific metrics.</param>
-        private HttpResponseMessage IndicesStats(string index, string metric)
+        public virtual HttpResponseMessage IndicesStats(string index, string metric)
         {
             string uri = string.Format("/{0}/_stats/{1}", index, metric);
             return this.Execute("GET", uri);
@@ -104,7 +104,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-stats.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="metric">Limit the information returned the specific metrics.</param>
-        private async Task<HttpResponseMessage> IndicesStatsAsync(string index, string metric)
+        public virtual async Task<HttpResponseMessage> IndicesStatsAsync(string index, string metric)
         {
             string uri = string.Format("/{0}/_stats/{1}", index, metric);
             return await this.ExecuteAsync("GET", uri);
@@ -114,7 +114,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="metric">Limit the information returned the specific metrics.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesStats(string index, string metric, Func<IndicesStatsParameters, IndicesStatsParameters> options)
+        public virtual HttpResponseMessage IndicesStats(string index, string metric, Func<IndicesStatsParameters, IndicesStatsParameters> options)
         {
             string uri = string.Format("/{0}/_stats/{1}", index, metric);
             IndicesStatsParameters parameters = options.Invoke(new IndicesStatsParameters());
@@ -126,7 +126,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="metric">Limit the information returned the specific metrics.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesStatsAsync(string index, string metric, Func<IndicesStatsParameters, IndicesStatsParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesStatsAsync(string index, string metric, Func<IndicesStatsParameters, IndicesStatsParameters> options)
         {
             string uri = string.Format("/{0}/_stats/{1}", index, metric);
             IndicesStatsParameters parameters = options.Invoke(new IndicesStatsParameters());

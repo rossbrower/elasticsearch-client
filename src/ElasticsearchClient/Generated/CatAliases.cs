@@ -21,14 +21,14 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-alias.html"/></summary>
-        private HttpResponseMessage CatAliases()
+        public virtual HttpResponseMessage CatAliases()
         {
             string uri = "/_cat/aliases";
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-alias.html"/></summary>
-        private async Task<HttpResponseMessage> CatAliasesAsync()
+        public virtual async Task<HttpResponseMessage> CatAliasesAsync()
         {
             string uri = "/_cat/aliases";
             return await this.ExecuteAsync("GET", uri);
@@ -36,7 +36,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-alias.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage CatAliases(Func<CatAliasesParameters, CatAliasesParameters> options)
+        public virtual HttpResponseMessage CatAliases(Func<CatAliasesParameters, CatAliasesParameters> options)
         {
             string uri = "/_cat/aliases";
             CatAliasesParameters parameters = options.Invoke(new CatAliasesParameters());
@@ -46,7 +46,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-alias.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> CatAliasesAsync(Func<CatAliasesParameters, CatAliasesParameters> options)
+        public virtual async Task<HttpResponseMessage> CatAliasesAsync(Func<CatAliasesParameters, CatAliasesParameters> options)
         {
             string uri = "/_cat/aliases";
             CatAliasesParameters parameters = options.Invoke(new CatAliasesParameters());
@@ -56,7 +56,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-alias.html"/></summary>
         /// <param name="name">A comma-separated list of alias names to return</param>
-        private HttpResponseMessage CatAliases(string name)
+        public virtual HttpResponseMessage CatAliases(string name)
         {
             string uri = string.Format("/_cat/aliases/{0}", name);
             return this.Execute("GET", uri);
@@ -64,7 +64,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-alias.html"/></summary>
         /// <param name="name">A comma-separated list of alias names to return</param>
-        private async Task<HttpResponseMessage> CatAliasesAsync(string name)
+        public virtual async Task<HttpResponseMessage> CatAliasesAsync(string name)
         {
             string uri = string.Format("/_cat/aliases/{0}", name);
             return await this.ExecuteAsync("GET", uri);
@@ -73,7 +73,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-alias.html"/></summary>
         /// <param name="name">A comma-separated list of alias names to return</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage CatAliases(string name, Func<CatAliasesParameters, CatAliasesParameters> options)
+        public virtual HttpResponseMessage CatAliases(string name, Func<CatAliasesParameters, CatAliasesParameters> options)
         {
             string uri = string.Format("/_cat/aliases/{0}", name);
             CatAliasesParameters parameters = options.Invoke(new CatAliasesParameters());
@@ -84,7 +84,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-alias.html"/></summary>
         /// <param name="name">A comma-separated list of alias names to return</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> CatAliasesAsync(string name, Func<CatAliasesParameters, CatAliasesParameters> options)
+        public virtual async Task<HttpResponseMessage> CatAliasesAsync(string name, Func<CatAliasesParameters, CatAliasesParameters> options)
         {
             string uri = string.Format("/_cat/aliases/{0}", name);
             CatAliasesParameters parameters = options.Invoke(new CatAliasesParameters());

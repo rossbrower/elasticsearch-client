@@ -21,14 +21,14 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-repositories.html"/></summary>
-        private HttpResponseMessage CatRepositories()
+        public virtual HttpResponseMessage CatRepositories()
         {
             string uri = "/_cat/repositories";
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-repositories.html"/></summary>
-        private async Task<HttpResponseMessage> CatRepositoriesAsync()
+        public virtual async Task<HttpResponseMessage> CatRepositoriesAsync()
         {
             string uri = "/_cat/repositories";
             return await this.ExecuteAsync("GET", uri);
@@ -36,7 +36,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-repositories.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage CatRepositories(Func<CatRepositoriesParameters, CatRepositoriesParameters> options)
+        public virtual HttpResponseMessage CatRepositories(Func<CatRepositoriesParameters, CatRepositoriesParameters> options)
         {
             string uri = "/_cat/repositories";
             CatRepositoriesParameters parameters = options.Invoke(new CatRepositoriesParameters());
@@ -46,7 +46,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-repositories.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> CatRepositoriesAsync(Func<CatRepositoriesParameters, CatRepositoriesParameters> options)
+        public virtual async Task<HttpResponseMessage> CatRepositoriesAsync(Func<CatRepositoriesParameters, CatRepositoriesParameters> options)
         {
             string uri = "/_cat/repositories";
             CatRepositoriesParameters parameters = options.Invoke(new CatRepositoriesParameters());

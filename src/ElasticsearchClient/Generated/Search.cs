@@ -22,7 +22,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
         /// <param name="body">The search definition using the Query DSL</param>
-        private HttpResponseMessage SearchGet(Stream body)
+        public virtual HttpResponseMessage SearchGet(Stream body)
         {
             string uri = "/_search";
             return this.Execute("GET", uri, body);
@@ -30,7 +30,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
         /// <param name="body">The search definition using the Query DSL</param>
-        private async Task<HttpResponseMessage> SearchGetAsync(Stream body)
+        public virtual async Task<HttpResponseMessage> SearchGetAsync(Stream body)
         {
             string uri = "/_search";
             return await this.ExecuteAsync("GET", uri, body);
@@ -39,7 +39,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
         /// <param name="body">The search definition using the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage SearchGet(Stream body, Func<SearchParameters, SearchParameters> options)
+        public virtual HttpResponseMessage SearchGet(Stream body, Func<SearchParameters, SearchParameters> options)
         {
             string uri = "/_search";
             SearchParameters parameters = options.Invoke(new SearchParameters());
@@ -50,7 +50,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
         /// <param name="body">The search definition using the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> SearchGetAsync(Stream body, Func<SearchParameters, SearchParameters> options)
+        public virtual async Task<HttpResponseMessage> SearchGetAsync(Stream body, Func<SearchParameters, SearchParameters> options)
         {
             string uri = "/_search";
             SearchParameters parameters = options.Invoke(new SearchParameters());
@@ -60,7 +60,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
         /// <param name="body">The search definition using the Query DSL</param>
-        private HttpResponseMessage SearchGet(Byte[] body)
+        public virtual HttpResponseMessage SearchGet(Byte[] body)
         {
             string uri = "/_search";
             return this.Execute("GET", uri, body);
@@ -68,7 +68,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
         /// <param name="body">The search definition using the Query DSL</param>
-        private async Task<HttpResponseMessage> SearchGetAsync(Byte[] body)
+        public virtual async Task<HttpResponseMessage> SearchGetAsync(Byte[] body)
         {
             string uri = "/_search";
             return await this.ExecuteAsync("GET", uri, body);
@@ -77,45 +77,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
         /// <param name="body">The search definition using the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage SearchGet(Byte[] body, Func<SearchParameters, SearchParameters> options)
-        {
-            string uri = "/_search";
-            SearchParameters parameters = options.Invoke(new SearchParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
-        /// <param name="body">The search definition using the Query DSL</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> SearchGetAsync(Byte[] body, Func<SearchParameters, SearchParameters> options)
-        {
-            string uri = "/_search";
-            SearchParameters parameters = options.Invoke(new SearchParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
-        /// <param name="body">The search definition using the Query DSL</param>
-        private HttpResponseMessage SearchGet(string body)
-        {
-            string uri = "/_search";
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
-        /// <param name="body">The search definition using the Query DSL</param>
-        private async Task<HttpResponseMessage> SearchGetAsync(string body)
-        {
-            string uri = "/_search";
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
-        /// <param name="body">The search definition using the Query DSL</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage SearchGet(string body, Func<SearchParameters, SearchParameters> options)
+        public virtual HttpResponseMessage SearchGet(Byte[] body, Func<SearchParameters, SearchParameters> options)
         {
             string uri = "/_search";
             SearchParameters parameters = options.Invoke(new SearchParameters());
@@ -126,7 +88,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
         /// <param name="body">The search definition using the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> SearchGetAsync(string body, Func<SearchParameters, SearchParameters> options)
+        public virtual async Task<HttpResponseMessage> SearchGetAsync(Byte[] body, Func<SearchParameters, SearchParameters> options)
         {
             string uri = "/_search";
             SearchParameters parameters = options.Invoke(new SearchParameters());
@@ -136,7 +98,45 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
         /// <param name="body">The search definition using the Query DSL</param>
-        private HttpResponseMessage SearchPost(Stream body)
+        public virtual HttpResponseMessage SearchGet(string body)
+        {
+            string uri = "/_search";
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
+        /// <param name="body">The search definition using the Query DSL</param>
+        public virtual async Task<HttpResponseMessage> SearchGetAsync(string body)
+        {
+            string uri = "/_search";
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
+        /// <param name="body">The search definition using the Query DSL</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage SearchGet(string body, Func<SearchParameters, SearchParameters> options)
+        {
+            string uri = "/_search";
+            SearchParameters parameters = options.Invoke(new SearchParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
+        /// <param name="body">The search definition using the Query DSL</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> SearchGetAsync(string body, Func<SearchParameters, SearchParameters> options)
+        {
+            string uri = "/_search";
+            SearchParameters parameters = options.Invoke(new SearchParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
+        /// <param name="body">The search definition using the Query DSL</param>
+        public virtual HttpResponseMessage SearchPost(Stream body)
         {
             string uri = "/_search";
             return this.Execute("POST", uri, body);
@@ -144,7 +144,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
         /// <param name="body">The search definition using the Query DSL</param>
-        private async Task<HttpResponseMessage> SearchPostAsync(Stream body)
+        public virtual async Task<HttpResponseMessage> SearchPostAsync(Stream body)
         {
             string uri = "/_search";
             return await this.ExecuteAsync("POST", uri, body);
@@ -153,7 +153,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
         /// <param name="body">The search definition using the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage SearchPost(Stream body, Func<SearchParameters, SearchParameters> options)
+        public virtual HttpResponseMessage SearchPost(Stream body, Func<SearchParameters, SearchParameters> options)
         {
             string uri = "/_search";
             SearchParameters parameters = options.Invoke(new SearchParameters());
@@ -164,45 +164,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
         /// <param name="body">The search definition using the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> SearchPostAsync(Stream body, Func<SearchParameters, SearchParameters> options)
-        {
-            string uri = "/_search";
-            SearchParameters parameters = options.Invoke(new SearchParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
-        /// <param name="body">The search definition using the Query DSL</param>
-        private HttpResponseMessage SearchPost(Byte[] body)
-        {
-            string uri = "/_search";
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
-        /// <param name="body">The search definition using the Query DSL</param>
-        private async Task<HttpResponseMessage> SearchPostAsync(Byte[] body)
-        {
-            string uri = "/_search";
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
-        /// <param name="body">The search definition using the Query DSL</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage SearchPost(Byte[] body, Func<SearchParameters, SearchParameters> options)
-        {
-            string uri = "/_search";
-            SearchParameters parameters = options.Invoke(new SearchParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
-        /// <param name="body">The search definition using the Query DSL</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> SearchPostAsync(Byte[] body, Func<SearchParameters, SearchParameters> options)
+        public virtual async Task<HttpResponseMessage> SearchPostAsync(Stream body, Func<SearchParameters, SearchParameters> options)
         {
             string uri = "/_search";
             SearchParameters parameters = options.Invoke(new SearchParameters());
@@ -212,7 +174,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
         /// <param name="body">The search definition using the Query DSL</param>
-        private HttpResponseMessage SearchPost(string body)
+        public virtual HttpResponseMessage SearchPost(Byte[] body)
         {
             string uri = "/_search";
             return this.Execute("POST", uri, body);
@@ -220,7 +182,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
         /// <param name="body">The search definition using the Query DSL</param>
-        private async Task<HttpResponseMessage> SearchPostAsync(string body)
+        public virtual async Task<HttpResponseMessage> SearchPostAsync(Byte[] body)
         {
             string uri = "/_search";
             return await this.ExecuteAsync("POST", uri, body);
@@ -229,7 +191,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
         /// <param name="body">The search definition using the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage SearchPost(string body, Func<SearchParameters, SearchParameters> options)
+        public virtual HttpResponseMessage SearchPost(Byte[] body, Func<SearchParameters, SearchParameters> options)
         {
             string uri = "/_search";
             SearchParameters parameters = options.Invoke(new SearchParameters());
@@ -240,7 +202,45 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
         /// <param name="body">The search definition using the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> SearchPostAsync(string body, Func<SearchParameters, SearchParameters> options)
+        public virtual async Task<HttpResponseMessage> SearchPostAsync(Byte[] body, Func<SearchParameters, SearchParameters> options)
+        {
+            string uri = "/_search";
+            SearchParameters parameters = options.Invoke(new SearchParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
+        /// <param name="body">The search definition using the Query DSL</param>
+        public virtual HttpResponseMessage SearchPost(string body)
+        {
+            string uri = "/_search";
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
+        /// <param name="body">The search definition using the Query DSL</param>
+        public virtual async Task<HttpResponseMessage> SearchPostAsync(string body)
+        {
+            string uri = "/_search";
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
+        /// <param name="body">The search definition using the Query DSL</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage SearchPost(string body, Func<SearchParameters, SearchParameters> options)
+        {
+            string uri = "/_search";
+            SearchParameters parameters = options.Invoke(new SearchParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
+        /// <param name="body">The search definition using the Query DSL</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> SearchPostAsync(string body, Func<SearchParameters, SearchParameters> options)
         {
             string uri = "/_search";
             SearchParameters parameters = options.Invoke(new SearchParameters());
@@ -251,7 +251,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
         /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The search definition using the Query DSL</param>
-        private HttpResponseMessage SearchGet(string index, Stream body)
+        public virtual HttpResponseMessage SearchGet(string index, Stream body)
         {
             string uri = string.Format("/{0}/_search", index);
             return this.Execute("GET", uri, body);
@@ -260,7 +260,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
         /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The search definition using the Query DSL</param>
-        private async Task<HttpResponseMessage> SearchGetAsync(string index, Stream body)
+        public virtual async Task<HttpResponseMessage> SearchGetAsync(string index, Stream body)
         {
             string uri = string.Format("/{0}/_search", index);
             return await this.ExecuteAsync("GET", uri, body);
@@ -270,7 +270,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The search definition using the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage SearchGet(string index, Stream body, Func<SearchParameters, SearchParameters> options)
+        public virtual HttpResponseMessage SearchGet(string index, Stream body, Func<SearchParameters, SearchParameters> options)
         {
             string uri = string.Format("/{0}/_search", index);
             SearchParameters parameters = options.Invoke(new SearchParameters());
@@ -282,7 +282,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The search definition using the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> SearchGetAsync(string index, Stream body, Func<SearchParameters, SearchParameters> options)
+        public virtual async Task<HttpResponseMessage> SearchGetAsync(string index, Stream body, Func<SearchParameters, SearchParameters> options)
         {
             string uri = string.Format("/{0}/_search", index);
             SearchParameters parameters = options.Invoke(new SearchParameters());
@@ -293,7 +293,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
         /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The search definition using the Query DSL</param>
-        private HttpResponseMessage SearchGet(string index, Byte[] body)
+        public virtual HttpResponseMessage SearchGet(string index, Byte[] body)
         {
             string uri = string.Format("/{0}/_search", index);
             return this.Execute("GET", uri, body);
@@ -302,7 +302,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
         /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The search definition using the Query DSL</param>
-        private async Task<HttpResponseMessage> SearchGetAsync(string index, Byte[] body)
+        public virtual async Task<HttpResponseMessage> SearchGetAsync(string index, Byte[] body)
         {
             string uri = string.Format("/{0}/_search", index);
             return await this.ExecuteAsync("GET", uri, body);
@@ -312,49 +312,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The search definition using the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage SearchGet(string index, Byte[] body, Func<SearchParameters, SearchParameters> options)
-        {
-            string uri = string.Format("/{0}/_search", index);
-            SearchParameters parameters = options.Invoke(new SearchParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="body">The search definition using the Query DSL</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> SearchGetAsync(string index, Byte[] body, Func<SearchParameters, SearchParameters> options)
-        {
-            string uri = string.Format("/{0}/_search", index);
-            SearchParameters parameters = options.Invoke(new SearchParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="body">The search definition using the Query DSL</param>
-        private HttpResponseMessage SearchGet(string index, string body)
-        {
-            string uri = string.Format("/{0}/_search", index);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="body">The search definition using the Query DSL</param>
-        private async Task<HttpResponseMessage> SearchGetAsync(string index, string body)
-        {
-            string uri = string.Format("/{0}/_search", index);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="body">The search definition using the Query DSL</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage SearchGet(string index, string body, Func<SearchParameters, SearchParameters> options)
+        public virtual HttpResponseMessage SearchGet(string index, Byte[] body, Func<SearchParameters, SearchParameters> options)
         {
             string uri = string.Format("/{0}/_search", index);
             SearchParameters parameters = options.Invoke(new SearchParameters());
@@ -366,7 +324,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The search definition using the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> SearchGetAsync(string index, string body, Func<SearchParameters, SearchParameters> options)
+        public virtual async Task<HttpResponseMessage> SearchGetAsync(string index, Byte[] body, Func<SearchParameters, SearchParameters> options)
         {
             string uri = string.Format("/{0}/_search", index);
             SearchParameters parameters = options.Invoke(new SearchParameters());
@@ -377,7 +335,49 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
         /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The search definition using the Query DSL</param>
-        private HttpResponseMessage SearchPost(string index, Stream body)
+        public virtual HttpResponseMessage SearchGet(string index, string body)
+        {
+            string uri = string.Format("/{0}/_search", index);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The search definition using the Query DSL</param>
+        public virtual async Task<HttpResponseMessage> SearchGetAsync(string index, string body)
+        {
+            string uri = string.Format("/{0}/_search", index);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The search definition using the Query DSL</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage SearchGet(string index, string body, Func<SearchParameters, SearchParameters> options)
+        {
+            string uri = string.Format("/{0}/_search", index);
+            SearchParameters parameters = options.Invoke(new SearchParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The search definition using the Query DSL</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> SearchGetAsync(string index, string body, Func<SearchParameters, SearchParameters> options)
+        {
+            string uri = string.Format("/{0}/_search", index);
+            SearchParameters parameters = options.Invoke(new SearchParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The search definition using the Query DSL</param>
+        public virtual HttpResponseMessage SearchPost(string index, Stream body)
         {
             string uri = string.Format("/{0}/_search", index);
             return this.Execute("POST", uri, body);
@@ -386,7 +386,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
         /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The search definition using the Query DSL</param>
-        private async Task<HttpResponseMessage> SearchPostAsync(string index, Stream body)
+        public virtual async Task<HttpResponseMessage> SearchPostAsync(string index, Stream body)
         {
             string uri = string.Format("/{0}/_search", index);
             return await this.ExecuteAsync("POST", uri, body);
@@ -396,7 +396,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The search definition using the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage SearchPost(string index, Stream body, Func<SearchParameters, SearchParameters> options)
+        public virtual HttpResponseMessage SearchPost(string index, Stream body, Func<SearchParameters, SearchParameters> options)
         {
             string uri = string.Format("/{0}/_search", index);
             SearchParameters parameters = options.Invoke(new SearchParameters());
@@ -408,49 +408,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The search definition using the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> SearchPostAsync(string index, Stream body, Func<SearchParameters, SearchParameters> options)
-        {
-            string uri = string.Format("/{0}/_search", index);
-            SearchParameters parameters = options.Invoke(new SearchParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="body">The search definition using the Query DSL</param>
-        private HttpResponseMessage SearchPost(string index, Byte[] body)
-        {
-            string uri = string.Format("/{0}/_search", index);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="body">The search definition using the Query DSL</param>
-        private async Task<HttpResponseMessage> SearchPostAsync(string index, Byte[] body)
-        {
-            string uri = string.Format("/{0}/_search", index);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="body">The search definition using the Query DSL</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage SearchPost(string index, Byte[] body, Func<SearchParameters, SearchParameters> options)
-        {
-            string uri = string.Format("/{0}/_search", index);
-            SearchParameters parameters = options.Invoke(new SearchParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="body">The search definition using the Query DSL</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> SearchPostAsync(string index, Byte[] body, Func<SearchParameters, SearchParameters> options)
+        public virtual async Task<HttpResponseMessage> SearchPostAsync(string index, Stream body, Func<SearchParameters, SearchParameters> options)
         {
             string uri = string.Format("/{0}/_search", index);
             SearchParameters parameters = options.Invoke(new SearchParameters());
@@ -461,7 +419,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
         /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The search definition using the Query DSL</param>
-        private HttpResponseMessage SearchPost(string index, string body)
+        public virtual HttpResponseMessage SearchPost(string index, Byte[] body)
         {
             string uri = string.Format("/{0}/_search", index);
             return this.Execute("POST", uri, body);
@@ -470,7 +428,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
         /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The search definition using the Query DSL</param>
-        private async Task<HttpResponseMessage> SearchPostAsync(string index, string body)
+        public virtual async Task<HttpResponseMessage> SearchPostAsync(string index, Byte[] body)
         {
             string uri = string.Format("/{0}/_search", index);
             return await this.ExecuteAsync("POST", uri, body);
@@ -480,7 +438,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The search definition using the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage SearchPost(string index, string body, Func<SearchParameters, SearchParameters> options)
+        public virtual HttpResponseMessage SearchPost(string index, Byte[] body, Func<SearchParameters, SearchParameters> options)
         {
             string uri = string.Format("/{0}/_search", index);
             SearchParameters parameters = options.Invoke(new SearchParameters());
@@ -492,7 +450,49 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The search definition using the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> SearchPostAsync(string index, string body, Func<SearchParameters, SearchParameters> options)
+        public virtual async Task<HttpResponseMessage> SearchPostAsync(string index, Byte[] body, Func<SearchParameters, SearchParameters> options)
+        {
+            string uri = string.Format("/{0}/_search", index);
+            SearchParameters parameters = options.Invoke(new SearchParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The search definition using the Query DSL</param>
+        public virtual HttpResponseMessage SearchPost(string index, string body)
+        {
+            string uri = string.Format("/{0}/_search", index);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The search definition using the Query DSL</param>
+        public virtual async Task<HttpResponseMessage> SearchPostAsync(string index, string body)
+        {
+            string uri = string.Format("/{0}/_search", index);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The search definition using the Query DSL</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage SearchPost(string index, string body, Func<SearchParameters, SearchParameters> options)
+        {
+            string uri = string.Format("/{0}/_search", index);
+            SearchParameters parameters = options.Invoke(new SearchParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The search definition using the Query DSL</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> SearchPostAsync(string index, string body, Func<SearchParameters, SearchParameters> options)
         {
             string uri = string.Format("/{0}/_search", index);
             SearchParameters parameters = options.Invoke(new SearchParameters());
@@ -504,7 +504,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
         /// <param name="body">The search definition using the Query DSL</param>
-        private HttpResponseMessage SearchGet(string index, string type, Stream body)
+        public virtual HttpResponseMessage SearchGet(string index, string type, Stream body)
         {
             string uri = string.Format("/{0}/{1}/_search", index, type);
             return this.Execute("GET", uri, body);
@@ -514,7 +514,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
         /// <param name="body">The search definition using the Query DSL</param>
-        private async Task<HttpResponseMessage> SearchGetAsync(string index, string type, Stream body)
+        public virtual async Task<HttpResponseMessage> SearchGetAsync(string index, string type, Stream body)
         {
             string uri = string.Format("/{0}/{1}/_search", index, type);
             return await this.ExecuteAsync("GET", uri, body);
@@ -525,7 +525,7 @@ namespace Elasticsearch.Client
         /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
         /// <param name="body">The search definition using the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage SearchGet(string index, string type, Stream body, Func<SearchParameters, SearchParameters> options)
+        public virtual HttpResponseMessage SearchGet(string index, string type, Stream body, Func<SearchParameters, SearchParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_search", index, type);
             SearchParameters parameters = options.Invoke(new SearchParameters());
@@ -538,7 +538,7 @@ namespace Elasticsearch.Client
         /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
         /// <param name="body">The search definition using the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> SearchGetAsync(string index, string type, Stream body, Func<SearchParameters, SearchParameters> options)
+        public virtual async Task<HttpResponseMessage> SearchGetAsync(string index, string type, Stream body, Func<SearchParameters, SearchParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_search", index, type);
             SearchParameters parameters = options.Invoke(new SearchParameters());
@@ -550,7 +550,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
         /// <param name="body">The search definition using the Query DSL</param>
-        private HttpResponseMessage SearchGet(string index, string type, Byte[] body)
+        public virtual HttpResponseMessage SearchGet(string index, string type, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/_search", index, type);
             return this.Execute("GET", uri, body);
@@ -560,7 +560,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
         /// <param name="body">The search definition using the Query DSL</param>
-        private async Task<HttpResponseMessage> SearchGetAsync(string index, string type, Byte[] body)
+        public virtual async Task<HttpResponseMessage> SearchGetAsync(string index, string type, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/_search", index, type);
             return await this.ExecuteAsync("GET", uri, body);
@@ -571,53 +571,7 @@ namespace Elasticsearch.Client
         /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
         /// <param name="body">The search definition using the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage SearchGet(string index, string type, Byte[] body, Func<SearchParameters, SearchParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_search", index, type);
-            SearchParameters parameters = options.Invoke(new SearchParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
-        /// <param name="body">The search definition using the Query DSL</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> SearchGetAsync(string index, string type, Byte[] body, Func<SearchParameters, SearchParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_search", index, type);
-            SearchParameters parameters = options.Invoke(new SearchParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
-        /// <param name="body">The search definition using the Query DSL</param>
-        private HttpResponseMessage SearchGet(string index, string type, string body)
-        {
-            string uri = string.Format("/{0}/{1}/_search", index, type);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
-        /// <param name="body">The search definition using the Query DSL</param>
-        private async Task<HttpResponseMessage> SearchGetAsync(string index, string type, string body)
-        {
-            string uri = string.Format("/{0}/{1}/_search", index, type);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
-        /// <param name="body">The search definition using the Query DSL</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage SearchGet(string index, string type, string body, Func<SearchParameters, SearchParameters> options)
+        public virtual HttpResponseMessage SearchGet(string index, string type, Byte[] body, Func<SearchParameters, SearchParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_search", index, type);
             SearchParameters parameters = options.Invoke(new SearchParameters());
@@ -630,7 +584,7 @@ namespace Elasticsearch.Client
         /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
         /// <param name="body">The search definition using the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> SearchGetAsync(string index, string type, string body, Func<SearchParameters, SearchParameters> options)
+        public virtual async Task<HttpResponseMessage> SearchGetAsync(string index, string type, Byte[] body, Func<SearchParameters, SearchParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_search", index, type);
             SearchParameters parameters = options.Invoke(new SearchParameters());
@@ -642,7 +596,53 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
         /// <param name="body">The search definition using the Query DSL</param>
-        private HttpResponseMessage SearchPost(string index, string type, Stream body)
+        public virtual HttpResponseMessage SearchGet(string index, string type, string body)
+        {
+            string uri = string.Format("/{0}/{1}/_search", index, type);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
+        /// <param name="body">The search definition using the Query DSL</param>
+        public virtual async Task<HttpResponseMessage> SearchGetAsync(string index, string type, string body)
+        {
+            string uri = string.Format("/{0}/{1}/_search", index, type);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
+        /// <param name="body">The search definition using the Query DSL</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage SearchGet(string index, string type, string body, Func<SearchParameters, SearchParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_search", index, type);
+            SearchParameters parameters = options.Invoke(new SearchParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
+        /// <param name="body">The search definition using the Query DSL</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> SearchGetAsync(string index, string type, string body, Func<SearchParameters, SearchParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_search", index, type);
+            SearchParameters parameters = options.Invoke(new SearchParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
+        /// <param name="body">The search definition using the Query DSL</param>
+        public virtual HttpResponseMessage SearchPost(string index, string type, Stream body)
         {
             string uri = string.Format("/{0}/{1}/_search", index, type);
             return this.Execute("POST", uri, body);
@@ -652,7 +652,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
         /// <param name="body">The search definition using the Query DSL</param>
-        private async Task<HttpResponseMessage> SearchPostAsync(string index, string type, Stream body)
+        public virtual async Task<HttpResponseMessage> SearchPostAsync(string index, string type, Stream body)
         {
             string uri = string.Format("/{0}/{1}/_search", index, type);
             return await this.ExecuteAsync("POST", uri, body);
@@ -663,7 +663,7 @@ namespace Elasticsearch.Client
         /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
         /// <param name="body">The search definition using the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage SearchPost(string index, string type, Stream body, Func<SearchParameters, SearchParameters> options)
+        public virtual HttpResponseMessage SearchPost(string index, string type, Stream body, Func<SearchParameters, SearchParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_search", index, type);
             SearchParameters parameters = options.Invoke(new SearchParameters());
@@ -676,53 +676,7 @@ namespace Elasticsearch.Client
         /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
         /// <param name="body">The search definition using the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> SearchPostAsync(string index, string type, Stream body, Func<SearchParameters, SearchParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_search", index, type);
-            SearchParameters parameters = options.Invoke(new SearchParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
-        /// <param name="body">The search definition using the Query DSL</param>
-        private HttpResponseMessage SearchPost(string index, string type, Byte[] body)
-        {
-            string uri = string.Format("/{0}/{1}/_search", index, type);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
-        /// <param name="body">The search definition using the Query DSL</param>
-        private async Task<HttpResponseMessage> SearchPostAsync(string index, string type, Byte[] body)
-        {
-            string uri = string.Format("/{0}/{1}/_search", index, type);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
-        /// <param name="body">The search definition using the Query DSL</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage SearchPost(string index, string type, Byte[] body, Func<SearchParameters, SearchParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_search", index, type);
-            SearchParameters parameters = options.Invoke(new SearchParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
-        /// <param name="body">The search definition using the Query DSL</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> SearchPostAsync(string index, string type, Byte[] body, Func<SearchParameters, SearchParameters> options)
+        public virtual async Task<HttpResponseMessage> SearchPostAsync(string index, string type, Stream body, Func<SearchParameters, SearchParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_search", index, type);
             SearchParameters parameters = options.Invoke(new SearchParameters());
@@ -734,7 +688,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
         /// <param name="body">The search definition using the Query DSL</param>
-        private HttpResponseMessage SearchPost(string index, string type, string body)
+        public virtual HttpResponseMessage SearchPost(string index, string type, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/_search", index, type);
             return this.Execute("POST", uri, body);
@@ -744,7 +698,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
         /// <param name="body">The search definition using the Query DSL</param>
-        private async Task<HttpResponseMessage> SearchPostAsync(string index, string type, string body)
+        public virtual async Task<HttpResponseMessage> SearchPostAsync(string index, string type, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/_search", index, type);
             return await this.ExecuteAsync("POST", uri, body);
@@ -755,7 +709,7 @@ namespace Elasticsearch.Client
         /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
         /// <param name="body">The search definition using the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage SearchPost(string index, string type, string body, Func<SearchParameters, SearchParameters> options)
+        public virtual HttpResponseMessage SearchPost(string index, string type, Byte[] body, Func<SearchParameters, SearchParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_search", index, type);
             SearchParameters parameters = options.Invoke(new SearchParameters());
@@ -768,7 +722,53 @@ namespace Elasticsearch.Client
         /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
         /// <param name="body">The search definition using the Query DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> SearchPostAsync(string index, string type, string body, Func<SearchParameters, SearchParameters> options)
+        public virtual async Task<HttpResponseMessage> SearchPostAsync(string index, string type, Byte[] body, Func<SearchParameters, SearchParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_search", index, type);
+            SearchParameters parameters = options.Invoke(new SearchParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
+        /// <param name="body">The search definition using the Query DSL</param>
+        public virtual HttpResponseMessage SearchPost(string index, string type, string body)
+        {
+            string uri = string.Format("/{0}/{1}/_search", index, type);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
+        /// <param name="body">The search definition using the Query DSL</param>
+        public virtual async Task<HttpResponseMessage> SearchPostAsync(string index, string type, string body)
+        {
+            string uri = string.Format("/{0}/{1}/_search", index, type);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
+        /// <param name="body">The search definition using the Query DSL</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage SearchPost(string index, string type, string body, Func<SearchParameters, SearchParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_search", index, type);
+            SearchParameters parameters = options.Invoke(new SearchParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to search; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="type">A comma-separated list of document types to search; leave empty to perform the operation on all types</param>
+        /// <param name="body">The search definition using the Query DSL</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> SearchPostAsync(string index, string type, string body, Func<SearchParameters, SearchParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_search", index, type);
             SearchParameters parameters = options.Invoke(new SearchParameters());

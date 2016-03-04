@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using Microsoft.CSharp;
 using Newtonsoft.Json;
 
@@ -17,7 +18,8 @@ namespace Elasticsearch.Client.Generator
         private static readonly TextInfo TextInfo;
         private static readonly CodeDomProvider Provider;
         private static readonly CodeNamespaceImport[] Imports;
-        private static Type[] BodyTypes;
+        private static readonly CodeNamespaceImport[] TestImports;
+        private static readonly Type[] BodyTypes;
 
         static Generator()
         {
@@ -31,6 +33,16 @@ namespace Elasticsearch.Client.Generator
                 new CodeNamespaceImport("System.Net.Http"),
                 new CodeNamespaceImport("System.Threading.Tasks")
             };
+            TestImports = new[]
+            {
+                new CodeNamespaceImport("System"),
+                new CodeNamespaceImport("System.IO"),
+                new CodeNamespaceImport("System.Net"),
+                new CodeNamespaceImport("System.Net.Http"),
+                new CodeNamespaceImport("System.Threading.Tasks"),
+                new CodeNamespaceImport("Elasticsearch.Client"),
+                new CodeNamespaceImport("Microsoft.VisualStudio.TestTools.UnitTesting") 
+            };
             BodyTypes = new[]
             {
                 typeof (Stream),
@@ -39,16 +51,16 @@ namespace Elasticsearch.Client.Generator
             };
         }
 
-        public static void GenerateFromDirectory(string inputPath, string outputPath)
+        public static void GenerateFromDirectory(string inputPath, string outputPath, string testPath)
         {
             var directory = new DirectoryInfo(inputPath);
             foreach (var fileInfo in directory.EnumerateFiles("*.json"))
             {
-                GenerateFromFile(fileInfo.FullName, outputPath);
+                GenerateFromFile(fileInfo.FullName, outputPath, testPath);
             }
         }
 
-        public static void GenerateFromFile(string inputFile, string outputPath)
+        public static void GenerateFromFile(string inputFile, string outputPath, string testPath)
         {
             MethodDescription description = null;
             using (var sr = File.OpenText(inputFile))
@@ -64,10 +76,10 @@ namespace Elasticsearch.Client.Generator
                     }
                 }
             }
-            GenerateCode(description, outputPath);
+            GenerateCode(description, outputPath, testPath);
         }
 
-        private static void GenerateCode(MethodDescription description, string outputPath)
+        private static void GenerateCode(MethodDescription description, string outputPath, string testPath)
         {
             if (description == null)
             {
@@ -78,15 +90,77 @@ namespace Elasticsearch.Client.Generator
             if (description.UrlParams.Count > 0)
             {
                 paramClassName = fileName + "Parameters";
-                var paramMethods = GenerateParameterMethods(paramClassName, description);
-                WriteClass(paramClassName, paramMethods, outputPath, baseType: "Parameters");
+                var paramMethods = GenerateParameterMethods(paramClassName, description).ToArray();
+                WriteClass(paramClassName, paramMethods, Imports, outputPath, baseType: "Parameters");
             }            
-            var methods = GenerateMethods(fileName, description, paramClassName);
-            WriteClass(ClassName, methods, outputPath, fileName, isPartial: true);
+            var methods = GenerateMethods(fileName, description, paramClassName).ToArray();
+            WriteClass(ClassName, methods, Imports, outputPath, fileName, isPartial: true);
+            //WriteTestClass(fileName, methods, testPath);
         }
 
-        private static void WriteClass(string className, IEnumerable<CodeTypeMember> members, string outputPath, 
-            string fileName = null, string baseType = null, bool isPartial = false)
+        private static void WriteTestClass(string apiName, IList<CodeMemberMethod> methods, string outputDir)
+        {
+            var members = new List<CodeTypeMember>();            
+            var clientVariable = new CodeMemberField("ElasticsearchClient", "Client")
+            {
+                Attributes = MemberAttributes.Public | MemberAttributes.Static
+            };
+            clientVariable.InitExpression = new CodeObjectCreateExpression("ElasticsearchClient",
+                new CodeObjectCreateExpression("SingleConnectionPool"));
+            members.Add(clientVariable);
+            var testMethod = new CodeMemberMethod
+            {
+                Name = "Test" + apiName,
+                Attributes = MemberAttributes.Public
+            };
+            members.Add(testMethod);
+            testMethod.CustomAttributes.Add(new CodeAttributeDeclaration("TestMethod"));
+            var apiInvokes = new List<CodeMethodInvokeExpression>();
+            HashSet<string> visited = new HashSet<string>();
+            foreach (var method in methods)
+            {
+                var invoke = new CodeMethodInvokeExpression(new CodeVariableReferenceExpression("Client"),
+                    method.Name);
+                apiInvokes.Add(invoke);
+                foreach (CodeParameterDeclarationExpression parameter in method.Parameters)
+                {
+                    if (!visited.Contains(parameter.Name))
+                    {
+                        if (parameter.Name == "body")
+                        {
+                        }
+                        else
+                        {
+                            var methodName = parameter.Name.ToCamelCase();
+                            var paramMethod = new CodeMemberMethod
+                            {
+                                Name = methodName,
+                                Attributes = MemberAttributes.Public,
+                                ReturnType = parameter.Type
+                            };
+                            members.Add(paramMethod);                            
+                            var paramGet = new CodeMethodInvokeExpression(new CodeThisReferenceExpression(), methodName);
+                            testMethod.Statements.Add(new CodeVariableDeclarationStatement(parameter.Type,
+                                parameter.Name, paramGet));
+                        }
+                        visited.Add(parameter.Name);
+                    }
+                    invoke.Parameters.Add(new CodeVariableReferenceExpression(parameter.Name));
+                }
+            }
+            foreach (var codeStatement in apiInvokes)
+            {
+                testMethod.Statements.Add(codeStatement);
+            }
+            var testClassName = apiName + "Tests";
+            WriteClass(testClassName, members.ToArray(), TestImports, outputDir, 
+                attributes: new CodeAttributeDeclaration("TestClass"));
+        }
+
+        private static void WriteClass(string className, CodeTypeMember[] members, 
+            CodeNamespaceImport[] imports, string outputPath, 
+            string fileName = null, string baseType = null, bool isPartial = false, 
+            bool isAbstract = false, params CodeAttributeDeclaration[] attributes)
         {
             if (fileName == null)
             {
@@ -95,21 +169,26 @@ namespace Elasticsearch.Client.Generator
             var compileUnit = new CodeCompileUnit();
             var namespc = new CodeNamespace(Namespace);
             compileUnit.Namespaces.Add(namespc);
-            namespc.Imports.AddRange(Imports);
+            namespc.Imports.AddRange(imports);
             var clss = new CodeTypeDeclaration(className)
             {
                 Attributes = MemberAttributes.Public,
-                IsPartial = isPartial,               
+                IsPartial = isPartial
             };
+            if (isAbstract)
+            {
+                clss.TypeAttributes = TypeAttributes.Abstract;
+            }
+            if (attributes != null && attributes.Length > 0)
+            {
+                clss.CustomAttributes.AddRange(attributes);
+            }
             if (baseType != null)
             {
                 clss.BaseTypes.Add(baseType);
             }
             namespc.Types.Add(clss);
-            foreach (var codeMember in members)
-            {
-                clss.Members.Add(codeMember);
-            }
+            clss.Members.AddRange(members);
             var outputFile = Path.Combine(outputPath, fileName + ".cs");
             using (var tw = File.CreateText(outputFile))
             {
@@ -281,6 +360,7 @@ namespace Elasticsearch.Client.Generator
             var method = new CodeMemberMethod
             {
                 Name = async ? name + "Async" : name,
+                Attributes = MemberAttributes.Public,
                 ReturnType = new CodeTypeReference(async ? "async Task<HttpResponseMessage>" : "HttpResponseMessage")
             };
             method.Comments.Add(GetDocumentationComment(docLink));

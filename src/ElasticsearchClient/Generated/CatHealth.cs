@@ -21,14 +21,14 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-health.html"/></summary>
-        private HttpResponseMessage CatHealth()
+        public virtual HttpResponseMessage CatHealth()
         {
             string uri = "/_cat/health";
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-health.html"/></summary>
-        private async Task<HttpResponseMessage> CatHealthAsync()
+        public virtual async Task<HttpResponseMessage> CatHealthAsync()
         {
             string uri = "/_cat/health";
             return await this.ExecuteAsync("GET", uri);
@@ -36,7 +36,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-health.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage CatHealth(Func<CatHealthParameters, CatHealthParameters> options)
+        public virtual HttpResponseMessage CatHealth(Func<CatHealthParameters, CatHealthParameters> options)
         {
             string uri = "/_cat/health";
             CatHealthParameters parameters = options.Invoke(new CatHealthParameters());
@@ -46,7 +46,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-health.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> CatHealthAsync(Func<CatHealthParameters, CatHealthParameters> options)
+        public virtual async Task<HttpResponseMessage> CatHealthAsync(Func<CatHealthParameters, CatHealthParameters> options)
         {
             string uri = "/_cat/health";
             CatHealthParameters parameters = options.Invoke(new CatHealthParameters());

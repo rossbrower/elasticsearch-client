@@ -22,7 +22,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        private HttpResponseMessage MtermvectorsGet(Stream body)
+        public virtual HttpResponseMessage MtermvectorsGet(Stream body)
         {
             string uri = "/_mtermvectors";
             return this.Execute("GET", uri, body);
@@ -30,7 +30,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        private async Task<HttpResponseMessage> MtermvectorsGetAsync(Stream body)
+        public virtual async Task<HttpResponseMessage> MtermvectorsGetAsync(Stream body)
         {
             string uri = "/_mtermvectors";
             return await this.ExecuteAsync("GET", uri, body);
@@ -39,7 +39,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage MtermvectorsGet(Stream body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
+        public virtual HttpResponseMessage MtermvectorsGet(Stream body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
         {
             string uri = "/_mtermvectors";
             MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
@@ -50,7 +50,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> MtermvectorsGetAsync(Stream body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
+        public virtual async Task<HttpResponseMessage> MtermvectorsGetAsync(Stream body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
         {
             string uri = "/_mtermvectors";
             MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
@@ -60,7 +60,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        private HttpResponseMessage MtermvectorsGet(Byte[] body)
+        public virtual HttpResponseMessage MtermvectorsGet(Byte[] body)
         {
             string uri = "/_mtermvectors";
             return this.Execute("GET", uri, body);
@@ -68,7 +68,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        private async Task<HttpResponseMessage> MtermvectorsGetAsync(Byte[] body)
+        public virtual async Task<HttpResponseMessage> MtermvectorsGetAsync(Byte[] body)
         {
             string uri = "/_mtermvectors";
             return await this.ExecuteAsync("GET", uri, body);
@@ -77,45 +77,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage MtermvectorsGet(Byte[] body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
-        {
-            string uri = "/_mtermvectors";
-            MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
-        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> MtermvectorsGetAsync(Byte[] body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
-        {
-            string uri = "/_mtermvectors";
-            MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
-        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        private HttpResponseMessage MtermvectorsGet(string body)
-        {
-            string uri = "/_mtermvectors";
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
-        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        private async Task<HttpResponseMessage> MtermvectorsGetAsync(string body)
-        {
-            string uri = "/_mtermvectors";
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
-        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage MtermvectorsGet(string body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
+        public virtual HttpResponseMessage MtermvectorsGet(Byte[] body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
         {
             string uri = "/_mtermvectors";
             MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
@@ -126,7 +88,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> MtermvectorsGetAsync(string body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
+        public virtual async Task<HttpResponseMessage> MtermvectorsGetAsync(Byte[] body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
         {
             string uri = "/_mtermvectors";
             MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
@@ -136,7 +98,45 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        private HttpResponseMessage MtermvectorsPost(Stream body)
+        public virtual HttpResponseMessage MtermvectorsGet(string body)
+        {
+            string uri = "/_mtermvectors";
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
+        public virtual async Task<HttpResponseMessage> MtermvectorsGetAsync(string body)
+        {
+            string uri = "/_mtermvectors";
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage MtermvectorsGet(string body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
+        {
+            string uri = "/_mtermvectors";
+            MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> MtermvectorsGetAsync(string body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
+        {
+            string uri = "/_mtermvectors";
+            MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
+        public virtual HttpResponseMessage MtermvectorsPost(Stream body)
         {
             string uri = "/_mtermvectors";
             return this.Execute("POST", uri, body);
@@ -144,7 +144,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        private async Task<HttpResponseMessage> MtermvectorsPostAsync(Stream body)
+        public virtual async Task<HttpResponseMessage> MtermvectorsPostAsync(Stream body)
         {
             string uri = "/_mtermvectors";
             return await this.ExecuteAsync("POST", uri, body);
@@ -153,7 +153,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage MtermvectorsPost(Stream body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
+        public virtual HttpResponseMessage MtermvectorsPost(Stream body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
         {
             string uri = "/_mtermvectors";
             MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
@@ -164,45 +164,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> MtermvectorsPostAsync(Stream body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
-        {
-            string uri = "/_mtermvectors";
-            MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
-        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        private HttpResponseMessage MtermvectorsPost(Byte[] body)
-        {
-            string uri = "/_mtermvectors";
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
-        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        private async Task<HttpResponseMessage> MtermvectorsPostAsync(Byte[] body)
-        {
-            string uri = "/_mtermvectors";
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
-        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage MtermvectorsPost(Byte[] body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
-        {
-            string uri = "/_mtermvectors";
-            MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
-        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> MtermvectorsPostAsync(Byte[] body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
+        public virtual async Task<HttpResponseMessage> MtermvectorsPostAsync(Stream body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
         {
             string uri = "/_mtermvectors";
             MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
@@ -212,7 +174,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        private HttpResponseMessage MtermvectorsPost(string body)
+        public virtual HttpResponseMessage MtermvectorsPost(Byte[] body)
         {
             string uri = "/_mtermvectors";
             return this.Execute("POST", uri, body);
@@ -220,7 +182,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        private async Task<HttpResponseMessage> MtermvectorsPostAsync(string body)
+        public virtual async Task<HttpResponseMessage> MtermvectorsPostAsync(Byte[] body)
         {
             string uri = "/_mtermvectors";
             return await this.ExecuteAsync("POST", uri, body);
@@ -229,7 +191,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage MtermvectorsPost(string body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
+        public virtual HttpResponseMessage MtermvectorsPost(Byte[] body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
         {
             string uri = "/_mtermvectors";
             MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
@@ -240,7 +202,45 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> MtermvectorsPostAsync(string body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
+        public virtual async Task<HttpResponseMessage> MtermvectorsPostAsync(Byte[] body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
+        {
+            string uri = "/_mtermvectors";
+            MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
+        public virtual HttpResponseMessage MtermvectorsPost(string body)
+        {
+            string uri = "/_mtermvectors";
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
+        public virtual async Task<HttpResponseMessage> MtermvectorsPostAsync(string body)
+        {
+            string uri = "/_mtermvectors";
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage MtermvectorsPost(string body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
+        {
+            string uri = "/_mtermvectors";
+            MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> MtermvectorsPostAsync(string body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
         {
             string uri = "/_mtermvectors";
             MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
@@ -251,7 +251,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        private HttpResponseMessage MtermvectorsGet(string index, Stream body)
+        public virtual HttpResponseMessage MtermvectorsGet(string index, Stream body)
         {
             string uri = string.Format("/{0}/_mtermvectors", index);
             return this.Execute("GET", uri, body);
@@ -260,7 +260,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        private async Task<HttpResponseMessage> MtermvectorsGetAsync(string index, Stream body)
+        public virtual async Task<HttpResponseMessage> MtermvectorsGetAsync(string index, Stream body)
         {
             string uri = string.Format("/{0}/_mtermvectors", index);
             return await this.ExecuteAsync("GET", uri, body);
@@ -270,7 +270,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage MtermvectorsGet(string index, Stream body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
+        public virtual HttpResponseMessage MtermvectorsGet(string index, Stream body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
         {
             string uri = string.Format("/{0}/_mtermvectors", index);
             MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
@@ -282,7 +282,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> MtermvectorsGetAsync(string index, Stream body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
+        public virtual async Task<HttpResponseMessage> MtermvectorsGetAsync(string index, Stream body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
         {
             string uri = string.Format("/{0}/_mtermvectors", index);
             MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
@@ -293,7 +293,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        private HttpResponseMessage MtermvectorsGet(string index, Byte[] body)
+        public virtual HttpResponseMessage MtermvectorsGet(string index, Byte[] body)
         {
             string uri = string.Format("/{0}/_mtermvectors", index);
             return this.Execute("GET", uri, body);
@@ -302,7 +302,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        private async Task<HttpResponseMessage> MtermvectorsGetAsync(string index, Byte[] body)
+        public virtual async Task<HttpResponseMessage> MtermvectorsGetAsync(string index, Byte[] body)
         {
             string uri = string.Format("/{0}/_mtermvectors", index);
             return await this.ExecuteAsync("GET", uri, body);
@@ -312,49 +312,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage MtermvectorsGet(string index, Byte[] body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
-        {
-            string uri = string.Format("/{0}/_mtermvectors", index);
-            MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
-        /// <param name="index">The index in which the document resides.</param>
-        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> MtermvectorsGetAsync(string index, Byte[] body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
-        {
-            string uri = string.Format("/{0}/_mtermvectors", index);
-            MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
-        /// <param name="index">The index in which the document resides.</param>
-        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        private HttpResponseMessage MtermvectorsGet(string index, string body)
-        {
-            string uri = string.Format("/{0}/_mtermvectors", index);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
-        /// <param name="index">The index in which the document resides.</param>
-        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        private async Task<HttpResponseMessage> MtermvectorsGetAsync(string index, string body)
-        {
-            string uri = string.Format("/{0}/_mtermvectors", index);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
-        /// <param name="index">The index in which the document resides.</param>
-        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage MtermvectorsGet(string index, string body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
+        public virtual HttpResponseMessage MtermvectorsGet(string index, Byte[] body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
         {
             string uri = string.Format("/{0}/_mtermvectors", index);
             MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
@@ -366,7 +324,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> MtermvectorsGetAsync(string index, string body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
+        public virtual async Task<HttpResponseMessage> MtermvectorsGetAsync(string index, Byte[] body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
         {
             string uri = string.Format("/{0}/_mtermvectors", index);
             MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
@@ -377,7 +335,49 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        private HttpResponseMessage MtermvectorsPost(string index, Stream body)
+        public virtual HttpResponseMessage MtermvectorsGet(string index, string body)
+        {
+            string uri = string.Format("/{0}/_mtermvectors", index);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <param name="index">The index in which the document resides.</param>
+        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
+        public virtual async Task<HttpResponseMessage> MtermvectorsGetAsync(string index, string body)
+        {
+            string uri = string.Format("/{0}/_mtermvectors", index);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <param name="index">The index in which the document resides.</param>
+        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage MtermvectorsGet(string index, string body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
+        {
+            string uri = string.Format("/{0}/_mtermvectors", index);
+            MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <param name="index">The index in which the document resides.</param>
+        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> MtermvectorsGetAsync(string index, string body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
+        {
+            string uri = string.Format("/{0}/_mtermvectors", index);
+            MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <param name="index">The index in which the document resides.</param>
+        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
+        public virtual HttpResponseMessage MtermvectorsPost(string index, Stream body)
         {
             string uri = string.Format("/{0}/_mtermvectors", index);
             return this.Execute("POST", uri, body);
@@ -386,7 +386,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        private async Task<HttpResponseMessage> MtermvectorsPostAsync(string index, Stream body)
+        public virtual async Task<HttpResponseMessage> MtermvectorsPostAsync(string index, Stream body)
         {
             string uri = string.Format("/{0}/_mtermvectors", index);
             return await this.ExecuteAsync("POST", uri, body);
@@ -396,7 +396,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage MtermvectorsPost(string index, Stream body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
+        public virtual HttpResponseMessage MtermvectorsPost(string index, Stream body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
         {
             string uri = string.Format("/{0}/_mtermvectors", index);
             MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
@@ -408,49 +408,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> MtermvectorsPostAsync(string index, Stream body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
-        {
-            string uri = string.Format("/{0}/_mtermvectors", index);
-            MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
-        /// <param name="index">The index in which the document resides.</param>
-        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        private HttpResponseMessage MtermvectorsPost(string index, Byte[] body)
-        {
-            string uri = string.Format("/{0}/_mtermvectors", index);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
-        /// <param name="index">The index in which the document resides.</param>
-        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        private async Task<HttpResponseMessage> MtermvectorsPostAsync(string index, Byte[] body)
-        {
-            string uri = string.Format("/{0}/_mtermvectors", index);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
-        /// <param name="index">The index in which the document resides.</param>
-        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage MtermvectorsPost(string index, Byte[] body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
-        {
-            string uri = string.Format("/{0}/_mtermvectors", index);
-            MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
-        /// <param name="index">The index in which the document resides.</param>
-        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> MtermvectorsPostAsync(string index, Byte[] body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
+        public virtual async Task<HttpResponseMessage> MtermvectorsPostAsync(string index, Stream body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
         {
             string uri = string.Format("/{0}/_mtermvectors", index);
             MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
@@ -461,7 +419,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        private HttpResponseMessage MtermvectorsPost(string index, string body)
+        public virtual HttpResponseMessage MtermvectorsPost(string index, Byte[] body)
         {
             string uri = string.Format("/{0}/_mtermvectors", index);
             return this.Execute("POST", uri, body);
@@ -470,7 +428,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        private async Task<HttpResponseMessage> MtermvectorsPostAsync(string index, string body)
+        public virtual async Task<HttpResponseMessage> MtermvectorsPostAsync(string index, Byte[] body)
         {
             string uri = string.Format("/{0}/_mtermvectors", index);
             return await this.ExecuteAsync("POST", uri, body);
@@ -480,7 +438,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage MtermvectorsPost(string index, string body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
+        public virtual HttpResponseMessage MtermvectorsPost(string index, Byte[] body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
         {
             string uri = string.Format("/{0}/_mtermvectors", index);
             MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
@@ -492,7 +450,49 @@ namespace Elasticsearch.Client
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> MtermvectorsPostAsync(string index, string body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
+        public virtual async Task<HttpResponseMessage> MtermvectorsPostAsync(string index, Byte[] body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
+        {
+            string uri = string.Format("/{0}/_mtermvectors", index);
+            MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <param name="index">The index in which the document resides.</param>
+        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
+        public virtual HttpResponseMessage MtermvectorsPost(string index, string body)
+        {
+            string uri = string.Format("/{0}/_mtermvectors", index);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <param name="index">The index in which the document resides.</param>
+        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
+        public virtual async Task<HttpResponseMessage> MtermvectorsPostAsync(string index, string body)
+        {
+            string uri = string.Format("/{0}/_mtermvectors", index);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <param name="index">The index in which the document resides.</param>
+        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage MtermvectorsPost(string index, string body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
+        {
+            string uri = string.Format("/{0}/_mtermvectors", index);
+            MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <param name="index">The index in which the document resides.</param>
+        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> MtermvectorsPostAsync(string index, string body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
         {
             string uri = string.Format("/{0}/_mtermvectors", index);
             MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
@@ -504,7 +504,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        private HttpResponseMessage MtermvectorsGet(string index, string type, Stream body)
+        public virtual HttpResponseMessage MtermvectorsGet(string index, string type, Stream body)
         {
             string uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
             return this.Execute("GET", uri, body);
@@ -514,7 +514,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        private async Task<HttpResponseMessage> MtermvectorsGetAsync(string index, string type, Stream body)
+        public virtual async Task<HttpResponseMessage> MtermvectorsGetAsync(string index, string type, Stream body)
         {
             string uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
             return await this.ExecuteAsync("GET", uri, body);
@@ -525,7 +525,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage MtermvectorsGet(string index, string type, Stream body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
+        public virtual HttpResponseMessage MtermvectorsGet(string index, string type, Stream body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
             MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
@@ -538,7 +538,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> MtermvectorsGetAsync(string index, string type, Stream body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
+        public virtual async Task<HttpResponseMessage> MtermvectorsGetAsync(string index, string type, Stream body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
             MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
@@ -550,7 +550,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        private HttpResponseMessage MtermvectorsGet(string index, string type, Byte[] body)
+        public virtual HttpResponseMessage MtermvectorsGet(string index, string type, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
             return this.Execute("GET", uri, body);
@@ -560,7 +560,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        private async Task<HttpResponseMessage> MtermvectorsGetAsync(string index, string type, Byte[] body)
+        public virtual async Task<HttpResponseMessage> MtermvectorsGetAsync(string index, string type, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
             return await this.ExecuteAsync("GET", uri, body);
@@ -571,53 +571,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage MtermvectorsGet(string index, string type, Byte[] body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
-            MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
-        /// <param name="index">The index in which the document resides.</param>
-        /// <param name="type">The type of the document.</param>
-        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> MtermvectorsGetAsync(string index, string type, Byte[] body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
-            MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
-        /// <param name="index">The index in which the document resides.</param>
-        /// <param name="type">The type of the document.</param>
-        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        private HttpResponseMessage MtermvectorsGet(string index, string type, string body)
-        {
-            string uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
-        /// <param name="index">The index in which the document resides.</param>
-        /// <param name="type">The type of the document.</param>
-        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        private async Task<HttpResponseMessage> MtermvectorsGetAsync(string index, string type, string body)
-        {
-            string uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
-        /// <param name="index">The index in which the document resides.</param>
-        /// <param name="type">The type of the document.</param>
-        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage MtermvectorsGet(string index, string type, string body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
+        public virtual HttpResponseMessage MtermvectorsGet(string index, string type, Byte[] body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
             MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
@@ -630,7 +584,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> MtermvectorsGetAsync(string index, string type, string body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
+        public virtual async Task<HttpResponseMessage> MtermvectorsGetAsync(string index, string type, Byte[] body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
             MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
@@ -642,7 +596,53 @@ namespace Elasticsearch.Client
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        private HttpResponseMessage MtermvectorsPost(string index, string type, Stream body)
+        public virtual HttpResponseMessage MtermvectorsGet(string index, string type, string body)
+        {
+            string uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <param name="index">The index in which the document resides.</param>
+        /// <param name="type">The type of the document.</param>
+        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
+        public virtual async Task<HttpResponseMessage> MtermvectorsGetAsync(string index, string type, string body)
+        {
+            string uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <param name="index">The index in which the document resides.</param>
+        /// <param name="type">The type of the document.</param>
+        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage MtermvectorsGet(string index, string type, string body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
+            MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <param name="index">The index in which the document resides.</param>
+        /// <param name="type">The type of the document.</param>
+        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> MtermvectorsGetAsync(string index, string type, string body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
+            MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <param name="index">The index in which the document resides.</param>
+        /// <param name="type">The type of the document.</param>
+        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
+        public virtual HttpResponseMessage MtermvectorsPost(string index, string type, Stream body)
         {
             string uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
             return this.Execute("POST", uri, body);
@@ -652,7 +652,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        private async Task<HttpResponseMessage> MtermvectorsPostAsync(string index, string type, Stream body)
+        public virtual async Task<HttpResponseMessage> MtermvectorsPostAsync(string index, string type, Stream body)
         {
             string uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
             return await this.ExecuteAsync("POST", uri, body);
@@ -663,7 +663,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage MtermvectorsPost(string index, string type, Stream body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
+        public virtual HttpResponseMessage MtermvectorsPost(string index, string type, Stream body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
             MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
@@ -676,53 +676,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> MtermvectorsPostAsync(string index, string type, Stream body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
-            MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
-        /// <param name="index">The index in which the document resides.</param>
-        /// <param name="type">The type of the document.</param>
-        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        private HttpResponseMessage MtermvectorsPost(string index, string type, Byte[] body)
-        {
-            string uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
-        /// <param name="index">The index in which the document resides.</param>
-        /// <param name="type">The type of the document.</param>
-        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        private async Task<HttpResponseMessage> MtermvectorsPostAsync(string index, string type, Byte[] body)
-        {
-            string uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
-        /// <param name="index">The index in which the document resides.</param>
-        /// <param name="type">The type of the document.</param>
-        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage MtermvectorsPost(string index, string type, Byte[] body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
-            MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
-        /// <param name="index">The index in which the document resides.</param>
-        /// <param name="type">The type of the document.</param>
-        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> MtermvectorsPostAsync(string index, string type, Byte[] body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
+        public virtual async Task<HttpResponseMessage> MtermvectorsPostAsync(string index, string type, Stream body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
             MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
@@ -734,7 +688,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        private HttpResponseMessage MtermvectorsPost(string index, string type, string body)
+        public virtual HttpResponseMessage MtermvectorsPost(string index, string type, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
             return this.Execute("POST", uri, body);
@@ -744,7 +698,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
-        private async Task<HttpResponseMessage> MtermvectorsPostAsync(string index, string type, string body)
+        public virtual async Task<HttpResponseMessage> MtermvectorsPostAsync(string index, string type, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
             return await this.ExecuteAsync("POST", uri, body);
@@ -755,7 +709,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage MtermvectorsPost(string index, string type, string body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
+        public virtual HttpResponseMessage MtermvectorsPost(string index, string type, Byte[] body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
             MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
@@ -768,7 +722,53 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> MtermvectorsPostAsync(string index, string type, string body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
+        public virtual async Task<HttpResponseMessage> MtermvectorsPostAsync(string index, string type, Byte[] body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
+            MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <param name="index">The index in which the document resides.</param>
+        /// <param name="type">The type of the document.</param>
+        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
+        public virtual HttpResponseMessage MtermvectorsPost(string index, string type, string body)
+        {
+            string uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <param name="index">The index in which the document resides.</param>
+        /// <param name="type">The type of the document.</param>
+        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
+        public virtual async Task<HttpResponseMessage> MtermvectorsPostAsync(string index, string type, string body)
+        {
+            string uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <param name="index">The index in which the document resides.</param>
+        /// <param name="type">The type of the document.</param>
+        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage MtermvectorsPost(string index, string type, string body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
+            MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <param name="index">The index in which the document resides.</param>
+        /// <param name="type">The type of the document.</param>
+        /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> MtermvectorsPostAsync(string index, string type, string body, Func<MtermvectorsParameters, MtermvectorsParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
             MtermvectorsParameters parameters = options.Invoke(new MtermvectorsParameters());

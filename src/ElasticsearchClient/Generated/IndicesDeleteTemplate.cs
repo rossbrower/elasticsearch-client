@@ -22,7 +22,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html"/></summary>
         /// <param name="name">The name of the template</param>
-        private HttpResponseMessage IndicesDeleteTemplate(string name)
+        public virtual HttpResponseMessage IndicesDeleteTemplate(string name)
         {
             string uri = string.Format("/_template/{0}", name);
             return this.Execute("DELETE", uri);
@@ -30,7 +30,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html"/></summary>
         /// <param name="name">The name of the template</param>
-        private async Task<HttpResponseMessage> IndicesDeleteTemplateAsync(string name)
+        public virtual async Task<HttpResponseMessage> IndicesDeleteTemplateAsync(string name)
         {
             string uri = string.Format("/_template/{0}", name);
             return await this.ExecuteAsync("DELETE", uri);
@@ -39,7 +39,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html"/></summary>
         /// <param name="name">The name of the template</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesDeleteTemplate(string name, Func<IndicesDeleteTemplateParameters, IndicesDeleteTemplateParameters> options)
+        public virtual HttpResponseMessage IndicesDeleteTemplate(string name, Func<IndicesDeleteTemplateParameters, IndicesDeleteTemplateParameters> options)
         {
             string uri = string.Format("/_template/{0}", name);
             IndicesDeleteTemplateParameters parameters = options.Invoke(new IndicesDeleteTemplateParameters());
@@ -50,7 +50,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html"/></summary>
         /// <param name="name">The name of the template</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesDeleteTemplateAsync(string name, Func<IndicesDeleteTemplateParameters, IndicesDeleteTemplateParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesDeleteTemplateAsync(string name, Func<IndicesDeleteTemplateParameters, IndicesDeleteTemplateParameters> options)
         {
             string uri = string.Format("/_template/{0}", name);
             IndicesDeleteTemplateParameters parameters = options.Invoke(new IndicesDeleteTemplateParameters());

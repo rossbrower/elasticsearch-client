@@ -21,14 +21,14 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-stats.html"/></summary>
-        private HttpResponseMessage NodesStats()
+        public virtual HttpResponseMessage NodesStats()
         {
             string uri = "/_nodes/stats";
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-stats.html"/></summary>
-        private async Task<HttpResponseMessage> NodesStatsAsync()
+        public virtual async Task<HttpResponseMessage> NodesStatsAsync()
         {
             string uri = "/_nodes/stats";
             return await this.ExecuteAsync("GET", uri);
@@ -36,7 +36,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-stats.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage NodesStats(Func<NodesStatsParameters, NodesStatsParameters> options)
+        public virtual HttpResponseMessage NodesStats(Func<NodesStatsParameters, NodesStatsParameters> options)
         {
             string uri = "/_nodes/stats";
             NodesStatsParameters parameters = options.Invoke(new NodesStatsParameters());
@@ -46,7 +46,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-stats.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> NodesStatsAsync(Func<NodesStatsParameters, NodesStatsParameters> options)
+        public virtual async Task<HttpResponseMessage> NodesStatsAsync(Func<NodesStatsParameters, NodesStatsParameters> options)
         {
             string uri = "/_nodes/stats";
             NodesStatsParameters parameters = options.Invoke(new NodesStatsParameters());
@@ -56,7 +56,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-stats.html"/></summary>
         /// <param name="node_id">A comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes</param>
-        private HttpResponseMessage NodesStats(string node_id)
+        public virtual HttpResponseMessage NodesStats(string node_id)
         {
             string uri = string.Format("/_nodes/{0}/stats", node_id);
             return this.Execute("GET", uri);
@@ -64,7 +64,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-stats.html"/></summary>
         /// <param name="node_id">A comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes</param>
-        private async Task<HttpResponseMessage> NodesStatsAsync(string node_id)
+        public virtual async Task<HttpResponseMessage> NodesStatsAsync(string node_id)
         {
             string uri = string.Format("/_nodes/{0}/stats", node_id);
             return await this.ExecuteAsync("GET", uri);
@@ -73,7 +73,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-stats.html"/></summary>
         /// <param name="node_id">A comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage NodesStats(string node_id, Func<NodesStatsParameters, NodesStatsParameters> options)
+        public virtual HttpResponseMessage NodesStats(string node_id, Func<NodesStatsParameters, NodesStatsParameters> options)
         {
             string uri = string.Format("/_nodes/{0}/stats", node_id);
             NodesStatsParameters parameters = options.Invoke(new NodesStatsParameters());
@@ -84,7 +84,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-stats.html"/></summary>
         /// <param name="node_id">A comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> NodesStatsAsync(string node_id, Func<NodesStatsParameters, NodesStatsParameters> options)
+        public virtual async Task<HttpResponseMessage> NodesStatsAsync(string node_id, Func<NodesStatsParameters, NodesStatsParameters> options)
         {
             string uri = string.Format("/_nodes/{0}/stats", node_id);
             NodesStatsParameters parameters = options.Invoke(new NodesStatsParameters());
@@ -95,7 +95,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-stats.html"/></summary>
         /// <param name="node_id">A comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes</param>
         /// <param name="metric">Limit the information returned to the specified metrics</param>
-        private HttpResponseMessage NodesStats(string node_id, string metric)
+        public virtual HttpResponseMessage NodesStats(string node_id, string metric)
         {
             string uri = string.Format("/_nodes/{0}/stats/{1}", node_id, metric);
             return this.Execute("GET", uri);
@@ -104,7 +104,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-stats.html"/></summary>
         /// <param name="node_id">A comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes</param>
         /// <param name="metric">Limit the information returned to the specified metrics</param>
-        private async Task<HttpResponseMessage> NodesStatsAsync(string node_id, string metric)
+        public virtual async Task<HttpResponseMessage> NodesStatsAsync(string node_id, string metric)
         {
             string uri = string.Format("/_nodes/{0}/stats/{1}", node_id, metric);
             return await this.ExecuteAsync("GET", uri);
@@ -114,7 +114,7 @@ namespace Elasticsearch.Client
         /// <param name="node_id">A comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes</param>
         /// <param name="metric">Limit the information returned to the specified metrics</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage NodesStats(string node_id, string metric, Func<NodesStatsParameters, NodesStatsParameters> options)
+        public virtual HttpResponseMessage NodesStats(string node_id, string metric, Func<NodesStatsParameters, NodesStatsParameters> options)
         {
             string uri = string.Format("/_nodes/{0}/stats/{1}", node_id, metric);
             NodesStatsParameters parameters = options.Invoke(new NodesStatsParameters());
@@ -126,7 +126,7 @@ namespace Elasticsearch.Client
         /// <param name="node_id">A comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes</param>
         /// <param name="metric">Limit the information returned to the specified metrics</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> NodesStatsAsync(string node_id, string metric, Func<NodesStatsParameters, NodesStatsParameters> options)
+        public virtual async Task<HttpResponseMessage> NodesStatsAsync(string node_id, string metric, Func<NodesStatsParameters, NodesStatsParameters> options)
         {
             string uri = string.Format("/_nodes/{0}/stats/{1}", node_id, metric);
             NodesStatsParameters parameters = options.Invoke(new NodesStatsParameters());
@@ -138,7 +138,7 @@ namespace Elasticsearch.Client
         /// <param name="node_id">A comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes</param>
         /// <param name="metric">Limit the information returned to the specified metrics</param>
         /// <param name="index_metric">Limit the information returned for `indices` metric to the specific index metrics. Isn't used if `indices` (or `all`) metric isn't specified.</param>
-        private HttpResponseMessage NodesStats(string node_id, string metric, string index_metric)
+        public virtual HttpResponseMessage NodesStats(string node_id, string metric, string index_metric)
         {
             string uri = string.Format("/_nodes/{0}/stats/{1}/{index_1}", node_id, metric, index_metric);
             return this.Execute("GET", uri);
@@ -148,7 +148,7 @@ namespace Elasticsearch.Client
         /// <param name="node_id">A comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes</param>
         /// <param name="metric">Limit the information returned to the specified metrics</param>
         /// <param name="index_metric">Limit the information returned for `indices` metric to the specific index metrics. Isn't used if `indices` (or `all`) metric isn't specified.</param>
-        private async Task<HttpResponseMessage> NodesStatsAsync(string node_id, string metric, string index_metric)
+        public virtual async Task<HttpResponseMessage> NodesStatsAsync(string node_id, string metric, string index_metric)
         {
             string uri = string.Format("/_nodes/{0}/stats/{1}/{index_1}", node_id, metric, index_metric);
             return await this.ExecuteAsync("GET", uri);
@@ -159,7 +159,7 @@ namespace Elasticsearch.Client
         /// <param name="metric">Limit the information returned to the specified metrics</param>
         /// <param name="index_metric">Limit the information returned for `indices` metric to the specific index metrics. Isn't used if `indices` (or `all`) metric isn't specified.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage NodesStats(string node_id, string metric, string index_metric, Func<NodesStatsParameters, NodesStatsParameters> options)
+        public virtual HttpResponseMessage NodesStats(string node_id, string metric, string index_metric, Func<NodesStatsParameters, NodesStatsParameters> options)
         {
             string uri = string.Format("/_nodes/{0}/stats/{1}/{index_1}", node_id, metric, index_metric);
             NodesStatsParameters parameters = options.Invoke(new NodesStatsParameters());
@@ -172,7 +172,7 @@ namespace Elasticsearch.Client
         /// <param name="metric">Limit the information returned to the specified metrics</param>
         /// <param name="index_metric">Limit the information returned for `indices` metric to the specific index metrics. Isn't used if `indices` (or `all`) metric isn't specified.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> NodesStatsAsync(string node_id, string metric, string index_metric, Func<NodesStatsParameters, NodesStatsParameters> options)
+        public virtual async Task<HttpResponseMessage> NodesStatsAsync(string node_id, string metric, string index_metric, Func<NodesStatsParameters, NodesStatsParameters> options)
         {
             string uri = string.Format("/_nodes/{0}/stats/{1}/{index_1}", node_id, metric, index_metric);
             NodesStatsParameters parameters = options.Invoke(new NodesStatsParameters());

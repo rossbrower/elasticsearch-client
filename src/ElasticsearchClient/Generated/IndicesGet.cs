@@ -22,7 +22,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-index.html"/></summary>
         /// <param name="index">A comma-separated list of index names</param>
-        private HttpResponseMessage IndicesGet(string index)
+        public virtual HttpResponseMessage IndicesGet(string index)
         {
             string uri = string.Format("/{0}", index);
             return this.Execute("GET", uri);
@@ -30,7 +30,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-index.html"/></summary>
         /// <param name="index">A comma-separated list of index names</param>
-        private async Task<HttpResponseMessage> IndicesGetAsync(string index)
+        public virtual async Task<HttpResponseMessage> IndicesGetAsync(string index)
         {
             string uri = string.Format("/{0}", index);
             return await this.ExecuteAsync("GET", uri);
@@ -39,7 +39,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-index.html"/></summary>
         /// <param name="index">A comma-separated list of index names</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesGet(string index, Func<IndicesGetParameters, IndicesGetParameters> options)
+        public virtual HttpResponseMessage IndicesGet(string index, Func<IndicesGetParameters, IndicesGetParameters> options)
         {
             string uri = string.Format("/{0}", index);
             IndicesGetParameters parameters = options.Invoke(new IndicesGetParameters());
@@ -50,7 +50,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-index.html"/></summary>
         /// <param name="index">A comma-separated list of index names</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesGetAsync(string index, Func<IndicesGetParameters, IndicesGetParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesGetAsync(string index, Func<IndicesGetParameters, IndicesGetParameters> options)
         {
             string uri = string.Format("/{0}", index);
             IndicesGetParameters parameters = options.Invoke(new IndicesGetParameters());
@@ -61,7 +61,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-index.html"/></summary>
         /// <param name="index">A comma-separated list of index names</param>
         /// <param name="feature">A comma-separated list of features</param>
-        private HttpResponseMessage IndicesGet(string index, string feature)
+        public virtual HttpResponseMessage IndicesGet(string index, string feature)
         {
             string uri = string.Format("/{0}/{1}", index, feature);
             return this.Execute("GET", uri);
@@ -70,7 +70,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-index.html"/></summary>
         /// <param name="index">A comma-separated list of index names</param>
         /// <param name="feature">A comma-separated list of features</param>
-        private async Task<HttpResponseMessage> IndicesGetAsync(string index, string feature)
+        public virtual async Task<HttpResponseMessage> IndicesGetAsync(string index, string feature)
         {
             string uri = string.Format("/{0}/{1}", index, feature);
             return await this.ExecuteAsync("GET", uri);
@@ -80,7 +80,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names</param>
         /// <param name="feature">A comma-separated list of features</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesGet(string index, string feature, Func<IndicesGetParameters, IndicesGetParameters> options)
+        public virtual HttpResponseMessage IndicesGet(string index, string feature, Func<IndicesGetParameters, IndicesGetParameters> options)
         {
             string uri = string.Format("/{0}/{1}", index, feature);
             IndicesGetParameters parameters = options.Invoke(new IndicesGetParameters());
@@ -92,7 +92,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names</param>
         /// <param name="feature">A comma-separated list of features</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesGetAsync(string index, string feature, Func<IndicesGetParameters, IndicesGetParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesGetAsync(string index, string feature, Func<IndicesGetParameters, IndicesGetParameters> options)
         {
             string uri = string.Format("/{0}/{1}", index, feature);
             IndicesGetParameters parameters = options.Invoke(new IndicesGetParameters());

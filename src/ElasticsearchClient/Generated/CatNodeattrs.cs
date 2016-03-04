@@ -21,14 +21,14 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-nodeattrs.html"/></summary>
-        private HttpResponseMessage CatNodeattrs()
+        public virtual HttpResponseMessage CatNodeattrs()
         {
             string uri = "/_cat/nodeattrs";
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-nodeattrs.html"/></summary>
-        private async Task<HttpResponseMessage> CatNodeattrsAsync()
+        public virtual async Task<HttpResponseMessage> CatNodeattrsAsync()
         {
             string uri = "/_cat/nodeattrs";
             return await this.ExecuteAsync("GET", uri);
@@ -36,7 +36,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-nodeattrs.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage CatNodeattrs(Func<CatNodeattrsParameters, CatNodeattrsParameters> options)
+        public virtual HttpResponseMessage CatNodeattrs(Func<CatNodeattrsParameters, CatNodeattrsParameters> options)
         {
             string uri = "/_cat/nodeattrs";
             CatNodeattrsParameters parameters = options.Invoke(new CatNodeattrsParameters());
@@ -46,7 +46,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-nodeattrs.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> CatNodeattrsAsync(Func<CatNodeattrsParameters, CatNodeattrsParameters> options)
+        public virtual async Task<HttpResponseMessage> CatNodeattrsAsync(Func<CatNodeattrsParameters, CatNodeattrsParameters> options)
         {
             string uri = "/_cat/nodeattrs";
             CatNodeattrsParameters parameters = options.Invoke(new CatNodeattrsParameters());

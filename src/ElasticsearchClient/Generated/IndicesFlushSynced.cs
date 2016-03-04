@@ -21,14 +21,14 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-synced-flush.html"/></summary>
-        private HttpResponseMessage IndicesFlushSyncedPost()
+        public virtual HttpResponseMessage IndicesFlushSyncedPost()
         {
             string uri = "/_flush/synced";
             return this.Execute("POST", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-synced-flush.html"/></summary>
-        private async Task<HttpResponseMessage> IndicesFlushSyncedPostAsync()
+        public virtual async Task<HttpResponseMessage> IndicesFlushSyncedPostAsync()
         {
             string uri = "/_flush/synced";
             return await this.ExecuteAsync("POST", uri);
@@ -36,7 +36,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-synced-flush.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesFlushSyncedPost(Func<IndicesFlushSyncedParameters, IndicesFlushSyncedParameters> options)
+        public virtual HttpResponseMessage IndicesFlushSyncedPost(Func<IndicesFlushSyncedParameters, IndicesFlushSyncedParameters> options)
         {
             string uri = "/_flush/synced";
             IndicesFlushSyncedParameters parameters = options.Invoke(new IndicesFlushSyncedParameters());
@@ -46,7 +46,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-synced-flush.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesFlushSyncedPostAsync(Func<IndicesFlushSyncedParameters, IndicesFlushSyncedParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesFlushSyncedPostAsync(Func<IndicesFlushSyncedParameters, IndicesFlushSyncedParameters> options)
         {
             string uri = "/_flush/synced";
             IndicesFlushSyncedParameters parameters = options.Invoke(new IndicesFlushSyncedParameters());
@@ -55,14 +55,14 @@ namespace Elasticsearch.Client
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-synced-flush.html"/></summary>
-        private HttpResponseMessage IndicesFlushSyncedGet()
+        public virtual HttpResponseMessage IndicesFlushSyncedGet()
         {
             string uri = "/_flush/synced";
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-synced-flush.html"/></summary>
-        private async Task<HttpResponseMessage> IndicesFlushSyncedGetAsync()
+        public virtual async Task<HttpResponseMessage> IndicesFlushSyncedGetAsync()
         {
             string uri = "/_flush/synced";
             return await this.ExecuteAsync("GET", uri);
@@ -70,7 +70,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-synced-flush.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesFlushSyncedGet(Func<IndicesFlushSyncedParameters, IndicesFlushSyncedParameters> options)
+        public virtual HttpResponseMessage IndicesFlushSyncedGet(Func<IndicesFlushSyncedParameters, IndicesFlushSyncedParameters> options)
         {
             string uri = "/_flush/synced";
             IndicesFlushSyncedParameters parameters = options.Invoke(new IndicesFlushSyncedParameters());
@@ -80,7 +80,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-synced-flush.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesFlushSyncedGetAsync(Func<IndicesFlushSyncedParameters, IndicesFlushSyncedParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesFlushSyncedGetAsync(Func<IndicesFlushSyncedParameters, IndicesFlushSyncedParameters> options)
         {
             string uri = "/_flush/synced";
             IndicesFlushSyncedParameters parameters = options.Invoke(new IndicesFlushSyncedParameters());
@@ -90,7 +90,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-synced-flush.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string for all indices</param>
-        private HttpResponseMessage IndicesFlushSyncedPost(string index)
+        public virtual HttpResponseMessage IndicesFlushSyncedPost(string index)
         {
             string uri = string.Format("/{0}/_flush/synced", index);
             return this.Execute("POST", uri);
@@ -98,7 +98,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-synced-flush.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string for all indices</param>
-        private async Task<HttpResponseMessage> IndicesFlushSyncedPostAsync(string index)
+        public virtual async Task<HttpResponseMessage> IndicesFlushSyncedPostAsync(string index)
         {
             string uri = string.Format("/{0}/_flush/synced", index);
             return await this.ExecuteAsync("POST", uri);
@@ -107,7 +107,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-synced-flush.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string for all indices</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesFlushSyncedPost(string index, Func<IndicesFlushSyncedParameters, IndicesFlushSyncedParameters> options)
+        public virtual HttpResponseMessage IndicesFlushSyncedPost(string index, Func<IndicesFlushSyncedParameters, IndicesFlushSyncedParameters> options)
         {
             string uri = string.Format("/{0}/_flush/synced", index);
             IndicesFlushSyncedParameters parameters = options.Invoke(new IndicesFlushSyncedParameters());
@@ -118,7 +118,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-synced-flush.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string for all indices</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesFlushSyncedPostAsync(string index, Func<IndicesFlushSyncedParameters, IndicesFlushSyncedParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesFlushSyncedPostAsync(string index, Func<IndicesFlushSyncedParameters, IndicesFlushSyncedParameters> options)
         {
             string uri = string.Format("/{0}/_flush/synced", index);
             IndicesFlushSyncedParameters parameters = options.Invoke(new IndicesFlushSyncedParameters());
@@ -128,7 +128,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-synced-flush.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string for all indices</param>
-        private HttpResponseMessage IndicesFlushSyncedGet(string index)
+        public virtual HttpResponseMessage IndicesFlushSyncedGet(string index)
         {
             string uri = string.Format("/{0}/_flush/synced", index);
             return this.Execute("GET", uri);
@@ -136,7 +136,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-synced-flush.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string for all indices</param>
-        private async Task<HttpResponseMessage> IndicesFlushSyncedGetAsync(string index)
+        public virtual async Task<HttpResponseMessage> IndicesFlushSyncedGetAsync(string index)
         {
             string uri = string.Format("/{0}/_flush/synced", index);
             return await this.ExecuteAsync("GET", uri);
@@ -145,7 +145,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-synced-flush.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string for all indices</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesFlushSyncedGet(string index, Func<IndicesFlushSyncedParameters, IndicesFlushSyncedParameters> options)
+        public virtual HttpResponseMessage IndicesFlushSyncedGet(string index, Func<IndicesFlushSyncedParameters, IndicesFlushSyncedParameters> options)
         {
             string uri = string.Format("/{0}/_flush/synced", index);
             IndicesFlushSyncedParameters parameters = options.Invoke(new IndicesFlushSyncedParameters());
@@ -156,7 +156,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-synced-flush.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string for all indices</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesFlushSyncedGetAsync(string index, Func<IndicesFlushSyncedParameters, IndicesFlushSyncedParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesFlushSyncedGetAsync(string index, Func<IndicesFlushSyncedParameters, IndicesFlushSyncedParameters> options)
         {
             string uri = string.Format("/{0}/_flush/synced", index);
             IndicesFlushSyncedParameters parameters = options.Invoke(new IndicesFlushSyncedParameters());

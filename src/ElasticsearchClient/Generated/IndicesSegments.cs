@@ -21,14 +21,14 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-segments.html"/></summary>
-        private HttpResponseMessage IndicesSegments()
+        public virtual HttpResponseMessage IndicesSegments()
         {
             string uri = "/_segments";
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-segments.html"/></summary>
-        private async Task<HttpResponseMessage> IndicesSegmentsAsync()
+        public virtual async Task<HttpResponseMessage> IndicesSegmentsAsync()
         {
             string uri = "/_segments";
             return await this.ExecuteAsync("GET", uri);
@@ -36,7 +36,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-segments.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesSegments(Func<IndicesSegmentsParameters, IndicesSegmentsParameters> options)
+        public virtual HttpResponseMessage IndicesSegments(Func<IndicesSegmentsParameters, IndicesSegmentsParameters> options)
         {
             string uri = "/_segments";
             IndicesSegmentsParameters parameters = options.Invoke(new IndicesSegmentsParameters());
@@ -46,7 +46,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-segments.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesSegmentsAsync(Func<IndicesSegmentsParameters, IndicesSegmentsParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesSegmentsAsync(Func<IndicesSegmentsParameters, IndicesSegmentsParameters> options)
         {
             string uri = "/_segments";
             IndicesSegmentsParameters parameters = options.Invoke(new IndicesSegmentsParameters());
@@ -56,7 +56,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-segments.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
-        private HttpResponseMessage IndicesSegments(string index)
+        public virtual HttpResponseMessage IndicesSegments(string index)
         {
             string uri = string.Format("/{0}/_segments", index);
             return this.Execute("GET", uri);
@@ -64,7 +64,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-segments.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
-        private async Task<HttpResponseMessage> IndicesSegmentsAsync(string index)
+        public virtual async Task<HttpResponseMessage> IndicesSegmentsAsync(string index)
         {
             string uri = string.Format("/{0}/_segments", index);
             return await this.ExecuteAsync("GET", uri);
@@ -73,7 +73,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-segments.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesSegments(string index, Func<IndicesSegmentsParameters, IndicesSegmentsParameters> options)
+        public virtual HttpResponseMessage IndicesSegments(string index, Func<IndicesSegmentsParameters, IndicesSegmentsParameters> options)
         {
             string uri = string.Format("/{0}/_segments", index);
             IndicesSegmentsParameters parameters = options.Invoke(new IndicesSegmentsParameters());
@@ -84,7 +84,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-segments.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesSegmentsAsync(string index, Func<IndicesSegmentsParameters, IndicesSegmentsParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesSegmentsAsync(string index, Func<IndicesSegmentsParameters, IndicesSegmentsParameters> options)
         {
             string uri = string.Format("/{0}/_segments", index);
             IndicesSegmentsParameters parameters = options.Invoke(new IndicesSegmentsParameters());

@@ -22,7 +22,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        private HttpResponseMessage MpercolateGet(Stream body)
+        public virtual HttpResponseMessage MpercolateGet(Stream body)
         {
             string uri = "/_mpercolate";
             return this.Execute("GET", uri, body);
@@ -30,7 +30,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        private async Task<HttpResponseMessage> MpercolateGetAsync(Stream body)
+        public virtual async Task<HttpResponseMessage> MpercolateGetAsync(Stream body)
         {
             string uri = "/_mpercolate";
             return await this.ExecuteAsync("GET", uri, body);
@@ -39,7 +39,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage MpercolateGet(Stream body, Func<MpercolateParameters, MpercolateParameters> options)
+        public virtual HttpResponseMessage MpercolateGet(Stream body, Func<MpercolateParameters, MpercolateParameters> options)
         {
             string uri = "/_mpercolate";
             MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
@@ -50,7 +50,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> MpercolateGetAsync(Stream body, Func<MpercolateParameters, MpercolateParameters> options)
+        public virtual async Task<HttpResponseMessage> MpercolateGetAsync(Stream body, Func<MpercolateParameters, MpercolateParameters> options)
         {
             string uri = "/_mpercolate";
             MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
@@ -60,7 +60,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        private HttpResponseMessage MpercolateGet(Byte[] body)
+        public virtual HttpResponseMessage MpercolateGet(Byte[] body)
         {
             string uri = "/_mpercolate";
             return this.Execute("GET", uri, body);
@@ -68,7 +68,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        private async Task<HttpResponseMessage> MpercolateGetAsync(Byte[] body)
+        public virtual async Task<HttpResponseMessage> MpercolateGetAsync(Byte[] body)
         {
             string uri = "/_mpercolate";
             return await this.ExecuteAsync("GET", uri, body);
@@ -77,45 +77,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage MpercolateGet(Byte[] body, Func<MpercolateParameters, MpercolateParameters> options)
-        {
-            string uri = "/_mpercolate";
-            MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> MpercolateGetAsync(Byte[] body, Func<MpercolateParameters, MpercolateParameters> options)
-        {
-            string uri = "/_mpercolate";
-            MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        private HttpResponseMessage MpercolateGet(string body)
-        {
-            string uri = "/_mpercolate";
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        private async Task<HttpResponseMessage> MpercolateGetAsync(string body)
-        {
-            string uri = "/_mpercolate";
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage MpercolateGet(string body, Func<MpercolateParameters, MpercolateParameters> options)
+        public virtual HttpResponseMessage MpercolateGet(Byte[] body, Func<MpercolateParameters, MpercolateParameters> options)
         {
             string uri = "/_mpercolate";
             MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
@@ -126,7 +88,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> MpercolateGetAsync(string body, Func<MpercolateParameters, MpercolateParameters> options)
+        public virtual async Task<HttpResponseMessage> MpercolateGetAsync(Byte[] body, Func<MpercolateParameters, MpercolateParameters> options)
         {
             string uri = "/_mpercolate";
             MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
@@ -136,7 +98,45 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        private HttpResponseMessage MpercolatePost(Stream body)
+        public virtual HttpResponseMessage MpercolateGet(string body)
+        {
+            string uri = "/_mpercolate";
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
+        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
+        public virtual async Task<HttpResponseMessage> MpercolateGetAsync(string body)
+        {
+            string uri = "/_mpercolate";
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
+        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage MpercolateGet(string body, Func<MpercolateParameters, MpercolateParameters> options)
+        {
+            string uri = "/_mpercolate";
+            MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
+        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> MpercolateGetAsync(string body, Func<MpercolateParameters, MpercolateParameters> options)
+        {
+            string uri = "/_mpercolate";
+            MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
+        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
+        public virtual HttpResponseMessage MpercolatePost(Stream body)
         {
             string uri = "/_mpercolate";
             return this.Execute("POST", uri, body);
@@ -144,7 +144,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        private async Task<HttpResponseMessage> MpercolatePostAsync(Stream body)
+        public virtual async Task<HttpResponseMessage> MpercolatePostAsync(Stream body)
         {
             string uri = "/_mpercolate";
             return await this.ExecuteAsync("POST", uri, body);
@@ -153,7 +153,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage MpercolatePost(Stream body, Func<MpercolateParameters, MpercolateParameters> options)
+        public virtual HttpResponseMessage MpercolatePost(Stream body, Func<MpercolateParameters, MpercolateParameters> options)
         {
             string uri = "/_mpercolate";
             MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
@@ -164,45 +164,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> MpercolatePostAsync(Stream body, Func<MpercolateParameters, MpercolateParameters> options)
-        {
-            string uri = "/_mpercolate";
-            MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        private HttpResponseMessage MpercolatePost(Byte[] body)
-        {
-            string uri = "/_mpercolate";
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        private async Task<HttpResponseMessage> MpercolatePostAsync(Byte[] body)
-        {
-            string uri = "/_mpercolate";
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage MpercolatePost(Byte[] body, Func<MpercolateParameters, MpercolateParameters> options)
-        {
-            string uri = "/_mpercolate";
-            MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> MpercolatePostAsync(Byte[] body, Func<MpercolateParameters, MpercolateParameters> options)
+        public virtual async Task<HttpResponseMessage> MpercolatePostAsync(Stream body, Func<MpercolateParameters, MpercolateParameters> options)
         {
             string uri = "/_mpercolate";
             MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
@@ -212,7 +174,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        private HttpResponseMessage MpercolatePost(string body)
+        public virtual HttpResponseMessage MpercolatePost(Byte[] body)
         {
             string uri = "/_mpercolate";
             return this.Execute("POST", uri, body);
@@ -220,7 +182,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        private async Task<HttpResponseMessage> MpercolatePostAsync(string body)
+        public virtual async Task<HttpResponseMessage> MpercolatePostAsync(Byte[] body)
         {
             string uri = "/_mpercolate";
             return await this.ExecuteAsync("POST", uri, body);
@@ -229,7 +191,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage MpercolatePost(string body, Func<MpercolateParameters, MpercolateParameters> options)
+        public virtual HttpResponseMessage MpercolatePost(Byte[] body, Func<MpercolateParameters, MpercolateParameters> options)
         {
             string uri = "/_mpercolate";
             MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
@@ -240,7 +202,45 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> MpercolatePostAsync(string body, Func<MpercolateParameters, MpercolateParameters> options)
+        public virtual async Task<HttpResponseMessage> MpercolatePostAsync(Byte[] body, Func<MpercolateParameters, MpercolateParameters> options)
+        {
+            string uri = "/_mpercolate";
+            MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
+        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
+        public virtual HttpResponseMessage MpercolatePost(string body)
+        {
+            string uri = "/_mpercolate";
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
+        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
+        public virtual async Task<HttpResponseMessage> MpercolatePostAsync(string body)
+        {
+            string uri = "/_mpercolate";
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
+        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage MpercolatePost(string body, Func<MpercolateParameters, MpercolateParameters> options)
+        {
+            string uri = "/_mpercolate";
+            MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
+        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> MpercolatePostAsync(string body, Func<MpercolateParameters, MpercolateParameters> options)
         {
             string uri = "/_mpercolate";
             MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
@@ -251,7 +251,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
         /// <param name="index">The index of the document being count percolated to use as default</param>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        private HttpResponseMessage MpercolateGet(string index, Stream body)
+        public virtual HttpResponseMessage MpercolateGet(string index, Stream body)
         {
             string uri = string.Format("/{0}/_mpercolate", index);
             return this.Execute("GET", uri, body);
@@ -260,7 +260,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
         /// <param name="index">The index of the document being count percolated to use as default</param>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        private async Task<HttpResponseMessage> MpercolateGetAsync(string index, Stream body)
+        public virtual async Task<HttpResponseMessage> MpercolateGetAsync(string index, Stream body)
         {
             string uri = string.Format("/{0}/_mpercolate", index);
             return await this.ExecuteAsync("GET", uri, body);
@@ -270,7 +270,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The index of the document being count percolated to use as default</param>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage MpercolateGet(string index, Stream body, Func<MpercolateParameters, MpercolateParameters> options)
+        public virtual HttpResponseMessage MpercolateGet(string index, Stream body, Func<MpercolateParameters, MpercolateParameters> options)
         {
             string uri = string.Format("/{0}/_mpercolate", index);
             MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
@@ -282,7 +282,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The index of the document being count percolated to use as default</param>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> MpercolateGetAsync(string index, Stream body, Func<MpercolateParameters, MpercolateParameters> options)
+        public virtual async Task<HttpResponseMessage> MpercolateGetAsync(string index, Stream body, Func<MpercolateParameters, MpercolateParameters> options)
         {
             string uri = string.Format("/{0}/_mpercolate", index);
             MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
@@ -293,7 +293,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
         /// <param name="index">The index of the document being count percolated to use as default</param>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        private HttpResponseMessage MpercolateGet(string index, Byte[] body)
+        public virtual HttpResponseMessage MpercolateGet(string index, Byte[] body)
         {
             string uri = string.Format("/{0}/_mpercolate", index);
             return this.Execute("GET", uri, body);
@@ -302,7 +302,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
         /// <param name="index">The index of the document being count percolated to use as default</param>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        private async Task<HttpResponseMessage> MpercolateGetAsync(string index, Byte[] body)
+        public virtual async Task<HttpResponseMessage> MpercolateGetAsync(string index, Byte[] body)
         {
             string uri = string.Format("/{0}/_mpercolate", index);
             return await this.ExecuteAsync("GET", uri, body);
@@ -312,49 +312,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The index of the document being count percolated to use as default</param>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage MpercolateGet(string index, Byte[] body, Func<MpercolateParameters, MpercolateParameters> options)
-        {
-            string uri = string.Format("/{0}/_mpercolate", index);
-            MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="index">The index of the document being count percolated to use as default</param>
-        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> MpercolateGetAsync(string index, Byte[] body, Func<MpercolateParameters, MpercolateParameters> options)
-        {
-            string uri = string.Format("/{0}/_mpercolate", index);
-            MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="index">The index of the document being count percolated to use as default</param>
-        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        private HttpResponseMessage MpercolateGet(string index, string body)
-        {
-            string uri = string.Format("/{0}/_mpercolate", index);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="index">The index of the document being count percolated to use as default</param>
-        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        private async Task<HttpResponseMessage> MpercolateGetAsync(string index, string body)
-        {
-            string uri = string.Format("/{0}/_mpercolate", index);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="index">The index of the document being count percolated to use as default</param>
-        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage MpercolateGet(string index, string body, Func<MpercolateParameters, MpercolateParameters> options)
+        public virtual HttpResponseMessage MpercolateGet(string index, Byte[] body, Func<MpercolateParameters, MpercolateParameters> options)
         {
             string uri = string.Format("/{0}/_mpercolate", index);
             MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
@@ -366,7 +324,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The index of the document being count percolated to use as default</param>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> MpercolateGetAsync(string index, string body, Func<MpercolateParameters, MpercolateParameters> options)
+        public virtual async Task<HttpResponseMessage> MpercolateGetAsync(string index, Byte[] body, Func<MpercolateParameters, MpercolateParameters> options)
         {
             string uri = string.Format("/{0}/_mpercolate", index);
             MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
@@ -377,7 +335,49 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
         /// <param name="index">The index of the document being count percolated to use as default</param>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        private HttpResponseMessage MpercolatePost(string index, Stream body)
+        public virtual HttpResponseMessage MpercolateGet(string index, string body)
+        {
+            string uri = string.Format("/{0}/_mpercolate", index);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
+        /// <param name="index">The index of the document being count percolated to use as default</param>
+        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
+        public virtual async Task<HttpResponseMessage> MpercolateGetAsync(string index, string body)
+        {
+            string uri = string.Format("/{0}/_mpercolate", index);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
+        /// <param name="index">The index of the document being count percolated to use as default</param>
+        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage MpercolateGet(string index, string body, Func<MpercolateParameters, MpercolateParameters> options)
+        {
+            string uri = string.Format("/{0}/_mpercolate", index);
+            MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
+        /// <param name="index">The index of the document being count percolated to use as default</param>
+        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> MpercolateGetAsync(string index, string body, Func<MpercolateParameters, MpercolateParameters> options)
+        {
+            string uri = string.Format("/{0}/_mpercolate", index);
+            MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
+        /// <param name="index">The index of the document being count percolated to use as default</param>
+        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
+        public virtual HttpResponseMessage MpercolatePost(string index, Stream body)
         {
             string uri = string.Format("/{0}/_mpercolate", index);
             return this.Execute("POST", uri, body);
@@ -386,7 +386,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
         /// <param name="index">The index of the document being count percolated to use as default</param>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        private async Task<HttpResponseMessage> MpercolatePostAsync(string index, Stream body)
+        public virtual async Task<HttpResponseMessage> MpercolatePostAsync(string index, Stream body)
         {
             string uri = string.Format("/{0}/_mpercolate", index);
             return await this.ExecuteAsync("POST", uri, body);
@@ -396,7 +396,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The index of the document being count percolated to use as default</param>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage MpercolatePost(string index, Stream body, Func<MpercolateParameters, MpercolateParameters> options)
+        public virtual HttpResponseMessage MpercolatePost(string index, Stream body, Func<MpercolateParameters, MpercolateParameters> options)
         {
             string uri = string.Format("/{0}/_mpercolate", index);
             MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
@@ -408,49 +408,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The index of the document being count percolated to use as default</param>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> MpercolatePostAsync(string index, Stream body, Func<MpercolateParameters, MpercolateParameters> options)
-        {
-            string uri = string.Format("/{0}/_mpercolate", index);
-            MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="index">The index of the document being count percolated to use as default</param>
-        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        private HttpResponseMessage MpercolatePost(string index, Byte[] body)
-        {
-            string uri = string.Format("/{0}/_mpercolate", index);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="index">The index of the document being count percolated to use as default</param>
-        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        private async Task<HttpResponseMessage> MpercolatePostAsync(string index, Byte[] body)
-        {
-            string uri = string.Format("/{0}/_mpercolate", index);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="index">The index of the document being count percolated to use as default</param>
-        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage MpercolatePost(string index, Byte[] body, Func<MpercolateParameters, MpercolateParameters> options)
-        {
-            string uri = string.Format("/{0}/_mpercolate", index);
-            MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="index">The index of the document being count percolated to use as default</param>
-        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> MpercolatePostAsync(string index, Byte[] body, Func<MpercolateParameters, MpercolateParameters> options)
+        public virtual async Task<HttpResponseMessage> MpercolatePostAsync(string index, Stream body, Func<MpercolateParameters, MpercolateParameters> options)
         {
             string uri = string.Format("/{0}/_mpercolate", index);
             MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
@@ -461,7 +419,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
         /// <param name="index">The index of the document being count percolated to use as default</param>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        private HttpResponseMessage MpercolatePost(string index, string body)
+        public virtual HttpResponseMessage MpercolatePost(string index, Byte[] body)
         {
             string uri = string.Format("/{0}/_mpercolate", index);
             return this.Execute("POST", uri, body);
@@ -470,7 +428,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
         /// <param name="index">The index of the document being count percolated to use as default</param>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        private async Task<HttpResponseMessage> MpercolatePostAsync(string index, string body)
+        public virtual async Task<HttpResponseMessage> MpercolatePostAsync(string index, Byte[] body)
         {
             string uri = string.Format("/{0}/_mpercolate", index);
             return await this.ExecuteAsync("POST", uri, body);
@@ -480,7 +438,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The index of the document being count percolated to use as default</param>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage MpercolatePost(string index, string body, Func<MpercolateParameters, MpercolateParameters> options)
+        public virtual HttpResponseMessage MpercolatePost(string index, Byte[] body, Func<MpercolateParameters, MpercolateParameters> options)
         {
             string uri = string.Format("/{0}/_mpercolate", index);
             MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
@@ -492,7 +450,49 @@ namespace Elasticsearch.Client
         /// <param name="index">The index of the document being count percolated to use as default</param>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> MpercolatePostAsync(string index, string body, Func<MpercolateParameters, MpercolateParameters> options)
+        public virtual async Task<HttpResponseMessage> MpercolatePostAsync(string index, Byte[] body, Func<MpercolateParameters, MpercolateParameters> options)
+        {
+            string uri = string.Format("/{0}/_mpercolate", index);
+            MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
+        /// <param name="index">The index of the document being count percolated to use as default</param>
+        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
+        public virtual HttpResponseMessage MpercolatePost(string index, string body)
+        {
+            string uri = string.Format("/{0}/_mpercolate", index);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
+        /// <param name="index">The index of the document being count percolated to use as default</param>
+        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
+        public virtual async Task<HttpResponseMessage> MpercolatePostAsync(string index, string body)
+        {
+            string uri = string.Format("/{0}/_mpercolate", index);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
+        /// <param name="index">The index of the document being count percolated to use as default</param>
+        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage MpercolatePost(string index, string body, Func<MpercolateParameters, MpercolateParameters> options)
+        {
+            string uri = string.Format("/{0}/_mpercolate", index);
+            MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
+        /// <param name="index">The index of the document being count percolated to use as default</param>
+        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> MpercolatePostAsync(string index, string body, Func<MpercolateParameters, MpercolateParameters> options)
         {
             string uri = string.Format("/{0}/_mpercolate", index);
             MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
@@ -504,7 +504,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The index of the document being count percolated to use as default</param>
         /// <param name="type">The type of the document being percolated to use as default.</param>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        private HttpResponseMessage MpercolateGet(string index, string type, Stream body)
+        public virtual HttpResponseMessage MpercolateGet(string index, string type, Stream body)
         {
             string uri = string.Format("/{0}/{1}/_mpercolate", index, type);
             return this.Execute("GET", uri, body);
@@ -514,7 +514,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The index of the document being count percolated to use as default</param>
         /// <param name="type">The type of the document being percolated to use as default.</param>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        private async Task<HttpResponseMessage> MpercolateGetAsync(string index, string type, Stream body)
+        public virtual async Task<HttpResponseMessage> MpercolateGetAsync(string index, string type, Stream body)
         {
             string uri = string.Format("/{0}/{1}/_mpercolate", index, type);
             return await this.ExecuteAsync("GET", uri, body);
@@ -525,7 +525,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document being percolated to use as default.</param>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage MpercolateGet(string index, string type, Stream body, Func<MpercolateParameters, MpercolateParameters> options)
+        public virtual HttpResponseMessage MpercolateGet(string index, string type, Stream body, Func<MpercolateParameters, MpercolateParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_mpercolate", index, type);
             MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
@@ -538,7 +538,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document being percolated to use as default.</param>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> MpercolateGetAsync(string index, string type, Stream body, Func<MpercolateParameters, MpercolateParameters> options)
+        public virtual async Task<HttpResponseMessage> MpercolateGetAsync(string index, string type, Stream body, Func<MpercolateParameters, MpercolateParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_mpercolate", index, type);
             MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
@@ -550,7 +550,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The index of the document being count percolated to use as default</param>
         /// <param name="type">The type of the document being percolated to use as default.</param>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        private HttpResponseMessage MpercolateGet(string index, string type, Byte[] body)
+        public virtual HttpResponseMessage MpercolateGet(string index, string type, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/_mpercolate", index, type);
             return this.Execute("GET", uri, body);
@@ -560,7 +560,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The index of the document being count percolated to use as default</param>
         /// <param name="type">The type of the document being percolated to use as default.</param>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        private async Task<HttpResponseMessage> MpercolateGetAsync(string index, string type, Byte[] body)
+        public virtual async Task<HttpResponseMessage> MpercolateGetAsync(string index, string type, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/_mpercolate", index, type);
             return await this.ExecuteAsync("GET", uri, body);
@@ -571,53 +571,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document being percolated to use as default.</param>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage MpercolateGet(string index, string type, Byte[] body, Func<MpercolateParameters, MpercolateParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_mpercolate", index, type);
-            MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="index">The index of the document being count percolated to use as default</param>
-        /// <param name="type">The type of the document being percolated to use as default.</param>
-        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> MpercolateGetAsync(string index, string type, Byte[] body, Func<MpercolateParameters, MpercolateParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_mpercolate", index, type);
-            MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="index">The index of the document being count percolated to use as default</param>
-        /// <param name="type">The type of the document being percolated to use as default.</param>
-        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        private HttpResponseMessage MpercolateGet(string index, string type, string body)
-        {
-            string uri = string.Format("/{0}/{1}/_mpercolate", index, type);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="index">The index of the document being count percolated to use as default</param>
-        /// <param name="type">The type of the document being percolated to use as default.</param>
-        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        private async Task<HttpResponseMessage> MpercolateGetAsync(string index, string type, string body)
-        {
-            string uri = string.Format("/{0}/{1}/_mpercolate", index, type);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="index">The index of the document being count percolated to use as default</param>
-        /// <param name="type">The type of the document being percolated to use as default.</param>
-        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage MpercolateGet(string index, string type, string body, Func<MpercolateParameters, MpercolateParameters> options)
+        public virtual HttpResponseMessage MpercolateGet(string index, string type, Byte[] body, Func<MpercolateParameters, MpercolateParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_mpercolate", index, type);
             MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
@@ -630,7 +584,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document being percolated to use as default.</param>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> MpercolateGetAsync(string index, string type, string body, Func<MpercolateParameters, MpercolateParameters> options)
+        public virtual async Task<HttpResponseMessage> MpercolateGetAsync(string index, string type, Byte[] body, Func<MpercolateParameters, MpercolateParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_mpercolate", index, type);
             MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
@@ -642,7 +596,53 @@ namespace Elasticsearch.Client
         /// <param name="index">The index of the document being count percolated to use as default</param>
         /// <param name="type">The type of the document being percolated to use as default.</param>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        private HttpResponseMessage MpercolatePost(string index, string type, Stream body)
+        public virtual HttpResponseMessage MpercolateGet(string index, string type, string body)
+        {
+            string uri = string.Format("/{0}/{1}/_mpercolate", index, type);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
+        /// <param name="index">The index of the document being count percolated to use as default</param>
+        /// <param name="type">The type of the document being percolated to use as default.</param>
+        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
+        public virtual async Task<HttpResponseMessage> MpercolateGetAsync(string index, string type, string body)
+        {
+            string uri = string.Format("/{0}/{1}/_mpercolate", index, type);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
+        /// <param name="index">The index of the document being count percolated to use as default</param>
+        /// <param name="type">The type of the document being percolated to use as default.</param>
+        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage MpercolateGet(string index, string type, string body, Func<MpercolateParameters, MpercolateParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_mpercolate", index, type);
+            MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
+        /// <param name="index">The index of the document being count percolated to use as default</param>
+        /// <param name="type">The type of the document being percolated to use as default.</param>
+        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> MpercolateGetAsync(string index, string type, string body, Func<MpercolateParameters, MpercolateParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_mpercolate", index, type);
+            MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
+        /// <param name="index">The index of the document being count percolated to use as default</param>
+        /// <param name="type">The type of the document being percolated to use as default.</param>
+        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
+        public virtual HttpResponseMessage MpercolatePost(string index, string type, Stream body)
         {
             string uri = string.Format("/{0}/{1}/_mpercolate", index, type);
             return this.Execute("POST", uri, body);
@@ -652,7 +652,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The index of the document being count percolated to use as default</param>
         /// <param name="type">The type of the document being percolated to use as default.</param>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        private async Task<HttpResponseMessage> MpercolatePostAsync(string index, string type, Stream body)
+        public virtual async Task<HttpResponseMessage> MpercolatePostAsync(string index, string type, Stream body)
         {
             string uri = string.Format("/{0}/{1}/_mpercolate", index, type);
             return await this.ExecuteAsync("POST", uri, body);
@@ -663,7 +663,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document being percolated to use as default.</param>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage MpercolatePost(string index, string type, Stream body, Func<MpercolateParameters, MpercolateParameters> options)
+        public virtual HttpResponseMessage MpercolatePost(string index, string type, Stream body, Func<MpercolateParameters, MpercolateParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_mpercolate", index, type);
             MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
@@ -676,53 +676,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document being percolated to use as default.</param>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> MpercolatePostAsync(string index, string type, Stream body, Func<MpercolateParameters, MpercolateParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_mpercolate", index, type);
-            MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="index">The index of the document being count percolated to use as default</param>
-        /// <param name="type">The type of the document being percolated to use as default.</param>
-        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        private HttpResponseMessage MpercolatePost(string index, string type, Byte[] body)
-        {
-            string uri = string.Format("/{0}/{1}/_mpercolate", index, type);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="index">The index of the document being count percolated to use as default</param>
-        /// <param name="type">The type of the document being percolated to use as default.</param>
-        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        private async Task<HttpResponseMessage> MpercolatePostAsync(string index, string type, Byte[] body)
-        {
-            string uri = string.Format("/{0}/{1}/_mpercolate", index, type);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="index">The index of the document being count percolated to use as default</param>
-        /// <param name="type">The type of the document being percolated to use as default.</param>
-        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage MpercolatePost(string index, string type, Byte[] body, Func<MpercolateParameters, MpercolateParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_mpercolate", index, type);
-            MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="index">The index of the document being count percolated to use as default</param>
-        /// <param name="type">The type of the document being percolated to use as default.</param>
-        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> MpercolatePostAsync(string index, string type, Byte[] body, Func<MpercolateParameters, MpercolateParameters> options)
+        public virtual async Task<HttpResponseMessage> MpercolatePostAsync(string index, string type, Stream body, Func<MpercolateParameters, MpercolateParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_mpercolate", index, type);
             MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
@@ -734,7 +688,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The index of the document being count percolated to use as default</param>
         /// <param name="type">The type of the document being percolated to use as default.</param>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        private HttpResponseMessage MpercolatePost(string index, string type, string body)
+        public virtual HttpResponseMessage MpercolatePost(string index, string type, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/_mpercolate", index, type);
             return this.Execute("POST", uri, body);
@@ -744,7 +698,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The index of the document being count percolated to use as default</param>
         /// <param name="type">The type of the document being percolated to use as default.</param>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
-        private async Task<HttpResponseMessage> MpercolatePostAsync(string index, string type, string body)
+        public virtual async Task<HttpResponseMessage> MpercolatePostAsync(string index, string type, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/_mpercolate", index, type);
             return await this.ExecuteAsync("POST", uri, body);
@@ -755,7 +709,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document being percolated to use as default.</param>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage MpercolatePost(string index, string type, string body, Func<MpercolateParameters, MpercolateParameters> options)
+        public virtual HttpResponseMessage MpercolatePost(string index, string type, Byte[] body, Func<MpercolateParameters, MpercolateParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_mpercolate", index, type);
             MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
@@ -768,7 +722,53 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document being percolated to use as default.</param>
         /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> MpercolatePostAsync(string index, string type, string body, Func<MpercolateParameters, MpercolateParameters> options)
+        public virtual async Task<HttpResponseMessage> MpercolatePostAsync(string index, string type, Byte[] body, Func<MpercolateParameters, MpercolateParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_mpercolate", index, type);
+            MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
+        /// <param name="index">The index of the document being count percolated to use as default</param>
+        /// <param name="type">The type of the document being percolated to use as default.</param>
+        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
+        public virtual HttpResponseMessage MpercolatePost(string index, string type, string body)
+        {
+            string uri = string.Format("/{0}/{1}/_mpercolate", index, type);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
+        /// <param name="index">The index of the document being count percolated to use as default</param>
+        /// <param name="type">The type of the document being percolated to use as default.</param>
+        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
+        public virtual async Task<HttpResponseMessage> MpercolatePostAsync(string index, string type, string body)
+        {
+            string uri = string.Format("/{0}/{1}/_mpercolate", index, type);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
+        /// <param name="index">The index of the document being count percolated to use as default</param>
+        /// <param name="type">The type of the document being percolated to use as default.</param>
+        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage MpercolatePost(string index, string type, string body, Func<MpercolateParameters, MpercolateParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_mpercolate", index, type);
+            MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
+        /// <param name="index">The index of the document being count percolated to use as default</param>
+        /// <param name="type">The type of the document being percolated to use as default.</param>
+        /// <param name="body">The percolate request definitions (header & body pair), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> MpercolatePostAsync(string index, string type, string body, Func<MpercolateParameters, MpercolateParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_mpercolate", index, type);
             MpercolateParameters parameters = options.Invoke(new MpercolateParameters());

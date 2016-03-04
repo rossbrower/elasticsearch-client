@@ -21,14 +21,14 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-settings.html"/></summary>
-        private HttpResponseMessage IndicesGetSettings()
+        public virtual HttpResponseMessage IndicesGetSettings()
         {
             string uri = "/_settings";
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-settings.html"/></summary>
-        private async Task<HttpResponseMessage> IndicesGetSettingsAsync()
+        public virtual async Task<HttpResponseMessage> IndicesGetSettingsAsync()
         {
             string uri = "/_settings";
             return await this.ExecuteAsync("GET", uri);
@@ -36,7 +36,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-settings.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesGetSettings(Func<IndicesGetSettingsParameters, IndicesGetSettingsParameters> options)
+        public virtual HttpResponseMessage IndicesGetSettings(Func<IndicesGetSettingsParameters, IndicesGetSettingsParameters> options)
         {
             string uri = "/_settings";
             IndicesGetSettingsParameters parameters = options.Invoke(new IndicesGetSettingsParameters());
@@ -46,7 +46,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-settings.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesGetSettingsAsync(Func<IndicesGetSettingsParameters, IndicesGetSettingsParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesGetSettingsAsync(Func<IndicesGetSettingsParameters, IndicesGetSettingsParameters> options)
         {
             string uri = "/_settings";
             IndicesGetSettingsParameters parameters = options.Invoke(new IndicesGetSettingsParameters());
@@ -56,7 +56,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-settings.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
-        private HttpResponseMessage IndicesGetSettings(string index)
+        public virtual HttpResponseMessage IndicesGetSettings(string index)
         {
             string uri = string.Format("/{0}/_settings", index);
             return this.Execute("GET", uri);
@@ -64,7 +64,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-settings.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
-        private async Task<HttpResponseMessage> IndicesGetSettingsAsync(string index)
+        public virtual async Task<HttpResponseMessage> IndicesGetSettingsAsync(string index)
         {
             string uri = string.Format("/{0}/_settings", index);
             return await this.ExecuteAsync("GET", uri);
@@ -73,7 +73,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-settings.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesGetSettings(string index, Func<IndicesGetSettingsParameters, IndicesGetSettingsParameters> options)
+        public virtual HttpResponseMessage IndicesGetSettings(string index, Func<IndicesGetSettingsParameters, IndicesGetSettingsParameters> options)
         {
             string uri = string.Format("/{0}/_settings", index);
             IndicesGetSettingsParameters parameters = options.Invoke(new IndicesGetSettingsParameters());
@@ -84,7 +84,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-settings.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesGetSettingsAsync(string index, Func<IndicesGetSettingsParameters, IndicesGetSettingsParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesGetSettingsAsync(string index, Func<IndicesGetSettingsParameters, IndicesGetSettingsParameters> options)
         {
             string uri = string.Format("/{0}/_settings", index);
             IndicesGetSettingsParameters parameters = options.Invoke(new IndicesGetSettingsParameters());
@@ -95,7 +95,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-settings.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="name">The name of the settings that should be included</param>
-        private HttpResponseMessage IndicesGetSettings(string index, string name)
+        public virtual HttpResponseMessage IndicesGetSettings(string index, string name)
         {
             string uri = string.Format("/{0}/_settings/{1}", index, name);
             return this.Execute("GET", uri);
@@ -104,7 +104,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-settings.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="name">The name of the settings that should be included</param>
-        private async Task<HttpResponseMessage> IndicesGetSettingsAsync(string index, string name)
+        public virtual async Task<HttpResponseMessage> IndicesGetSettingsAsync(string index, string name)
         {
             string uri = string.Format("/{0}/_settings/{1}", index, name);
             return await this.ExecuteAsync("GET", uri);
@@ -114,7 +114,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="name">The name of the settings that should be included</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesGetSettings(string index, string name, Func<IndicesGetSettingsParameters, IndicesGetSettingsParameters> options)
+        public virtual HttpResponseMessage IndicesGetSettings(string index, string name, Func<IndicesGetSettingsParameters, IndicesGetSettingsParameters> options)
         {
             string uri = string.Format("/{0}/_settings/{1}", index, name);
             IndicesGetSettingsParameters parameters = options.Invoke(new IndicesGetSettingsParameters());
@@ -126,7 +126,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="name">The name of the settings that should be included</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesGetSettingsAsync(string index, string name, Func<IndicesGetSettingsParameters, IndicesGetSettingsParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesGetSettingsAsync(string index, string name, Func<IndicesGetSettingsParameters, IndicesGetSettingsParameters> options)
         {
             string uri = string.Format("/{0}/_settings/{1}", index, name);
             IndicesGetSettingsParameters parameters = options.Invoke(new IndicesGetSettingsParameters());

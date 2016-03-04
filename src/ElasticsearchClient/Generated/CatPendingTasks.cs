@@ -21,14 +21,14 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-pending-tasks.html"/></summary>
-        private HttpResponseMessage CatPendingTasks()
+        public virtual HttpResponseMessage CatPendingTasks()
         {
             string uri = "/_cat/pending_tasks";
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-pending-tasks.html"/></summary>
-        private async Task<HttpResponseMessage> CatPendingTasksAsync()
+        public virtual async Task<HttpResponseMessage> CatPendingTasksAsync()
         {
             string uri = "/_cat/pending_tasks";
             return await this.ExecuteAsync("GET", uri);
@@ -36,7 +36,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-pending-tasks.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage CatPendingTasks(Func<CatPendingTasksParameters, CatPendingTasksParameters> options)
+        public virtual HttpResponseMessage CatPendingTasks(Func<CatPendingTasksParameters, CatPendingTasksParameters> options)
         {
             string uri = "/_cat/pending_tasks";
             CatPendingTasksParameters parameters = options.Invoke(new CatPendingTasksParameters());
@@ -46,7 +46,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-pending-tasks.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> CatPendingTasksAsync(Func<CatPendingTasksParameters, CatPendingTasksParameters> options)
+        public virtual async Task<HttpResponseMessage> CatPendingTasksAsync(Func<CatPendingTasksParameters, CatPendingTasksParameters> options)
         {
             string uri = "/_cat/pending_tasks";
             CatPendingTasksParameters parameters = options.Invoke(new CatPendingTasksParameters());

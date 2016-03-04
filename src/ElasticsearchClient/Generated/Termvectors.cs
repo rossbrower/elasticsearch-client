@@ -24,7 +24,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
-        private HttpResponseMessage TermvectorsGet(string index, string type, Stream body)
+        public virtual HttpResponseMessage TermvectorsGet(string index, string type, Stream body)
         {
             string uri = string.Format("/{0}/{1}/_termvectors", index, type);
             return this.Execute("GET", uri, body);
@@ -34,7 +34,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
-        private async Task<HttpResponseMessage> TermvectorsGetAsync(string index, string type, Stream body)
+        public virtual async Task<HttpResponseMessage> TermvectorsGetAsync(string index, string type, Stream body)
         {
             string uri = string.Format("/{0}/{1}/_termvectors", index, type);
             return await this.ExecuteAsync("GET", uri, body);
@@ -45,7 +45,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage TermvectorsGet(string index, string type, Stream body, Func<TermvectorsParameters, TermvectorsParameters> options)
+        public virtual HttpResponseMessage TermvectorsGet(string index, string type, Stream body, Func<TermvectorsParameters, TermvectorsParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_termvectors", index, type);
             TermvectorsParameters parameters = options.Invoke(new TermvectorsParameters());
@@ -58,7 +58,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> TermvectorsGetAsync(string index, string type, Stream body, Func<TermvectorsParameters, TermvectorsParameters> options)
+        public virtual async Task<HttpResponseMessage> TermvectorsGetAsync(string index, string type, Stream body, Func<TermvectorsParameters, TermvectorsParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_termvectors", index, type);
             TermvectorsParameters parameters = options.Invoke(new TermvectorsParameters());
@@ -70,7 +70,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
-        private HttpResponseMessage TermvectorsGet(string index, string type, Byte[] body)
+        public virtual HttpResponseMessage TermvectorsGet(string index, string type, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/_termvectors", index, type);
             return this.Execute("GET", uri, body);
@@ -80,7 +80,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
-        private async Task<HttpResponseMessage> TermvectorsGetAsync(string index, string type, Byte[] body)
+        public virtual async Task<HttpResponseMessage> TermvectorsGetAsync(string index, string type, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/_termvectors", index, type);
             return await this.ExecuteAsync("GET", uri, body);
@@ -91,53 +91,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage TermvectorsGet(string index, string type, Byte[] body, Func<TermvectorsParameters, TermvectorsParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_termvectors", index, type);
-            TermvectorsParameters parameters = options.Invoke(new TermvectorsParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-termvectors.html"/></summary>
-        /// <param name="index">The index in which the document resides.</param>
-        /// <param name="type">The type of the document.</param>
-        /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> TermvectorsGetAsync(string index, string type, Byte[] body, Func<TermvectorsParameters, TermvectorsParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_termvectors", index, type);
-            TermvectorsParameters parameters = options.Invoke(new TermvectorsParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-termvectors.html"/></summary>
-        /// <param name="index">The index in which the document resides.</param>
-        /// <param name="type">The type of the document.</param>
-        /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
-        private HttpResponseMessage TermvectorsGet(string index, string type, string body)
-        {
-            string uri = string.Format("/{0}/{1}/_termvectors", index, type);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-termvectors.html"/></summary>
-        /// <param name="index">The index in which the document resides.</param>
-        /// <param name="type">The type of the document.</param>
-        /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
-        private async Task<HttpResponseMessage> TermvectorsGetAsync(string index, string type, string body)
-        {
-            string uri = string.Format("/{0}/{1}/_termvectors", index, type);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-termvectors.html"/></summary>
-        /// <param name="index">The index in which the document resides.</param>
-        /// <param name="type">The type of the document.</param>
-        /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage TermvectorsGet(string index, string type, string body, Func<TermvectorsParameters, TermvectorsParameters> options)
+        public virtual HttpResponseMessage TermvectorsGet(string index, string type, Byte[] body, Func<TermvectorsParameters, TermvectorsParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_termvectors", index, type);
             TermvectorsParameters parameters = options.Invoke(new TermvectorsParameters());
@@ -150,7 +104,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> TermvectorsGetAsync(string index, string type, string body, Func<TermvectorsParameters, TermvectorsParameters> options)
+        public virtual async Task<HttpResponseMessage> TermvectorsGetAsync(string index, string type, Byte[] body, Func<TermvectorsParameters, TermvectorsParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_termvectors", index, type);
             TermvectorsParameters parameters = options.Invoke(new TermvectorsParameters());
@@ -162,7 +116,53 @@ namespace Elasticsearch.Client
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
-        private HttpResponseMessage TermvectorsPost(string index, string type, Stream body)
+        public virtual HttpResponseMessage TermvectorsGet(string index, string type, string body)
+        {
+            string uri = string.Format("/{0}/{1}/_termvectors", index, type);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-termvectors.html"/></summary>
+        /// <param name="index">The index in which the document resides.</param>
+        /// <param name="type">The type of the document.</param>
+        /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
+        public virtual async Task<HttpResponseMessage> TermvectorsGetAsync(string index, string type, string body)
+        {
+            string uri = string.Format("/{0}/{1}/_termvectors", index, type);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-termvectors.html"/></summary>
+        /// <param name="index">The index in which the document resides.</param>
+        /// <param name="type">The type of the document.</param>
+        /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage TermvectorsGet(string index, string type, string body, Func<TermvectorsParameters, TermvectorsParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_termvectors", index, type);
+            TermvectorsParameters parameters = options.Invoke(new TermvectorsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-termvectors.html"/></summary>
+        /// <param name="index">The index in which the document resides.</param>
+        /// <param name="type">The type of the document.</param>
+        /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> TermvectorsGetAsync(string index, string type, string body, Func<TermvectorsParameters, TermvectorsParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_termvectors", index, type);
+            TermvectorsParameters parameters = options.Invoke(new TermvectorsParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-termvectors.html"/></summary>
+        /// <param name="index">The index in which the document resides.</param>
+        /// <param name="type">The type of the document.</param>
+        /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
+        public virtual HttpResponseMessage TermvectorsPost(string index, string type, Stream body)
         {
             string uri = string.Format("/{0}/{1}/_termvectors", index, type);
             return this.Execute("POST", uri, body);
@@ -172,7 +172,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
-        private async Task<HttpResponseMessage> TermvectorsPostAsync(string index, string type, Stream body)
+        public virtual async Task<HttpResponseMessage> TermvectorsPostAsync(string index, string type, Stream body)
         {
             string uri = string.Format("/{0}/{1}/_termvectors", index, type);
             return await this.ExecuteAsync("POST", uri, body);
@@ -183,7 +183,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage TermvectorsPost(string index, string type, Stream body, Func<TermvectorsParameters, TermvectorsParameters> options)
+        public virtual HttpResponseMessage TermvectorsPost(string index, string type, Stream body, Func<TermvectorsParameters, TermvectorsParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_termvectors", index, type);
             TermvectorsParameters parameters = options.Invoke(new TermvectorsParameters());
@@ -196,53 +196,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> TermvectorsPostAsync(string index, string type, Stream body, Func<TermvectorsParameters, TermvectorsParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_termvectors", index, type);
-            TermvectorsParameters parameters = options.Invoke(new TermvectorsParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-termvectors.html"/></summary>
-        /// <param name="index">The index in which the document resides.</param>
-        /// <param name="type">The type of the document.</param>
-        /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
-        private HttpResponseMessage TermvectorsPost(string index, string type, Byte[] body)
-        {
-            string uri = string.Format("/{0}/{1}/_termvectors", index, type);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-termvectors.html"/></summary>
-        /// <param name="index">The index in which the document resides.</param>
-        /// <param name="type">The type of the document.</param>
-        /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
-        private async Task<HttpResponseMessage> TermvectorsPostAsync(string index, string type, Byte[] body)
-        {
-            string uri = string.Format("/{0}/{1}/_termvectors", index, type);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-termvectors.html"/></summary>
-        /// <param name="index">The index in which the document resides.</param>
-        /// <param name="type">The type of the document.</param>
-        /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage TermvectorsPost(string index, string type, Byte[] body, Func<TermvectorsParameters, TermvectorsParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_termvectors", index, type);
-            TermvectorsParameters parameters = options.Invoke(new TermvectorsParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-termvectors.html"/></summary>
-        /// <param name="index">The index in which the document resides.</param>
-        /// <param name="type">The type of the document.</param>
-        /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> TermvectorsPostAsync(string index, string type, Byte[] body, Func<TermvectorsParameters, TermvectorsParameters> options)
+        public virtual async Task<HttpResponseMessage> TermvectorsPostAsync(string index, string type, Stream body, Func<TermvectorsParameters, TermvectorsParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_termvectors", index, type);
             TermvectorsParameters parameters = options.Invoke(new TermvectorsParameters());
@@ -254,7 +208,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
-        private HttpResponseMessage TermvectorsPost(string index, string type, string body)
+        public virtual HttpResponseMessage TermvectorsPost(string index, string type, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/_termvectors", index, type);
             return this.Execute("POST", uri, body);
@@ -264,7 +218,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
-        private async Task<HttpResponseMessage> TermvectorsPostAsync(string index, string type, string body)
+        public virtual async Task<HttpResponseMessage> TermvectorsPostAsync(string index, string type, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/_termvectors", index, type);
             return await this.ExecuteAsync("POST", uri, body);
@@ -275,7 +229,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage TermvectorsPost(string index, string type, string body, Func<TermvectorsParameters, TermvectorsParameters> options)
+        public virtual HttpResponseMessage TermvectorsPost(string index, string type, Byte[] body, Func<TermvectorsParameters, TermvectorsParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_termvectors", index, type);
             TermvectorsParameters parameters = options.Invoke(new TermvectorsParameters());
@@ -288,7 +242,53 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> TermvectorsPostAsync(string index, string type, string body, Func<TermvectorsParameters, TermvectorsParameters> options)
+        public virtual async Task<HttpResponseMessage> TermvectorsPostAsync(string index, string type, Byte[] body, Func<TermvectorsParameters, TermvectorsParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_termvectors", index, type);
+            TermvectorsParameters parameters = options.Invoke(new TermvectorsParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-termvectors.html"/></summary>
+        /// <param name="index">The index in which the document resides.</param>
+        /// <param name="type">The type of the document.</param>
+        /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
+        public virtual HttpResponseMessage TermvectorsPost(string index, string type, string body)
+        {
+            string uri = string.Format("/{0}/{1}/_termvectors", index, type);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-termvectors.html"/></summary>
+        /// <param name="index">The index in which the document resides.</param>
+        /// <param name="type">The type of the document.</param>
+        /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
+        public virtual async Task<HttpResponseMessage> TermvectorsPostAsync(string index, string type, string body)
+        {
+            string uri = string.Format("/{0}/{1}/_termvectors", index, type);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-termvectors.html"/></summary>
+        /// <param name="index">The index in which the document resides.</param>
+        /// <param name="type">The type of the document.</param>
+        /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage TermvectorsPost(string index, string type, string body, Func<TermvectorsParameters, TermvectorsParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_termvectors", index, type);
+            TermvectorsParameters parameters = options.Invoke(new TermvectorsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-termvectors.html"/></summary>
+        /// <param name="index">The index in which the document resides.</param>
+        /// <param name="type">The type of the document.</param>
+        /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> TermvectorsPostAsync(string index, string type, string body, Func<TermvectorsParameters, TermvectorsParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_termvectors", index, type);
             TermvectorsParameters parameters = options.Invoke(new TermvectorsParameters());
@@ -301,7 +301,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document.</param>
         /// <param name="id">The id of the document, when not specified a doc param should be supplied.</param>
         /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
-        private HttpResponseMessage TermvectorsGet(string index, string type, string id, Stream body)
+        public virtual HttpResponseMessage TermvectorsGet(string index, string type, string id, Stream body)
         {
             string uri = string.Format("/{0}/{1}/{2}/_termvectors", index, type, id);
             return this.Execute("GET", uri, body);
@@ -312,7 +312,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document.</param>
         /// <param name="id">The id of the document, when not specified a doc param should be supplied.</param>
         /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
-        private async Task<HttpResponseMessage> TermvectorsGetAsync(string index, string type, string id, Stream body)
+        public virtual async Task<HttpResponseMessage> TermvectorsGetAsync(string index, string type, string id, Stream body)
         {
             string uri = string.Format("/{0}/{1}/{2}/_termvectors", index, type, id);
             return await this.ExecuteAsync("GET", uri, body);
@@ -324,7 +324,7 @@ namespace Elasticsearch.Client
         /// <param name="id">The id of the document, when not specified a doc param should be supplied.</param>
         /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage TermvectorsGet(string index, string type, string id, Stream body, Func<TermvectorsParameters, TermvectorsParameters> options)
+        public virtual HttpResponseMessage TermvectorsGet(string index, string type, string id, Stream body, Func<TermvectorsParameters, TermvectorsParameters> options)
         {
             string uri = string.Format("/{0}/{1}/{2}/_termvectors", index, type, id);
             TermvectorsParameters parameters = options.Invoke(new TermvectorsParameters());
@@ -338,7 +338,7 @@ namespace Elasticsearch.Client
         /// <param name="id">The id of the document, when not specified a doc param should be supplied.</param>
         /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> TermvectorsGetAsync(string index, string type, string id, Stream body, Func<TermvectorsParameters, TermvectorsParameters> options)
+        public virtual async Task<HttpResponseMessage> TermvectorsGetAsync(string index, string type, string id, Stream body, Func<TermvectorsParameters, TermvectorsParameters> options)
         {
             string uri = string.Format("/{0}/{1}/{2}/_termvectors", index, type, id);
             TermvectorsParameters parameters = options.Invoke(new TermvectorsParameters());
@@ -351,7 +351,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document.</param>
         /// <param name="id">The id of the document, when not specified a doc param should be supplied.</param>
         /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
-        private HttpResponseMessage TermvectorsGet(string index, string type, string id, Byte[] body)
+        public virtual HttpResponseMessage TermvectorsGet(string index, string type, string id, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/{2}/_termvectors", index, type, id);
             return this.Execute("GET", uri, body);
@@ -362,7 +362,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document.</param>
         /// <param name="id">The id of the document, when not specified a doc param should be supplied.</param>
         /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
-        private async Task<HttpResponseMessage> TermvectorsGetAsync(string index, string type, string id, Byte[] body)
+        public virtual async Task<HttpResponseMessage> TermvectorsGetAsync(string index, string type, string id, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/{2}/_termvectors", index, type, id);
             return await this.ExecuteAsync("GET", uri, body);
@@ -374,57 +374,7 @@ namespace Elasticsearch.Client
         /// <param name="id">The id of the document, when not specified a doc param should be supplied.</param>
         /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage TermvectorsGet(string index, string type, string id, Byte[] body, Func<TermvectorsParameters, TermvectorsParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/{2}/_termvectors", index, type, id);
-            TermvectorsParameters parameters = options.Invoke(new TermvectorsParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-termvectors.html"/></summary>
-        /// <param name="index">The index in which the document resides.</param>
-        /// <param name="type">The type of the document.</param>
-        /// <param name="id">The id of the document, when not specified a doc param should be supplied.</param>
-        /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> TermvectorsGetAsync(string index, string type, string id, Byte[] body, Func<TermvectorsParameters, TermvectorsParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/{2}/_termvectors", index, type, id);
-            TermvectorsParameters parameters = options.Invoke(new TermvectorsParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-termvectors.html"/></summary>
-        /// <param name="index">The index in which the document resides.</param>
-        /// <param name="type">The type of the document.</param>
-        /// <param name="id">The id of the document, when not specified a doc param should be supplied.</param>
-        /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
-        private HttpResponseMessage TermvectorsGet(string index, string type, string id, string body)
-        {
-            string uri = string.Format("/{0}/{1}/{2}/_termvectors", index, type, id);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-termvectors.html"/></summary>
-        /// <param name="index">The index in which the document resides.</param>
-        /// <param name="type">The type of the document.</param>
-        /// <param name="id">The id of the document, when not specified a doc param should be supplied.</param>
-        /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
-        private async Task<HttpResponseMessage> TermvectorsGetAsync(string index, string type, string id, string body)
-        {
-            string uri = string.Format("/{0}/{1}/{2}/_termvectors", index, type, id);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-termvectors.html"/></summary>
-        /// <param name="index">The index in which the document resides.</param>
-        /// <param name="type">The type of the document.</param>
-        /// <param name="id">The id of the document, when not specified a doc param should be supplied.</param>
-        /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage TermvectorsGet(string index, string type, string id, string body, Func<TermvectorsParameters, TermvectorsParameters> options)
+        public virtual HttpResponseMessage TermvectorsGet(string index, string type, string id, Byte[] body, Func<TermvectorsParameters, TermvectorsParameters> options)
         {
             string uri = string.Format("/{0}/{1}/{2}/_termvectors", index, type, id);
             TermvectorsParameters parameters = options.Invoke(new TermvectorsParameters());
@@ -438,7 +388,7 @@ namespace Elasticsearch.Client
         /// <param name="id">The id of the document, when not specified a doc param should be supplied.</param>
         /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> TermvectorsGetAsync(string index, string type, string id, string body, Func<TermvectorsParameters, TermvectorsParameters> options)
+        public virtual async Task<HttpResponseMessage> TermvectorsGetAsync(string index, string type, string id, Byte[] body, Func<TermvectorsParameters, TermvectorsParameters> options)
         {
             string uri = string.Format("/{0}/{1}/{2}/_termvectors", index, type, id);
             TermvectorsParameters parameters = options.Invoke(new TermvectorsParameters());
@@ -451,7 +401,57 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document.</param>
         /// <param name="id">The id of the document, when not specified a doc param should be supplied.</param>
         /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
-        private HttpResponseMessage TermvectorsPost(string index, string type, string id, Stream body)
+        public virtual HttpResponseMessage TermvectorsGet(string index, string type, string id, string body)
+        {
+            string uri = string.Format("/{0}/{1}/{2}/_termvectors", index, type, id);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-termvectors.html"/></summary>
+        /// <param name="index">The index in which the document resides.</param>
+        /// <param name="type">The type of the document.</param>
+        /// <param name="id">The id of the document, when not specified a doc param should be supplied.</param>
+        /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
+        public virtual async Task<HttpResponseMessage> TermvectorsGetAsync(string index, string type, string id, string body)
+        {
+            string uri = string.Format("/{0}/{1}/{2}/_termvectors", index, type, id);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-termvectors.html"/></summary>
+        /// <param name="index">The index in which the document resides.</param>
+        /// <param name="type">The type of the document.</param>
+        /// <param name="id">The id of the document, when not specified a doc param should be supplied.</param>
+        /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage TermvectorsGet(string index, string type, string id, string body, Func<TermvectorsParameters, TermvectorsParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/{2}/_termvectors", index, type, id);
+            TermvectorsParameters parameters = options.Invoke(new TermvectorsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-termvectors.html"/></summary>
+        /// <param name="index">The index in which the document resides.</param>
+        /// <param name="type">The type of the document.</param>
+        /// <param name="id">The id of the document, when not specified a doc param should be supplied.</param>
+        /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> TermvectorsGetAsync(string index, string type, string id, string body, Func<TermvectorsParameters, TermvectorsParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/{2}/_termvectors", index, type, id);
+            TermvectorsParameters parameters = options.Invoke(new TermvectorsParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-termvectors.html"/></summary>
+        /// <param name="index">The index in which the document resides.</param>
+        /// <param name="type">The type of the document.</param>
+        /// <param name="id">The id of the document, when not specified a doc param should be supplied.</param>
+        /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
+        public virtual HttpResponseMessage TermvectorsPost(string index, string type, string id, Stream body)
         {
             string uri = string.Format("/{0}/{1}/{2}/_termvectors", index, type, id);
             return this.Execute("POST", uri, body);
@@ -462,7 +462,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document.</param>
         /// <param name="id">The id of the document, when not specified a doc param should be supplied.</param>
         /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
-        private async Task<HttpResponseMessage> TermvectorsPostAsync(string index, string type, string id, Stream body)
+        public virtual async Task<HttpResponseMessage> TermvectorsPostAsync(string index, string type, string id, Stream body)
         {
             string uri = string.Format("/{0}/{1}/{2}/_termvectors", index, type, id);
             return await this.ExecuteAsync("POST", uri, body);
@@ -474,7 +474,7 @@ namespace Elasticsearch.Client
         /// <param name="id">The id of the document, when not specified a doc param should be supplied.</param>
         /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage TermvectorsPost(string index, string type, string id, Stream body, Func<TermvectorsParameters, TermvectorsParameters> options)
+        public virtual HttpResponseMessage TermvectorsPost(string index, string type, string id, Stream body, Func<TermvectorsParameters, TermvectorsParameters> options)
         {
             string uri = string.Format("/{0}/{1}/{2}/_termvectors", index, type, id);
             TermvectorsParameters parameters = options.Invoke(new TermvectorsParameters());
@@ -488,57 +488,7 @@ namespace Elasticsearch.Client
         /// <param name="id">The id of the document, when not specified a doc param should be supplied.</param>
         /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> TermvectorsPostAsync(string index, string type, string id, Stream body, Func<TermvectorsParameters, TermvectorsParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/{2}/_termvectors", index, type, id);
-            TermvectorsParameters parameters = options.Invoke(new TermvectorsParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-termvectors.html"/></summary>
-        /// <param name="index">The index in which the document resides.</param>
-        /// <param name="type">The type of the document.</param>
-        /// <param name="id">The id of the document, when not specified a doc param should be supplied.</param>
-        /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
-        private HttpResponseMessage TermvectorsPost(string index, string type, string id, Byte[] body)
-        {
-            string uri = string.Format("/{0}/{1}/{2}/_termvectors", index, type, id);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-termvectors.html"/></summary>
-        /// <param name="index">The index in which the document resides.</param>
-        /// <param name="type">The type of the document.</param>
-        /// <param name="id">The id of the document, when not specified a doc param should be supplied.</param>
-        /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
-        private async Task<HttpResponseMessage> TermvectorsPostAsync(string index, string type, string id, Byte[] body)
-        {
-            string uri = string.Format("/{0}/{1}/{2}/_termvectors", index, type, id);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-termvectors.html"/></summary>
-        /// <param name="index">The index in which the document resides.</param>
-        /// <param name="type">The type of the document.</param>
-        /// <param name="id">The id of the document, when not specified a doc param should be supplied.</param>
-        /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage TermvectorsPost(string index, string type, string id, Byte[] body, Func<TermvectorsParameters, TermvectorsParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/{2}/_termvectors", index, type, id);
-            TermvectorsParameters parameters = options.Invoke(new TermvectorsParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-termvectors.html"/></summary>
-        /// <param name="index">The index in which the document resides.</param>
-        /// <param name="type">The type of the document.</param>
-        /// <param name="id">The id of the document, when not specified a doc param should be supplied.</param>
-        /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> TermvectorsPostAsync(string index, string type, string id, Byte[] body, Func<TermvectorsParameters, TermvectorsParameters> options)
+        public virtual async Task<HttpResponseMessage> TermvectorsPostAsync(string index, string type, string id, Stream body, Func<TermvectorsParameters, TermvectorsParameters> options)
         {
             string uri = string.Format("/{0}/{1}/{2}/_termvectors", index, type, id);
             TermvectorsParameters parameters = options.Invoke(new TermvectorsParameters());
@@ -551,7 +501,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document.</param>
         /// <param name="id">The id of the document, when not specified a doc param should be supplied.</param>
         /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
-        private HttpResponseMessage TermvectorsPost(string index, string type, string id, string body)
+        public virtual HttpResponseMessage TermvectorsPost(string index, string type, string id, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/{2}/_termvectors", index, type, id);
             return this.Execute("POST", uri, body);
@@ -562,7 +512,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document.</param>
         /// <param name="id">The id of the document, when not specified a doc param should be supplied.</param>
         /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
-        private async Task<HttpResponseMessage> TermvectorsPostAsync(string index, string type, string id, string body)
+        public virtual async Task<HttpResponseMessage> TermvectorsPostAsync(string index, string type, string id, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/{2}/_termvectors", index, type, id);
             return await this.ExecuteAsync("POST", uri, body);
@@ -574,7 +524,7 @@ namespace Elasticsearch.Client
         /// <param name="id">The id of the document, when not specified a doc param should be supplied.</param>
         /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage TermvectorsPost(string index, string type, string id, string body, Func<TermvectorsParameters, TermvectorsParameters> options)
+        public virtual HttpResponseMessage TermvectorsPost(string index, string type, string id, Byte[] body, Func<TermvectorsParameters, TermvectorsParameters> options)
         {
             string uri = string.Format("/{0}/{1}/{2}/_termvectors", index, type, id);
             TermvectorsParameters parameters = options.Invoke(new TermvectorsParameters());
@@ -588,7 +538,57 @@ namespace Elasticsearch.Client
         /// <param name="id">The id of the document, when not specified a doc param should be supplied.</param>
         /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> TermvectorsPostAsync(string index, string type, string id, string body, Func<TermvectorsParameters, TermvectorsParameters> options)
+        public virtual async Task<HttpResponseMessage> TermvectorsPostAsync(string index, string type, string id, Byte[] body, Func<TermvectorsParameters, TermvectorsParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/{2}/_termvectors", index, type, id);
+            TermvectorsParameters parameters = options.Invoke(new TermvectorsParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-termvectors.html"/></summary>
+        /// <param name="index">The index in which the document resides.</param>
+        /// <param name="type">The type of the document.</param>
+        /// <param name="id">The id of the document, when not specified a doc param should be supplied.</param>
+        /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
+        public virtual HttpResponseMessage TermvectorsPost(string index, string type, string id, string body)
+        {
+            string uri = string.Format("/{0}/{1}/{2}/_termvectors", index, type, id);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-termvectors.html"/></summary>
+        /// <param name="index">The index in which the document resides.</param>
+        /// <param name="type">The type of the document.</param>
+        /// <param name="id">The id of the document, when not specified a doc param should be supplied.</param>
+        /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
+        public virtual async Task<HttpResponseMessage> TermvectorsPostAsync(string index, string type, string id, string body)
+        {
+            string uri = string.Format("/{0}/{1}/{2}/_termvectors", index, type, id);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-termvectors.html"/></summary>
+        /// <param name="index">The index in which the document resides.</param>
+        /// <param name="type">The type of the document.</param>
+        /// <param name="id">The id of the document, when not specified a doc param should be supplied.</param>
+        /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage TermvectorsPost(string index, string type, string id, string body, Func<TermvectorsParameters, TermvectorsParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/{2}/_termvectors", index, type, id);
+            TermvectorsParameters parameters = options.Invoke(new TermvectorsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-termvectors.html"/></summary>
+        /// <param name="index">The index in which the document resides.</param>
+        /// <param name="type">The type of the document.</param>
+        /// <param name="id">The id of the document, when not specified a doc param should be supplied.</param>
+        /// <param name="body">Define parameters and or supply a document to get termvectors for. See documentation.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> TermvectorsPostAsync(string index, string type, string id, string body, Func<TermvectorsParameters, TermvectorsParameters> options)
         {
             string uri = string.Format("/{0}/{1}/{2}/_termvectors", index, type, id);
             TermvectorsParameters parameters = options.Invoke(new TermvectorsParameters());

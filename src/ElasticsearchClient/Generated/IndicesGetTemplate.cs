@@ -21,14 +21,14 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html"/></summary>
-        private HttpResponseMessage IndicesGetTemplate()
+        public virtual HttpResponseMessage IndicesGetTemplate()
         {
             string uri = "/_template";
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html"/></summary>
-        private async Task<HttpResponseMessage> IndicesGetTemplateAsync()
+        public virtual async Task<HttpResponseMessage> IndicesGetTemplateAsync()
         {
             string uri = "/_template";
             return await this.ExecuteAsync("GET", uri);
@@ -36,7 +36,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesGetTemplate(Func<IndicesGetTemplateParameters, IndicesGetTemplateParameters> options)
+        public virtual HttpResponseMessage IndicesGetTemplate(Func<IndicesGetTemplateParameters, IndicesGetTemplateParameters> options)
         {
             string uri = "/_template";
             IndicesGetTemplateParameters parameters = options.Invoke(new IndicesGetTemplateParameters());
@@ -46,7 +46,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesGetTemplateAsync(Func<IndicesGetTemplateParameters, IndicesGetTemplateParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesGetTemplateAsync(Func<IndicesGetTemplateParameters, IndicesGetTemplateParameters> options)
         {
             string uri = "/_template";
             IndicesGetTemplateParameters parameters = options.Invoke(new IndicesGetTemplateParameters());
@@ -56,7 +56,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html"/></summary>
         /// <param name="name">The comma separated names of the index templates</param>
-        private HttpResponseMessage IndicesGetTemplate(string name)
+        public virtual HttpResponseMessage IndicesGetTemplate(string name)
         {
             string uri = string.Format("/_template/{0}", name);
             return this.Execute("GET", uri);
@@ -64,7 +64,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html"/></summary>
         /// <param name="name">The comma separated names of the index templates</param>
-        private async Task<HttpResponseMessage> IndicesGetTemplateAsync(string name)
+        public virtual async Task<HttpResponseMessage> IndicesGetTemplateAsync(string name)
         {
             string uri = string.Format("/_template/{0}", name);
             return await this.ExecuteAsync("GET", uri);
@@ -73,7 +73,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html"/></summary>
         /// <param name="name">The comma separated names of the index templates</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesGetTemplate(string name, Func<IndicesGetTemplateParameters, IndicesGetTemplateParameters> options)
+        public virtual HttpResponseMessage IndicesGetTemplate(string name, Func<IndicesGetTemplateParameters, IndicesGetTemplateParameters> options)
         {
             string uri = string.Format("/_template/{0}", name);
             IndicesGetTemplateParameters parameters = options.Invoke(new IndicesGetTemplateParameters());
@@ -84,7 +84,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html"/></summary>
         /// <param name="name">The comma separated names of the index templates</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesGetTemplateAsync(string name, Func<IndicesGetTemplateParameters, IndicesGetTemplateParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesGetTemplateAsync(string name, Func<IndicesGetTemplateParameters, IndicesGetTemplateParameters> options)
         {
             string uri = string.Format("/_template/{0}", name);
             IndicesGetTemplateParameters parameters = options.Invoke(new IndicesGetTemplateParameters());

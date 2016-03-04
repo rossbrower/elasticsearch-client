@@ -21,14 +21,14 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat.html"/></summary>
-        private HttpResponseMessage CatHelp()
+        public virtual HttpResponseMessage CatHelp()
         {
             string uri = "/_cat";
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat.html"/></summary>
-        private async Task<HttpResponseMessage> CatHelpAsync()
+        public virtual async Task<HttpResponseMessage> CatHelpAsync()
         {
             string uri = "/_cat";
             return await this.ExecuteAsync("GET", uri);
@@ -36,7 +36,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage CatHelp(Func<CatHelpParameters, CatHelpParameters> options)
+        public virtual HttpResponseMessage CatHelp(Func<CatHelpParameters, CatHelpParameters> options)
         {
             string uri = "/_cat";
             CatHelpParameters parameters = options.Invoke(new CatHelpParameters());
@@ -46,7 +46,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> CatHelpAsync(Func<CatHelpParameters, CatHelpParameters> options)
+        public virtual async Task<HttpResponseMessage> CatHelpAsync(Func<CatHelpParameters, CatHelpParameters> options)
         {
             string uri = "/_cat";
             CatHelpParameters parameters = options.Invoke(new CatHelpParameters());

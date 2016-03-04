@@ -23,7 +23,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html"/></summary>
         /// <param name="name">The name of the template</param>
         /// <param name="body">The template definition</param>
-        private HttpResponseMessage IndicesPutTemplatePut(string name, Stream body)
+        public virtual HttpResponseMessage IndicesPutTemplatePut(string name, Stream body)
         {
             string uri = string.Format("/_template/{0}", name);
             return this.Execute("PUT", uri, body);
@@ -32,7 +32,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html"/></summary>
         /// <param name="name">The name of the template</param>
         /// <param name="body">The template definition</param>
-        private async Task<HttpResponseMessage> IndicesPutTemplatePutAsync(string name, Stream body)
+        public virtual async Task<HttpResponseMessage> IndicesPutTemplatePutAsync(string name, Stream body)
         {
             string uri = string.Format("/_template/{0}", name);
             return await this.ExecuteAsync("PUT", uri, body);
@@ -42,7 +42,7 @@ namespace Elasticsearch.Client
         /// <param name="name">The name of the template</param>
         /// <param name="body">The template definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutTemplatePut(string name, Stream body, Func<IndicesPutTemplateParameters, IndicesPutTemplateParameters> options)
+        public virtual HttpResponseMessage IndicesPutTemplatePut(string name, Stream body, Func<IndicesPutTemplateParameters, IndicesPutTemplateParameters> options)
         {
             string uri = string.Format("/_template/{0}", name);
             IndicesPutTemplateParameters parameters = options.Invoke(new IndicesPutTemplateParameters());
@@ -54,7 +54,7 @@ namespace Elasticsearch.Client
         /// <param name="name">The name of the template</param>
         /// <param name="body">The template definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutTemplatePutAsync(string name, Stream body, Func<IndicesPutTemplateParameters, IndicesPutTemplateParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesPutTemplatePutAsync(string name, Stream body, Func<IndicesPutTemplateParameters, IndicesPutTemplateParameters> options)
         {
             string uri = string.Format("/_template/{0}", name);
             IndicesPutTemplateParameters parameters = options.Invoke(new IndicesPutTemplateParameters());
@@ -65,7 +65,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html"/></summary>
         /// <param name="name">The name of the template</param>
         /// <param name="body">The template definition</param>
-        private HttpResponseMessage IndicesPutTemplatePut(string name, Byte[] body)
+        public virtual HttpResponseMessage IndicesPutTemplatePut(string name, Byte[] body)
         {
             string uri = string.Format("/_template/{0}", name);
             return this.Execute("PUT", uri, body);
@@ -74,7 +74,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html"/></summary>
         /// <param name="name">The name of the template</param>
         /// <param name="body">The template definition</param>
-        private async Task<HttpResponseMessage> IndicesPutTemplatePutAsync(string name, Byte[] body)
+        public virtual async Task<HttpResponseMessage> IndicesPutTemplatePutAsync(string name, Byte[] body)
         {
             string uri = string.Format("/_template/{0}", name);
             return await this.ExecuteAsync("PUT", uri, body);
@@ -84,49 +84,7 @@ namespace Elasticsearch.Client
         /// <param name="name">The name of the template</param>
         /// <param name="body">The template definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutTemplatePut(string name, Byte[] body, Func<IndicesPutTemplateParameters, IndicesPutTemplateParameters> options)
-        {
-            string uri = string.Format("/_template/{0}", name);
-            IndicesPutTemplateParameters parameters = options.Invoke(new IndicesPutTemplateParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html"/></summary>
-        /// <param name="name">The name of the template</param>
-        /// <param name="body">The template definition</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutTemplatePutAsync(string name, Byte[] body, Func<IndicesPutTemplateParameters, IndicesPutTemplateParameters> options)
-        {
-            string uri = string.Format("/_template/{0}", name);
-            IndicesPutTemplateParameters parameters = options.Invoke(new IndicesPutTemplateParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html"/></summary>
-        /// <param name="name">The name of the template</param>
-        /// <param name="body">The template definition</param>
-        private HttpResponseMessage IndicesPutTemplatePut(string name, string body)
-        {
-            string uri = string.Format("/_template/{0}", name);
-            return this.Execute("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html"/></summary>
-        /// <param name="name">The name of the template</param>
-        /// <param name="body">The template definition</param>
-        private async Task<HttpResponseMessage> IndicesPutTemplatePutAsync(string name, string body)
-        {
-            string uri = string.Format("/_template/{0}", name);
-            return await this.ExecuteAsync("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html"/></summary>
-        /// <param name="name">The name of the template</param>
-        /// <param name="body">The template definition</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutTemplatePut(string name, string body, Func<IndicesPutTemplateParameters, IndicesPutTemplateParameters> options)
+        public virtual HttpResponseMessage IndicesPutTemplatePut(string name, Byte[] body, Func<IndicesPutTemplateParameters, IndicesPutTemplateParameters> options)
         {
             string uri = string.Format("/_template/{0}", name);
             IndicesPutTemplateParameters parameters = options.Invoke(new IndicesPutTemplateParameters());
@@ -138,7 +96,7 @@ namespace Elasticsearch.Client
         /// <param name="name">The name of the template</param>
         /// <param name="body">The template definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutTemplatePutAsync(string name, string body, Func<IndicesPutTemplateParameters, IndicesPutTemplateParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesPutTemplatePutAsync(string name, Byte[] body, Func<IndicesPutTemplateParameters, IndicesPutTemplateParameters> options)
         {
             string uri = string.Format("/_template/{0}", name);
             IndicesPutTemplateParameters parameters = options.Invoke(new IndicesPutTemplateParameters());
@@ -149,7 +107,49 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html"/></summary>
         /// <param name="name">The name of the template</param>
         /// <param name="body">The template definition</param>
-        private HttpResponseMessage IndicesPutTemplatePost(string name, Stream body)
+        public virtual HttpResponseMessage IndicesPutTemplatePut(string name, string body)
+        {
+            string uri = string.Format("/_template/{0}", name);
+            return this.Execute("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html"/></summary>
+        /// <param name="name">The name of the template</param>
+        /// <param name="body">The template definition</param>
+        public virtual async Task<HttpResponseMessage> IndicesPutTemplatePutAsync(string name, string body)
+        {
+            string uri = string.Format("/_template/{0}", name);
+            return await this.ExecuteAsync("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html"/></summary>
+        /// <param name="name">The name of the template</param>
+        /// <param name="body">The template definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage IndicesPutTemplatePut(string name, string body, Func<IndicesPutTemplateParameters, IndicesPutTemplateParameters> options)
+        {
+            string uri = string.Format("/_template/{0}", name);
+            IndicesPutTemplateParameters parameters = options.Invoke(new IndicesPutTemplateParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html"/></summary>
+        /// <param name="name">The name of the template</param>
+        /// <param name="body">The template definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> IndicesPutTemplatePutAsync(string name, string body, Func<IndicesPutTemplateParameters, IndicesPutTemplateParameters> options)
+        {
+            string uri = string.Format("/_template/{0}", name);
+            IndicesPutTemplateParameters parameters = options.Invoke(new IndicesPutTemplateParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html"/></summary>
+        /// <param name="name">The name of the template</param>
+        /// <param name="body">The template definition</param>
+        public virtual HttpResponseMessage IndicesPutTemplatePost(string name, Stream body)
         {
             string uri = string.Format("/_template/{0}", name);
             return this.Execute("POST", uri, body);
@@ -158,7 +158,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html"/></summary>
         /// <param name="name">The name of the template</param>
         /// <param name="body">The template definition</param>
-        private async Task<HttpResponseMessage> IndicesPutTemplatePostAsync(string name, Stream body)
+        public virtual async Task<HttpResponseMessage> IndicesPutTemplatePostAsync(string name, Stream body)
         {
             string uri = string.Format("/_template/{0}", name);
             return await this.ExecuteAsync("POST", uri, body);
@@ -168,7 +168,7 @@ namespace Elasticsearch.Client
         /// <param name="name">The name of the template</param>
         /// <param name="body">The template definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutTemplatePost(string name, Stream body, Func<IndicesPutTemplateParameters, IndicesPutTemplateParameters> options)
+        public virtual HttpResponseMessage IndicesPutTemplatePost(string name, Stream body, Func<IndicesPutTemplateParameters, IndicesPutTemplateParameters> options)
         {
             string uri = string.Format("/_template/{0}", name);
             IndicesPutTemplateParameters parameters = options.Invoke(new IndicesPutTemplateParameters());
@@ -180,49 +180,7 @@ namespace Elasticsearch.Client
         /// <param name="name">The name of the template</param>
         /// <param name="body">The template definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutTemplatePostAsync(string name, Stream body, Func<IndicesPutTemplateParameters, IndicesPutTemplateParameters> options)
-        {
-            string uri = string.Format("/_template/{0}", name);
-            IndicesPutTemplateParameters parameters = options.Invoke(new IndicesPutTemplateParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html"/></summary>
-        /// <param name="name">The name of the template</param>
-        /// <param name="body">The template definition</param>
-        private HttpResponseMessage IndicesPutTemplatePost(string name, Byte[] body)
-        {
-            string uri = string.Format("/_template/{0}", name);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html"/></summary>
-        /// <param name="name">The name of the template</param>
-        /// <param name="body">The template definition</param>
-        private async Task<HttpResponseMessage> IndicesPutTemplatePostAsync(string name, Byte[] body)
-        {
-            string uri = string.Format("/_template/{0}", name);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html"/></summary>
-        /// <param name="name">The name of the template</param>
-        /// <param name="body">The template definition</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutTemplatePost(string name, Byte[] body, Func<IndicesPutTemplateParameters, IndicesPutTemplateParameters> options)
-        {
-            string uri = string.Format("/_template/{0}", name);
-            IndicesPutTemplateParameters parameters = options.Invoke(new IndicesPutTemplateParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html"/></summary>
-        /// <param name="name">The name of the template</param>
-        /// <param name="body">The template definition</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutTemplatePostAsync(string name, Byte[] body, Func<IndicesPutTemplateParameters, IndicesPutTemplateParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesPutTemplatePostAsync(string name, Stream body, Func<IndicesPutTemplateParameters, IndicesPutTemplateParameters> options)
         {
             string uri = string.Format("/_template/{0}", name);
             IndicesPutTemplateParameters parameters = options.Invoke(new IndicesPutTemplateParameters());
@@ -233,7 +191,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html"/></summary>
         /// <param name="name">The name of the template</param>
         /// <param name="body">The template definition</param>
-        private HttpResponseMessage IndicesPutTemplatePost(string name, string body)
+        public virtual HttpResponseMessage IndicesPutTemplatePost(string name, Byte[] body)
         {
             string uri = string.Format("/_template/{0}", name);
             return this.Execute("POST", uri, body);
@@ -242,7 +200,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html"/></summary>
         /// <param name="name">The name of the template</param>
         /// <param name="body">The template definition</param>
-        private async Task<HttpResponseMessage> IndicesPutTemplatePostAsync(string name, string body)
+        public virtual async Task<HttpResponseMessage> IndicesPutTemplatePostAsync(string name, Byte[] body)
         {
             string uri = string.Format("/_template/{0}", name);
             return await this.ExecuteAsync("POST", uri, body);
@@ -252,7 +210,7 @@ namespace Elasticsearch.Client
         /// <param name="name">The name of the template</param>
         /// <param name="body">The template definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutTemplatePost(string name, string body, Func<IndicesPutTemplateParameters, IndicesPutTemplateParameters> options)
+        public virtual HttpResponseMessage IndicesPutTemplatePost(string name, Byte[] body, Func<IndicesPutTemplateParameters, IndicesPutTemplateParameters> options)
         {
             string uri = string.Format("/_template/{0}", name);
             IndicesPutTemplateParameters parameters = options.Invoke(new IndicesPutTemplateParameters());
@@ -264,7 +222,49 @@ namespace Elasticsearch.Client
         /// <param name="name">The name of the template</param>
         /// <param name="body">The template definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutTemplatePostAsync(string name, string body, Func<IndicesPutTemplateParameters, IndicesPutTemplateParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesPutTemplatePostAsync(string name, Byte[] body, Func<IndicesPutTemplateParameters, IndicesPutTemplateParameters> options)
+        {
+            string uri = string.Format("/_template/{0}", name);
+            IndicesPutTemplateParameters parameters = options.Invoke(new IndicesPutTemplateParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html"/></summary>
+        /// <param name="name">The name of the template</param>
+        /// <param name="body">The template definition</param>
+        public virtual HttpResponseMessage IndicesPutTemplatePost(string name, string body)
+        {
+            string uri = string.Format("/_template/{0}", name);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html"/></summary>
+        /// <param name="name">The name of the template</param>
+        /// <param name="body">The template definition</param>
+        public virtual async Task<HttpResponseMessage> IndicesPutTemplatePostAsync(string name, string body)
+        {
+            string uri = string.Format("/_template/{0}", name);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html"/></summary>
+        /// <param name="name">The name of the template</param>
+        /// <param name="body">The template definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage IndicesPutTemplatePost(string name, string body, Func<IndicesPutTemplateParameters, IndicesPutTemplateParameters> options)
+        {
+            string uri = string.Format("/_template/{0}", name);
+            IndicesPutTemplateParameters parameters = options.Invoke(new IndicesPutTemplateParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html"/></summary>
+        /// <param name="name">The name of the template</param>
+        /// <param name="body">The template definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> IndicesPutTemplatePostAsync(string name, string body, Func<IndicesPutTemplateParameters, IndicesPutTemplateParameters> options)
         {
             string uri = string.Format("/_template/{0}", name);
             IndicesPutTemplateParameters parameters = options.Invoke(new IndicesPutTemplateParameters());

@@ -21,14 +21,14 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-mapping.html"/></summary>
-        private HttpResponseMessage IndicesGetMapping()
+        public virtual HttpResponseMessage IndicesGetMapping()
         {
             string uri = "/_mapping";
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-mapping.html"/></summary>
-        private async Task<HttpResponseMessage> IndicesGetMappingAsync()
+        public virtual async Task<HttpResponseMessage> IndicesGetMappingAsync()
         {
             string uri = "/_mapping";
             return await this.ExecuteAsync("GET", uri);
@@ -36,7 +36,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-mapping.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesGetMapping(Func<IndicesGetMappingParameters, IndicesGetMappingParameters> options)
+        public virtual HttpResponseMessage IndicesGetMapping(Func<IndicesGetMappingParameters, IndicesGetMappingParameters> options)
         {
             string uri = "/_mapping";
             IndicesGetMappingParameters parameters = options.Invoke(new IndicesGetMappingParameters());
@@ -46,7 +46,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-mapping.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesGetMappingAsync(Func<IndicesGetMappingParameters, IndicesGetMappingParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesGetMappingAsync(Func<IndicesGetMappingParameters, IndicesGetMappingParameters> options)
         {
             string uri = "/_mapping";
             IndicesGetMappingParameters parameters = options.Invoke(new IndicesGetMappingParameters());
@@ -56,7 +56,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-mapping.html"/></summary>
         /// <param name="index">A comma-separated list of index names</param>
-        private HttpResponseMessage IndicesGetMapping(string index)
+        public virtual HttpResponseMessage IndicesGetMapping(string index)
         {
             string uri = string.Format("/{0}/_mapping", index);
             return this.Execute("GET", uri);
@@ -64,7 +64,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-mapping.html"/></summary>
         /// <param name="index">A comma-separated list of index names</param>
-        private async Task<HttpResponseMessage> IndicesGetMappingAsync(string index)
+        public virtual async Task<HttpResponseMessage> IndicesGetMappingAsync(string index)
         {
             string uri = string.Format("/{0}/_mapping", index);
             return await this.ExecuteAsync("GET", uri);
@@ -73,7 +73,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-mapping.html"/></summary>
         /// <param name="index">A comma-separated list of index names</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesGetMapping(string index, Func<IndicesGetMappingParameters, IndicesGetMappingParameters> options)
+        public virtual HttpResponseMessage IndicesGetMapping(string index, Func<IndicesGetMappingParameters, IndicesGetMappingParameters> options)
         {
             string uri = string.Format("/{0}/_mapping", index);
             IndicesGetMappingParameters parameters = options.Invoke(new IndicesGetMappingParameters());
@@ -84,7 +84,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-mapping.html"/></summary>
         /// <param name="index">A comma-separated list of index names</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesGetMappingAsync(string index, Func<IndicesGetMappingParameters, IndicesGetMappingParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesGetMappingAsync(string index, Func<IndicesGetMappingParameters, IndicesGetMappingParameters> options)
         {
             string uri = string.Format("/{0}/_mapping", index);
             IndicesGetMappingParameters parameters = options.Invoke(new IndicesGetMappingParameters());
@@ -95,7 +95,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-mapping.html"/></summary>
         /// <param name="index">A comma-separated list of index names</param>
         /// <param name="type">A comma-separated list of document types</param>
-        private HttpResponseMessage IndicesGetMapping(string index, string type)
+        public virtual HttpResponseMessage IndicesGetMapping(string index, string type)
         {
             string uri = string.Format("/{0}/_mapping/{1}", index, type);
             return this.Execute("GET", uri);
@@ -104,7 +104,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-mapping.html"/></summary>
         /// <param name="index">A comma-separated list of index names</param>
         /// <param name="type">A comma-separated list of document types</param>
-        private async Task<HttpResponseMessage> IndicesGetMappingAsync(string index, string type)
+        public virtual async Task<HttpResponseMessage> IndicesGetMappingAsync(string index, string type)
         {
             string uri = string.Format("/{0}/_mapping/{1}", index, type);
             return await this.ExecuteAsync("GET", uri);
@@ -114,7 +114,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names</param>
         /// <param name="type">A comma-separated list of document types</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesGetMapping(string index, string type, Func<IndicesGetMappingParameters, IndicesGetMappingParameters> options)
+        public virtual HttpResponseMessage IndicesGetMapping(string index, string type, Func<IndicesGetMappingParameters, IndicesGetMappingParameters> options)
         {
             string uri = string.Format("/{0}/_mapping/{1}", index, type);
             IndicesGetMappingParameters parameters = options.Invoke(new IndicesGetMappingParameters());
@@ -126,7 +126,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names</param>
         /// <param name="type">A comma-separated list of document types</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesGetMappingAsync(string index, string type, Func<IndicesGetMappingParameters, IndicesGetMappingParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesGetMappingAsync(string index, string type, Func<IndicesGetMappingParameters, IndicesGetMappingParameters> options)
         {
             string uri = string.Format("/{0}/_mapping/{1}", index, type);
             IndicesGetMappingParameters parameters = options.Invoke(new IndicesGetMappingParameters());

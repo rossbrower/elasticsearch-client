@@ -22,7 +22,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-snapshots.html"/></summary>
         /// <param name="repository">Name of repository from which to fetch the snapshot information</param>
-        private HttpResponseMessage CatSnapshots(string repository)
+        public virtual HttpResponseMessage CatSnapshots(string repository)
         {
             string uri = string.Format("/_cat/snapshots/{0}", repository);
             return this.Execute("GET", uri);
@@ -30,7 +30,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-snapshots.html"/></summary>
         /// <param name="repository">Name of repository from which to fetch the snapshot information</param>
-        private async Task<HttpResponseMessage> CatSnapshotsAsync(string repository)
+        public virtual async Task<HttpResponseMessage> CatSnapshotsAsync(string repository)
         {
             string uri = string.Format("/_cat/snapshots/{0}", repository);
             return await this.ExecuteAsync("GET", uri);
@@ -39,7 +39,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-snapshots.html"/></summary>
         /// <param name="repository">Name of repository from which to fetch the snapshot information</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage CatSnapshots(string repository, Func<CatSnapshotsParameters, CatSnapshotsParameters> options)
+        public virtual HttpResponseMessage CatSnapshots(string repository, Func<CatSnapshotsParameters, CatSnapshotsParameters> options)
         {
             string uri = string.Format("/_cat/snapshots/{0}", repository);
             CatSnapshotsParameters parameters = options.Invoke(new CatSnapshotsParameters());
@@ -50,7 +50,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-snapshots.html"/></summary>
         /// <param name="repository">Name of repository from which to fetch the snapshot information</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> CatSnapshotsAsync(string repository, Func<CatSnapshotsParameters, CatSnapshotsParameters> options)
+        public virtual async Task<HttpResponseMessage> CatSnapshotsAsync(string repository, Func<CatSnapshotsParameters, CatSnapshotsParameters> options)
         {
             string uri = string.Format("/_cat/snapshots/{0}", repository);
             CatSnapshotsParameters parameters = options.Invoke(new CatSnapshotsParameters());

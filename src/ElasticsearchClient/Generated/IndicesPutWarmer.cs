@@ -23,7 +23,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        private HttpResponseMessage IndicesPutWarmerPut(string name, Stream body)
+        public virtual HttpResponseMessage IndicesPutWarmerPut(string name, Stream body)
         {
             string uri = string.Format("/_warmer/{0}", name);
             return this.Execute("PUT", uri, body);
@@ -32,7 +32,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        private async Task<HttpResponseMessage> IndicesPutWarmerPutAsync(string name, Stream body)
+        public virtual async Task<HttpResponseMessage> IndicesPutWarmerPutAsync(string name, Stream body)
         {
             string uri = string.Format("/_warmer/{0}", name);
             return await this.ExecuteAsync("PUT", uri, body);
@@ -42,7 +42,7 @@ namespace Elasticsearch.Client
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutWarmerPut(string name, Stream body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
+        public virtual HttpResponseMessage IndicesPutWarmerPut(string name, Stream body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
         {
             string uri = string.Format("/_warmer/{0}", name);
             IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
@@ -54,7 +54,7 @@ namespace Elasticsearch.Client
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutWarmerPutAsync(string name, Stream body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesPutWarmerPutAsync(string name, Stream body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
         {
             string uri = string.Format("/_warmer/{0}", name);
             IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
@@ -65,7 +65,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        private HttpResponseMessage IndicesPutWarmerPut(string name, Byte[] body)
+        public virtual HttpResponseMessage IndicesPutWarmerPut(string name, Byte[] body)
         {
             string uri = string.Format("/_warmer/{0}", name);
             return this.Execute("PUT", uri, body);
@@ -74,7 +74,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        private async Task<HttpResponseMessage> IndicesPutWarmerPutAsync(string name, Byte[] body)
+        public virtual async Task<HttpResponseMessage> IndicesPutWarmerPutAsync(string name, Byte[] body)
         {
             string uri = string.Format("/_warmer/{0}", name);
             return await this.ExecuteAsync("PUT", uri, body);
@@ -84,49 +84,7 @@ namespace Elasticsearch.Client
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutWarmerPut(string name, Byte[] body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
-        {
-            string uri = string.Format("/_warmer/{0}", name);
-            IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
-        /// <param name="name">The name of the warmer</param>
-        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutWarmerPutAsync(string name, Byte[] body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
-        {
-            string uri = string.Format("/_warmer/{0}", name);
-            IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
-        /// <param name="name">The name of the warmer</param>
-        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        private HttpResponseMessage IndicesPutWarmerPut(string name, string body)
-        {
-            string uri = string.Format("/_warmer/{0}", name);
-            return this.Execute("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
-        /// <param name="name">The name of the warmer</param>
-        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        private async Task<HttpResponseMessage> IndicesPutWarmerPutAsync(string name, string body)
-        {
-            string uri = string.Format("/_warmer/{0}", name);
-            return await this.ExecuteAsync("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
-        /// <param name="name">The name of the warmer</param>
-        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutWarmerPut(string name, string body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
+        public virtual HttpResponseMessage IndicesPutWarmerPut(string name, Byte[] body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
         {
             string uri = string.Format("/_warmer/{0}", name);
             IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
@@ -138,7 +96,7 @@ namespace Elasticsearch.Client
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutWarmerPutAsync(string name, string body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesPutWarmerPutAsync(string name, Byte[] body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
         {
             string uri = string.Format("/_warmer/{0}", name);
             IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
@@ -149,7 +107,49 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        private HttpResponseMessage IndicesPutWarmerPost(string name, Stream body)
+        public virtual HttpResponseMessage IndicesPutWarmerPut(string name, string body)
+        {
+            string uri = string.Format("/_warmer/{0}", name);
+            return this.Execute("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        /// <param name="name">The name of the warmer</param>
+        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
+        public virtual async Task<HttpResponseMessage> IndicesPutWarmerPutAsync(string name, string body)
+        {
+            string uri = string.Format("/_warmer/{0}", name);
+            return await this.ExecuteAsync("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        /// <param name="name">The name of the warmer</param>
+        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage IndicesPutWarmerPut(string name, string body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
+        {
+            string uri = string.Format("/_warmer/{0}", name);
+            IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        /// <param name="name">The name of the warmer</param>
+        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> IndicesPutWarmerPutAsync(string name, string body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
+        {
+            string uri = string.Format("/_warmer/{0}", name);
+            IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        /// <param name="name">The name of the warmer</param>
+        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
+        public virtual HttpResponseMessage IndicesPutWarmerPost(string name, Stream body)
         {
             string uri = string.Format("/_warmer/{0}", name);
             return this.Execute("POST", uri, body);
@@ -158,7 +158,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        private async Task<HttpResponseMessage> IndicesPutWarmerPostAsync(string name, Stream body)
+        public virtual async Task<HttpResponseMessage> IndicesPutWarmerPostAsync(string name, Stream body)
         {
             string uri = string.Format("/_warmer/{0}", name);
             return await this.ExecuteAsync("POST", uri, body);
@@ -168,7 +168,7 @@ namespace Elasticsearch.Client
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutWarmerPost(string name, Stream body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
+        public virtual HttpResponseMessage IndicesPutWarmerPost(string name, Stream body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
         {
             string uri = string.Format("/_warmer/{0}", name);
             IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
@@ -180,49 +180,7 @@ namespace Elasticsearch.Client
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutWarmerPostAsync(string name, Stream body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
-        {
-            string uri = string.Format("/_warmer/{0}", name);
-            IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
-        /// <param name="name">The name of the warmer</param>
-        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        private HttpResponseMessage IndicesPutWarmerPost(string name, Byte[] body)
-        {
-            string uri = string.Format("/_warmer/{0}", name);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
-        /// <param name="name">The name of the warmer</param>
-        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        private async Task<HttpResponseMessage> IndicesPutWarmerPostAsync(string name, Byte[] body)
-        {
-            string uri = string.Format("/_warmer/{0}", name);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
-        /// <param name="name">The name of the warmer</param>
-        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutWarmerPost(string name, Byte[] body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
-        {
-            string uri = string.Format("/_warmer/{0}", name);
-            IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
-        /// <param name="name">The name of the warmer</param>
-        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutWarmerPostAsync(string name, Byte[] body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesPutWarmerPostAsync(string name, Stream body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
         {
             string uri = string.Format("/_warmer/{0}", name);
             IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
@@ -233,7 +191,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        private HttpResponseMessage IndicesPutWarmerPost(string name, string body)
+        public virtual HttpResponseMessage IndicesPutWarmerPost(string name, Byte[] body)
         {
             string uri = string.Format("/_warmer/{0}", name);
             return this.Execute("POST", uri, body);
@@ -242,7 +200,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        private async Task<HttpResponseMessage> IndicesPutWarmerPostAsync(string name, string body)
+        public virtual async Task<HttpResponseMessage> IndicesPutWarmerPostAsync(string name, Byte[] body)
         {
             string uri = string.Format("/_warmer/{0}", name);
             return await this.ExecuteAsync("POST", uri, body);
@@ -252,7 +210,7 @@ namespace Elasticsearch.Client
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutWarmerPost(string name, string body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
+        public virtual HttpResponseMessage IndicesPutWarmerPost(string name, Byte[] body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
         {
             string uri = string.Format("/_warmer/{0}", name);
             IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
@@ -264,7 +222,49 @@ namespace Elasticsearch.Client
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutWarmerPostAsync(string name, string body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesPutWarmerPostAsync(string name, Byte[] body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
+        {
+            string uri = string.Format("/_warmer/{0}", name);
+            IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        /// <param name="name">The name of the warmer</param>
+        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
+        public virtual HttpResponseMessage IndicesPutWarmerPost(string name, string body)
+        {
+            string uri = string.Format("/_warmer/{0}", name);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        /// <param name="name">The name of the warmer</param>
+        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
+        public virtual async Task<HttpResponseMessage> IndicesPutWarmerPostAsync(string name, string body)
+        {
+            string uri = string.Format("/_warmer/{0}", name);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        /// <param name="name">The name of the warmer</param>
+        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage IndicesPutWarmerPost(string name, string body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
+        {
+            string uri = string.Format("/_warmer/{0}", name);
+            IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        /// <param name="name">The name of the warmer</param>
+        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> IndicesPutWarmerPostAsync(string name, string body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
         {
             string uri = string.Format("/_warmer/{0}", name);
             IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
@@ -276,7 +276,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        private HttpResponseMessage IndicesPutWarmerPut(string index, string name, Stream body)
+        public virtual HttpResponseMessage IndicesPutWarmerPut(string index, string name, Stream body)
         {
             string uri = string.Format("/{0}/_warmer/{1}", index, name);
             return this.Execute("PUT", uri, body);
@@ -286,7 +286,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        private async Task<HttpResponseMessage> IndicesPutWarmerPutAsync(string index, string name, Stream body)
+        public virtual async Task<HttpResponseMessage> IndicesPutWarmerPutAsync(string index, string name, Stream body)
         {
             string uri = string.Format("/{0}/_warmer/{1}", index, name);
             return await this.ExecuteAsync("PUT", uri, body);
@@ -297,7 +297,7 @@ namespace Elasticsearch.Client
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutWarmerPut(string index, string name, Stream body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
+        public virtual HttpResponseMessage IndicesPutWarmerPut(string index, string name, Stream body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
         {
             string uri = string.Format("/{0}/_warmer/{1}", index, name);
             IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
@@ -310,7 +310,7 @@ namespace Elasticsearch.Client
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutWarmerPutAsync(string index, string name, Stream body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesPutWarmerPutAsync(string index, string name, Stream body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
         {
             string uri = string.Format("/{0}/_warmer/{1}", index, name);
             IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
@@ -322,7 +322,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        private HttpResponseMessage IndicesPutWarmerPut(string index, string name, Byte[] body)
+        public virtual HttpResponseMessage IndicesPutWarmerPut(string index, string name, Byte[] body)
         {
             string uri = string.Format("/{0}/_warmer/{1}", index, name);
             return this.Execute("PUT", uri, body);
@@ -332,7 +332,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        private async Task<HttpResponseMessage> IndicesPutWarmerPutAsync(string index, string name, Byte[] body)
+        public virtual async Task<HttpResponseMessage> IndicesPutWarmerPutAsync(string index, string name, Byte[] body)
         {
             string uri = string.Format("/{0}/_warmer/{1}", index, name);
             return await this.ExecuteAsync("PUT", uri, body);
@@ -343,53 +343,7 @@ namespace Elasticsearch.Client
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutWarmerPut(string index, string name, Byte[] body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
-        {
-            string uri = string.Format("/{0}/_warmer/{1}", index, name);
-            IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
-        /// <param name="name">The name of the warmer</param>
-        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutWarmerPutAsync(string index, string name, Byte[] body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
-        {
-            string uri = string.Format("/{0}/_warmer/{1}", index, name);
-            IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
-        /// <param name="name">The name of the warmer</param>
-        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        private HttpResponseMessage IndicesPutWarmerPut(string index, string name, string body)
-        {
-            string uri = string.Format("/{0}/_warmer/{1}", index, name);
-            return this.Execute("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
-        /// <param name="name">The name of the warmer</param>
-        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        private async Task<HttpResponseMessage> IndicesPutWarmerPutAsync(string index, string name, string body)
-        {
-            string uri = string.Format("/{0}/_warmer/{1}", index, name);
-            return await this.ExecuteAsync("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
-        /// <param name="name">The name of the warmer</param>
-        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutWarmerPut(string index, string name, string body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
+        public virtual HttpResponseMessage IndicesPutWarmerPut(string index, string name, Byte[] body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
         {
             string uri = string.Format("/{0}/_warmer/{1}", index, name);
             IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
@@ -402,7 +356,7 @@ namespace Elasticsearch.Client
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutWarmerPutAsync(string index, string name, string body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesPutWarmerPutAsync(string index, string name, Byte[] body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
         {
             string uri = string.Format("/{0}/_warmer/{1}", index, name);
             IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
@@ -414,7 +368,53 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        private HttpResponseMessage IndicesPutWarmerPost(string index, string name, Stream body)
+        public virtual HttpResponseMessage IndicesPutWarmerPut(string index, string name, string body)
+        {
+            string uri = string.Format("/{0}/_warmer/{1}", index, name);
+            return this.Execute("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
+        /// <param name="name">The name of the warmer</param>
+        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
+        public virtual async Task<HttpResponseMessage> IndicesPutWarmerPutAsync(string index, string name, string body)
+        {
+            string uri = string.Format("/{0}/_warmer/{1}", index, name);
+            return await this.ExecuteAsync("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
+        /// <param name="name">The name of the warmer</param>
+        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage IndicesPutWarmerPut(string index, string name, string body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
+        {
+            string uri = string.Format("/{0}/_warmer/{1}", index, name);
+            IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
+        /// <param name="name">The name of the warmer</param>
+        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> IndicesPutWarmerPutAsync(string index, string name, string body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
+        {
+            string uri = string.Format("/{0}/_warmer/{1}", index, name);
+            IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
+        /// <param name="name">The name of the warmer</param>
+        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
+        public virtual HttpResponseMessage IndicesPutWarmerPost(string index, string name, Stream body)
         {
             string uri = string.Format("/{0}/_warmer/{1}", index, name);
             return this.Execute("POST", uri, body);
@@ -424,7 +424,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        private async Task<HttpResponseMessage> IndicesPutWarmerPostAsync(string index, string name, Stream body)
+        public virtual async Task<HttpResponseMessage> IndicesPutWarmerPostAsync(string index, string name, Stream body)
         {
             string uri = string.Format("/{0}/_warmer/{1}", index, name);
             return await this.ExecuteAsync("POST", uri, body);
@@ -435,7 +435,7 @@ namespace Elasticsearch.Client
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutWarmerPost(string index, string name, Stream body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
+        public virtual HttpResponseMessage IndicesPutWarmerPost(string index, string name, Stream body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
         {
             string uri = string.Format("/{0}/_warmer/{1}", index, name);
             IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
@@ -448,53 +448,7 @@ namespace Elasticsearch.Client
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutWarmerPostAsync(string index, string name, Stream body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
-        {
-            string uri = string.Format("/{0}/_warmer/{1}", index, name);
-            IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
-        /// <param name="name">The name of the warmer</param>
-        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        private HttpResponseMessage IndicesPutWarmerPost(string index, string name, Byte[] body)
-        {
-            string uri = string.Format("/{0}/_warmer/{1}", index, name);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
-        /// <param name="name">The name of the warmer</param>
-        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        private async Task<HttpResponseMessage> IndicesPutWarmerPostAsync(string index, string name, Byte[] body)
-        {
-            string uri = string.Format("/{0}/_warmer/{1}", index, name);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
-        /// <param name="name">The name of the warmer</param>
-        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutWarmerPost(string index, string name, Byte[] body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
-        {
-            string uri = string.Format("/{0}/_warmer/{1}", index, name);
-            IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
-        /// <param name="name">The name of the warmer</param>
-        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutWarmerPostAsync(string index, string name, Byte[] body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesPutWarmerPostAsync(string index, string name, Stream body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
         {
             string uri = string.Format("/{0}/_warmer/{1}", index, name);
             IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
@@ -506,7 +460,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        private HttpResponseMessage IndicesPutWarmerPost(string index, string name, string body)
+        public virtual HttpResponseMessage IndicesPutWarmerPost(string index, string name, Byte[] body)
         {
             string uri = string.Format("/{0}/_warmer/{1}", index, name);
             return this.Execute("POST", uri, body);
@@ -516,7 +470,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        private async Task<HttpResponseMessage> IndicesPutWarmerPostAsync(string index, string name, string body)
+        public virtual async Task<HttpResponseMessage> IndicesPutWarmerPostAsync(string index, string name, Byte[] body)
         {
             string uri = string.Format("/{0}/_warmer/{1}", index, name);
             return await this.ExecuteAsync("POST", uri, body);
@@ -527,7 +481,7 @@ namespace Elasticsearch.Client
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutWarmerPost(string index, string name, string body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
+        public virtual HttpResponseMessage IndicesPutWarmerPost(string index, string name, Byte[] body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
         {
             string uri = string.Format("/{0}/_warmer/{1}", index, name);
             IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
@@ -540,7 +494,53 @@ namespace Elasticsearch.Client
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutWarmerPostAsync(string index, string name, string body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesPutWarmerPostAsync(string index, string name, Byte[] body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
+        {
+            string uri = string.Format("/{0}/_warmer/{1}", index, name);
+            IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
+        /// <param name="name">The name of the warmer</param>
+        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
+        public virtual HttpResponseMessage IndicesPutWarmerPost(string index, string name, string body)
+        {
+            string uri = string.Format("/{0}/_warmer/{1}", index, name);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
+        /// <param name="name">The name of the warmer</param>
+        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
+        public virtual async Task<HttpResponseMessage> IndicesPutWarmerPostAsync(string index, string name, string body)
+        {
+            string uri = string.Format("/{0}/_warmer/{1}", index, name);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
+        /// <param name="name">The name of the warmer</param>
+        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage IndicesPutWarmerPost(string index, string name, string body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
+        {
+            string uri = string.Format("/{0}/_warmer/{1}", index, name);
+            IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
+        /// <param name="name">The name of the warmer</param>
+        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> IndicesPutWarmerPostAsync(string index, string name, string body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
         {
             string uri = string.Format("/{0}/_warmer/{1}", index, name);
             IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
@@ -553,7 +553,7 @@ namespace Elasticsearch.Client
         /// <param name="type">A comma-separated list of document types to register the warmer for; leave empty to perform the operation on all types</param>
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        private HttpResponseMessage IndicesPutWarmerPut(string index, string type, string name, Stream body)
+        public virtual HttpResponseMessage IndicesPutWarmerPut(string index, string type, string name, Stream body)
         {
             string uri = string.Format("/{0}/{1}/_warmer/{2}", index, type, name);
             return this.Execute("PUT", uri, body);
@@ -564,7 +564,7 @@ namespace Elasticsearch.Client
         /// <param name="type">A comma-separated list of document types to register the warmer for; leave empty to perform the operation on all types</param>
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        private async Task<HttpResponseMessage> IndicesPutWarmerPutAsync(string index, string type, string name, Stream body)
+        public virtual async Task<HttpResponseMessage> IndicesPutWarmerPutAsync(string index, string type, string name, Stream body)
         {
             string uri = string.Format("/{0}/{1}/_warmer/{2}", index, type, name);
             return await this.ExecuteAsync("PUT", uri, body);
@@ -576,7 +576,7 @@ namespace Elasticsearch.Client
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutWarmerPut(string index, string type, string name, Stream body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
+        public virtual HttpResponseMessage IndicesPutWarmerPut(string index, string type, string name, Stream body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_warmer/{2}", index, type, name);
             IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
@@ -590,7 +590,7 @@ namespace Elasticsearch.Client
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutWarmerPutAsync(string index, string type, string name, Stream body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesPutWarmerPutAsync(string index, string type, string name, Stream body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_warmer/{2}", index, type, name);
             IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
@@ -603,7 +603,7 @@ namespace Elasticsearch.Client
         /// <param name="type">A comma-separated list of document types to register the warmer for; leave empty to perform the operation on all types</param>
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        private HttpResponseMessage IndicesPutWarmerPut(string index, string type, string name, Byte[] body)
+        public virtual HttpResponseMessage IndicesPutWarmerPut(string index, string type, string name, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/_warmer/{2}", index, type, name);
             return this.Execute("PUT", uri, body);
@@ -614,7 +614,7 @@ namespace Elasticsearch.Client
         /// <param name="type">A comma-separated list of document types to register the warmer for; leave empty to perform the operation on all types</param>
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        private async Task<HttpResponseMessage> IndicesPutWarmerPutAsync(string index, string type, string name, Byte[] body)
+        public virtual async Task<HttpResponseMessage> IndicesPutWarmerPutAsync(string index, string type, string name, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/_warmer/{2}", index, type, name);
             return await this.ExecuteAsync("PUT", uri, body);
@@ -626,57 +626,7 @@ namespace Elasticsearch.Client
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutWarmerPut(string index, string type, string name, Byte[] body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_warmer/{2}", index, type, name);
-            IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
-        /// <param name="type">A comma-separated list of document types to register the warmer for; leave empty to perform the operation on all types</param>
-        /// <param name="name">The name of the warmer</param>
-        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutWarmerPutAsync(string index, string type, string name, Byte[] body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_warmer/{2}", index, type, name);
-            IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
-        /// <param name="type">A comma-separated list of document types to register the warmer for; leave empty to perform the operation on all types</param>
-        /// <param name="name">The name of the warmer</param>
-        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        private HttpResponseMessage IndicesPutWarmerPut(string index, string type, string name, string body)
-        {
-            string uri = string.Format("/{0}/{1}/_warmer/{2}", index, type, name);
-            return this.Execute("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
-        /// <param name="type">A comma-separated list of document types to register the warmer for; leave empty to perform the operation on all types</param>
-        /// <param name="name">The name of the warmer</param>
-        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        private async Task<HttpResponseMessage> IndicesPutWarmerPutAsync(string index, string type, string name, string body)
-        {
-            string uri = string.Format("/{0}/{1}/_warmer/{2}", index, type, name);
-            return await this.ExecuteAsync("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
-        /// <param name="type">A comma-separated list of document types to register the warmer for; leave empty to perform the operation on all types</param>
-        /// <param name="name">The name of the warmer</param>
-        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutWarmerPut(string index, string type, string name, string body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
+        public virtual HttpResponseMessage IndicesPutWarmerPut(string index, string type, string name, Byte[] body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_warmer/{2}", index, type, name);
             IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
@@ -690,7 +640,7 @@ namespace Elasticsearch.Client
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutWarmerPutAsync(string index, string type, string name, string body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesPutWarmerPutAsync(string index, string type, string name, Byte[] body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_warmer/{2}", index, type, name);
             IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
@@ -703,7 +653,57 @@ namespace Elasticsearch.Client
         /// <param name="type">A comma-separated list of document types to register the warmer for; leave empty to perform the operation on all types</param>
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        private HttpResponseMessage IndicesPutWarmerPost(string index, string type, string name, Stream body)
+        public virtual HttpResponseMessage IndicesPutWarmerPut(string index, string type, string name, string body)
+        {
+            string uri = string.Format("/{0}/{1}/_warmer/{2}", index, type, name);
+            return this.Execute("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
+        /// <param name="type">A comma-separated list of document types to register the warmer for; leave empty to perform the operation on all types</param>
+        /// <param name="name">The name of the warmer</param>
+        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
+        public virtual async Task<HttpResponseMessage> IndicesPutWarmerPutAsync(string index, string type, string name, string body)
+        {
+            string uri = string.Format("/{0}/{1}/_warmer/{2}", index, type, name);
+            return await this.ExecuteAsync("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
+        /// <param name="type">A comma-separated list of document types to register the warmer for; leave empty to perform the operation on all types</param>
+        /// <param name="name">The name of the warmer</param>
+        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage IndicesPutWarmerPut(string index, string type, string name, string body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_warmer/{2}", index, type, name);
+            IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
+        /// <param name="type">A comma-separated list of document types to register the warmer for; leave empty to perform the operation on all types</param>
+        /// <param name="name">The name of the warmer</param>
+        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> IndicesPutWarmerPutAsync(string index, string type, string name, string body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_warmer/{2}", index, type, name);
+            IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
+        /// <param name="type">A comma-separated list of document types to register the warmer for; leave empty to perform the operation on all types</param>
+        /// <param name="name">The name of the warmer</param>
+        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
+        public virtual HttpResponseMessage IndicesPutWarmerPost(string index, string type, string name, Stream body)
         {
             string uri = string.Format("/{0}/{1}/_warmer/{2}", index, type, name);
             return this.Execute("POST", uri, body);
@@ -714,7 +714,7 @@ namespace Elasticsearch.Client
         /// <param name="type">A comma-separated list of document types to register the warmer for; leave empty to perform the operation on all types</param>
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        private async Task<HttpResponseMessage> IndicesPutWarmerPostAsync(string index, string type, string name, Stream body)
+        public virtual async Task<HttpResponseMessage> IndicesPutWarmerPostAsync(string index, string type, string name, Stream body)
         {
             string uri = string.Format("/{0}/{1}/_warmer/{2}", index, type, name);
             return await this.ExecuteAsync("POST", uri, body);
@@ -726,7 +726,7 @@ namespace Elasticsearch.Client
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutWarmerPost(string index, string type, string name, Stream body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
+        public virtual HttpResponseMessage IndicesPutWarmerPost(string index, string type, string name, Stream body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_warmer/{2}", index, type, name);
             IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
@@ -740,57 +740,7 @@ namespace Elasticsearch.Client
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutWarmerPostAsync(string index, string type, string name, Stream body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_warmer/{2}", index, type, name);
-            IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
-        /// <param name="type">A comma-separated list of document types to register the warmer for; leave empty to perform the operation on all types</param>
-        /// <param name="name">The name of the warmer</param>
-        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        private HttpResponseMessage IndicesPutWarmerPost(string index, string type, string name, Byte[] body)
-        {
-            string uri = string.Format("/{0}/{1}/_warmer/{2}", index, type, name);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
-        /// <param name="type">A comma-separated list of document types to register the warmer for; leave empty to perform the operation on all types</param>
-        /// <param name="name">The name of the warmer</param>
-        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        private async Task<HttpResponseMessage> IndicesPutWarmerPostAsync(string index, string type, string name, Byte[] body)
-        {
-            string uri = string.Format("/{0}/{1}/_warmer/{2}", index, type, name);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
-        /// <param name="type">A comma-separated list of document types to register the warmer for; leave empty to perform the operation on all types</param>
-        /// <param name="name">The name of the warmer</param>
-        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutWarmerPost(string index, string type, string name, Byte[] body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_warmer/{2}", index, type, name);
-            IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
-        /// <param name="type">A comma-separated list of document types to register the warmer for; leave empty to perform the operation on all types</param>
-        /// <param name="name">The name of the warmer</param>
-        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutWarmerPostAsync(string index, string type, string name, Byte[] body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesPutWarmerPostAsync(string index, string type, string name, Stream body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_warmer/{2}", index, type, name);
             IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
@@ -803,7 +753,7 @@ namespace Elasticsearch.Client
         /// <param name="type">A comma-separated list of document types to register the warmer for; leave empty to perform the operation on all types</param>
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        private HttpResponseMessage IndicesPutWarmerPost(string index, string type, string name, string body)
+        public virtual HttpResponseMessage IndicesPutWarmerPost(string index, string type, string name, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/_warmer/{2}", index, type, name);
             return this.Execute("POST", uri, body);
@@ -814,7 +764,7 @@ namespace Elasticsearch.Client
         /// <param name="type">A comma-separated list of document types to register the warmer for; leave empty to perform the operation on all types</param>
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
-        private async Task<HttpResponseMessage> IndicesPutWarmerPostAsync(string index, string type, string name, string body)
+        public virtual async Task<HttpResponseMessage> IndicesPutWarmerPostAsync(string index, string type, string name, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/_warmer/{2}", index, type, name);
             return await this.ExecuteAsync("POST", uri, body);
@@ -826,7 +776,7 @@ namespace Elasticsearch.Client
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutWarmerPost(string index, string type, string name, string body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
+        public virtual HttpResponseMessage IndicesPutWarmerPost(string index, string type, string name, Byte[] body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_warmer/{2}", index, type, name);
             IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
@@ -840,7 +790,57 @@ namespace Elasticsearch.Client
         /// <param name="name">The name of the warmer</param>
         /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutWarmerPostAsync(string index, string type, string name, string body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesPutWarmerPostAsync(string index, string type, string name, Byte[] body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_warmer/{2}", index, type, name);
+            IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
+        /// <param name="type">A comma-separated list of document types to register the warmer for; leave empty to perform the operation on all types</param>
+        /// <param name="name">The name of the warmer</param>
+        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
+        public virtual HttpResponseMessage IndicesPutWarmerPost(string index, string type, string name, string body)
+        {
+            string uri = string.Format("/{0}/{1}/_warmer/{2}", index, type, name);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
+        /// <param name="type">A comma-separated list of document types to register the warmer for; leave empty to perform the operation on all types</param>
+        /// <param name="name">The name of the warmer</param>
+        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
+        public virtual async Task<HttpResponseMessage> IndicesPutWarmerPostAsync(string index, string type, string name, string body)
+        {
+            string uri = string.Format("/{0}/{1}/_warmer/{2}", index, type, name);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
+        /// <param name="type">A comma-separated list of document types to register the warmer for; leave empty to perform the operation on all types</param>
+        /// <param name="name">The name of the warmer</param>
+        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage IndicesPutWarmerPost(string index, string type, string name, string body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_warmer/{2}", index, type, name);
+            IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
+        /// <param name="type">A comma-separated list of document types to register the warmer for; leave empty to perform the operation on all types</param>
+        /// <param name="name">The name of the warmer</param>
+        /// <param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> IndicesPutWarmerPostAsync(string index, string type, string name, string body, Func<IndicesPutWarmerParameters, IndicesPutWarmerParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_warmer/{2}", index, type, name);
             IndicesPutWarmerParameters parameters = options.Invoke(new IndicesPutWarmerParameters());

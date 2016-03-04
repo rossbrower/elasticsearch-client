@@ -22,7 +22,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
         /// <param name="repository">A repository name</param>
-        private HttpResponseMessage SnapshotVerifyRepository(string repository)
+        public virtual HttpResponseMessage SnapshotVerifyRepository(string repository)
         {
             string uri = string.Format("/_snapshot/{0}/_verify", repository);
             return this.Execute("POST", uri);
@@ -30,7 +30,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
         /// <param name="repository">A repository name</param>
-        private async Task<HttpResponseMessage> SnapshotVerifyRepositoryAsync(string repository)
+        public virtual async Task<HttpResponseMessage> SnapshotVerifyRepositoryAsync(string repository)
         {
             string uri = string.Format("/_snapshot/{0}/_verify", repository);
             return await this.ExecuteAsync("POST", uri);
@@ -39,7 +39,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
         /// <param name="repository">A repository name</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage SnapshotVerifyRepository(string repository, Func<SnapshotVerifyRepositoryParameters, SnapshotVerifyRepositoryParameters> options)
+        public virtual HttpResponseMessage SnapshotVerifyRepository(string repository, Func<SnapshotVerifyRepositoryParameters, SnapshotVerifyRepositoryParameters> options)
         {
             string uri = string.Format("/_snapshot/{0}/_verify", repository);
             SnapshotVerifyRepositoryParameters parameters = options.Invoke(new SnapshotVerifyRepositoryParameters());
@@ -50,7 +50,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
         /// <param name="repository">A repository name</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> SnapshotVerifyRepositoryAsync(string repository, Func<SnapshotVerifyRepositoryParameters, SnapshotVerifyRepositoryParameters> options)
+        public virtual async Task<HttpResponseMessage> SnapshotVerifyRepositoryAsync(string repository, Func<SnapshotVerifyRepositoryParameters, SnapshotVerifyRepositoryParameters> options)
         {
             string uri = string.Format("/_snapshot/{0}/_verify", repository);
             SnapshotVerifyRepositoryParameters parameters = options.Invoke(new SnapshotVerifyRepositoryParameters());

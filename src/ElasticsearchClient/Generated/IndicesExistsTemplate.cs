@@ -22,7 +22,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html"/></summary>
         /// <param name="name">The name of the template</param>
-        private HttpResponseMessage IndicesExistsTemplate(string name)
+        public virtual HttpResponseMessage IndicesExistsTemplate(string name)
         {
             string uri = string.Format("/_template/{0}", name);
             return this.Execute("HEAD", uri);
@@ -30,7 +30,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html"/></summary>
         /// <param name="name">The name of the template</param>
-        private async Task<HttpResponseMessage> IndicesExistsTemplateAsync(string name)
+        public virtual async Task<HttpResponseMessage> IndicesExistsTemplateAsync(string name)
         {
             string uri = string.Format("/_template/{0}", name);
             return await this.ExecuteAsync("HEAD", uri);
@@ -39,7 +39,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html"/></summary>
         /// <param name="name">The name of the template</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesExistsTemplate(string name, Func<IndicesExistsTemplateParameters, IndicesExistsTemplateParameters> options)
+        public virtual HttpResponseMessage IndicesExistsTemplate(string name, Func<IndicesExistsTemplateParameters, IndicesExistsTemplateParameters> options)
         {
             string uri = string.Format("/_template/{0}", name);
             IndicesExistsTemplateParameters parameters = options.Invoke(new IndicesExistsTemplateParameters());
@@ -50,7 +50,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html"/></summary>
         /// <param name="name">The name of the template</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesExistsTemplateAsync(string name, Func<IndicesExistsTemplateParameters, IndicesExistsTemplateParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesExistsTemplateAsync(string name, Func<IndicesExistsTemplateParameters, IndicesExistsTemplateParameters> options)
         {
             string uri = string.Format("/_template/{0}", name);
             IndicesExistsTemplateParameters parameters = options.Invoke(new IndicesExistsTemplateParameters());

@@ -24,7 +24,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The name of the index</param>
         /// <param name="type">The type of the document</param>
         /// <param name="body">The document</param>
-        private HttpResponseMessage IndexPost(string index, string type, Stream body)
+        public virtual HttpResponseMessage IndexPost(string index, string type, Stream body)
         {
             string uri = string.Format("/{0}/{1}", index, type);
             return this.Execute("POST", uri, body);
@@ -34,7 +34,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The name of the index</param>
         /// <param name="type">The type of the document</param>
         /// <param name="body">The document</param>
-        private async Task<HttpResponseMessage> IndexPostAsync(string index, string type, Stream body)
+        public virtual async Task<HttpResponseMessage> IndexPostAsync(string index, string type, Stream body)
         {
             string uri = string.Format("/{0}/{1}", index, type);
             return await this.ExecuteAsync("POST", uri, body);
@@ -45,7 +45,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document</param>
         /// <param name="body">The document</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndexPost(string index, string type, Stream body, Func<IndexParameters, IndexParameters> options)
+        public virtual HttpResponseMessage IndexPost(string index, string type, Stream body, Func<IndexParameters, IndexParameters> options)
         {
             string uri = string.Format("/{0}/{1}", index, type);
             IndexParameters parameters = options.Invoke(new IndexParameters());
@@ -58,7 +58,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document</param>
         /// <param name="body">The document</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndexPostAsync(string index, string type, Stream body, Func<IndexParameters, IndexParameters> options)
+        public virtual async Task<HttpResponseMessage> IndexPostAsync(string index, string type, Stream body, Func<IndexParameters, IndexParameters> options)
         {
             string uri = string.Format("/{0}/{1}", index, type);
             IndexParameters parameters = options.Invoke(new IndexParameters());
@@ -70,7 +70,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The name of the index</param>
         /// <param name="type">The type of the document</param>
         /// <param name="body">The document</param>
-        private HttpResponseMessage IndexPost(string index, string type, Byte[] body)
+        public virtual HttpResponseMessage IndexPost(string index, string type, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}", index, type);
             return this.Execute("POST", uri, body);
@@ -80,7 +80,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The name of the index</param>
         /// <param name="type">The type of the document</param>
         /// <param name="body">The document</param>
-        private async Task<HttpResponseMessage> IndexPostAsync(string index, string type, Byte[] body)
+        public virtual async Task<HttpResponseMessage> IndexPostAsync(string index, string type, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}", index, type);
             return await this.ExecuteAsync("POST", uri, body);
@@ -91,53 +91,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document</param>
         /// <param name="body">The document</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndexPost(string index, string type, Byte[] body, Func<IndexParameters, IndexParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}", index, type);
-            IndexParameters parameters = options.Invoke(new IndexParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-index_.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="type">The type of the document</param>
-        /// <param name="body">The document</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndexPostAsync(string index, string type, Byte[] body, Func<IndexParameters, IndexParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}", index, type);
-            IndexParameters parameters = options.Invoke(new IndexParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-index_.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="type">The type of the document</param>
-        /// <param name="body">The document</param>
-        private HttpResponseMessage IndexPost(string index, string type, string body)
-        {
-            string uri = string.Format("/{0}/{1}", index, type);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-index_.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="type">The type of the document</param>
-        /// <param name="body">The document</param>
-        private async Task<HttpResponseMessage> IndexPostAsync(string index, string type, string body)
-        {
-            string uri = string.Format("/{0}/{1}", index, type);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-index_.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="type">The type of the document</param>
-        /// <param name="body">The document</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndexPost(string index, string type, string body, Func<IndexParameters, IndexParameters> options)
+        public virtual HttpResponseMessage IndexPost(string index, string type, Byte[] body, Func<IndexParameters, IndexParameters> options)
         {
             string uri = string.Format("/{0}/{1}", index, type);
             IndexParameters parameters = options.Invoke(new IndexParameters());
@@ -150,7 +104,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document</param>
         /// <param name="body">The document</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndexPostAsync(string index, string type, string body, Func<IndexParameters, IndexParameters> options)
+        public virtual async Task<HttpResponseMessage> IndexPostAsync(string index, string type, Byte[] body, Func<IndexParameters, IndexParameters> options)
         {
             string uri = string.Format("/{0}/{1}", index, type);
             IndexParameters parameters = options.Invoke(new IndexParameters());
@@ -162,7 +116,53 @@ namespace Elasticsearch.Client
         /// <param name="index">The name of the index</param>
         /// <param name="type">The type of the document</param>
         /// <param name="body">The document</param>
-        private HttpResponseMessage IndexPut(string index, string type, Stream body)
+        public virtual HttpResponseMessage IndexPost(string index, string type, string body)
+        {
+            string uri = string.Format("/{0}/{1}", index, type);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-index_.html"/></summary>
+        /// <param name="index">The name of the index</param>
+        /// <param name="type">The type of the document</param>
+        /// <param name="body">The document</param>
+        public virtual async Task<HttpResponseMessage> IndexPostAsync(string index, string type, string body)
+        {
+            string uri = string.Format("/{0}/{1}", index, type);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-index_.html"/></summary>
+        /// <param name="index">The name of the index</param>
+        /// <param name="type">The type of the document</param>
+        /// <param name="body">The document</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage IndexPost(string index, string type, string body, Func<IndexParameters, IndexParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}", index, type);
+            IndexParameters parameters = options.Invoke(new IndexParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-index_.html"/></summary>
+        /// <param name="index">The name of the index</param>
+        /// <param name="type">The type of the document</param>
+        /// <param name="body">The document</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> IndexPostAsync(string index, string type, string body, Func<IndexParameters, IndexParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}", index, type);
+            IndexParameters parameters = options.Invoke(new IndexParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-index_.html"/></summary>
+        /// <param name="index">The name of the index</param>
+        /// <param name="type">The type of the document</param>
+        /// <param name="body">The document</param>
+        public virtual HttpResponseMessage IndexPut(string index, string type, Stream body)
         {
             string uri = string.Format("/{0}/{1}", index, type);
             return this.Execute("PUT", uri, body);
@@ -172,7 +172,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The name of the index</param>
         /// <param name="type">The type of the document</param>
         /// <param name="body">The document</param>
-        private async Task<HttpResponseMessage> IndexPutAsync(string index, string type, Stream body)
+        public virtual async Task<HttpResponseMessage> IndexPutAsync(string index, string type, Stream body)
         {
             string uri = string.Format("/{0}/{1}", index, type);
             return await this.ExecuteAsync("PUT", uri, body);
@@ -183,7 +183,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document</param>
         /// <param name="body">The document</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndexPut(string index, string type, Stream body, Func<IndexParameters, IndexParameters> options)
+        public virtual HttpResponseMessage IndexPut(string index, string type, Stream body, Func<IndexParameters, IndexParameters> options)
         {
             string uri = string.Format("/{0}/{1}", index, type);
             IndexParameters parameters = options.Invoke(new IndexParameters());
@@ -196,53 +196,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document</param>
         /// <param name="body">The document</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndexPutAsync(string index, string type, Stream body, Func<IndexParameters, IndexParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}", index, type);
-            IndexParameters parameters = options.Invoke(new IndexParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-index_.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="type">The type of the document</param>
-        /// <param name="body">The document</param>
-        private HttpResponseMessage IndexPut(string index, string type, Byte[] body)
-        {
-            string uri = string.Format("/{0}/{1}", index, type);
-            return this.Execute("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-index_.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="type">The type of the document</param>
-        /// <param name="body">The document</param>
-        private async Task<HttpResponseMessage> IndexPutAsync(string index, string type, Byte[] body)
-        {
-            string uri = string.Format("/{0}/{1}", index, type);
-            return await this.ExecuteAsync("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-index_.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="type">The type of the document</param>
-        /// <param name="body">The document</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndexPut(string index, string type, Byte[] body, Func<IndexParameters, IndexParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}", index, type);
-            IndexParameters parameters = options.Invoke(new IndexParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-index_.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="type">The type of the document</param>
-        /// <param name="body">The document</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndexPutAsync(string index, string type, Byte[] body, Func<IndexParameters, IndexParameters> options)
+        public virtual async Task<HttpResponseMessage> IndexPutAsync(string index, string type, Stream body, Func<IndexParameters, IndexParameters> options)
         {
             string uri = string.Format("/{0}/{1}", index, type);
             IndexParameters parameters = options.Invoke(new IndexParameters());
@@ -254,7 +208,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The name of the index</param>
         /// <param name="type">The type of the document</param>
         /// <param name="body">The document</param>
-        private HttpResponseMessage IndexPut(string index, string type, string body)
+        public virtual HttpResponseMessage IndexPut(string index, string type, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}", index, type);
             return this.Execute("PUT", uri, body);
@@ -264,7 +218,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The name of the index</param>
         /// <param name="type">The type of the document</param>
         /// <param name="body">The document</param>
-        private async Task<HttpResponseMessage> IndexPutAsync(string index, string type, string body)
+        public virtual async Task<HttpResponseMessage> IndexPutAsync(string index, string type, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}", index, type);
             return await this.ExecuteAsync("PUT", uri, body);
@@ -275,7 +229,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document</param>
         /// <param name="body">The document</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndexPut(string index, string type, string body, Func<IndexParameters, IndexParameters> options)
+        public virtual HttpResponseMessage IndexPut(string index, string type, Byte[] body, Func<IndexParameters, IndexParameters> options)
         {
             string uri = string.Format("/{0}/{1}", index, type);
             IndexParameters parameters = options.Invoke(new IndexParameters());
@@ -288,7 +242,53 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document</param>
         /// <param name="body">The document</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndexPutAsync(string index, string type, string body, Func<IndexParameters, IndexParameters> options)
+        public virtual async Task<HttpResponseMessage> IndexPutAsync(string index, string type, Byte[] body, Func<IndexParameters, IndexParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}", index, type);
+            IndexParameters parameters = options.Invoke(new IndexParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-index_.html"/></summary>
+        /// <param name="index">The name of the index</param>
+        /// <param name="type">The type of the document</param>
+        /// <param name="body">The document</param>
+        public virtual HttpResponseMessage IndexPut(string index, string type, string body)
+        {
+            string uri = string.Format("/{0}/{1}", index, type);
+            return this.Execute("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-index_.html"/></summary>
+        /// <param name="index">The name of the index</param>
+        /// <param name="type">The type of the document</param>
+        /// <param name="body">The document</param>
+        public virtual async Task<HttpResponseMessage> IndexPutAsync(string index, string type, string body)
+        {
+            string uri = string.Format("/{0}/{1}", index, type);
+            return await this.ExecuteAsync("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-index_.html"/></summary>
+        /// <param name="index">The name of the index</param>
+        /// <param name="type">The type of the document</param>
+        /// <param name="body">The document</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage IndexPut(string index, string type, string body, Func<IndexParameters, IndexParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}", index, type);
+            IndexParameters parameters = options.Invoke(new IndexParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-index_.html"/></summary>
+        /// <param name="index">The name of the index</param>
+        /// <param name="type">The type of the document</param>
+        /// <param name="body">The document</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> IndexPutAsync(string index, string type, string body, Func<IndexParameters, IndexParameters> options)
         {
             string uri = string.Format("/{0}/{1}", index, type);
             IndexParameters parameters = options.Invoke(new IndexParameters());
@@ -301,7 +301,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document</param>
         /// <param name="id">Document ID</param>
         /// <param name="body">The document</param>
-        private HttpResponseMessage IndexPost(string index, string type, string id, Stream body)
+        public virtual HttpResponseMessage IndexPost(string index, string type, string id, Stream body)
         {
             string uri = string.Format("/{0}/{1}/{2}", index, type, id);
             return this.Execute("POST", uri, body);
@@ -312,7 +312,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document</param>
         /// <param name="id">Document ID</param>
         /// <param name="body">The document</param>
-        private async Task<HttpResponseMessage> IndexPostAsync(string index, string type, string id, Stream body)
+        public virtual async Task<HttpResponseMessage> IndexPostAsync(string index, string type, string id, Stream body)
         {
             string uri = string.Format("/{0}/{1}/{2}", index, type, id);
             return await this.ExecuteAsync("POST", uri, body);
@@ -324,7 +324,7 @@ namespace Elasticsearch.Client
         /// <param name="id">Document ID</param>
         /// <param name="body">The document</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndexPost(string index, string type, string id, Stream body, Func<IndexParameters, IndexParameters> options)
+        public virtual HttpResponseMessage IndexPost(string index, string type, string id, Stream body, Func<IndexParameters, IndexParameters> options)
         {
             string uri = string.Format("/{0}/{1}/{2}", index, type, id);
             IndexParameters parameters = options.Invoke(new IndexParameters());
@@ -338,7 +338,7 @@ namespace Elasticsearch.Client
         /// <param name="id">Document ID</param>
         /// <param name="body">The document</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndexPostAsync(string index, string type, string id, Stream body, Func<IndexParameters, IndexParameters> options)
+        public virtual async Task<HttpResponseMessage> IndexPostAsync(string index, string type, string id, Stream body, Func<IndexParameters, IndexParameters> options)
         {
             string uri = string.Format("/{0}/{1}/{2}", index, type, id);
             IndexParameters parameters = options.Invoke(new IndexParameters());
@@ -351,7 +351,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document</param>
         /// <param name="id">Document ID</param>
         /// <param name="body">The document</param>
-        private HttpResponseMessage IndexPost(string index, string type, string id, Byte[] body)
+        public virtual HttpResponseMessage IndexPost(string index, string type, string id, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/{2}", index, type, id);
             return this.Execute("POST", uri, body);
@@ -362,7 +362,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document</param>
         /// <param name="id">Document ID</param>
         /// <param name="body">The document</param>
-        private async Task<HttpResponseMessage> IndexPostAsync(string index, string type, string id, Byte[] body)
+        public virtual async Task<HttpResponseMessage> IndexPostAsync(string index, string type, string id, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/{2}", index, type, id);
             return await this.ExecuteAsync("POST", uri, body);
@@ -374,57 +374,7 @@ namespace Elasticsearch.Client
         /// <param name="id">Document ID</param>
         /// <param name="body">The document</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndexPost(string index, string type, string id, Byte[] body, Func<IndexParameters, IndexParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/{2}", index, type, id);
-            IndexParameters parameters = options.Invoke(new IndexParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-index_.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="type">The type of the document</param>
-        /// <param name="id">Document ID</param>
-        /// <param name="body">The document</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndexPostAsync(string index, string type, string id, Byte[] body, Func<IndexParameters, IndexParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/{2}", index, type, id);
-            IndexParameters parameters = options.Invoke(new IndexParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-index_.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="type">The type of the document</param>
-        /// <param name="id">Document ID</param>
-        /// <param name="body">The document</param>
-        private HttpResponseMessage IndexPost(string index, string type, string id, string body)
-        {
-            string uri = string.Format("/{0}/{1}/{2}", index, type, id);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-index_.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="type">The type of the document</param>
-        /// <param name="id">Document ID</param>
-        /// <param name="body">The document</param>
-        private async Task<HttpResponseMessage> IndexPostAsync(string index, string type, string id, string body)
-        {
-            string uri = string.Format("/{0}/{1}/{2}", index, type, id);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-index_.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="type">The type of the document</param>
-        /// <param name="id">Document ID</param>
-        /// <param name="body">The document</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndexPost(string index, string type, string id, string body, Func<IndexParameters, IndexParameters> options)
+        public virtual HttpResponseMessage IndexPost(string index, string type, string id, Byte[] body, Func<IndexParameters, IndexParameters> options)
         {
             string uri = string.Format("/{0}/{1}/{2}", index, type, id);
             IndexParameters parameters = options.Invoke(new IndexParameters());
@@ -438,7 +388,7 @@ namespace Elasticsearch.Client
         /// <param name="id">Document ID</param>
         /// <param name="body">The document</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndexPostAsync(string index, string type, string id, string body, Func<IndexParameters, IndexParameters> options)
+        public virtual async Task<HttpResponseMessage> IndexPostAsync(string index, string type, string id, Byte[] body, Func<IndexParameters, IndexParameters> options)
         {
             string uri = string.Format("/{0}/{1}/{2}", index, type, id);
             IndexParameters parameters = options.Invoke(new IndexParameters());
@@ -451,7 +401,57 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document</param>
         /// <param name="id">Document ID</param>
         /// <param name="body">The document</param>
-        private HttpResponseMessage IndexPut(string index, string type, string id, Stream body)
+        public virtual HttpResponseMessage IndexPost(string index, string type, string id, string body)
+        {
+            string uri = string.Format("/{0}/{1}/{2}", index, type, id);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-index_.html"/></summary>
+        /// <param name="index">The name of the index</param>
+        /// <param name="type">The type of the document</param>
+        /// <param name="id">Document ID</param>
+        /// <param name="body">The document</param>
+        public virtual async Task<HttpResponseMessage> IndexPostAsync(string index, string type, string id, string body)
+        {
+            string uri = string.Format("/{0}/{1}/{2}", index, type, id);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-index_.html"/></summary>
+        /// <param name="index">The name of the index</param>
+        /// <param name="type">The type of the document</param>
+        /// <param name="id">Document ID</param>
+        /// <param name="body">The document</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage IndexPost(string index, string type, string id, string body, Func<IndexParameters, IndexParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/{2}", index, type, id);
+            IndexParameters parameters = options.Invoke(new IndexParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-index_.html"/></summary>
+        /// <param name="index">The name of the index</param>
+        /// <param name="type">The type of the document</param>
+        /// <param name="id">Document ID</param>
+        /// <param name="body">The document</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> IndexPostAsync(string index, string type, string id, string body, Func<IndexParameters, IndexParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/{2}", index, type, id);
+            IndexParameters parameters = options.Invoke(new IndexParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-index_.html"/></summary>
+        /// <param name="index">The name of the index</param>
+        /// <param name="type">The type of the document</param>
+        /// <param name="id">Document ID</param>
+        /// <param name="body">The document</param>
+        public virtual HttpResponseMessage IndexPut(string index, string type, string id, Stream body)
         {
             string uri = string.Format("/{0}/{1}/{2}", index, type, id);
             return this.Execute("PUT", uri, body);
@@ -462,7 +462,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document</param>
         /// <param name="id">Document ID</param>
         /// <param name="body">The document</param>
-        private async Task<HttpResponseMessage> IndexPutAsync(string index, string type, string id, Stream body)
+        public virtual async Task<HttpResponseMessage> IndexPutAsync(string index, string type, string id, Stream body)
         {
             string uri = string.Format("/{0}/{1}/{2}", index, type, id);
             return await this.ExecuteAsync("PUT", uri, body);
@@ -474,7 +474,7 @@ namespace Elasticsearch.Client
         /// <param name="id">Document ID</param>
         /// <param name="body">The document</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndexPut(string index, string type, string id, Stream body, Func<IndexParameters, IndexParameters> options)
+        public virtual HttpResponseMessage IndexPut(string index, string type, string id, Stream body, Func<IndexParameters, IndexParameters> options)
         {
             string uri = string.Format("/{0}/{1}/{2}", index, type, id);
             IndexParameters parameters = options.Invoke(new IndexParameters());
@@ -488,57 +488,7 @@ namespace Elasticsearch.Client
         /// <param name="id">Document ID</param>
         /// <param name="body">The document</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndexPutAsync(string index, string type, string id, Stream body, Func<IndexParameters, IndexParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/{2}", index, type, id);
-            IndexParameters parameters = options.Invoke(new IndexParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-index_.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="type">The type of the document</param>
-        /// <param name="id">Document ID</param>
-        /// <param name="body">The document</param>
-        private HttpResponseMessage IndexPut(string index, string type, string id, Byte[] body)
-        {
-            string uri = string.Format("/{0}/{1}/{2}", index, type, id);
-            return this.Execute("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-index_.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="type">The type of the document</param>
-        /// <param name="id">Document ID</param>
-        /// <param name="body">The document</param>
-        private async Task<HttpResponseMessage> IndexPutAsync(string index, string type, string id, Byte[] body)
-        {
-            string uri = string.Format("/{0}/{1}/{2}", index, type, id);
-            return await this.ExecuteAsync("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-index_.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="type">The type of the document</param>
-        /// <param name="id">Document ID</param>
-        /// <param name="body">The document</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndexPut(string index, string type, string id, Byte[] body, Func<IndexParameters, IndexParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/{2}", index, type, id);
-            IndexParameters parameters = options.Invoke(new IndexParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-index_.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="type">The type of the document</param>
-        /// <param name="id">Document ID</param>
-        /// <param name="body">The document</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndexPutAsync(string index, string type, string id, Byte[] body, Func<IndexParameters, IndexParameters> options)
+        public virtual async Task<HttpResponseMessage> IndexPutAsync(string index, string type, string id, Stream body, Func<IndexParameters, IndexParameters> options)
         {
             string uri = string.Format("/{0}/{1}/{2}", index, type, id);
             IndexParameters parameters = options.Invoke(new IndexParameters());
@@ -551,7 +501,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document</param>
         /// <param name="id">Document ID</param>
         /// <param name="body">The document</param>
-        private HttpResponseMessage IndexPut(string index, string type, string id, string body)
+        public virtual HttpResponseMessage IndexPut(string index, string type, string id, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/{2}", index, type, id);
             return this.Execute("PUT", uri, body);
@@ -562,7 +512,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document</param>
         /// <param name="id">Document ID</param>
         /// <param name="body">The document</param>
-        private async Task<HttpResponseMessage> IndexPutAsync(string index, string type, string id, string body)
+        public virtual async Task<HttpResponseMessage> IndexPutAsync(string index, string type, string id, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/{2}", index, type, id);
             return await this.ExecuteAsync("PUT", uri, body);
@@ -574,7 +524,7 @@ namespace Elasticsearch.Client
         /// <param name="id">Document ID</param>
         /// <param name="body">The document</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndexPut(string index, string type, string id, string body, Func<IndexParameters, IndexParameters> options)
+        public virtual HttpResponseMessage IndexPut(string index, string type, string id, Byte[] body, Func<IndexParameters, IndexParameters> options)
         {
             string uri = string.Format("/{0}/{1}/{2}", index, type, id);
             IndexParameters parameters = options.Invoke(new IndexParameters());
@@ -588,7 +538,57 @@ namespace Elasticsearch.Client
         /// <param name="id">Document ID</param>
         /// <param name="body">The document</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndexPutAsync(string index, string type, string id, string body, Func<IndexParameters, IndexParameters> options)
+        public virtual async Task<HttpResponseMessage> IndexPutAsync(string index, string type, string id, Byte[] body, Func<IndexParameters, IndexParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/{2}", index, type, id);
+            IndexParameters parameters = options.Invoke(new IndexParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-index_.html"/></summary>
+        /// <param name="index">The name of the index</param>
+        /// <param name="type">The type of the document</param>
+        /// <param name="id">Document ID</param>
+        /// <param name="body">The document</param>
+        public virtual HttpResponseMessage IndexPut(string index, string type, string id, string body)
+        {
+            string uri = string.Format("/{0}/{1}/{2}", index, type, id);
+            return this.Execute("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-index_.html"/></summary>
+        /// <param name="index">The name of the index</param>
+        /// <param name="type">The type of the document</param>
+        /// <param name="id">Document ID</param>
+        /// <param name="body">The document</param>
+        public virtual async Task<HttpResponseMessage> IndexPutAsync(string index, string type, string id, string body)
+        {
+            string uri = string.Format("/{0}/{1}/{2}", index, type, id);
+            return await this.ExecuteAsync("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-index_.html"/></summary>
+        /// <param name="index">The name of the index</param>
+        /// <param name="type">The type of the document</param>
+        /// <param name="id">Document ID</param>
+        /// <param name="body">The document</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage IndexPut(string index, string type, string id, string body, Func<IndexParameters, IndexParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/{2}", index, type, id);
+            IndexParameters parameters = options.Invoke(new IndexParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-index_.html"/></summary>
+        /// <param name="index">The name of the index</param>
+        /// <param name="type">The type of the document</param>
+        /// <param name="id">Document ID</param>
+        /// <param name="body">The document</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> IndexPutAsync(string index, string type, string id, string body, Func<IndexParameters, IndexParameters> options)
         {
             string uri = string.Format("/{0}/{1}/{2}", index, type, id);
             IndexParameters parameters = options.Invoke(new IndexParameters());

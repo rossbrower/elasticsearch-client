@@ -24,7 +24,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The name of the index</param>
         /// <param name="type">The type of the document</param>
         /// <param name="id">The document ID</param>
-        private HttpResponseMessage Delete(string index, string type, string id)
+        public virtual HttpResponseMessage Delete(string index, string type, string id)
         {
             string uri = string.Format("/{0}/{1}/{2}", index, type, id);
             return this.Execute("DELETE", uri);
@@ -34,7 +34,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The name of the index</param>
         /// <param name="type">The type of the document</param>
         /// <param name="id">The document ID</param>
-        private async Task<HttpResponseMessage> DeleteAsync(string index, string type, string id)
+        public virtual async Task<HttpResponseMessage> DeleteAsync(string index, string type, string id)
         {
             string uri = string.Format("/{0}/{1}/{2}", index, type, id);
             return await this.ExecuteAsync("DELETE", uri);
@@ -45,7 +45,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document</param>
         /// <param name="id">The document ID</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage Delete(string index, string type, string id, Func<DeleteParameters, DeleteParameters> options)
+        public virtual HttpResponseMessage Delete(string index, string type, string id, Func<DeleteParameters, DeleteParameters> options)
         {
             string uri = string.Format("/{0}/{1}/{2}", index, type, id);
             DeleteParameters parameters = options.Invoke(new DeleteParameters());
@@ -58,7 +58,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document</param>
         /// <param name="id">The document ID</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> DeleteAsync(string index, string type, string id, Func<DeleteParameters, DeleteParameters> options)
+        public virtual async Task<HttpResponseMessage> DeleteAsync(string index, string type, string id, Func<DeleteParameters, DeleteParameters> options)
         {
             string uri = string.Format("/{0}/{1}/{2}", index, type, id);
             DeleteParameters parameters = options.Invoke(new DeleteParameters());

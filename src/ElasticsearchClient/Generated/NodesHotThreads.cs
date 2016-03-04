@@ -21,14 +21,14 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-hot-threads.html"/></summary>
-        private HttpResponseMessage NodesHotThreads()
+        public virtual HttpResponseMessage NodesHotThreads()
         {
             string uri = "/_cluster/nodes/hotthreads";
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-hot-threads.html"/></summary>
-        private async Task<HttpResponseMessage> NodesHotThreadsAsync()
+        public virtual async Task<HttpResponseMessage> NodesHotThreadsAsync()
         {
             string uri = "/_cluster/nodes/hotthreads";
             return await this.ExecuteAsync("GET", uri);
@@ -36,7 +36,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-hot-threads.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage NodesHotThreads(Func<NodesHotThreadsParameters, NodesHotThreadsParameters> options)
+        public virtual HttpResponseMessage NodesHotThreads(Func<NodesHotThreadsParameters, NodesHotThreadsParameters> options)
         {
             string uri = "/_cluster/nodes/hotthreads";
             NodesHotThreadsParameters parameters = options.Invoke(new NodesHotThreadsParameters());
@@ -46,7 +46,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-hot-threads.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> NodesHotThreadsAsync(Func<NodesHotThreadsParameters, NodesHotThreadsParameters> options)
+        public virtual async Task<HttpResponseMessage> NodesHotThreadsAsync(Func<NodesHotThreadsParameters, NodesHotThreadsParameters> options)
         {
             string uri = "/_cluster/nodes/hotthreads";
             NodesHotThreadsParameters parameters = options.Invoke(new NodesHotThreadsParameters());
@@ -56,7 +56,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-hot-threads.html"/></summary>
         /// <param name="node_id">A comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes</param>
-        private HttpResponseMessage NodesHotThreads(string node_id)
+        public virtual HttpResponseMessage NodesHotThreads(string node_id)
         {
             string uri = string.Format("/_cluster/nodes/{0}/hotthreads", node_id);
             return this.Execute("GET", uri);
@@ -64,7 +64,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-hot-threads.html"/></summary>
         /// <param name="node_id">A comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes</param>
-        private async Task<HttpResponseMessage> NodesHotThreadsAsync(string node_id)
+        public virtual async Task<HttpResponseMessage> NodesHotThreadsAsync(string node_id)
         {
             string uri = string.Format("/_cluster/nodes/{0}/hotthreads", node_id);
             return await this.ExecuteAsync("GET", uri);
@@ -73,7 +73,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-hot-threads.html"/></summary>
         /// <param name="node_id">A comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage NodesHotThreads(string node_id, Func<NodesHotThreadsParameters, NodesHotThreadsParameters> options)
+        public virtual HttpResponseMessage NodesHotThreads(string node_id, Func<NodesHotThreadsParameters, NodesHotThreadsParameters> options)
         {
             string uri = string.Format("/_cluster/nodes/{0}/hotthreads", node_id);
             NodesHotThreadsParameters parameters = options.Invoke(new NodesHotThreadsParameters());
@@ -84,7 +84,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-hot-threads.html"/></summary>
         /// <param name="node_id">A comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> NodesHotThreadsAsync(string node_id, Func<NodesHotThreadsParameters, NodesHotThreadsParameters> options)
+        public virtual async Task<HttpResponseMessage> NodesHotThreadsAsync(string node_id, Func<NodesHotThreadsParameters, NodesHotThreadsParameters> options)
         {
             string uri = string.Format("/_cluster/nodes/{0}/hotthreads", node_id);
             NodesHotThreadsParameters parameters = options.Invoke(new NodesHotThreadsParameters());

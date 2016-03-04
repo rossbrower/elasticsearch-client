@@ -21,14 +21,14 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-update-settings.html"/></summary>
-        private HttpResponseMessage ClusterGetSettings()
+        public virtual HttpResponseMessage ClusterGetSettings()
         {
             string uri = "/_cluster/settings";
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-update-settings.html"/></summary>
-        private async Task<HttpResponseMessage> ClusterGetSettingsAsync()
+        public virtual async Task<HttpResponseMessage> ClusterGetSettingsAsync()
         {
             string uri = "/_cluster/settings";
             return await this.ExecuteAsync("GET", uri);
@@ -36,7 +36,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-update-settings.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage ClusterGetSettings(Func<ClusterGetSettingsParameters, ClusterGetSettingsParameters> options)
+        public virtual HttpResponseMessage ClusterGetSettings(Func<ClusterGetSettingsParameters, ClusterGetSettingsParameters> options)
         {
             string uri = "/_cluster/settings";
             ClusterGetSettingsParameters parameters = options.Invoke(new ClusterGetSettingsParameters());
@@ -46,7 +46,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-update-settings.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> ClusterGetSettingsAsync(Func<ClusterGetSettingsParameters, ClusterGetSettingsParameters> options)
+        public virtual async Task<HttpResponseMessage> ClusterGetSettingsAsync(Func<ClusterGetSettingsParameters, ClusterGetSettingsParameters> options)
         {
             string uri = "/_cluster/settings";
             ClusterGetSettingsParameters parameters = options.Invoke(new ClusterGetSettingsParameters());

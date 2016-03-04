@@ -22,7 +22,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-update-settings.html"/></summary>
         /// <param name="body">The index settings to be updated</param>
-        private HttpResponseMessage IndicesPutSettings(Stream body)
+        public virtual HttpResponseMessage IndicesPutSettings(Stream body)
         {
             string uri = "/_settings";
             return this.Execute("PUT", uri, body);
@@ -30,7 +30,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-update-settings.html"/></summary>
         /// <param name="body">The index settings to be updated</param>
-        private async Task<HttpResponseMessage> IndicesPutSettingsAsync(Stream body)
+        public virtual async Task<HttpResponseMessage> IndicesPutSettingsAsync(Stream body)
         {
             string uri = "/_settings";
             return await this.ExecuteAsync("PUT", uri, body);
@@ -39,7 +39,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-update-settings.html"/></summary>
         /// <param name="body">The index settings to be updated</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutSettings(Stream body, Func<IndicesPutSettingsParameters, IndicesPutSettingsParameters> options)
+        public virtual HttpResponseMessage IndicesPutSettings(Stream body, Func<IndicesPutSettingsParameters, IndicesPutSettingsParameters> options)
         {
             string uri = "/_settings";
             IndicesPutSettingsParameters parameters = options.Invoke(new IndicesPutSettingsParameters());
@@ -50,7 +50,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-update-settings.html"/></summary>
         /// <param name="body">The index settings to be updated</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutSettingsAsync(Stream body, Func<IndicesPutSettingsParameters, IndicesPutSettingsParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesPutSettingsAsync(Stream body, Func<IndicesPutSettingsParameters, IndicesPutSettingsParameters> options)
         {
             string uri = "/_settings";
             IndicesPutSettingsParameters parameters = options.Invoke(new IndicesPutSettingsParameters());
@@ -60,7 +60,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-update-settings.html"/></summary>
         /// <param name="body">The index settings to be updated</param>
-        private HttpResponseMessage IndicesPutSettings(Byte[] body)
+        public virtual HttpResponseMessage IndicesPutSettings(Byte[] body)
         {
             string uri = "/_settings";
             return this.Execute("PUT", uri, body);
@@ -68,7 +68,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-update-settings.html"/></summary>
         /// <param name="body">The index settings to be updated</param>
-        private async Task<HttpResponseMessage> IndicesPutSettingsAsync(Byte[] body)
+        public virtual async Task<HttpResponseMessage> IndicesPutSettingsAsync(Byte[] body)
         {
             string uri = "/_settings";
             return await this.ExecuteAsync("PUT", uri, body);
@@ -77,45 +77,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-update-settings.html"/></summary>
         /// <param name="body">The index settings to be updated</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutSettings(Byte[] body, Func<IndicesPutSettingsParameters, IndicesPutSettingsParameters> options)
-        {
-            string uri = "/_settings";
-            IndicesPutSettingsParameters parameters = options.Invoke(new IndicesPutSettingsParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-update-settings.html"/></summary>
-        /// <param name="body">The index settings to be updated</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutSettingsAsync(Byte[] body, Func<IndicesPutSettingsParameters, IndicesPutSettingsParameters> options)
-        {
-            string uri = "/_settings";
-            IndicesPutSettingsParameters parameters = options.Invoke(new IndicesPutSettingsParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-update-settings.html"/></summary>
-        /// <param name="body">The index settings to be updated</param>
-        private HttpResponseMessage IndicesPutSettings(string body)
-        {
-            string uri = "/_settings";
-            return this.Execute("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-update-settings.html"/></summary>
-        /// <param name="body">The index settings to be updated</param>
-        private async Task<HttpResponseMessage> IndicesPutSettingsAsync(string body)
-        {
-            string uri = "/_settings";
-            return await this.ExecuteAsync("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-update-settings.html"/></summary>
-        /// <param name="body">The index settings to be updated</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutSettings(string body, Func<IndicesPutSettingsParameters, IndicesPutSettingsParameters> options)
+        public virtual HttpResponseMessage IndicesPutSettings(Byte[] body, Func<IndicesPutSettingsParameters, IndicesPutSettingsParameters> options)
         {
             string uri = "/_settings";
             IndicesPutSettingsParameters parameters = options.Invoke(new IndicesPutSettingsParameters());
@@ -126,7 +88,45 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-update-settings.html"/></summary>
         /// <param name="body">The index settings to be updated</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutSettingsAsync(string body, Func<IndicesPutSettingsParameters, IndicesPutSettingsParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesPutSettingsAsync(Byte[] body, Func<IndicesPutSettingsParameters, IndicesPutSettingsParameters> options)
+        {
+            string uri = "/_settings";
+            IndicesPutSettingsParameters parameters = options.Invoke(new IndicesPutSettingsParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-update-settings.html"/></summary>
+        /// <param name="body">The index settings to be updated</param>
+        public virtual HttpResponseMessage IndicesPutSettings(string body)
+        {
+            string uri = "/_settings";
+            return this.Execute("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-update-settings.html"/></summary>
+        /// <param name="body">The index settings to be updated</param>
+        public virtual async Task<HttpResponseMessage> IndicesPutSettingsAsync(string body)
+        {
+            string uri = "/_settings";
+            return await this.ExecuteAsync("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-update-settings.html"/></summary>
+        /// <param name="body">The index settings to be updated</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage IndicesPutSettings(string body, Func<IndicesPutSettingsParameters, IndicesPutSettingsParameters> options)
+        {
+            string uri = "/_settings";
+            IndicesPutSettingsParameters parameters = options.Invoke(new IndicesPutSettingsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-update-settings.html"/></summary>
+        /// <param name="body">The index settings to be updated</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> IndicesPutSettingsAsync(string body, Func<IndicesPutSettingsParameters, IndicesPutSettingsParameters> options)
         {
             string uri = "/_settings";
             IndicesPutSettingsParameters parameters = options.Invoke(new IndicesPutSettingsParameters());
@@ -137,7 +137,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-update-settings.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The index settings to be updated</param>
-        private HttpResponseMessage IndicesPutSettings(string index, Stream body)
+        public virtual HttpResponseMessage IndicesPutSettings(string index, Stream body)
         {
             string uri = string.Format("/{0}/_settings", index);
             return this.Execute("PUT", uri, body);
@@ -146,49 +146,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-update-settings.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The index settings to be updated</param>
-        private async Task<HttpResponseMessage> IndicesPutSettingsAsync(string index, Stream body)
-        {
-            string uri = string.Format("/{0}/_settings", index);
-            return await this.ExecuteAsync("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-update-settings.html"/></summary>
-        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="body">The index settings to be updated</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutSettings(string index, Stream body, Func<IndicesPutSettingsParameters, IndicesPutSettingsParameters> options)
-        {
-            string uri = string.Format("/{0}/_settings", index);
-            IndicesPutSettingsParameters parameters = options.Invoke(new IndicesPutSettingsParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-update-settings.html"/></summary>
-        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="body">The index settings to be updated</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutSettingsAsync(string index, Stream body, Func<IndicesPutSettingsParameters, IndicesPutSettingsParameters> options)
-        {
-            string uri = string.Format("/{0}/_settings", index);
-            IndicesPutSettingsParameters parameters = options.Invoke(new IndicesPutSettingsParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-update-settings.html"/></summary>
-        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="body">The index settings to be updated</param>
-        private HttpResponseMessage IndicesPutSettings(string index, Byte[] body)
-        {
-            string uri = string.Format("/{0}/_settings", index);
-            return this.Execute("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-update-settings.html"/></summary>
-        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
-        /// <param name="body">The index settings to be updated</param>
-        private async Task<HttpResponseMessage> IndicesPutSettingsAsync(string index, Byte[] body)
+        public virtual async Task<HttpResponseMessage> IndicesPutSettingsAsync(string index, Stream body)
         {
             string uri = string.Format("/{0}/_settings", index);
             return await this.ExecuteAsync("PUT", uri, body);
@@ -198,7 +156,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The index settings to be updated</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutSettings(string index, Byte[] body, Func<IndicesPutSettingsParameters, IndicesPutSettingsParameters> options)
+        public virtual HttpResponseMessage IndicesPutSettings(string index, Stream body, Func<IndicesPutSettingsParameters, IndicesPutSettingsParameters> options)
         {
             string uri = string.Format("/{0}/_settings", index);
             IndicesPutSettingsParameters parameters = options.Invoke(new IndicesPutSettingsParameters());
@@ -210,7 +168,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The index settings to be updated</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutSettingsAsync(string index, Byte[] body, Func<IndicesPutSettingsParameters, IndicesPutSettingsParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesPutSettingsAsync(string index, Stream body, Func<IndicesPutSettingsParameters, IndicesPutSettingsParameters> options)
         {
             string uri = string.Format("/{0}/_settings", index);
             IndicesPutSettingsParameters parameters = options.Invoke(new IndicesPutSettingsParameters());
@@ -221,7 +179,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-update-settings.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The index settings to be updated</param>
-        private HttpResponseMessage IndicesPutSettings(string index, string body)
+        public virtual HttpResponseMessage IndicesPutSettings(string index, Byte[] body)
         {
             string uri = string.Format("/{0}/_settings", index);
             return this.Execute("PUT", uri, body);
@@ -230,7 +188,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-update-settings.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The index settings to be updated</param>
-        private async Task<HttpResponseMessage> IndicesPutSettingsAsync(string index, string body)
+        public virtual async Task<HttpResponseMessage> IndicesPutSettingsAsync(string index, Byte[] body)
         {
             string uri = string.Format("/{0}/_settings", index);
             return await this.ExecuteAsync("PUT", uri, body);
@@ -240,7 +198,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The index settings to be updated</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutSettings(string index, string body, Func<IndicesPutSettingsParameters, IndicesPutSettingsParameters> options)
+        public virtual HttpResponseMessage IndicesPutSettings(string index, Byte[] body, Func<IndicesPutSettingsParameters, IndicesPutSettingsParameters> options)
         {
             string uri = string.Format("/{0}/_settings", index);
             IndicesPutSettingsParameters parameters = options.Invoke(new IndicesPutSettingsParameters());
@@ -252,7 +210,49 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The index settings to be updated</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutSettingsAsync(string index, string body, Func<IndicesPutSettingsParameters, IndicesPutSettingsParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesPutSettingsAsync(string index, Byte[] body, Func<IndicesPutSettingsParameters, IndicesPutSettingsParameters> options)
+        {
+            string uri = string.Format("/{0}/_settings", index);
+            IndicesPutSettingsParameters parameters = options.Invoke(new IndicesPutSettingsParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-update-settings.html"/></summary>
+        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The index settings to be updated</param>
+        public virtual HttpResponseMessage IndicesPutSettings(string index, string body)
+        {
+            string uri = string.Format("/{0}/_settings", index);
+            return this.Execute("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-update-settings.html"/></summary>
+        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The index settings to be updated</param>
+        public virtual async Task<HttpResponseMessage> IndicesPutSettingsAsync(string index, string body)
+        {
+            string uri = string.Format("/{0}/_settings", index);
+            return await this.ExecuteAsync("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-update-settings.html"/></summary>
+        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The index settings to be updated</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage IndicesPutSettings(string index, string body, Func<IndicesPutSettingsParameters, IndicesPutSettingsParameters> options)
+        {
+            string uri = string.Format("/{0}/_settings", index);
+            IndicesPutSettingsParameters parameters = options.Invoke(new IndicesPutSettingsParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-update-settings.html"/></summary>
+        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
+        /// <param name="body">The index settings to be updated</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> IndicesPutSettingsAsync(string index, string body, Func<IndicesPutSettingsParameters, IndicesPutSettingsParameters> options)
         {
             string uri = string.Format("/{0}/_settings", index);
             IndicesPutSettingsParameters parameters = options.Invoke(new IndicesPutSettingsParameters());

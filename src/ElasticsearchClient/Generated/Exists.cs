@@ -24,7 +24,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The name of the index</param>
         /// <param name="type">The type of the document (use `_all` to fetch the first document matching the ID across all types)</param>
         /// <param name="id">The document ID</param>
-        private HttpResponseMessage Exists(string index, string type, string id)
+        public virtual HttpResponseMessage Exists(string index, string type, string id)
         {
             string uri = string.Format("/{0}/{1}/{2}", index, type, id);
             return this.Execute("HEAD", uri);
@@ -34,7 +34,7 @@ namespace Elasticsearch.Client
         /// <param name="index">The name of the index</param>
         /// <param name="type">The type of the document (use `_all` to fetch the first document matching the ID across all types)</param>
         /// <param name="id">The document ID</param>
-        private async Task<HttpResponseMessage> ExistsAsync(string index, string type, string id)
+        public virtual async Task<HttpResponseMessage> ExistsAsync(string index, string type, string id)
         {
             string uri = string.Format("/{0}/{1}/{2}", index, type, id);
             return await this.ExecuteAsync("HEAD", uri);
@@ -45,7 +45,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document (use `_all` to fetch the first document matching the ID across all types)</param>
         /// <param name="id">The document ID</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage Exists(string index, string type, string id, Func<ExistsParameters, ExistsParameters> options)
+        public virtual HttpResponseMessage Exists(string index, string type, string id, Func<ExistsParameters, ExistsParameters> options)
         {
             string uri = string.Format("/{0}/{1}/{2}", index, type, id);
             ExistsParameters parameters = options.Invoke(new ExistsParameters());
@@ -58,7 +58,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document (use `_all` to fetch the first document matching the ID across all types)</param>
         /// <param name="id">The document ID</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> ExistsAsync(string index, string type, string id, Func<ExistsParameters, ExistsParameters> options)
+        public virtual async Task<HttpResponseMessage> ExistsAsync(string index, string type, string id, Func<ExistsParameters, ExistsParameters> options)
         {
             string uri = string.Format("/{0}/{1}/{2}", index, type, id);
             ExistsParameters parameters = options.Invoke(new ExistsParameters());

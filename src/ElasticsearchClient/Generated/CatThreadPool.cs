@@ -21,14 +21,14 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-thread-pool.html"/></summary>
-        private HttpResponseMessage CatThreadPool()
+        public virtual HttpResponseMessage CatThreadPool()
         {
             string uri = "/_cat/thread_pool";
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-thread-pool.html"/></summary>
-        private async Task<HttpResponseMessage> CatThreadPoolAsync()
+        public virtual async Task<HttpResponseMessage> CatThreadPoolAsync()
         {
             string uri = "/_cat/thread_pool";
             return await this.ExecuteAsync("GET", uri);
@@ -36,7 +36,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-thread-pool.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage CatThreadPool(Func<CatThreadPoolParameters, CatThreadPoolParameters> options)
+        public virtual HttpResponseMessage CatThreadPool(Func<CatThreadPoolParameters, CatThreadPoolParameters> options)
         {
             string uri = "/_cat/thread_pool";
             CatThreadPoolParameters parameters = options.Invoke(new CatThreadPoolParameters());
@@ -46,7 +46,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-thread-pool.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> CatThreadPoolAsync(Func<CatThreadPoolParameters, CatThreadPoolParameters> options)
+        public virtual async Task<HttpResponseMessage> CatThreadPoolAsync(Func<CatThreadPoolParameters, CatThreadPoolParameters> options)
         {
             string uri = "/_cat/thread_pool";
             CatThreadPoolParameters parameters = options.Invoke(new CatThreadPoolParameters());

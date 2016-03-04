@@ -24,7 +24,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names the mapping should be added to (supports wildcards); use `_all` or omit to add the mapping on all indices.</param>
         /// <param name="type">The name of the document type</param>
         /// <param name="body">The mapping definition</param>
-        private HttpResponseMessage IndicesPutMappingPut(string index, string type, Stream body)
+        public virtual HttpResponseMessage IndicesPutMappingPut(string index, string type, Stream body)
         {
             string uri = string.Format("/{0}/{1}/_mapping", index, type);
             return this.Execute("PUT", uri, body);
@@ -34,7 +34,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names the mapping should be added to (supports wildcards); use `_all` or omit to add the mapping on all indices.</param>
         /// <param name="type">The name of the document type</param>
         /// <param name="body">The mapping definition</param>
-        private async Task<HttpResponseMessage> IndicesPutMappingPutAsync(string index, string type, Stream body)
+        public virtual async Task<HttpResponseMessage> IndicesPutMappingPutAsync(string index, string type, Stream body)
         {
             string uri = string.Format("/{0}/{1}/_mapping", index, type);
             return await this.ExecuteAsync("PUT", uri, body);
@@ -45,7 +45,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The name of the document type</param>
         /// <param name="body">The mapping definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutMappingPut(string index, string type, Stream body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
+        public virtual HttpResponseMessage IndicesPutMappingPut(string index, string type, Stream body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_mapping", index, type);
             IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
@@ -58,7 +58,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The name of the document type</param>
         /// <param name="body">The mapping definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutMappingPutAsync(string index, string type, Stream body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesPutMappingPutAsync(string index, string type, Stream body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_mapping", index, type);
             IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
@@ -70,7 +70,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names the mapping should be added to (supports wildcards); use `_all` or omit to add the mapping on all indices.</param>
         /// <param name="type">The name of the document type</param>
         /// <param name="body">The mapping definition</param>
-        private HttpResponseMessage IndicesPutMappingPut(string index, string type, Byte[] body)
+        public virtual HttpResponseMessage IndicesPutMappingPut(string index, string type, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/_mapping", index, type);
             return this.Execute("PUT", uri, body);
@@ -80,7 +80,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names the mapping should be added to (supports wildcards); use `_all` or omit to add the mapping on all indices.</param>
         /// <param name="type">The name of the document type</param>
         /// <param name="body">The mapping definition</param>
-        private async Task<HttpResponseMessage> IndicesPutMappingPutAsync(string index, string type, Byte[] body)
+        public virtual async Task<HttpResponseMessage> IndicesPutMappingPutAsync(string index, string type, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/_mapping", index, type);
             return await this.ExecuteAsync("PUT", uri, body);
@@ -91,53 +91,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The name of the document type</param>
         /// <param name="body">The mapping definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutMappingPut(string index, string type, Byte[] body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_mapping", index, type);
-            IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
-        /// <param name="index">A comma-separated list of index names the mapping should be added to (supports wildcards); use `_all` or omit to add the mapping on all indices.</param>
-        /// <param name="type">The name of the document type</param>
-        /// <param name="body">The mapping definition</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutMappingPutAsync(string index, string type, Byte[] body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_mapping", index, type);
-            IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
-        /// <param name="index">A comma-separated list of index names the mapping should be added to (supports wildcards); use `_all` or omit to add the mapping on all indices.</param>
-        /// <param name="type">The name of the document type</param>
-        /// <param name="body">The mapping definition</param>
-        private HttpResponseMessage IndicesPutMappingPut(string index, string type, string body)
-        {
-            string uri = string.Format("/{0}/{1}/_mapping", index, type);
-            return this.Execute("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
-        /// <param name="index">A comma-separated list of index names the mapping should be added to (supports wildcards); use `_all` or omit to add the mapping on all indices.</param>
-        /// <param name="type">The name of the document type</param>
-        /// <param name="body">The mapping definition</param>
-        private async Task<HttpResponseMessage> IndicesPutMappingPutAsync(string index, string type, string body)
-        {
-            string uri = string.Format("/{0}/{1}/_mapping", index, type);
-            return await this.ExecuteAsync("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
-        /// <param name="index">A comma-separated list of index names the mapping should be added to (supports wildcards); use `_all` or omit to add the mapping on all indices.</param>
-        /// <param name="type">The name of the document type</param>
-        /// <param name="body">The mapping definition</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutMappingPut(string index, string type, string body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
+        public virtual HttpResponseMessage IndicesPutMappingPut(string index, string type, Byte[] body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_mapping", index, type);
             IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
@@ -150,7 +104,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The name of the document type</param>
         /// <param name="body">The mapping definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutMappingPutAsync(string index, string type, string body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesPutMappingPutAsync(string index, string type, Byte[] body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_mapping", index, type);
             IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
@@ -162,7 +116,53 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names the mapping should be added to (supports wildcards); use `_all` or omit to add the mapping on all indices.</param>
         /// <param name="type">The name of the document type</param>
         /// <param name="body">The mapping definition</param>
-        private HttpResponseMessage IndicesPutMappingPost(string index, string type, Stream body)
+        public virtual HttpResponseMessage IndicesPutMappingPut(string index, string type, string body)
+        {
+            string uri = string.Format("/{0}/{1}/_mapping", index, type);
+            return this.Execute("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
+        /// <param name="index">A comma-separated list of index names the mapping should be added to (supports wildcards); use `_all` or omit to add the mapping on all indices.</param>
+        /// <param name="type">The name of the document type</param>
+        /// <param name="body">The mapping definition</param>
+        public virtual async Task<HttpResponseMessage> IndicesPutMappingPutAsync(string index, string type, string body)
+        {
+            string uri = string.Format("/{0}/{1}/_mapping", index, type);
+            return await this.ExecuteAsync("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
+        /// <param name="index">A comma-separated list of index names the mapping should be added to (supports wildcards); use `_all` or omit to add the mapping on all indices.</param>
+        /// <param name="type">The name of the document type</param>
+        /// <param name="body">The mapping definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage IndicesPutMappingPut(string index, string type, string body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_mapping", index, type);
+            IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
+        /// <param name="index">A comma-separated list of index names the mapping should be added to (supports wildcards); use `_all` or omit to add the mapping on all indices.</param>
+        /// <param name="type">The name of the document type</param>
+        /// <param name="body">The mapping definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> IndicesPutMappingPutAsync(string index, string type, string body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_mapping", index, type);
+            IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
+        /// <param name="index">A comma-separated list of index names the mapping should be added to (supports wildcards); use `_all` or omit to add the mapping on all indices.</param>
+        /// <param name="type">The name of the document type</param>
+        /// <param name="body">The mapping definition</param>
+        public virtual HttpResponseMessage IndicesPutMappingPost(string index, string type, Stream body)
         {
             string uri = string.Format("/{0}/{1}/_mapping", index, type);
             return this.Execute("POST", uri, body);
@@ -172,7 +172,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names the mapping should be added to (supports wildcards); use `_all` or omit to add the mapping on all indices.</param>
         /// <param name="type">The name of the document type</param>
         /// <param name="body">The mapping definition</param>
-        private async Task<HttpResponseMessage> IndicesPutMappingPostAsync(string index, string type, Stream body)
+        public virtual async Task<HttpResponseMessage> IndicesPutMappingPostAsync(string index, string type, Stream body)
         {
             string uri = string.Format("/{0}/{1}/_mapping", index, type);
             return await this.ExecuteAsync("POST", uri, body);
@@ -183,7 +183,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The name of the document type</param>
         /// <param name="body">The mapping definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutMappingPost(string index, string type, Stream body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
+        public virtual HttpResponseMessage IndicesPutMappingPost(string index, string type, Stream body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_mapping", index, type);
             IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
@@ -196,53 +196,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The name of the document type</param>
         /// <param name="body">The mapping definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutMappingPostAsync(string index, string type, Stream body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_mapping", index, type);
-            IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
-        /// <param name="index">A comma-separated list of index names the mapping should be added to (supports wildcards); use `_all` or omit to add the mapping on all indices.</param>
-        /// <param name="type">The name of the document type</param>
-        /// <param name="body">The mapping definition</param>
-        private HttpResponseMessage IndicesPutMappingPost(string index, string type, Byte[] body)
-        {
-            string uri = string.Format("/{0}/{1}/_mapping", index, type);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
-        /// <param name="index">A comma-separated list of index names the mapping should be added to (supports wildcards); use `_all` or omit to add the mapping on all indices.</param>
-        /// <param name="type">The name of the document type</param>
-        /// <param name="body">The mapping definition</param>
-        private async Task<HttpResponseMessage> IndicesPutMappingPostAsync(string index, string type, Byte[] body)
-        {
-            string uri = string.Format("/{0}/{1}/_mapping", index, type);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
-        /// <param name="index">A comma-separated list of index names the mapping should be added to (supports wildcards); use `_all` or omit to add the mapping on all indices.</param>
-        /// <param name="type">The name of the document type</param>
-        /// <param name="body">The mapping definition</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutMappingPost(string index, string type, Byte[] body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_mapping", index, type);
-            IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
-        /// <param name="index">A comma-separated list of index names the mapping should be added to (supports wildcards); use `_all` or omit to add the mapping on all indices.</param>
-        /// <param name="type">The name of the document type</param>
-        /// <param name="body">The mapping definition</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutMappingPostAsync(string index, string type, Byte[] body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesPutMappingPostAsync(string index, string type, Stream body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_mapping", index, type);
             IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
@@ -254,7 +208,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names the mapping should be added to (supports wildcards); use `_all` or omit to add the mapping on all indices.</param>
         /// <param name="type">The name of the document type</param>
         /// <param name="body">The mapping definition</param>
-        private HttpResponseMessage IndicesPutMappingPost(string index, string type, string body)
+        public virtual HttpResponseMessage IndicesPutMappingPost(string index, string type, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/_mapping", index, type);
             return this.Execute("POST", uri, body);
@@ -264,7 +218,7 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names the mapping should be added to (supports wildcards); use `_all` or omit to add the mapping on all indices.</param>
         /// <param name="type">The name of the document type</param>
         /// <param name="body">The mapping definition</param>
-        private async Task<HttpResponseMessage> IndicesPutMappingPostAsync(string index, string type, string body)
+        public virtual async Task<HttpResponseMessage> IndicesPutMappingPostAsync(string index, string type, Byte[] body)
         {
             string uri = string.Format("/{0}/{1}/_mapping", index, type);
             return await this.ExecuteAsync("POST", uri, body);
@@ -275,7 +229,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The name of the document type</param>
         /// <param name="body">The mapping definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutMappingPost(string index, string type, string body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
+        public virtual HttpResponseMessage IndicesPutMappingPost(string index, string type, Byte[] body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_mapping", index, type);
             IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
@@ -288,7 +242,53 @@ namespace Elasticsearch.Client
         /// <param name="type">The name of the document type</param>
         /// <param name="body">The mapping definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutMappingPostAsync(string index, string type, string body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesPutMappingPostAsync(string index, string type, Byte[] body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_mapping", index, type);
+            IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
+        /// <param name="index">A comma-separated list of index names the mapping should be added to (supports wildcards); use `_all` or omit to add the mapping on all indices.</param>
+        /// <param name="type">The name of the document type</param>
+        /// <param name="body">The mapping definition</param>
+        public virtual HttpResponseMessage IndicesPutMappingPost(string index, string type, string body)
+        {
+            string uri = string.Format("/{0}/{1}/_mapping", index, type);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
+        /// <param name="index">A comma-separated list of index names the mapping should be added to (supports wildcards); use `_all` or omit to add the mapping on all indices.</param>
+        /// <param name="type">The name of the document type</param>
+        /// <param name="body">The mapping definition</param>
+        public virtual async Task<HttpResponseMessage> IndicesPutMappingPostAsync(string index, string type, string body)
+        {
+            string uri = string.Format("/{0}/{1}/_mapping", index, type);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
+        /// <param name="index">A comma-separated list of index names the mapping should be added to (supports wildcards); use `_all` or omit to add the mapping on all indices.</param>
+        /// <param name="type">The name of the document type</param>
+        /// <param name="body">The mapping definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage IndicesPutMappingPost(string index, string type, string body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
+        {
+            string uri = string.Format("/{0}/{1}/_mapping", index, type);
+            IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
+        /// <param name="index">A comma-separated list of index names the mapping should be added to (supports wildcards); use `_all` or omit to add the mapping on all indices.</param>
+        /// <param name="type">The name of the document type</param>
+        /// <param name="body">The mapping definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> IndicesPutMappingPostAsync(string index, string type, string body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
         {
             string uri = string.Format("/{0}/{1}/_mapping", index, type);
             IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
@@ -299,7 +299,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
         /// <param name="type">The name of the document type</param>
         /// <param name="body">The mapping definition</param>
-        private HttpResponseMessage IndicesPutMappingPut(string type, Stream body)
+        public virtual HttpResponseMessage IndicesPutMappingPut(string type, Stream body)
         {
             string uri = string.Format("/_mapping/{0}", type);
             return this.Execute("PUT", uri, body);
@@ -308,7 +308,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
         /// <param name="type">The name of the document type</param>
         /// <param name="body">The mapping definition</param>
-        private async Task<HttpResponseMessage> IndicesPutMappingPutAsync(string type, Stream body)
+        public virtual async Task<HttpResponseMessage> IndicesPutMappingPutAsync(string type, Stream body)
         {
             string uri = string.Format("/_mapping/{0}", type);
             return await this.ExecuteAsync("PUT", uri, body);
@@ -318,7 +318,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The name of the document type</param>
         /// <param name="body">The mapping definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutMappingPut(string type, Stream body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
+        public virtual HttpResponseMessage IndicesPutMappingPut(string type, Stream body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
         {
             string uri = string.Format("/_mapping/{0}", type);
             IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
@@ -330,7 +330,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The name of the document type</param>
         /// <param name="body">The mapping definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutMappingPutAsync(string type, Stream body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesPutMappingPutAsync(string type, Stream body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
         {
             string uri = string.Format("/_mapping/{0}", type);
             IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
@@ -341,7 +341,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
         /// <param name="type">The name of the document type</param>
         /// <param name="body">The mapping definition</param>
-        private HttpResponseMessage IndicesPutMappingPut(string type, Byte[] body)
+        public virtual HttpResponseMessage IndicesPutMappingPut(string type, Byte[] body)
         {
             string uri = string.Format("/_mapping/{0}", type);
             return this.Execute("PUT", uri, body);
@@ -350,7 +350,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
         /// <param name="type">The name of the document type</param>
         /// <param name="body">The mapping definition</param>
-        private async Task<HttpResponseMessage> IndicesPutMappingPutAsync(string type, Byte[] body)
+        public virtual async Task<HttpResponseMessage> IndicesPutMappingPutAsync(string type, Byte[] body)
         {
             string uri = string.Format("/_mapping/{0}", type);
             return await this.ExecuteAsync("PUT", uri, body);
@@ -360,49 +360,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The name of the document type</param>
         /// <param name="body">The mapping definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutMappingPut(string type, Byte[] body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
-        {
-            string uri = string.Format("/_mapping/{0}", type);
-            IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
-        /// <param name="type">The name of the document type</param>
-        /// <param name="body">The mapping definition</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutMappingPutAsync(string type, Byte[] body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
-        {
-            string uri = string.Format("/_mapping/{0}", type);
-            IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
-        /// <param name="type">The name of the document type</param>
-        /// <param name="body">The mapping definition</param>
-        private HttpResponseMessage IndicesPutMappingPut(string type, string body)
-        {
-            string uri = string.Format("/_mapping/{0}", type);
-            return this.Execute("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
-        /// <param name="type">The name of the document type</param>
-        /// <param name="body">The mapping definition</param>
-        private async Task<HttpResponseMessage> IndicesPutMappingPutAsync(string type, string body)
-        {
-            string uri = string.Format("/_mapping/{0}", type);
-            return await this.ExecuteAsync("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
-        /// <param name="type">The name of the document type</param>
-        /// <param name="body">The mapping definition</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutMappingPut(string type, string body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
+        public virtual HttpResponseMessage IndicesPutMappingPut(string type, Byte[] body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
         {
             string uri = string.Format("/_mapping/{0}", type);
             IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
@@ -414,7 +372,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The name of the document type</param>
         /// <param name="body">The mapping definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutMappingPutAsync(string type, string body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesPutMappingPutAsync(string type, Byte[] body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
         {
             string uri = string.Format("/_mapping/{0}", type);
             IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
@@ -425,7 +383,49 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
         /// <param name="type">The name of the document type</param>
         /// <param name="body">The mapping definition</param>
-        private HttpResponseMessage IndicesPutMappingPost(string type, Stream body)
+        public virtual HttpResponseMessage IndicesPutMappingPut(string type, string body)
+        {
+            string uri = string.Format("/_mapping/{0}", type);
+            return this.Execute("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
+        /// <param name="type">The name of the document type</param>
+        /// <param name="body">The mapping definition</param>
+        public virtual async Task<HttpResponseMessage> IndicesPutMappingPutAsync(string type, string body)
+        {
+            string uri = string.Format("/_mapping/{0}", type);
+            return await this.ExecuteAsync("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
+        /// <param name="type">The name of the document type</param>
+        /// <param name="body">The mapping definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage IndicesPutMappingPut(string type, string body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
+        {
+            string uri = string.Format("/_mapping/{0}", type);
+            IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
+        /// <param name="type">The name of the document type</param>
+        /// <param name="body">The mapping definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> IndicesPutMappingPutAsync(string type, string body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
+        {
+            string uri = string.Format("/_mapping/{0}", type);
+            IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
+        /// <param name="type">The name of the document type</param>
+        /// <param name="body">The mapping definition</param>
+        public virtual HttpResponseMessage IndicesPutMappingPost(string type, Stream body)
         {
             string uri = string.Format("/_mapping/{0}", type);
             return this.Execute("POST", uri, body);
@@ -434,7 +434,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
         /// <param name="type">The name of the document type</param>
         /// <param name="body">The mapping definition</param>
-        private async Task<HttpResponseMessage> IndicesPutMappingPostAsync(string type, Stream body)
+        public virtual async Task<HttpResponseMessage> IndicesPutMappingPostAsync(string type, Stream body)
         {
             string uri = string.Format("/_mapping/{0}", type);
             return await this.ExecuteAsync("POST", uri, body);
@@ -444,7 +444,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The name of the document type</param>
         /// <param name="body">The mapping definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutMappingPost(string type, Stream body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
+        public virtual HttpResponseMessage IndicesPutMappingPost(string type, Stream body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
         {
             string uri = string.Format("/_mapping/{0}", type);
             IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
@@ -456,49 +456,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The name of the document type</param>
         /// <param name="body">The mapping definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutMappingPostAsync(string type, Stream body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
-        {
-            string uri = string.Format("/_mapping/{0}", type);
-            IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
-        /// <param name="type">The name of the document type</param>
-        /// <param name="body">The mapping definition</param>
-        private HttpResponseMessage IndicesPutMappingPost(string type, Byte[] body)
-        {
-            string uri = string.Format("/_mapping/{0}", type);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
-        /// <param name="type">The name of the document type</param>
-        /// <param name="body">The mapping definition</param>
-        private async Task<HttpResponseMessage> IndicesPutMappingPostAsync(string type, Byte[] body)
-        {
-            string uri = string.Format("/_mapping/{0}", type);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
-        /// <param name="type">The name of the document type</param>
-        /// <param name="body">The mapping definition</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutMappingPost(string type, Byte[] body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
-        {
-            string uri = string.Format("/_mapping/{0}", type);
-            IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
-        /// <param name="type">The name of the document type</param>
-        /// <param name="body">The mapping definition</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutMappingPostAsync(string type, Byte[] body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesPutMappingPostAsync(string type, Stream body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
         {
             string uri = string.Format("/_mapping/{0}", type);
             IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
@@ -509,7 +467,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
         /// <param name="type">The name of the document type</param>
         /// <param name="body">The mapping definition</param>
-        private HttpResponseMessage IndicesPutMappingPost(string type, string body)
+        public virtual HttpResponseMessage IndicesPutMappingPost(string type, Byte[] body)
         {
             string uri = string.Format("/_mapping/{0}", type);
             return this.Execute("POST", uri, body);
@@ -518,7 +476,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
         /// <param name="type">The name of the document type</param>
         /// <param name="body">The mapping definition</param>
-        private async Task<HttpResponseMessage> IndicesPutMappingPostAsync(string type, string body)
+        public virtual async Task<HttpResponseMessage> IndicesPutMappingPostAsync(string type, Byte[] body)
         {
             string uri = string.Format("/_mapping/{0}", type);
             return await this.ExecuteAsync("POST", uri, body);
@@ -528,7 +486,7 @@ namespace Elasticsearch.Client
         /// <param name="type">The name of the document type</param>
         /// <param name="body">The mapping definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesPutMappingPost(string type, string body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
+        public virtual HttpResponseMessage IndicesPutMappingPost(string type, Byte[] body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
         {
             string uri = string.Format("/_mapping/{0}", type);
             IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
@@ -540,7 +498,49 @@ namespace Elasticsearch.Client
         /// <param name="type">The name of the document type</param>
         /// <param name="body">The mapping definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesPutMappingPostAsync(string type, string body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesPutMappingPostAsync(string type, Byte[] body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
+        {
+            string uri = string.Format("/_mapping/{0}", type);
+            IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
+            uri = parameters.GetUri(uri);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
+        /// <param name="type">The name of the document type</param>
+        /// <param name="body">The mapping definition</param>
+        public virtual HttpResponseMessage IndicesPutMappingPost(string type, string body)
+        {
+            string uri = string.Format("/_mapping/{0}", type);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
+        /// <param name="type">The name of the document type</param>
+        /// <param name="body">The mapping definition</param>
+        public virtual async Task<HttpResponseMessage> IndicesPutMappingPostAsync(string type, string body)
+        {
+            string uri = string.Format("/_mapping/{0}", type);
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
+        /// <param name="type">The name of the document type</param>
+        /// <param name="body">The mapping definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage IndicesPutMappingPost(string type, string body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
+        {
+            string uri = string.Format("/_mapping/{0}", type);
+            IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
+            uri = parameters.GetUri(uri);
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
+        /// <param name="type">The name of the document type</param>
+        /// <param name="body">The mapping definition</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> IndicesPutMappingPostAsync(string type, string body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options)
         {
             string uri = string.Format("/_mapping/{0}", type);
             IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());

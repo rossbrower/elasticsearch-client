@@ -23,7 +23,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-scripting.html"/></summary>
         /// <param name="lang">Script language</param>
         /// <param name="id">Script ID</param>
-        private HttpResponseMessage GetScript(string lang, string id)
+        public virtual HttpResponseMessage GetScript(string lang, string id)
         {
             string uri = string.Format("/_scripts/{0}/{1}", lang, id);
             return this.Execute("GET", uri);
@@ -32,7 +32,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-scripting.html"/></summary>
         /// <param name="lang">Script language</param>
         /// <param name="id">Script ID</param>
-        private async Task<HttpResponseMessage> GetScriptAsync(string lang, string id)
+        public virtual async Task<HttpResponseMessage> GetScriptAsync(string lang, string id)
         {
             string uri = string.Format("/_scripts/{0}/{1}", lang, id);
             return await this.ExecuteAsync("GET", uri);
@@ -42,7 +42,7 @@ namespace Elasticsearch.Client
         /// <param name="lang">Script language</param>
         /// <param name="id">Script ID</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage GetScript(string lang, string id, Func<GetScriptParameters, GetScriptParameters> options)
+        public virtual HttpResponseMessage GetScript(string lang, string id, Func<GetScriptParameters, GetScriptParameters> options)
         {
             string uri = string.Format("/_scripts/{0}/{1}", lang, id);
             GetScriptParameters parameters = options.Invoke(new GetScriptParameters());
@@ -54,7 +54,7 @@ namespace Elasticsearch.Client
         /// <param name="lang">Script language</param>
         /// <param name="id">Script ID</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> GetScriptAsync(string lang, string id, Func<GetScriptParameters, GetScriptParameters> options)
+        public virtual async Task<HttpResponseMessage> GetScriptAsync(string lang, string id, Func<GetScriptParameters, GetScriptParameters> options)
         {
             string uri = string.Format("/_scripts/{0}/{1}", lang, id);
             GetScriptParameters parameters = options.Invoke(new GetScriptParameters());

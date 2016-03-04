@@ -22,7 +22,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-exists.html"/></summary>
         /// <param name="index">A comma-separated list of indices to check</param>
-        private HttpResponseMessage IndicesExists(string index)
+        public virtual HttpResponseMessage IndicesExists(string index)
         {
             string uri = string.Format("/{0}", index);
             return this.Execute("HEAD", uri);
@@ -30,7 +30,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-exists.html"/></summary>
         /// <param name="index">A comma-separated list of indices to check</param>
-        private async Task<HttpResponseMessage> IndicesExistsAsync(string index)
+        public virtual async Task<HttpResponseMessage> IndicesExistsAsync(string index)
         {
             string uri = string.Format("/{0}", index);
             return await this.ExecuteAsync("HEAD", uri);
@@ -39,7 +39,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-exists.html"/></summary>
         /// <param name="index">A comma-separated list of indices to check</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage IndicesExists(string index, Func<IndicesExistsParameters, IndicesExistsParameters> options)
+        public virtual HttpResponseMessage IndicesExists(string index, Func<IndicesExistsParameters, IndicesExistsParameters> options)
         {
             string uri = string.Format("/{0}", index);
             IndicesExistsParameters parameters = options.Invoke(new IndicesExistsParameters());
@@ -50,7 +50,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-exists.html"/></summary>
         /// <param name="index">A comma-separated list of indices to check</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> IndicesExistsAsync(string index, Func<IndicesExistsParameters, IndicesExistsParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesExistsAsync(string index, Func<IndicesExistsParameters, IndicesExistsParameters> options)
         {
             string uri = string.Format("/{0}", index);
             IndicesExistsParameters parameters = options.Invoke(new IndicesExistsParameters());

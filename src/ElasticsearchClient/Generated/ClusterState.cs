@@ -21,14 +21,14 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-state.html"/></summary>
-        private HttpResponseMessage ClusterState()
+        public virtual HttpResponseMessage ClusterState()
         {
             string uri = "/_cluster/state";
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-state.html"/></summary>
-        private async Task<HttpResponseMessage> ClusterStateAsync()
+        public virtual async Task<HttpResponseMessage> ClusterStateAsync()
         {
             string uri = "/_cluster/state";
             return await this.ExecuteAsync("GET", uri);
@@ -36,7 +36,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-state.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage ClusterState(Func<ClusterStateParameters, ClusterStateParameters> options)
+        public virtual HttpResponseMessage ClusterState(Func<ClusterStateParameters, ClusterStateParameters> options)
         {
             string uri = "/_cluster/state";
             ClusterStateParameters parameters = options.Invoke(new ClusterStateParameters());
@@ -46,7 +46,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-state.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> ClusterStateAsync(Func<ClusterStateParameters, ClusterStateParameters> options)
+        public virtual async Task<HttpResponseMessage> ClusterStateAsync(Func<ClusterStateParameters, ClusterStateParameters> options)
         {
             string uri = "/_cluster/state";
             ClusterStateParameters parameters = options.Invoke(new ClusterStateParameters());
@@ -56,7 +56,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-state.html"/></summary>
         /// <param name="metric">Limit the information returned to the specified metrics</param>
-        private HttpResponseMessage ClusterState(string metric)
+        public virtual HttpResponseMessage ClusterState(string metric)
         {
             string uri = string.Format("/_cluster/state/{0}", metric);
             return this.Execute("GET", uri);
@@ -64,7 +64,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-state.html"/></summary>
         /// <param name="metric">Limit the information returned to the specified metrics</param>
-        private async Task<HttpResponseMessage> ClusterStateAsync(string metric)
+        public virtual async Task<HttpResponseMessage> ClusterStateAsync(string metric)
         {
             string uri = string.Format("/_cluster/state/{0}", metric);
             return await this.ExecuteAsync("GET", uri);
@@ -73,7 +73,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-state.html"/></summary>
         /// <param name="metric">Limit the information returned to the specified metrics</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage ClusterState(string metric, Func<ClusterStateParameters, ClusterStateParameters> options)
+        public virtual HttpResponseMessage ClusterState(string metric, Func<ClusterStateParameters, ClusterStateParameters> options)
         {
             string uri = string.Format("/_cluster/state/{0}", metric);
             ClusterStateParameters parameters = options.Invoke(new ClusterStateParameters());
@@ -84,7 +84,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-state.html"/></summary>
         /// <param name="metric">Limit the information returned to the specified metrics</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> ClusterStateAsync(string metric, Func<ClusterStateParameters, ClusterStateParameters> options)
+        public virtual async Task<HttpResponseMessage> ClusterStateAsync(string metric, Func<ClusterStateParameters, ClusterStateParameters> options)
         {
             string uri = string.Format("/_cluster/state/{0}", metric);
             ClusterStateParameters parameters = options.Invoke(new ClusterStateParameters());
@@ -95,7 +95,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-state.html"/></summary>
         /// <param name="metric">Limit the information returned to the specified metrics</param>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
-        private HttpResponseMessage ClusterState(string metric, string index)
+        public virtual HttpResponseMessage ClusterState(string metric, string index)
         {
             string uri = string.Format("/_cluster/state/{0}/{1}", metric, index);
             return this.Execute("GET", uri);
@@ -104,7 +104,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-state.html"/></summary>
         /// <param name="metric">Limit the information returned to the specified metrics</param>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
-        private async Task<HttpResponseMessage> ClusterStateAsync(string metric, string index)
+        public virtual async Task<HttpResponseMessage> ClusterStateAsync(string metric, string index)
         {
             string uri = string.Format("/_cluster/state/{0}/{1}", metric, index);
             return await this.ExecuteAsync("GET", uri);
@@ -114,7 +114,7 @@ namespace Elasticsearch.Client
         /// <param name="metric">Limit the information returned to the specified metrics</param>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage ClusterState(string metric, string index, Func<ClusterStateParameters, ClusterStateParameters> options)
+        public virtual HttpResponseMessage ClusterState(string metric, string index, Func<ClusterStateParameters, ClusterStateParameters> options)
         {
             string uri = string.Format("/_cluster/state/{0}/{1}", metric, index);
             ClusterStateParameters parameters = options.Invoke(new ClusterStateParameters());
@@ -126,7 +126,7 @@ namespace Elasticsearch.Client
         /// <param name="metric">Limit the information returned to the specified metrics</param>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> ClusterStateAsync(string metric, string index, Func<ClusterStateParameters, ClusterStateParameters> options)
+        public virtual async Task<HttpResponseMessage> ClusterStateAsync(string metric, string index, Func<ClusterStateParameters, ClusterStateParameters> options)
         {
             string uri = string.Format("/_cluster/state/{0}/{1}", metric, index);
             ClusterStateParameters parameters = options.Invoke(new ClusterStateParameters());

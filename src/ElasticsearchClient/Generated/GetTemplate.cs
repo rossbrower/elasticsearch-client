@@ -22,7 +22,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
         /// <param name="id">Template ID</param>
-        private HttpResponseMessage GetTemplate(string id)
+        public virtual HttpResponseMessage GetTemplate(string id)
         {
             string uri = string.Format("/_search/template/{0}", id);
             return this.Execute("GET", uri);
@@ -30,7 +30,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
         /// <param name="id">Template ID</param>
-        private async Task<HttpResponseMessage> GetTemplateAsync(string id)
+        public virtual async Task<HttpResponseMessage> GetTemplateAsync(string id)
         {
             string uri = string.Format("/_search/template/{0}", id);
             return await this.ExecuteAsync("GET", uri);
@@ -39,7 +39,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
         /// <param name="id">Template ID</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage GetTemplate(string id, Func<GetTemplateParameters, GetTemplateParameters> options)
+        public virtual HttpResponseMessage GetTemplate(string id, Func<GetTemplateParameters, GetTemplateParameters> options)
         {
             string uri = string.Format("/_search/template/{0}", id);
             GetTemplateParameters parameters = options.Invoke(new GetTemplateParameters());
@@ -50,7 +50,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
         /// <param name="id">Template ID</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> GetTemplateAsync(string id, Func<GetTemplateParameters, GetTemplateParameters> options)
+        public virtual async Task<HttpResponseMessage> GetTemplateAsync(string id, Func<GetTemplateParameters, GetTemplateParameters> options)
         {
             string uri = string.Format("/_search/template/{0}", id);
             GetTemplateParameters parameters = options.Invoke(new GetTemplateParameters());

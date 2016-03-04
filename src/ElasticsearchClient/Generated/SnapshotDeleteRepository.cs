@@ -22,7 +22,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
         /// <param name="repository">A comma-separated list of repository names</param>
-        private HttpResponseMessage SnapshotDeleteRepository(string repository)
+        public virtual HttpResponseMessage SnapshotDeleteRepository(string repository)
         {
             string uri = string.Format("/_snapshot/{0}", repository);
             return this.Execute("DELETE", uri);
@@ -30,7 +30,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
         /// <param name="repository">A comma-separated list of repository names</param>
-        private async Task<HttpResponseMessage> SnapshotDeleteRepositoryAsync(string repository)
+        public virtual async Task<HttpResponseMessage> SnapshotDeleteRepositoryAsync(string repository)
         {
             string uri = string.Format("/_snapshot/{0}", repository);
             return await this.ExecuteAsync("DELETE", uri);
@@ -39,7 +39,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
         /// <param name="repository">A comma-separated list of repository names</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage SnapshotDeleteRepository(string repository, Func<SnapshotDeleteRepositoryParameters, SnapshotDeleteRepositoryParameters> options)
+        public virtual HttpResponseMessage SnapshotDeleteRepository(string repository, Func<SnapshotDeleteRepositoryParameters, SnapshotDeleteRepositoryParameters> options)
         {
             string uri = string.Format("/_snapshot/{0}", repository);
             SnapshotDeleteRepositoryParameters parameters = options.Invoke(new SnapshotDeleteRepositoryParameters());
@@ -50,7 +50,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
         /// <param name="repository">A comma-separated list of repository names</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> SnapshotDeleteRepositoryAsync(string repository, Func<SnapshotDeleteRepositoryParameters, SnapshotDeleteRepositoryParameters> options)
+        public virtual async Task<HttpResponseMessage> SnapshotDeleteRepositoryAsync(string repository, Func<SnapshotDeleteRepositoryParameters, SnapshotDeleteRepositoryParameters> options)
         {
             string uri = string.Format("/_snapshot/{0}", repository);
             SnapshotDeleteRepositoryParameters parameters = options.Invoke(new SnapshotDeleteRepositoryParameters());

@@ -21,14 +21,14 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/"/></summary>
-        private HttpResponseMessage Ping()
+        public virtual HttpResponseMessage Ping()
         {
             string uri = "/";
             return this.Execute("HEAD", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/"/></summary>
-        private async Task<HttpResponseMessage> PingAsync()
+        public virtual async Task<HttpResponseMessage> PingAsync()
         {
             string uri = "/";
             return await this.ExecuteAsync("HEAD", uri);

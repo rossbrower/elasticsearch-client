@@ -21,14 +21,14 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
-        private HttpResponseMessage SnapshotGetRepository()
+        public virtual HttpResponseMessage SnapshotGetRepository()
         {
             string uri = "/_snapshot";
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
-        private async Task<HttpResponseMessage> SnapshotGetRepositoryAsync()
+        public virtual async Task<HttpResponseMessage> SnapshotGetRepositoryAsync()
         {
             string uri = "/_snapshot";
             return await this.ExecuteAsync("GET", uri);
@@ -36,7 +36,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage SnapshotGetRepository(Func<SnapshotGetRepositoryParameters, SnapshotGetRepositoryParameters> options)
+        public virtual HttpResponseMessage SnapshotGetRepository(Func<SnapshotGetRepositoryParameters, SnapshotGetRepositoryParameters> options)
         {
             string uri = "/_snapshot";
             SnapshotGetRepositoryParameters parameters = options.Invoke(new SnapshotGetRepositoryParameters());
@@ -46,7 +46,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> SnapshotGetRepositoryAsync(Func<SnapshotGetRepositoryParameters, SnapshotGetRepositoryParameters> options)
+        public virtual async Task<HttpResponseMessage> SnapshotGetRepositoryAsync(Func<SnapshotGetRepositoryParameters, SnapshotGetRepositoryParameters> options)
         {
             string uri = "/_snapshot";
             SnapshotGetRepositoryParameters parameters = options.Invoke(new SnapshotGetRepositoryParameters());
@@ -56,7 +56,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
         /// <param name="repository">A comma-separated list of repository names</param>
-        private HttpResponseMessage SnapshotGetRepository(string repository)
+        public virtual HttpResponseMessage SnapshotGetRepository(string repository)
         {
             string uri = string.Format("/_snapshot/{0}", repository);
             return this.Execute("GET", uri);
@@ -64,7 +64,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
         /// <param name="repository">A comma-separated list of repository names</param>
-        private async Task<HttpResponseMessage> SnapshotGetRepositoryAsync(string repository)
+        public virtual async Task<HttpResponseMessage> SnapshotGetRepositoryAsync(string repository)
         {
             string uri = string.Format("/_snapshot/{0}", repository);
             return await this.ExecuteAsync("GET", uri);
@@ -73,7 +73,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
         /// <param name="repository">A comma-separated list of repository names</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private HttpResponseMessage SnapshotGetRepository(string repository, Func<SnapshotGetRepositoryParameters, SnapshotGetRepositoryParameters> options)
+        public virtual HttpResponseMessage SnapshotGetRepository(string repository, Func<SnapshotGetRepositoryParameters, SnapshotGetRepositoryParameters> options)
         {
             string uri = string.Format("/_snapshot/{0}", repository);
             SnapshotGetRepositoryParameters parameters = options.Invoke(new SnapshotGetRepositoryParameters());
@@ -84,7 +84,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
         /// <param name="repository">A comma-separated list of repository names</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        private async Task<HttpResponseMessage> SnapshotGetRepositoryAsync(string repository, Func<SnapshotGetRepositoryParameters, SnapshotGetRepositoryParameters> options)
+        public virtual async Task<HttpResponseMessage> SnapshotGetRepositoryAsync(string repository, Func<SnapshotGetRepositoryParameters, SnapshotGetRepositoryParameters> options)
         {
             string uri = string.Format("/_snapshot/{0}", repository);
             SnapshotGetRepositoryParameters parameters = options.Invoke(new SnapshotGetRepositoryParameters());
