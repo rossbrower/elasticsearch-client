@@ -13,12 +13,10 @@ namespace Elasticsearch.Client.Generator
     public static class Generator
     {
         private const string Namespace = "Elasticsearch.Client";
-        private const string TestNamespace = "Elasticsearch.Client.UnitTests";
         private const string ClassName = "ElasticsearchClient";
         private static readonly TextInfo TextInfo;
         private static readonly CodeDomProvider Provider;
         private static readonly CodeNamespaceImport[] Imports;
-        private static readonly CodeNamespaceImport[] TestImports;
         private static readonly Type[] BodyTypes;
 
         static Generator()
@@ -33,15 +31,6 @@ namespace Elasticsearch.Client.Generator
                 new CodeNamespaceImport("System.Net.Http"),
                 new CodeNamespaceImport("System.Threading.Tasks")
             };
-            TestImports = new[]
-            {
-                new CodeNamespaceImport("System"),
-                new CodeNamespaceImport("System.IO"),
-                new CodeNamespaceImport("System.Net"),
-                new CodeNamespaceImport("System.Net.Http"),
-                new CodeNamespaceImport("System.Threading.Tasks"),
-                new CodeNamespaceImport("Microsoft.VisualStudio.TestTools.UnitTesting") 
-            };
             BodyTypes = new[]
             {
                 typeof (Stream),
@@ -55,11 +44,11 @@ namespace Elasticsearch.Client.Generator
             var directory = new DirectoryInfo(inputPath);
             foreach (var fileInfo in directory.EnumerateFiles("*.json"))
             {
-                GenerateFromFile(fileInfo.FullName, outputPath, testPath);
+                GenerateFromFile(fileInfo.FullName, outputPath);
             }
         }
 
-        public static void GenerateFromFile(string inputFile, string outputPath, string testPath)
+        public static void GenerateFromFile(string inputFile, string outputPath)
         {
             MethodDescription description = null;
             using (var sr = File.OpenText(inputFile))
@@ -75,10 +64,10 @@ namespace Elasticsearch.Client.Generator
                     }
                 }
             }
-            GenerateCode(description, outputPath, testPath);
+            GenerateCode(description, outputPath);
         }
 
-        private static void GenerateCode(MethodDescription description, string outputPath, string testPath)
+        private static void GenerateCode(MethodDescription description, string outputPath)
         {
             if (description == null)
             {
@@ -94,96 +83,6 @@ namespace Elasticsearch.Client.Generator
             }            
             var methods = GenerateMethods(fileName, description, paramClassName).ToArray();
             WriteClass(Namespace, ClassName, methods, Imports, outputPath, fileName, isPartial: true);
-            WriteTestClass(fileName, methods, testPath);
-        }
-
-        private static void WriteTestClass(string apiName, IList<CodeMemberMethod> methods, string outputDir)
-        {
-            var testMembers = new List<CodeTypeMember>();
-            const string clientField = "mClient";
-            const string clientType = "ElasticsearchClient";
-            var clientVariable = new CodeMemberField(clientType, clientField)
-            {
-                Attributes = MemberAttributes.Private
-            };
-            testMembers.Add(clientVariable);
-            var constructor = new CodeConstructor
-            {
-                Attributes = MemberAttributes.Public
-            };
-            constructor.Parameters.Add(new CodeParameterDeclarationExpression(clientType, "client"));
-            constructor.Statements.Add(new CodeAssignStatement(
-                new CodeFieldReferenceExpression(new CodeThisReferenceExpression(), clientField),
-                new CodeVariableReferenceExpression("client")));
-            testMembers.Add(constructor);
-            foreach (var method in methods)
-            {
-                if (method.Name.EndsWith("Async"))
-                {
-                    continue;
-                }
-                var methodName = method.Name;
-                var testMethod = new CodeMemberMethod
-                {
-                    Name = "Test" + methodName,
-                    Attributes = MemberAttributes.Public,
-                    ReturnType = new CodeTypeReference("async Task")
-                };
-                testMembers.Add(testMethod);
-                testMethod.Parameters.AddRange(method.Parameters);
-                testMethod.Parameters.Add(new CodeParameterDeclarationExpression(
-                    "HttpStatusCode", "expectedStatusCode"));
-                testMethod.Parameters.Add(new CodeParameterDeclarationExpression(
-                    typeof (string), "expectedContent"));
-                //invoke sync method.
-                var syncClientRef = new CodeVariableReferenceExpression(clientField);
-                var syncInvoke = new CodeMethodInvokeExpression(syncClientRef, methodName);
-                var syncResponse = new CodeVariableDeclarationStatement(
-                    new CodeTypeReference("HttpResponseMessage"), "syncResponse", syncInvoke);                                
-                foreach (CodeParameterDeclarationExpression parameter in method.Parameters)
-                {
-                    syncInvoke.Parameters.Add(new CodeVariableReferenceExpression(parameter.Name));
-                }
-                testMethod.Statements.Add(syncResponse);
-                testMethod.Statements.Add(new CodeMethodInvokeExpression(new CodeTypeReferenceExpression("Assert"),
-                    "AreEqual", new CodeVariableReferenceExpression("expectedStatusCode"),
-                    new CodePropertyReferenceExpression(new CodeVariableReferenceExpression("syncResponse"), "StatusCode")));
-                var syncContentInvoke = new CodeMethodInvokeExpression(new CodePropertyReferenceExpression(
-                    new CodeVariableReferenceExpression("await syncResponse"), "Content"), "ReadAsStringAsync");
-                var syncContentAsString = new CodeVariableDeclarationStatement(typeof (string), 
-                    "syncContent", syncContentInvoke);
-                testMethod.Statements.Add(syncContentAsString);
-                testMethod.Statements.Add(new CodeMethodInvokeExpression(new CodeTypeReferenceExpression("Assert"),
-                    "AreEqual", new CodeVariableReferenceExpression("expectedContent"),
-                    new CodeVariableReferenceExpression("syncContent")));
-
-                //invoke Async method.
-                var asyncClientRef = new CodeVariableReferenceExpression("await "+ clientField);
-                var asyncInvoke = new CodeMethodInvokeExpression(asyncClientRef, methodName+"Async");
-                var asyncResponse = new CodeVariableDeclarationStatement(
-                    new CodeTypeReference("HttpResponseMessage"), "asyncResponse", asyncInvoke);
-                foreach (CodeParameterDeclarationExpression parameter in method.Parameters)
-                {
-                    asyncInvoke.Parameters.Add(new CodeVariableReferenceExpression(parameter.Name));
-                }
-                testMethod.Statements.Add(asyncResponse);
-                testMethod.Statements.Add(new CodeMethodInvokeExpression(new CodeTypeReferenceExpression("Assert"),
-                    "AreEqual", new CodeVariableReferenceExpression("expectedStatusCode"),
-                    new CodePropertyReferenceExpression(new CodeVariableReferenceExpression("asyncResponse"), "StatusCode")));
-                var asyncContentInvoke = new CodeMethodInvokeExpression(new CodePropertyReferenceExpression(
-                    new CodeVariableReferenceExpression("await asyncResponse"), "Content"), "ReadAsStringAsync");
-                var asyncContentAsString = new CodeVariableDeclarationStatement(typeof(string),
-                    "asyncContent", asyncContentInvoke);
-                testMethod.Statements.Add(asyncContentAsString);
-                testMethod.Statements.Add(new CodeMethodInvokeExpression(new CodeTypeReferenceExpression("Assert"),
-                    "AreEqual", new CodeVariableReferenceExpression("expectedContent"),
-                    new CodeVariableReferenceExpression("asyncContent")));
-                testMethod.Statements.Add(new CodeMethodInvokeExpression(new CodeTypeReferenceExpression("Assert"),
-                    "AreEqual", new CodeVariableReferenceExpression("syncContent"),
-                    new CodeVariableReferenceExpression("asyncContent")));
-            }
-            var testClassName = apiName + "Tests";
-            WriteClass(TestNamespace, testClassName, testMembers.ToArray(), TestImports, outputDir);
         }
 
         private static void WriteClass(string @namespace, string className, CodeTypeMember[] members, 
@@ -273,7 +172,7 @@ namespace Elasticsearch.Client.Generator
             }
         }
 
-        private static IEnumerable<CodeMemberMethod> GenerateMethods(string baseName, MethodDescription description, string parameterType = null)
+        private static IEnumerable<CodeTypeMember> GenerateMethods(string baseName, MethodDescription description, string parameterType = null)
         {
             var methods = new List<CodeMemberMethod>();
             HashSet<string> signatures = new HashSet<string>();
@@ -437,15 +336,9 @@ namespace Elasticsearch.Client.Generator
             if (body != null)
             {
                 //add method parameter for the body type and pass the reference to the execute method.
-                CodeParameterDeclarationExpression paramDeclare;
-                if (bodyType == typeof (string))
-                {
-                    paramDeclare = new CodeParameterDeclarationExpression(bodyType, "body");
-                }
-                else
-                {
-                    paramDeclare = new CodeParameterDeclarationExpression(bodyType.Name, "body");
-                }
+                var paramDeclare = bodyType == typeof (string)
+                    ? new CodeParameterDeclarationExpression(bodyType, "body")
+                    : new CodeParameterDeclarationExpression(bodyType.Name, "body");
                 method.Parameters.Add(paramDeclare);
                 method.Comments.Add(GetParameterCommentStatement(body.Name, body.Description));
                 executeInvoke.Parameters.Add(new CodeVariableReferenceExpression("body"));

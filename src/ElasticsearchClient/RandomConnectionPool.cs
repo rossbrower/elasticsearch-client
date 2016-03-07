@@ -5,12 +5,12 @@ using System.Net.Http;
 
 namespace Elasticsearch.Client
 {
-    public class RandomConnectionPool: IDisposable
+    public class RandomConnectionPool : IConnectionPool, IDisposable
     {
         private readonly List<HttpClient> mServers;
         private readonly Random mRandom;
 
-        public RandomConnectionPool(IEnumerable<string> servers) 
+        public RandomConnectionPool(IEnumerable<string> servers)
             : this(servers.Select(s => new Uri(s)))
         {
         }
@@ -40,7 +40,7 @@ namespace Elasticsearch.Client
                     httpClient.Dispose();
                 }
                 catch (Exception)
-                {        
+                {
                     //todo log?            
                 }
             }

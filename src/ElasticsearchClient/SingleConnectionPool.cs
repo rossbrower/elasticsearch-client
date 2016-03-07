@@ -3,7 +3,7 @@ using System.Net.Http;
 
 namespace Elasticsearch.Client
 {
-    public class SingleConnectionPool : IConnectionPool
+    public class SingleConnectionPool : IConnectionPool, IDisposable
     {
         private readonly HttpClient mClient;
 
@@ -15,6 +15,11 @@ namespace Elasticsearch.Client
         public HttpClient GetClient()
         {
             return mClient;
+        }
+
+        public void Dispose()
+        {
+            mClient.Dispose();
         }
     }
 }
