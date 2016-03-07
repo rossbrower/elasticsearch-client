@@ -21,36 +21,28 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-pending.html"/></summary>
-        public virtual HttpResponseMessage ClusterPendingTasks()
-        {
-            string uri = "/_cluster/pending_tasks";
-            return this.Execute("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-pending.html"/></summary>
-        public virtual async Task<HttpResponseMessage> ClusterPendingTasksAsync()
-        {
-            string uri = "/_cluster/pending_tasks";
-            return await this.ExecuteAsync("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-pending.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage ClusterPendingTasks(Func<ClusterPendingTasksParameters, ClusterPendingTasksParameters> options)
+        public virtual HttpResponseMessage ClusterPendingTasks(Func<ClusterPendingTasksParameters, ClusterPendingTasksParameters> options = null)
         {
             string uri = "/_cluster/pending_tasks";
-            ClusterPendingTasksParameters parameters = options.Invoke(new ClusterPendingTasksParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                ClusterPendingTasksParameters parameters = options.Invoke(new ClusterPendingTasksParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-pending.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> ClusterPendingTasksAsync(Func<ClusterPendingTasksParameters, ClusterPendingTasksParameters> options)
+        public virtual async Task<HttpResponseMessage> ClusterPendingTasksAsync(Func<ClusterPendingTasksParameters, ClusterPendingTasksParameters> options = null)
         {
             string uri = "/_cluster/pending_tasks";
-            ClusterPendingTasksParameters parameters = options.Invoke(new ClusterPendingTasksParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                ClusterPendingTasksParameters parameters = options.Invoke(new ClusterPendingTasksParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri);
         }
     }

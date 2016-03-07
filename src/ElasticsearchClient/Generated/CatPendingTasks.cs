@@ -21,36 +21,28 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-pending-tasks.html"/></summary>
-        public virtual HttpResponseMessage CatPendingTasks()
-        {
-            string uri = "/_cat/pending_tasks";
-            return this.Execute("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-pending-tasks.html"/></summary>
-        public virtual async Task<HttpResponseMessage> CatPendingTasksAsync()
-        {
-            string uri = "/_cat/pending_tasks";
-            return await this.ExecuteAsync("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-pending-tasks.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage CatPendingTasks(Func<CatPendingTasksParameters, CatPendingTasksParameters> options)
+        public virtual HttpResponseMessage CatPendingTasks(Func<CatPendingTasksParameters, CatPendingTasksParameters> options = null)
         {
             string uri = "/_cat/pending_tasks";
-            CatPendingTasksParameters parameters = options.Invoke(new CatPendingTasksParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CatPendingTasksParameters parameters = options.Invoke(new CatPendingTasksParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-pending-tasks.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> CatPendingTasksAsync(Func<CatPendingTasksParameters, CatPendingTasksParameters> options)
+        public virtual async Task<HttpResponseMessage> CatPendingTasksAsync(Func<CatPendingTasksParameters, CatPendingTasksParameters> options = null)
         {
             string uri = "/_cat/pending_tasks";
-            CatPendingTasksParameters parameters = options.Invoke(new CatPendingTasksParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CatPendingTasksParameters parameters = options.Invoke(new CatPendingTasksParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri);
         }
     }

@@ -22,57 +22,29 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
         /// <param name="snapshot">A comma-separated list of snapshot names</param>
-        public virtual HttpResponseMessage SnapshotStatus(string snapshot)
-        {
-            string uri = string.Format("/_0/_status", snapshot);
-            return this.Execute("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
-        /// <param name="snapshot">A comma-separated list of snapshot names</param>
-        public virtual async Task<HttpResponseMessage> SnapshotStatusAsync(string snapshot)
-        {
-            string uri = string.Format("/_0/_status", snapshot);
-            return await this.ExecuteAsync("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
-        /// <param name="snapshot">A comma-separated list of snapshot names</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage SnapshotStatus(string snapshot, Func<SnapshotStatusParameters, SnapshotStatusParameters> options)
+        public virtual HttpResponseMessage SnapshotStatus(string snapshot, Func<SnapshotStatusParameters, SnapshotStatusParameters> options = null)
         {
             string uri = string.Format("/_0/_status", snapshot);
-            SnapshotStatusParameters parameters = options.Invoke(new SnapshotStatusParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                SnapshotStatusParameters parameters = options.Invoke(new SnapshotStatusParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
         /// <param name="snapshot">A comma-separated list of snapshot names</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> SnapshotStatusAsync(string snapshot, Func<SnapshotStatusParameters, SnapshotStatusParameters> options)
+        public virtual async Task<HttpResponseMessage> SnapshotStatusAsync(string snapshot, Func<SnapshotStatusParameters, SnapshotStatusParameters> options = null)
         {
             string uri = string.Format("/_0/_status", snapshot);
-            SnapshotStatusParameters parameters = options.Invoke(new SnapshotStatusParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
-        /// <param name="snapshot">A comma-separated list of snapshot names</param>
-        /// <param name="repository">A repository name</param>
-        public virtual HttpResponseMessage SnapshotStatus(string snapshot, string repository)
-        {
-            string uri = string.Format("/_0/{1}/_status", snapshot, repository);
-            return this.Execute("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
-        /// <param name="snapshot">A comma-separated list of snapshot names</param>
-        /// <param name="repository">A repository name</param>
-        public virtual async Task<HttpResponseMessage> SnapshotStatusAsync(string snapshot, string repository)
-        {
-            string uri = string.Format("/_0/{1}/_status", snapshot, repository);
+            if ((options != null))
+            {
+                SnapshotStatusParameters parameters = options.Invoke(new SnapshotStatusParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri);
         }
         
@@ -80,11 +52,14 @@ namespace Elasticsearch.Client
         /// <param name="snapshot">A comma-separated list of snapshot names</param>
         /// <param name="repository">A repository name</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage SnapshotStatus(string snapshot, string repository, Func<SnapshotStatusParameters, SnapshotStatusParameters> options)
+        public virtual HttpResponseMessage SnapshotStatus(string snapshot, string repository, Func<SnapshotStatusParameters, SnapshotStatusParameters> options = null)
         {
             string uri = string.Format("/_0/{1}/_status", snapshot, repository);
-            SnapshotStatusParameters parameters = options.Invoke(new SnapshotStatusParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                SnapshotStatusParameters parameters = options.Invoke(new SnapshotStatusParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri);
         }
         
@@ -92,11 +67,14 @@ namespace Elasticsearch.Client
         /// <param name="snapshot">A comma-separated list of snapshot names</param>
         /// <param name="repository">A repository name</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> SnapshotStatusAsync(string snapshot, string repository, Func<SnapshotStatusParameters, SnapshotStatusParameters> options)
+        public virtual async Task<HttpResponseMessage> SnapshotStatusAsync(string snapshot, string repository, Func<SnapshotStatusParameters, SnapshotStatusParameters> options = null)
         {
             string uri = string.Format("/_0/{1}/_status", snapshot, repository);
-            SnapshotStatusParameters parameters = options.Invoke(new SnapshotStatusParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                SnapshotStatusParameters parameters = options.Invoke(new SnapshotStatusParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri);
         }
     }

@@ -23,30 +23,15 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
         /// <param name="index">A comma-separated list of index names to delete warmers from (supports wildcards); use `_all` to perform the operation on all indices.</param>
         /// <param name="name">A comma-separated list of warmer names to delete (supports wildcards); use `_all` to delete all warmers in the specified indices. You must specify a name either in the uri or in the parameters.</param>
-        public virtual HttpResponseMessage IndicesDeleteWarmer(string index, string name)
-        {
-            string uri = string.Format("/{0}/_warmer/{1}", index, name);
-            return this.Execute("DELETE", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to delete warmers from (supports wildcards); use `_all` to perform the operation on all indices.</param>
-        /// <param name="name">A comma-separated list of warmer names to delete (supports wildcards); use `_all` to delete all warmers in the specified indices. You must specify a name either in the uri or in the parameters.</param>
-        public virtual async Task<HttpResponseMessage> IndicesDeleteWarmerAsync(string index, string name)
-        {
-            string uri = string.Format("/{0}/_warmer/{1}", index, name);
-            return await this.ExecuteAsync("DELETE", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to delete warmers from (supports wildcards); use `_all` to perform the operation on all indices.</param>
-        /// <param name="name">A comma-separated list of warmer names to delete (supports wildcards); use `_all` to delete all warmers in the specified indices. You must specify a name either in the uri or in the parameters.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage IndicesDeleteWarmer(string index, string name, Func<IndicesDeleteWarmerParameters, IndicesDeleteWarmerParameters> options)
+        public virtual HttpResponseMessage IndicesDeleteWarmer(string index, string name, Func<IndicesDeleteWarmerParameters, IndicesDeleteWarmerParameters> options = null)
         {
             string uri = string.Format("/{0}/_warmer/{1}", index, name);
-            IndicesDeleteWarmerParameters parameters = options.Invoke(new IndicesDeleteWarmerParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesDeleteWarmerParameters parameters = options.Invoke(new IndicesDeleteWarmerParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("DELETE", uri);
         }
         
@@ -54,11 +39,14 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to delete warmers from (supports wildcards); use `_all` to perform the operation on all indices.</param>
         /// <param name="name">A comma-separated list of warmer names to delete (supports wildcards); use `_all` to delete all warmers in the specified indices. You must specify a name either in the uri or in the parameters.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> IndicesDeleteWarmerAsync(string index, string name, Func<IndicesDeleteWarmerParameters, IndicesDeleteWarmerParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesDeleteWarmerAsync(string index, string name, Func<IndicesDeleteWarmerParameters, IndicesDeleteWarmerParameters> options = null)
         {
             string uri = string.Format("/{0}/_warmer/{1}", index, name);
-            IndicesDeleteWarmerParameters parameters = options.Invoke(new IndicesDeleteWarmerParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesDeleteWarmerParameters parameters = options.Invoke(new IndicesDeleteWarmerParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("DELETE", uri);
         }
     }

@@ -21,116 +21,112 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-update-settings.html"/></summary>
-        /// <param name="body">The settings to be updated. Can be either `transient` or `persistent` (survives cluster restart).</param>
-        public virtual HttpResponseMessage ClusterPutSettings(Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage ClusterPutSettings(Func<ClusterPutSettingsParameters, ClusterPutSettingsParameters> options = null)
         {
             string uri = "/_cluster/settings";
+            if ((options != null))
+            {
+                ClusterPutSettingsParameters parameters = options.Invoke(new ClusterPutSettingsParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return this.Execute("PUT", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-update-settings.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> ClusterPutSettingsAsync(Func<ClusterPutSettingsParameters, ClusterPutSettingsParameters> options = null)
+        {
+            string uri = "/_cluster/settings";
+            if ((options != null))
+            {
+                ClusterPutSettingsParameters parameters = options.Invoke(new ClusterPutSettingsParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return await this.ExecuteAsync("PUT", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-update-settings.html"/></summary>
+        /// <param name="body">The settings to be updated. Can be either `transient` or `persistent` (survives cluster restart).</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage ClusterPutSettings(Stream body, Func<ClusterPutSettingsParameters, ClusterPutSettingsParameters> options = null)
+        {
+            string uri = "/_cluster/settings";
+            if ((options != null))
+            {
+                ClusterPutSettingsParameters parameters = options.Invoke(new ClusterPutSettingsParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("PUT", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-update-settings.html"/></summary>
         /// <param name="body">The settings to be updated. Can be either `transient` or `persistent` (survives cluster restart).</param>
-        public virtual async Task<HttpResponseMessage> ClusterPutSettingsAsync(Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> ClusterPutSettingsAsync(Stream body, Func<ClusterPutSettingsParameters, ClusterPutSettingsParameters> options = null)
         {
             string uri = "/_cluster/settings";
+            if ((options != null))
+            {
+                ClusterPutSettingsParameters parameters = options.Invoke(new ClusterPutSettingsParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("PUT", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-update-settings.html"/></summary>
         /// <param name="body">The settings to be updated. Can be either `transient` or `persistent` (survives cluster restart).</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage ClusterPutSettings(Stream body, Func<ClusterPutSettingsParameters, ClusterPutSettingsParameters> options)
+        public virtual HttpResponseMessage ClusterPutSettings(Byte[] body, Func<ClusterPutSettingsParameters, ClusterPutSettingsParameters> options = null)
         {
             string uri = "/_cluster/settings";
-            ClusterPutSettingsParameters parameters = options.Invoke(new ClusterPutSettingsParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                ClusterPutSettingsParameters parameters = options.Invoke(new ClusterPutSettingsParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("PUT", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-update-settings.html"/></summary>
         /// <param name="body">The settings to be updated. Can be either `transient` or `persistent` (survives cluster restart).</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> ClusterPutSettingsAsync(Stream body, Func<ClusterPutSettingsParameters, ClusterPutSettingsParameters> options)
+        public virtual async Task<HttpResponseMessage> ClusterPutSettingsAsync(Byte[] body, Func<ClusterPutSettingsParameters, ClusterPutSettingsParameters> options = null)
         {
             string uri = "/_cluster/settings";
-            ClusterPutSettingsParameters parameters = options.Invoke(new ClusterPutSettingsParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-update-settings.html"/></summary>
-        /// <param name="body">The settings to be updated. Can be either `transient` or `persistent` (survives cluster restart).</param>
-        public virtual HttpResponseMessage ClusterPutSettings(Byte[] body)
-        {
-            string uri = "/_cluster/settings";
-            return this.Execute("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-update-settings.html"/></summary>
-        /// <param name="body">The settings to be updated. Can be either `transient` or `persistent` (survives cluster restart).</param>
-        public virtual async Task<HttpResponseMessage> ClusterPutSettingsAsync(Byte[] body)
-        {
-            string uri = "/_cluster/settings";
+            if ((options != null))
+            {
+                ClusterPutSettingsParameters parameters = options.Invoke(new ClusterPutSettingsParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("PUT", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-update-settings.html"/></summary>
         /// <param name="body">The settings to be updated. Can be either `transient` or `persistent` (survives cluster restart).</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage ClusterPutSettings(Byte[] body, Func<ClusterPutSettingsParameters, ClusterPutSettingsParameters> options)
+        public virtual HttpResponseMessage ClusterPutSettingsString(string body, Func<ClusterPutSettingsParameters, ClusterPutSettingsParameters> options = null)
         {
             string uri = "/_cluster/settings";
-            ClusterPutSettingsParameters parameters = options.Invoke(new ClusterPutSettingsParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                ClusterPutSettingsParameters parameters = options.Invoke(new ClusterPutSettingsParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("PUT", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-update-settings.html"/></summary>
         /// <param name="body">The settings to be updated. Can be either `transient` or `persistent` (survives cluster restart).</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> ClusterPutSettingsAsync(Byte[] body, Func<ClusterPutSettingsParameters, ClusterPutSettingsParameters> options)
+        public virtual async Task<HttpResponseMessage> ClusterPutSettingsStringAsync(string body, Func<ClusterPutSettingsParameters, ClusterPutSettingsParameters> options = null)
         {
             string uri = "/_cluster/settings";
-            ClusterPutSettingsParameters parameters = options.Invoke(new ClusterPutSettingsParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-update-settings.html"/></summary>
-        /// <param name="body">The settings to be updated. Can be either `transient` or `persistent` (survives cluster restart).</param>
-        public virtual HttpResponseMessage ClusterPutSettings(string body)
-        {
-            string uri = "/_cluster/settings";
-            return this.Execute("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-update-settings.html"/></summary>
-        /// <param name="body">The settings to be updated. Can be either `transient` or `persistent` (survives cluster restart).</param>
-        public virtual async Task<HttpResponseMessage> ClusterPutSettingsAsync(string body)
-        {
-            string uri = "/_cluster/settings";
-            return await this.ExecuteAsync("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-update-settings.html"/></summary>
-        /// <param name="body">The settings to be updated. Can be either `transient` or `persistent` (survives cluster restart).</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage ClusterPutSettings(string body, Func<ClusterPutSettingsParameters, ClusterPutSettingsParameters> options)
-        {
-            string uri = "/_cluster/settings";
-            ClusterPutSettingsParameters parameters = options.Invoke(new ClusterPutSettingsParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-update-settings.html"/></summary>
-        /// <param name="body">The settings to be updated. Can be either `transient` or `persistent` (survives cluster restart).</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> ClusterPutSettingsAsync(string body, Func<ClusterPutSettingsParameters, ClusterPutSettingsParameters> options)
-        {
-            string uri = "/_cluster/settings";
-            ClusterPutSettingsParameters parameters = options.Invoke(new ClusterPutSettingsParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                ClusterPutSettingsParameters parameters = options.Invoke(new ClusterPutSettingsParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("PUT", uri, body);
         }
     }

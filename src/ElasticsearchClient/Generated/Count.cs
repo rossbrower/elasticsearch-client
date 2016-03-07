@@ -21,260 +21,265 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
-        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        public virtual HttpResponseMessage CountPost(Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage CountPost(Func<CountParameters, CountParameters> options = null)
         {
             string uri = "/_count";
-            return this.Execute("POST", uri, body);
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return this.Execute("POST", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
-        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        public virtual async Task<HttpResponseMessage> CountPostAsync(Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> CountPostAsync(Func<CountParameters, CountParameters> options = null)
         {
             string uri = "/_count";
-            return await this.ExecuteAsync("POST", uri, body);
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return await this.ExecuteAsync("POST", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
         /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage CountPost(Stream body, Func<CountParameters, CountParameters> options)
+        public virtual HttpResponseMessage CountPost(Stream body, Func<CountParameters, CountParameters> options = null)
         {
             string uri = "/_count";
-            CountParameters parameters = options.Invoke(new CountParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
-        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> CountPostAsync(Stream body, Func<CountParameters, CountParameters> options)
-        {
-            string uri = "/_count";
-            CountParameters parameters = options.Invoke(new CountParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
-        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        public virtual HttpResponseMessage CountPost(Byte[] body)
-        {
-            string uri = "/_count";
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
-        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        public virtual async Task<HttpResponseMessage> CountPostAsync(Byte[] body)
-        {
-            string uri = "/_count";
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
-        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage CountPost(Byte[] body, Func<CountParameters, CountParameters> options)
-        {
-            string uri = "/_count";
-            CountParameters parameters = options.Invoke(new CountParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
         /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> CountPostAsync(Byte[] body, Func<CountParameters, CountParameters> options)
+        public virtual async Task<HttpResponseMessage> CountPostAsync(Stream body, Func<CountParameters, CountParameters> options = null)
         {
             string uri = "/_count";
-            CountParameters parameters = options.Invoke(new CountParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
-        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        public virtual HttpResponseMessage CountPost(string body)
-        {
-            string uri = "/_count";
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
-        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        public virtual async Task<HttpResponseMessage> CountPostAsync(string body)
-        {
-            string uri = "/_count";
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
         /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage CountPost(string body, Func<CountParameters, CountParameters> options)
+        public virtual HttpResponseMessage CountPost(Byte[] body, Func<CountParameters, CountParameters> options = null)
         {
             string uri = "/_count";
-            CountParameters parameters = options.Invoke(new CountParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
         /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> CountPostAsync(string body, Func<CountParameters, CountParameters> options)
+        public virtual async Task<HttpResponseMessage> CountPostAsync(Byte[] body, Func<CountParameters, CountParameters> options = null)
         {
             string uri = "/_count";
-            CountParameters parameters = options.Invoke(new CountParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
         /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        public virtual HttpResponseMessage CountGet(Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage CountPostString(string body, Func<CountParameters, CountParameters> options = null)
         {
             string uri = "/_count";
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> CountPostStringAsync(string body, Func<CountParameters, CountParameters> options = null)
+        {
+            string uri = "/_count";
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage CountGet(Func<CountParameters, CountParameters> options = null)
+        {
+            string uri = "/_count";
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return this.Execute("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> CountGetAsync(Func<CountParameters, CountParameters> options = null)
+        {
+            string uri = "/_count";
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return await this.ExecuteAsync("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage CountGet(Stream body, Func<CountParameters, CountParameters> options = null)
+        {
+            string uri = "/_count";
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
         /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        public virtual async Task<HttpResponseMessage> CountGetAsync(Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> CountGetAsync(Stream body, Func<CountParameters, CountParameters> options = null)
         {
             string uri = "/_count";
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
         /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage CountGet(Stream body, Func<CountParameters, CountParameters> options)
+        public virtual HttpResponseMessage CountGet(Byte[] body, Func<CountParameters, CountParameters> options = null)
         {
             string uri = "/_count";
-            CountParameters parameters = options.Invoke(new CountParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
         /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> CountGetAsync(Stream body, Func<CountParameters, CountParameters> options)
+        public virtual async Task<HttpResponseMessage> CountGetAsync(Byte[] body, Func<CountParameters, CountParameters> options = null)
         {
             string uri = "/_count";
-            CountParameters parameters = options.Invoke(new CountParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
-        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        public virtual HttpResponseMessage CountGet(Byte[] body)
-        {
-            string uri = "/_count";
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
-        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        public virtual async Task<HttpResponseMessage> CountGetAsync(Byte[] body)
-        {
-            string uri = "/_count";
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
         /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage CountGet(Byte[] body, Func<CountParameters, CountParameters> options)
+        public virtual HttpResponseMessage CountGetString(string body, Func<CountParameters, CountParameters> options = null)
         {
             string uri = "/_count";
-            CountParameters parameters = options.Invoke(new CountParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
         /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> CountGetAsync(Byte[] body, Func<CountParameters, CountParameters> options)
+        public virtual async Task<HttpResponseMessage> CountGetStringAsync(string body, Func<CountParameters, CountParameters> options = null)
         {
             string uri = "/_count";
-            CountParameters parameters = options.Invoke(new CountParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
-        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        public virtual HttpResponseMessage CountGet(string body)
-        {
-            string uri = "/_count";
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
-        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        public virtual async Task<HttpResponseMessage> CountGetAsync(string body)
-        {
-            string uri = "/_count";
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
-        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage CountGet(string body, Func<CountParameters, CountParameters> options)
-        {
-            string uri = "/_count";
-            CountParameters parameters = options.Invoke(new CountParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
-        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> CountGetAsync(string body, Func<CountParameters, CountParameters> options)
-        {
-            string uri = "/_count";
-            CountParameters parameters = options.Invoke(new CountParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
         /// <param name="index">A comma-separated list of indices to restrict the results</param>
-        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        public virtual HttpResponseMessage CountPost(string index, Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage CountPost(string index, Func<CountParameters, CountParameters> options = null)
         {
             string uri = string.Format("/{0}/_count", index);
-            return this.Execute("POST", uri, body);
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return this.Execute("POST", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
         /// <param name="index">A comma-separated list of indices to restrict the results</param>
-        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        public virtual async Task<HttpResponseMessage> CountPostAsync(string index, Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> CountPostAsync(string index, Func<CountParameters, CountParameters> options = null)
         {
             string uri = string.Format("/{0}/_count", index);
-            return await this.ExecuteAsync("POST", uri, body);
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return await this.ExecuteAsync("POST", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
         /// <param name="index">A comma-separated list of indices to restrict the results</param>
         /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage CountPost(string index, Stream body, Func<CountParameters, CountParameters> options)
+        public virtual HttpResponseMessage CountPost(string index, Stream body, Func<CountParameters, CountParameters> options = null)
         {
             string uri = string.Format("/{0}/_count", index);
-            CountParameters parameters = options.Invoke(new CountParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
@@ -282,29 +287,14 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of indices to restrict the results</param>
         /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> CountPostAsync(string index, Stream body, Func<CountParameters, CountParameters> options)
+        public virtual async Task<HttpResponseMessage> CountPostAsync(string index, Stream body, Func<CountParameters, CountParameters> options = null)
         {
             string uri = string.Format("/{0}/_count", index);
-            CountParameters parameters = options.Invoke(new CountParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
-        /// <param name="index">A comma-separated list of indices to restrict the results</param>
-        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        public virtual HttpResponseMessage CountPost(string index, Byte[] body)
-        {
-            string uri = string.Format("/{0}/_count", index);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
-        /// <param name="index">A comma-separated list of indices to restrict the results</param>
-        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        public virtual async Task<HttpResponseMessage> CountPostAsync(string index, Byte[] body)
-        {
-            string uri = string.Format("/{0}/_count", index);
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -312,11 +302,14 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of indices to restrict the results</param>
         /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage CountPost(string index, Byte[] body, Func<CountParameters, CountParameters> options)
+        public virtual HttpResponseMessage CountPost(string index, Byte[] body, Func<CountParameters, CountParameters> options = null)
         {
             string uri = string.Format("/{0}/_count", index);
-            CountParameters parameters = options.Invoke(new CountParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
@@ -324,29 +317,14 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of indices to restrict the results</param>
         /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> CountPostAsync(string index, Byte[] body, Func<CountParameters, CountParameters> options)
+        public virtual async Task<HttpResponseMessage> CountPostAsync(string index, Byte[] body, Func<CountParameters, CountParameters> options = null)
         {
             string uri = string.Format("/{0}/_count", index);
-            CountParameters parameters = options.Invoke(new CountParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
-        /// <param name="index">A comma-separated list of indices to restrict the results</param>
-        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        public virtual HttpResponseMessage CountPost(string index, string body)
-        {
-            string uri = string.Format("/{0}/_count", index);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
-        /// <param name="index">A comma-separated list of indices to restrict the results</param>
-        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        public virtual async Task<HttpResponseMessage> CountPostAsync(string index, string body)
-        {
-            string uri = string.Format("/{0}/_count", index);
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -354,11 +332,14 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of indices to restrict the results</param>
         /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage CountPost(string index, string body, Func<CountParameters, CountParameters> options)
+        public virtual HttpResponseMessage CountPostString(string index, string body, Func<CountParameters, CountParameters> options = null)
         {
             string uri = string.Format("/{0}/_count", index);
-            CountParameters parameters = options.Invoke(new CountParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
@@ -366,41 +347,57 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of indices to restrict the results</param>
         /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> CountPostAsync(string index, string body, Func<CountParameters, CountParameters> options)
+        public virtual async Task<HttpResponseMessage> CountPostStringAsync(string index, string body, Func<CountParameters, CountParameters> options = null)
         {
             string uri = string.Format("/{0}/_count", index);
-            CountParameters parameters = options.Invoke(new CountParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
         /// <param name="index">A comma-separated list of indices to restrict the results</param>
-        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        public virtual HttpResponseMessage CountGet(string index, Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage CountGet(string index, Func<CountParameters, CountParameters> options = null)
         {
             string uri = string.Format("/{0}/_count", index);
-            return this.Execute("GET", uri, body);
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
         /// <param name="index">A comma-separated list of indices to restrict the results</param>
-        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        public virtual async Task<HttpResponseMessage> CountGetAsync(string index, Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> CountGetAsync(string index, Func<CountParameters, CountParameters> options = null)
         {
             string uri = string.Format("/{0}/_count", index);
-            return await this.ExecuteAsync("GET", uri, body);
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return await this.ExecuteAsync("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
         /// <param name="index">A comma-separated list of indices to restrict the results</param>
         /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage CountGet(string index, Stream body, Func<CountParameters, CountParameters> options)
+        public virtual HttpResponseMessage CountGet(string index, Stream body, Func<CountParameters, CountParameters> options = null)
         {
             string uri = string.Format("/{0}/_count", index);
-            CountParameters parameters = options.Invoke(new CountParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri, body);
         }
         
@@ -408,29 +405,14 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of indices to restrict the results</param>
         /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> CountGetAsync(string index, Stream body, Func<CountParameters, CountParameters> options)
+        public virtual async Task<HttpResponseMessage> CountGetAsync(string index, Stream body, Func<CountParameters, CountParameters> options = null)
         {
             string uri = string.Format("/{0}/_count", index);
-            CountParameters parameters = options.Invoke(new CountParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
-        /// <param name="index">A comma-separated list of indices to restrict the results</param>
-        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        public virtual HttpResponseMessage CountGet(string index, Byte[] body)
-        {
-            string uri = string.Format("/{0}/_count", index);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
-        /// <param name="index">A comma-separated list of indices to restrict the results</param>
-        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        public virtual async Task<HttpResponseMessage> CountGetAsync(string index, Byte[] body)
-        {
-            string uri = string.Format("/{0}/_count", index);
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri, body);
         }
         
@@ -438,11 +420,14 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of indices to restrict the results</param>
         /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage CountGet(string index, Byte[] body, Func<CountParameters, CountParameters> options)
+        public virtual HttpResponseMessage CountGet(string index, Byte[] body, Func<CountParameters, CountParameters> options = null)
         {
             string uri = string.Format("/{0}/_count", index);
-            CountParameters parameters = options.Invoke(new CountParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri, body);
         }
         
@@ -450,29 +435,14 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of indices to restrict the results</param>
         /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> CountGetAsync(string index, Byte[] body, Func<CountParameters, CountParameters> options)
+        public virtual async Task<HttpResponseMessage> CountGetAsync(string index, Byte[] body, Func<CountParameters, CountParameters> options = null)
         {
             string uri = string.Format("/{0}/_count", index);
-            CountParameters parameters = options.Invoke(new CountParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
-        /// <param name="index">A comma-separated list of indices to restrict the results</param>
-        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        public virtual HttpResponseMessage CountGet(string index, string body)
-        {
-            string uri = string.Format("/{0}/_count", index);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
-        /// <param name="index">A comma-separated list of indices to restrict the results</param>
-        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        public virtual async Task<HttpResponseMessage> CountGetAsync(string index, string body)
-        {
-            string uri = string.Format("/{0}/_count", index);
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri, body);
         }
         
@@ -480,11 +450,14 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of indices to restrict the results</param>
         /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage CountGet(string index, string body, Func<CountParameters, CountParameters> options)
+        public virtual HttpResponseMessage CountGetString(string index, string body, Func<CountParameters, CountParameters> options = null)
         {
             string uri = string.Format("/{0}/_count", index);
-            CountParameters parameters = options.Invoke(new CountParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri, body);
         }
         
@@ -492,32 +465,45 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of indices to restrict the results</param>
         /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> CountGetAsync(string index, string body, Func<CountParameters, CountParameters> options)
+        public virtual async Task<HttpResponseMessage> CountGetStringAsync(string index, string body, Func<CountParameters, CountParameters> options = null)
         {
             string uri = string.Format("/{0}/_count", index);
-            CountParameters parameters = options.Invoke(new CountParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
         /// <param name="index">A comma-separated list of indices to restrict the results</param>
         /// <param name="type">A comma-separated list of types to restrict the results</param>
-        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        public virtual HttpResponseMessage CountPost(string index, string type, Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage CountPost(string index, string type, Func<CountParameters, CountParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/_count", index, type);
-            return this.Execute("POST", uri, body);
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return this.Execute("POST", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
         /// <param name="index">A comma-separated list of indices to restrict the results</param>
         /// <param name="type">A comma-separated list of types to restrict the results</param>
-        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        public virtual async Task<HttpResponseMessage> CountPostAsync(string index, string type, Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> CountPostAsync(string index, string type, Func<CountParameters, CountParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/_count", index, type);
-            return await this.ExecuteAsync("POST", uri, body);
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return await this.ExecuteAsync("POST", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
@@ -525,57 +511,14 @@ namespace Elasticsearch.Client
         /// <param name="type">A comma-separated list of types to restrict the results</param>
         /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage CountPost(string index, string type, Stream body, Func<CountParameters, CountParameters> options)
+        public virtual HttpResponseMessage CountPost(string index, string type, Stream body, Func<CountParameters, CountParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/_count", index, type);
-            CountParameters parameters = options.Invoke(new CountParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
-        /// <param name="index">A comma-separated list of indices to restrict the results</param>
-        /// <param name="type">A comma-separated list of types to restrict the results</param>
-        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> CountPostAsync(string index, string type, Stream body, Func<CountParameters, CountParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_count", index, type);
-            CountParameters parameters = options.Invoke(new CountParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
-        /// <param name="index">A comma-separated list of indices to restrict the results</param>
-        /// <param name="type">A comma-separated list of types to restrict the results</param>
-        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        public virtual HttpResponseMessage CountPost(string index, string type, Byte[] body)
-        {
-            string uri = string.Format("/{0}/{1}/_count", index, type);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
-        /// <param name="index">A comma-separated list of indices to restrict the results</param>
-        /// <param name="type">A comma-separated list of types to restrict the results</param>
-        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        public virtual async Task<HttpResponseMessage> CountPostAsync(string index, string type, Byte[] body)
-        {
-            string uri = string.Format("/{0}/{1}/_count", index, type);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
-        /// <param name="index">A comma-separated list of indices to restrict the results</param>
-        /// <param name="type">A comma-separated list of types to restrict the results</param>
-        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage CountPost(string index, string type, Byte[] body, Func<CountParameters, CountParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_count", index, type);
-            CountParameters parameters = options.Invoke(new CountParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
@@ -584,31 +527,14 @@ namespace Elasticsearch.Client
         /// <param name="type">A comma-separated list of types to restrict the results</param>
         /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> CountPostAsync(string index, string type, Byte[] body, Func<CountParameters, CountParameters> options)
+        public virtual async Task<HttpResponseMessage> CountPostAsync(string index, string type, Stream body, Func<CountParameters, CountParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/_count", index, type);
-            CountParameters parameters = options.Invoke(new CountParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
-        /// <param name="index">A comma-separated list of indices to restrict the results</param>
-        /// <param name="type">A comma-separated list of types to restrict the results</param>
-        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        public virtual HttpResponseMessage CountPost(string index, string type, string body)
-        {
-            string uri = string.Format("/{0}/{1}/_count", index, type);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
-        /// <param name="index">A comma-separated list of indices to restrict the results</param>
-        /// <param name="type">A comma-separated list of types to restrict the results</param>
-        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        public virtual async Task<HttpResponseMessage> CountPostAsync(string index, string type, string body)
-        {
-            string uri = string.Format("/{0}/{1}/_count", index, type);
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -617,11 +543,14 @@ namespace Elasticsearch.Client
         /// <param name="type">A comma-separated list of types to restrict the results</param>
         /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage CountPost(string index, string type, string body, Func<CountParameters, CountParameters> options)
+        public virtual HttpResponseMessage CountPost(string index, string type, Byte[] body, Func<CountParameters, CountParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/_count", index, type);
-            CountParameters parameters = options.Invoke(new CountParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
@@ -630,11 +559,14 @@ namespace Elasticsearch.Client
         /// <param name="type">A comma-separated list of types to restrict the results</param>
         /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> CountPostAsync(string index, string type, string body, Func<CountParameters, CountParameters> options)
+        public virtual async Task<HttpResponseMessage> CountPostAsync(string index, string type, Byte[] body, Func<CountParameters, CountParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/_count", index, type);
-            CountParameters parameters = options.Invoke(new CountParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -642,9 +574,77 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of indices to restrict the results</param>
         /// <param name="type">A comma-separated list of types to restrict the results</param>
         /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        public virtual HttpResponseMessage CountGet(string index, string type, Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage CountPostString(string index, string type, string body, Func<CountParameters, CountParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/_count", index, type);
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return this.Execute("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        /// <param name="index">A comma-separated list of indices to restrict the results</param>
+        /// <param name="type">A comma-separated list of types to restrict the results</param>
+        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> CountPostStringAsync(string index, string type, string body, Func<CountParameters, CountParameters> options = null)
+        {
+            string uri = string.Format("/{0}/{1}/_count", index, type);
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return await this.ExecuteAsync("POST", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        /// <param name="index">A comma-separated list of indices to restrict the results</param>
+        /// <param name="type">A comma-separated list of types to restrict the results</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage CountGet(string index, string type, Func<CountParameters, CountParameters> options = null)
+        {
+            string uri = string.Format("/{0}/{1}/_count", index, type);
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return this.Execute("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        /// <param name="index">A comma-separated list of indices to restrict the results</param>
+        /// <param name="type">A comma-separated list of types to restrict the results</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> CountGetAsync(string index, string type, Func<CountParameters, CountParameters> options = null)
+        {
+            string uri = string.Format("/{0}/{1}/_count", index, type);
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return await this.ExecuteAsync("GET", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        /// <param name="index">A comma-separated list of indices to restrict the results</param>
+        /// <param name="type">A comma-separated list of types to restrict the results</param>
+        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage CountGet(string index, string type, Stream body, Func<CountParameters, CountParameters> options = null)
+        {
+            string uri = string.Format("/{0}/{1}/_count", index, type);
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri, body);
         }
         
@@ -652,55 +652,15 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of indices to restrict the results</param>
         /// <param name="type">A comma-separated list of types to restrict the results</param>
         /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        public virtual async Task<HttpResponseMessage> CountGetAsync(string index, string type, Stream body)
-        {
-            string uri = string.Format("/{0}/{1}/_count", index, type);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
-        /// <param name="index">A comma-separated list of indices to restrict the results</param>
-        /// <param name="type">A comma-separated list of types to restrict the results</param>
-        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage CountGet(string index, string type, Stream body, Func<CountParameters, CountParameters> options)
+        public virtual async Task<HttpResponseMessage> CountGetAsync(string index, string type, Stream body, Func<CountParameters, CountParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/_count", index, type);
-            CountParameters parameters = options.Invoke(new CountParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
-        /// <param name="index">A comma-separated list of indices to restrict the results</param>
-        /// <param name="type">A comma-separated list of types to restrict the results</param>
-        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> CountGetAsync(string index, string type, Stream body, Func<CountParameters, CountParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_count", index, type);
-            CountParameters parameters = options.Invoke(new CountParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
-        /// <param name="index">A comma-separated list of indices to restrict the results</param>
-        /// <param name="type">A comma-separated list of types to restrict the results</param>
-        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        public virtual HttpResponseMessage CountGet(string index, string type, Byte[] body)
-        {
-            string uri = string.Format("/{0}/{1}/_count", index, type);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
-        /// <param name="index">A comma-separated list of indices to restrict the results</param>
-        /// <param name="type">A comma-separated list of types to restrict the results</param>
-        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        public virtual async Task<HttpResponseMessage> CountGetAsync(string index, string type, Byte[] body)
-        {
-            string uri = string.Format("/{0}/{1}/_count", index, type);
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri, body);
         }
         
@@ -709,11 +669,14 @@ namespace Elasticsearch.Client
         /// <param name="type">A comma-separated list of types to restrict the results</param>
         /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage CountGet(string index, string type, Byte[] body, Func<CountParameters, CountParameters> options)
+        public virtual HttpResponseMessage CountGet(string index, string type, Byte[] body, Func<CountParameters, CountParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/_count", index, type);
-            CountParameters parameters = options.Invoke(new CountParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri, body);
         }
         
@@ -722,31 +685,14 @@ namespace Elasticsearch.Client
         /// <param name="type">A comma-separated list of types to restrict the results</param>
         /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> CountGetAsync(string index, string type, Byte[] body, Func<CountParameters, CountParameters> options)
+        public virtual async Task<HttpResponseMessage> CountGetAsync(string index, string type, Byte[] body, Func<CountParameters, CountParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/_count", index, type);
-            CountParameters parameters = options.Invoke(new CountParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
-        /// <param name="index">A comma-separated list of indices to restrict the results</param>
-        /// <param name="type">A comma-separated list of types to restrict the results</param>
-        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        public virtual HttpResponseMessage CountGet(string index, string type, string body)
-        {
-            string uri = string.Format("/{0}/{1}/_count", index, type);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
-        /// <param name="index">A comma-separated list of indices to restrict the results</param>
-        /// <param name="type">A comma-separated list of types to restrict the results</param>
-        /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
-        public virtual async Task<HttpResponseMessage> CountGetAsync(string index, string type, string body)
-        {
-            string uri = string.Format("/{0}/{1}/_count", index, type);
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri, body);
         }
         
@@ -755,11 +701,14 @@ namespace Elasticsearch.Client
         /// <param name="type">A comma-separated list of types to restrict the results</param>
         /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage CountGet(string index, string type, string body, Func<CountParameters, CountParameters> options)
+        public virtual HttpResponseMessage CountGetString(string index, string type, string body, Func<CountParameters, CountParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/_count", index, type);
-            CountParameters parameters = options.Invoke(new CountParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri, body);
         }
         
@@ -768,11 +717,14 @@ namespace Elasticsearch.Client
         /// <param name="type">A comma-separated list of types to restrict the results</param>
         /// <param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> CountGetAsync(string index, string type, string body, Func<CountParameters, CountParameters> options)
+        public virtual async Task<HttpResponseMessage> CountGetStringAsync(string index, string type, string body, Func<CountParameters, CountParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/_count", index, type);
-            CountParameters parameters = options.Invoke(new CountParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CountParameters parameters = options.Invoke(new CountParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri, body);
         }
     }

@@ -21,74 +21,56 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-health.html"/></summary>
-        public virtual HttpResponseMessage ClusterHealth()
-        {
-            string uri = "/_cluster/health";
-            return this.Execute("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-health.html"/></summary>
-        public virtual async Task<HttpResponseMessage> ClusterHealthAsync()
-        {
-            string uri = "/_cluster/health";
-            return await this.ExecuteAsync("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-health.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage ClusterHealth(Func<ClusterHealthParameters, ClusterHealthParameters> options)
+        public virtual HttpResponseMessage ClusterHealth(Func<ClusterHealthParameters, ClusterHealthParameters> options = null)
         {
             string uri = "/_cluster/health";
-            ClusterHealthParameters parameters = options.Invoke(new ClusterHealthParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                ClusterHealthParameters parameters = options.Invoke(new ClusterHealthParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-health.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> ClusterHealthAsync(Func<ClusterHealthParameters, ClusterHealthParameters> options)
+        public virtual async Task<HttpResponseMessage> ClusterHealthAsync(Func<ClusterHealthParameters, ClusterHealthParameters> options = null)
         {
             string uri = "/_cluster/health";
-            ClusterHealthParameters parameters = options.Invoke(new ClusterHealthParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-health.html"/></summary>
-        /// <param name="index">Limit the information returned to a specific index</param>
-        public virtual HttpResponseMessage ClusterHealth(string index)
-        {
-            string uri = string.Format("/_cluster/health/{0}", index);
-            return this.Execute("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-health.html"/></summary>
-        /// <param name="index">Limit the information returned to a specific index</param>
-        public virtual async Task<HttpResponseMessage> ClusterHealthAsync(string index)
-        {
-            string uri = string.Format("/_cluster/health/{0}", index);
+            if ((options != null))
+            {
+                ClusterHealthParameters parameters = options.Invoke(new ClusterHealthParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-health.html"/></summary>
         /// <param name="index">Limit the information returned to a specific index</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage ClusterHealth(string index, Func<ClusterHealthParameters, ClusterHealthParameters> options)
+        public virtual HttpResponseMessage ClusterHealth(string index, Func<ClusterHealthParameters, ClusterHealthParameters> options = null)
         {
             string uri = string.Format("/_cluster/health/{0}", index);
-            ClusterHealthParameters parameters = options.Invoke(new ClusterHealthParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                ClusterHealthParameters parameters = options.Invoke(new ClusterHealthParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-health.html"/></summary>
         /// <param name="index">Limit the information returned to a specific index</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> ClusterHealthAsync(string index, Func<ClusterHealthParameters, ClusterHealthParameters> options)
+        public virtual async Task<HttpResponseMessage> ClusterHealthAsync(string index, Func<ClusterHealthParameters, ClusterHealthParameters> options = null)
         {
             string uri = string.Format("/_cluster/health/{0}", index);
-            ClusterHealthParameters parameters = options.Invoke(new ClusterHealthParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                ClusterHealthParameters parameters = options.Invoke(new ClusterHealthParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri);
         }
     }

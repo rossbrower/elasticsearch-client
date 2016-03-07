@@ -22,373 +22,169 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
         /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        public virtual HttpResponseMessage MgetGet(Stream body)
-        {
-            string uri = "/_mget";
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        public virtual async Task<HttpResponseMessage> MgetGetAsync(Stream body)
-        {
-            string uri = "/_mget";
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage MgetGet(Stream body, Func<MgetParameters, MgetParameters> options)
+        public virtual HttpResponseMessage MgetGet(Stream body, Func<MgetParameters, MgetParameters> options = null)
         {
             string uri = "/_mget";
-            MgetParameters parameters = options.Invoke(new MgetParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                MgetParameters parameters = options.Invoke(new MgetParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
         /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> MgetGetAsync(Stream body, Func<MgetParameters, MgetParameters> options)
+        public virtual async Task<HttpResponseMessage> MgetGetAsync(Stream body, Func<MgetParameters, MgetParameters> options = null)
         {
             string uri = "/_mget";
-            MgetParameters parameters = options.Invoke(new MgetParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        public virtual HttpResponseMessage MgetGet(Byte[] body)
-        {
-            string uri = "/_mget";
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        public virtual async Task<HttpResponseMessage> MgetGetAsync(Byte[] body)
-        {
-            string uri = "/_mget";
+            if ((options != null))
+            {
+                MgetParameters parameters = options.Invoke(new MgetParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
         /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage MgetGet(Byte[] body, Func<MgetParameters, MgetParameters> options)
+        public virtual HttpResponseMessage MgetGet(Byte[] body, Func<MgetParameters, MgetParameters> options = null)
         {
             string uri = "/_mget";
-            MgetParameters parameters = options.Invoke(new MgetParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                MgetParameters parameters = options.Invoke(new MgetParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
         /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> MgetGetAsync(Byte[] body, Func<MgetParameters, MgetParameters> options)
+        public virtual async Task<HttpResponseMessage> MgetGetAsync(Byte[] body, Func<MgetParameters, MgetParameters> options = null)
         {
             string uri = "/_mget";
-            MgetParameters parameters = options.Invoke(new MgetParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        public virtual HttpResponseMessage MgetGet(string body)
-        {
-            string uri = "/_mget";
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        public virtual async Task<HttpResponseMessage> MgetGetAsync(string body)
-        {
-            string uri = "/_mget";
+            if ((options != null))
+            {
+                MgetParameters parameters = options.Invoke(new MgetParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
         /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage MgetGet(string body, Func<MgetParameters, MgetParameters> options)
+        public virtual HttpResponseMessage MgetGetString(string body, Func<MgetParameters, MgetParameters> options = null)
         {
             string uri = "/_mget";
-            MgetParameters parameters = options.Invoke(new MgetParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                MgetParameters parameters = options.Invoke(new MgetParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
         /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> MgetGetAsync(string body, Func<MgetParameters, MgetParameters> options)
+        public virtual async Task<HttpResponseMessage> MgetGetStringAsync(string body, Func<MgetParameters, MgetParameters> options = null)
         {
             string uri = "/_mget";
-            MgetParameters parameters = options.Invoke(new MgetParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                MgetParameters parameters = options.Invoke(new MgetParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
         /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        public virtual HttpResponseMessage MgetPost(Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage MgetPost(Stream body, Func<MgetParameters, MgetParameters> options = null)
         {
             string uri = "/_mget";
+            if ((options != null))
+            {
+                MgetParameters parameters = options.Invoke(new MgetParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
         /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        public virtual async Task<HttpResponseMessage> MgetPostAsync(Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> MgetPostAsync(Stream body, Func<MgetParameters, MgetParameters> options = null)
         {
             string uri = "/_mget";
+            if ((options != null))
+            {
+                MgetParameters parameters = options.Invoke(new MgetParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
         /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage MgetPost(Stream body, Func<MgetParameters, MgetParameters> options)
+        public virtual HttpResponseMessage MgetPost(Byte[] body, Func<MgetParameters, MgetParameters> options = null)
         {
             string uri = "/_mget";
-            MgetParameters parameters = options.Invoke(new MgetParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                MgetParameters parameters = options.Invoke(new MgetParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
         /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> MgetPostAsync(Stream body, Func<MgetParameters, MgetParameters> options)
+        public virtual async Task<HttpResponseMessage> MgetPostAsync(Byte[] body, Func<MgetParameters, MgetParameters> options = null)
         {
             string uri = "/_mget";
-            MgetParameters parameters = options.Invoke(new MgetParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        public virtual HttpResponseMessage MgetPost(Byte[] body)
-        {
-            string uri = "/_mget";
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        public virtual async Task<HttpResponseMessage> MgetPostAsync(Byte[] body)
-        {
-            string uri = "/_mget";
+            if ((options != null))
+            {
+                MgetParameters parameters = options.Invoke(new MgetParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
         /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage MgetPost(Byte[] body, Func<MgetParameters, MgetParameters> options)
+        public virtual HttpResponseMessage MgetPostString(string body, Func<MgetParameters, MgetParameters> options = null)
         {
             string uri = "/_mget";
-            MgetParameters parameters = options.Invoke(new MgetParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                MgetParameters parameters = options.Invoke(new MgetParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
         /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> MgetPostAsync(Byte[] body, Func<MgetParameters, MgetParameters> options)
+        public virtual async Task<HttpResponseMessage> MgetPostStringAsync(string body, Func<MgetParameters, MgetParameters> options = null)
         {
             string uri = "/_mget";
-            MgetParameters parameters = options.Invoke(new MgetParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        public virtual HttpResponseMessage MgetPost(string body)
-        {
-            string uri = "/_mget";
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        public virtual async Task<HttpResponseMessage> MgetPostAsync(string body)
-        {
-            string uri = "/_mget";
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage MgetPost(string body, Func<MgetParameters, MgetParameters> options)
-        {
-            string uri = "/_mget";
-            MgetParameters parameters = options.Invoke(new MgetParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> MgetPostAsync(string body, Func<MgetParameters, MgetParameters> options)
-        {
-            string uri = "/_mget";
-            MgetParameters parameters = options.Invoke(new MgetParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        public virtual HttpResponseMessage MgetGet(string index, Stream body)
-        {
-            string uri = string.Format("/{0}/_mget", index);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        public virtual async Task<HttpResponseMessage> MgetGetAsync(string index, Stream body)
-        {
-            string uri = string.Format("/{0}/_mget", index);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage MgetGet(string index, Stream body, Func<MgetParameters, MgetParameters> options)
-        {
-            string uri = string.Format("/{0}/_mget", index);
-            MgetParameters parameters = options.Invoke(new MgetParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> MgetGetAsync(string index, Stream body, Func<MgetParameters, MgetParameters> options)
-        {
-            string uri = string.Format("/{0}/_mget", index);
-            MgetParameters parameters = options.Invoke(new MgetParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        public virtual HttpResponseMessage MgetGet(string index, Byte[] body)
-        {
-            string uri = string.Format("/{0}/_mget", index);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        public virtual async Task<HttpResponseMessage> MgetGetAsync(string index, Byte[] body)
-        {
-            string uri = string.Format("/{0}/_mget", index);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage MgetGet(string index, Byte[] body, Func<MgetParameters, MgetParameters> options)
-        {
-            string uri = string.Format("/{0}/_mget", index);
-            MgetParameters parameters = options.Invoke(new MgetParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> MgetGetAsync(string index, Byte[] body, Func<MgetParameters, MgetParameters> options)
-        {
-            string uri = string.Format("/{0}/_mget", index);
-            MgetParameters parameters = options.Invoke(new MgetParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        public virtual HttpResponseMessage MgetGet(string index, string body)
-        {
-            string uri = string.Format("/{0}/_mget", index);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        public virtual async Task<HttpResponseMessage> MgetGetAsync(string index, string body)
-        {
-            string uri = string.Format("/{0}/_mget", index);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage MgetGet(string index, string body, Func<MgetParameters, MgetParameters> options)
-        {
-            string uri = string.Format("/{0}/_mget", index);
-            MgetParameters parameters = options.Invoke(new MgetParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> MgetGetAsync(string index, string body, Func<MgetParameters, MgetParameters> options)
-        {
-            string uri = string.Format("/{0}/_mget", index);
-            MgetParameters parameters = options.Invoke(new MgetParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        public virtual HttpResponseMessage MgetPost(string index, Stream body)
-        {
-            string uri = string.Format("/{0}/_mget", index);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        public virtual async Task<HttpResponseMessage> MgetPostAsync(string index, Stream body)
-        {
-            string uri = string.Format("/{0}/_mget", index);
+            if ((options != null))
+            {
+                MgetParameters parameters = options.Invoke(new MgetParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -396,11 +192,104 @@ namespace Elasticsearch.Client
         /// <param name="index">The name of the index</param>
         /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage MgetPost(string index, Stream body, Func<MgetParameters, MgetParameters> options)
+        public virtual HttpResponseMessage MgetGet(string index, Stream body, Func<MgetParameters, MgetParameters> options = null)
         {
             string uri = string.Format("/{0}/_mget", index);
-            MgetParameters parameters = options.Invoke(new MgetParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                MgetParameters parameters = options.Invoke(new MgetParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
+        /// <param name="index">The name of the index</param>
+        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> MgetGetAsync(string index, Stream body, Func<MgetParameters, MgetParameters> options = null)
+        {
+            string uri = string.Format("/{0}/_mget", index);
+            if ((options != null))
+            {
+                MgetParameters parameters = options.Invoke(new MgetParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
+        /// <param name="index">The name of the index</param>
+        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage MgetGet(string index, Byte[] body, Func<MgetParameters, MgetParameters> options = null)
+        {
+            string uri = string.Format("/{0}/_mget", index);
+            if ((options != null))
+            {
+                MgetParameters parameters = options.Invoke(new MgetParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
+        /// <param name="index">The name of the index</param>
+        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> MgetGetAsync(string index, Byte[] body, Func<MgetParameters, MgetParameters> options = null)
+        {
+            string uri = string.Format("/{0}/_mget", index);
+            if ((options != null))
+            {
+                MgetParameters parameters = options.Invoke(new MgetParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
+        /// <param name="index">The name of the index</param>
+        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage MgetGetString(string index, string body, Func<MgetParameters, MgetParameters> options = null)
+        {
+            string uri = string.Format("/{0}/_mget", index);
+            if ((options != null))
+            {
+                MgetParameters parameters = options.Invoke(new MgetParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
+        /// <param name="index">The name of the index</param>
+        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> MgetGetStringAsync(string index, string body, Func<MgetParameters, MgetParameters> options = null)
+        {
+            string uri = string.Format("/{0}/_mget", index);
+            if ((options != null))
+            {
+                MgetParameters parameters = options.Invoke(new MgetParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
+        /// <param name="index">The name of the index</param>
+        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage MgetPost(string index, Stream body, Func<MgetParameters, MgetParameters> options = null)
+        {
+            string uri = string.Format("/{0}/_mget", index);
+            if ((options != null))
+            {
+                MgetParameters parameters = options.Invoke(new MgetParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
@@ -408,29 +297,44 @@ namespace Elasticsearch.Client
         /// <param name="index">The name of the index</param>
         /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> MgetPostAsync(string index, Stream body, Func<MgetParameters, MgetParameters> options)
+        public virtual async Task<HttpResponseMessage> MgetPostAsync(string index, Stream body, Func<MgetParameters, MgetParameters> options = null)
         {
             string uri = string.Format("/{0}/_mget", index);
-            MgetParameters parameters = options.Invoke(new MgetParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                MgetParameters parameters = options.Invoke(new MgetParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
         /// <param name="index">The name of the index</param>
         /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        public virtual HttpResponseMessage MgetPost(string index, Byte[] body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage MgetPost(string index, Byte[] body, Func<MgetParameters, MgetParameters> options = null)
         {
             string uri = string.Format("/{0}/_mget", index);
+            if ((options != null))
+            {
+                MgetParameters parameters = options.Invoke(new MgetParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
         /// <param name="index">The name of the index</param>
         /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        public virtual async Task<HttpResponseMessage> MgetPostAsync(string index, Byte[] body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> MgetPostAsync(string index, Byte[] body, Func<MgetParameters, MgetParameters> options = null)
         {
             string uri = string.Format("/{0}/_mget", index);
+            if ((options != null))
+            {
+                MgetParameters parameters = options.Invoke(new MgetParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -438,11 +342,14 @@ namespace Elasticsearch.Client
         /// <param name="index">The name of the index</param>
         /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage MgetPost(string index, Byte[] body, Func<MgetParameters, MgetParameters> options)
+        public virtual HttpResponseMessage MgetPostString(string index, string body, Func<MgetParameters, MgetParameters> options = null)
         {
             string uri = string.Format("/{0}/_mget", index);
-            MgetParameters parameters = options.Invoke(new MgetParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                MgetParameters parameters = options.Invoke(new MgetParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
@@ -450,211 +357,14 @@ namespace Elasticsearch.Client
         /// <param name="index">The name of the index</param>
         /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> MgetPostAsync(string index, Byte[] body, Func<MgetParameters, MgetParameters> options)
+        public virtual async Task<HttpResponseMessage> MgetPostStringAsync(string index, string body, Func<MgetParameters, MgetParameters> options = null)
         {
             string uri = string.Format("/{0}/_mget", index);
-            MgetParameters parameters = options.Invoke(new MgetParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        public virtual HttpResponseMessage MgetPost(string index, string body)
-        {
-            string uri = string.Format("/{0}/_mget", index);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        public virtual async Task<HttpResponseMessage> MgetPostAsync(string index, string body)
-        {
-            string uri = string.Format("/{0}/_mget", index);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage MgetPost(string index, string body, Func<MgetParameters, MgetParameters> options)
-        {
-            string uri = string.Format("/{0}/_mget", index);
-            MgetParameters parameters = options.Invoke(new MgetParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> MgetPostAsync(string index, string body, Func<MgetParameters, MgetParameters> options)
-        {
-            string uri = string.Format("/{0}/_mget", index);
-            MgetParameters parameters = options.Invoke(new MgetParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="type">The type of the document</param>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        public virtual HttpResponseMessage MgetGet(string index, string type, Stream body)
-        {
-            string uri = string.Format("/{0}/{1}/_mget", index, type);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="type">The type of the document</param>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        public virtual async Task<HttpResponseMessage> MgetGetAsync(string index, string type, Stream body)
-        {
-            string uri = string.Format("/{0}/{1}/_mget", index, type);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="type">The type of the document</param>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage MgetGet(string index, string type, Stream body, Func<MgetParameters, MgetParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_mget", index, type);
-            MgetParameters parameters = options.Invoke(new MgetParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="type">The type of the document</param>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> MgetGetAsync(string index, string type, Stream body, Func<MgetParameters, MgetParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_mget", index, type);
-            MgetParameters parameters = options.Invoke(new MgetParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="type">The type of the document</param>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        public virtual HttpResponseMessage MgetGet(string index, string type, Byte[] body)
-        {
-            string uri = string.Format("/{0}/{1}/_mget", index, type);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="type">The type of the document</param>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        public virtual async Task<HttpResponseMessage> MgetGetAsync(string index, string type, Byte[] body)
-        {
-            string uri = string.Format("/{0}/{1}/_mget", index, type);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="type">The type of the document</param>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage MgetGet(string index, string type, Byte[] body, Func<MgetParameters, MgetParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_mget", index, type);
-            MgetParameters parameters = options.Invoke(new MgetParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="type">The type of the document</param>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> MgetGetAsync(string index, string type, Byte[] body, Func<MgetParameters, MgetParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_mget", index, type);
-            MgetParameters parameters = options.Invoke(new MgetParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="type">The type of the document</param>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        public virtual HttpResponseMessage MgetGet(string index, string type, string body)
-        {
-            string uri = string.Format("/{0}/{1}/_mget", index, type);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="type">The type of the document</param>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        public virtual async Task<HttpResponseMessage> MgetGetAsync(string index, string type, string body)
-        {
-            string uri = string.Format("/{0}/{1}/_mget", index, type);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="type">The type of the document</param>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage MgetGet(string index, string type, string body, Func<MgetParameters, MgetParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_mget", index, type);
-            MgetParameters parameters = options.Invoke(new MgetParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="type">The type of the document</param>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> MgetGetAsync(string index, string type, string body, Func<MgetParameters, MgetParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_mget", index, type);
-            MgetParameters parameters = options.Invoke(new MgetParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="type">The type of the document</param>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        public virtual HttpResponseMessage MgetPost(string index, string type, Stream body)
-        {
-            string uri = string.Format("/{0}/{1}/_mget", index, type);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="type">The type of the document</param>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        public virtual async Task<HttpResponseMessage> MgetPostAsync(string index, string type, Stream body)
-        {
-            string uri = string.Format("/{0}/{1}/_mget", index, type);
+            if ((options != null))
+            {
+                MgetParameters parameters = options.Invoke(new MgetParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -663,11 +373,110 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document</param>
         /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage MgetPost(string index, string type, Stream body, Func<MgetParameters, MgetParameters> options)
+        public virtual HttpResponseMessage MgetGet(string index, string type, Stream body, Func<MgetParameters, MgetParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/_mget", index, type);
-            MgetParameters parameters = options.Invoke(new MgetParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                MgetParameters parameters = options.Invoke(new MgetParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
+        /// <param name="index">The name of the index</param>
+        /// <param name="type">The type of the document</param>
+        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> MgetGetAsync(string index, string type, Stream body, Func<MgetParameters, MgetParameters> options = null)
+        {
+            string uri = string.Format("/{0}/{1}/_mget", index, type);
+            if ((options != null))
+            {
+                MgetParameters parameters = options.Invoke(new MgetParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
+        /// <param name="index">The name of the index</param>
+        /// <param name="type">The type of the document</param>
+        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage MgetGet(string index, string type, Byte[] body, Func<MgetParameters, MgetParameters> options = null)
+        {
+            string uri = string.Format("/{0}/{1}/_mget", index, type);
+            if ((options != null))
+            {
+                MgetParameters parameters = options.Invoke(new MgetParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
+        /// <param name="index">The name of the index</param>
+        /// <param name="type">The type of the document</param>
+        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> MgetGetAsync(string index, string type, Byte[] body, Func<MgetParameters, MgetParameters> options = null)
+        {
+            string uri = string.Format("/{0}/{1}/_mget", index, type);
+            if ((options != null))
+            {
+                MgetParameters parameters = options.Invoke(new MgetParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
+        /// <param name="index">The name of the index</param>
+        /// <param name="type">The type of the document</param>
+        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage MgetGetString(string index, string type, string body, Func<MgetParameters, MgetParameters> options = null)
+        {
+            string uri = string.Format("/{0}/{1}/_mget", index, type);
+            if ((options != null))
+            {
+                MgetParameters parameters = options.Invoke(new MgetParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
+        /// <param name="index">The name of the index</param>
+        /// <param name="type">The type of the document</param>
+        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> MgetGetStringAsync(string index, string type, string body, Func<MgetParameters, MgetParameters> options = null)
+        {
+            string uri = string.Format("/{0}/{1}/_mget", index, type);
+            if ((options != null))
+            {
+                MgetParameters parameters = options.Invoke(new MgetParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
+        /// <param name="index">The name of the index</param>
+        /// <param name="type">The type of the document</param>
+        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage MgetPost(string index, string type, Stream body, Func<MgetParameters, MgetParameters> options = null)
+        {
+            string uri = string.Format("/{0}/{1}/_mget", index, type);
+            if ((options != null))
+            {
+                MgetParameters parameters = options.Invoke(new MgetParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
@@ -676,11 +485,14 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document</param>
         /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> MgetPostAsync(string index, string type, Stream body, Func<MgetParameters, MgetParameters> options)
+        public virtual async Task<HttpResponseMessage> MgetPostAsync(string index, string type, Stream body, Func<MgetParameters, MgetParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/_mget", index, type);
-            MgetParameters parameters = options.Invoke(new MgetParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                MgetParameters parameters = options.Invoke(new MgetParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -688,9 +500,15 @@ namespace Elasticsearch.Client
         /// <param name="index">The name of the index</param>
         /// <param name="type">The type of the document</param>
         /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        public virtual HttpResponseMessage MgetPost(string index, string type, Byte[] body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage MgetPost(string index, string type, Byte[] body, Func<MgetParameters, MgetParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/_mget", index, type);
+            if ((options != null))
+            {
+                MgetParameters parameters = options.Invoke(new MgetParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
@@ -698,9 +516,15 @@ namespace Elasticsearch.Client
         /// <param name="index">The name of the index</param>
         /// <param name="type">The type of the document</param>
         /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        public virtual async Task<HttpResponseMessage> MgetPostAsync(string index, string type, Byte[] body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> MgetPostAsync(string index, string type, Byte[] body, Func<MgetParameters, MgetParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/_mget", index, type);
+            if ((options != null))
+            {
+                MgetParameters parameters = options.Invoke(new MgetParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -709,11 +533,14 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document</param>
         /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage MgetPost(string index, string type, Byte[] body, Func<MgetParameters, MgetParameters> options)
+        public virtual HttpResponseMessage MgetPostString(string index, string type, string body, Func<MgetParameters, MgetParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/_mget", index, type);
-            MgetParameters parameters = options.Invoke(new MgetParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                MgetParameters parameters = options.Invoke(new MgetParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
@@ -722,57 +549,14 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document</param>
         /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> MgetPostAsync(string index, string type, Byte[] body, Func<MgetParameters, MgetParameters> options)
+        public virtual async Task<HttpResponseMessage> MgetPostStringAsync(string index, string type, string body, Func<MgetParameters, MgetParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/_mget", index, type);
-            MgetParameters parameters = options.Invoke(new MgetParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="type">The type of the document</param>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        public virtual HttpResponseMessage MgetPost(string index, string type, string body)
-        {
-            string uri = string.Format("/{0}/{1}/_mget", index, type);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="type">The type of the document</param>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        public virtual async Task<HttpResponseMessage> MgetPostAsync(string index, string type, string body)
-        {
-            string uri = string.Format("/{0}/{1}/_mget", index, type);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="type">The type of the document</param>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage MgetPost(string index, string type, string body, Func<MgetParameters, MgetParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_mget", index, type);
-            MgetParameters parameters = options.Invoke(new MgetParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-get.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="type">The type of the document</param>
-        /// <param name="body">Document identifiers; can be either `docs` (containing full document information) or `ids` (when index and type is provided in the URL.</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> MgetPostAsync(string index, string type, string body, Func<MgetParameters, MgetParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_mget", index, type);
-            MgetParameters parameters = options.Invoke(new MgetParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                MgetParameters parameters = options.Invoke(new MgetParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
     }

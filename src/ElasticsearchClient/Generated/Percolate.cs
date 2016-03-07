@@ -23,21 +23,31 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
         /// <param name="index">The index of the document being percolated.</param>
         /// <param name="type">The type of the document being percolated.</param>
-        /// <param name="body">The percolator request definition using the percolate DSL</param>
-        public virtual HttpResponseMessage PercolateGet(string index, string type, Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage PercolateGet(string index, string type, Func<PercolateParameters, PercolateParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/_percolate", index, type);
-            return this.Execute("GET", uri, body);
+            if ((options != null))
+            {
+                PercolateParameters parameters = options.Invoke(new PercolateParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
         /// <param name="index">The index of the document being percolated.</param>
         /// <param name="type">The type of the document being percolated.</param>
-        /// <param name="body">The percolator request definition using the percolate DSL</param>
-        public virtual async Task<HttpResponseMessage> PercolateGetAsync(string index, string type, Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> PercolateGetAsync(string index, string type, Func<PercolateParameters, PercolateParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/_percolate", index, type);
-            return await this.ExecuteAsync("GET", uri, body);
+            if ((options != null))
+            {
+                PercolateParameters parameters = options.Invoke(new PercolateParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return await this.ExecuteAsync("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
@@ -45,57 +55,14 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document being percolated.</param>
         /// <param name="body">The percolator request definition using the percolate DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage PercolateGet(string index, string type, Stream body, Func<PercolateParameters, PercolateParameters> options)
+        public virtual HttpResponseMessage PercolateGet(string index, string type, Stream body, Func<PercolateParameters, PercolateParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/_percolate", index, type);
-            PercolateParameters parameters = options.Invoke(new PercolateParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="index">The index of the document being percolated.</param>
-        /// <param name="type">The type of the document being percolated.</param>
-        /// <param name="body">The percolator request definition using the percolate DSL</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> PercolateGetAsync(string index, string type, Stream body, Func<PercolateParameters, PercolateParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_percolate", index, type);
-            PercolateParameters parameters = options.Invoke(new PercolateParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="index">The index of the document being percolated.</param>
-        /// <param name="type">The type of the document being percolated.</param>
-        /// <param name="body">The percolator request definition using the percolate DSL</param>
-        public virtual HttpResponseMessage PercolateGet(string index, string type, Byte[] body)
-        {
-            string uri = string.Format("/{0}/{1}/_percolate", index, type);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="index">The index of the document being percolated.</param>
-        /// <param name="type">The type of the document being percolated.</param>
-        /// <param name="body">The percolator request definition using the percolate DSL</param>
-        public virtual async Task<HttpResponseMessage> PercolateGetAsync(string index, string type, Byte[] body)
-        {
-            string uri = string.Format("/{0}/{1}/_percolate", index, type);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="index">The index of the document being percolated.</param>
-        /// <param name="type">The type of the document being percolated.</param>
-        /// <param name="body">The percolator request definition using the percolate DSL</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage PercolateGet(string index, string type, Byte[] body, Func<PercolateParameters, PercolateParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_percolate", index, type);
-            PercolateParameters parameters = options.Invoke(new PercolateParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                PercolateParameters parameters = options.Invoke(new PercolateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri, body);
         }
         
@@ -104,31 +71,14 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document being percolated.</param>
         /// <param name="body">The percolator request definition using the percolate DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> PercolateGetAsync(string index, string type, Byte[] body, Func<PercolateParameters, PercolateParameters> options)
+        public virtual async Task<HttpResponseMessage> PercolateGetAsync(string index, string type, Stream body, Func<PercolateParameters, PercolateParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/_percolate", index, type);
-            PercolateParameters parameters = options.Invoke(new PercolateParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="index">The index of the document being percolated.</param>
-        /// <param name="type">The type of the document being percolated.</param>
-        /// <param name="body">The percolator request definition using the percolate DSL</param>
-        public virtual HttpResponseMessage PercolateGet(string index, string type, string body)
-        {
-            string uri = string.Format("/{0}/{1}/_percolate", index, type);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="index">The index of the document being percolated.</param>
-        /// <param name="type">The type of the document being percolated.</param>
-        /// <param name="body">The percolator request definition using the percolate DSL</param>
-        public virtual async Task<HttpResponseMessage> PercolateGetAsync(string index, string type, string body)
-        {
-            string uri = string.Format("/{0}/{1}/_percolate", index, type);
+            if ((options != null))
+            {
+                PercolateParameters parameters = options.Invoke(new PercolateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri, body);
         }
         
@@ -137,11 +87,14 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document being percolated.</param>
         /// <param name="body">The percolator request definition using the percolate DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage PercolateGet(string index, string type, string body, Func<PercolateParameters, PercolateParameters> options)
+        public virtual HttpResponseMessage PercolateGet(string index, string type, Byte[] body, Func<PercolateParameters, PercolateParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/_percolate", index, type);
-            PercolateParameters parameters = options.Invoke(new PercolateParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                PercolateParameters parameters = options.Invoke(new PercolateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri, body);
         }
         
@@ -150,11 +103,14 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document being percolated.</param>
         /// <param name="body">The percolator request definition using the percolate DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> PercolateGetAsync(string index, string type, string body, Func<PercolateParameters, PercolateParameters> options)
+        public virtual async Task<HttpResponseMessage> PercolateGetAsync(string index, string type, Byte[] body, Func<PercolateParameters, PercolateParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/_percolate", index, type);
-            PercolateParameters parameters = options.Invoke(new PercolateParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                PercolateParameters parameters = options.Invoke(new PercolateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri, body);
         }
         
@@ -162,9 +118,77 @@ namespace Elasticsearch.Client
         /// <param name="index">The index of the document being percolated.</param>
         /// <param name="type">The type of the document being percolated.</param>
         /// <param name="body">The percolator request definition using the percolate DSL</param>
-        public virtual HttpResponseMessage PercolatePost(string index, string type, Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage PercolateGetString(string index, string type, string body, Func<PercolateParameters, PercolateParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/_percolate", index, type);
+            if ((options != null))
+            {
+                PercolateParameters parameters = options.Invoke(new PercolateParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
+        /// <param name="index">The index of the document being percolated.</param>
+        /// <param name="type">The type of the document being percolated.</param>
+        /// <param name="body">The percolator request definition using the percolate DSL</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> PercolateGetStringAsync(string index, string type, string body, Func<PercolateParameters, PercolateParameters> options = null)
+        {
+            string uri = string.Format("/{0}/{1}/_percolate", index, type);
+            if ((options != null))
+            {
+                PercolateParameters parameters = options.Invoke(new PercolateParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
+        /// <param name="index">The index of the document being percolated.</param>
+        /// <param name="type">The type of the document being percolated.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage PercolatePost(string index, string type, Func<PercolateParameters, PercolateParameters> options = null)
+        {
+            string uri = string.Format("/{0}/{1}/_percolate", index, type);
+            if ((options != null))
+            {
+                PercolateParameters parameters = options.Invoke(new PercolateParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return this.Execute("POST", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
+        /// <param name="index">The index of the document being percolated.</param>
+        /// <param name="type">The type of the document being percolated.</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> PercolatePostAsync(string index, string type, Func<PercolateParameters, PercolateParameters> options = null)
+        {
+            string uri = string.Format("/{0}/{1}/_percolate", index, type);
+            if ((options != null))
+            {
+                PercolateParameters parameters = options.Invoke(new PercolateParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return await this.ExecuteAsync("POST", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
+        /// <param name="index">The index of the document being percolated.</param>
+        /// <param name="type">The type of the document being percolated.</param>
+        /// <param name="body">The percolator request definition using the percolate DSL</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage PercolatePost(string index, string type, Stream body, Func<PercolateParameters, PercolateParameters> options = null)
+        {
+            string uri = string.Format("/{0}/{1}/_percolate", index, type);
+            if ((options != null))
+            {
+                PercolateParameters parameters = options.Invoke(new PercolateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
@@ -172,9 +196,15 @@ namespace Elasticsearch.Client
         /// <param name="index">The index of the document being percolated.</param>
         /// <param name="type">The type of the document being percolated.</param>
         /// <param name="body">The percolator request definition using the percolate DSL</param>
-        public virtual async Task<HttpResponseMessage> PercolatePostAsync(string index, string type, Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> PercolatePostAsync(string index, string type, Stream body, Func<PercolateParameters, PercolateParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/_percolate", index, type);
+            if ((options != null))
+            {
+                PercolateParameters parameters = options.Invoke(new PercolateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -183,11 +213,14 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document being percolated.</param>
         /// <param name="body">The percolator request definition using the percolate DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage PercolatePost(string index, string type, Stream body, Func<PercolateParameters, PercolateParameters> options)
+        public virtual HttpResponseMessage PercolatePost(string index, string type, Byte[] body, Func<PercolateParameters, PercolateParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/_percolate", index, type);
-            PercolateParameters parameters = options.Invoke(new PercolateParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                PercolateParameters parameters = options.Invoke(new PercolateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
@@ -196,31 +229,14 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document being percolated.</param>
         /// <param name="body">The percolator request definition using the percolate DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> PercolatePostAsync(string index, string type, Stream body, Func<PercolateParameters, PercolateParameters> options)
+        public virtual async Task<HttpResponseMessage> PercolatePostAsync(string index, string type, Byte[] body, Func<PercolateParameters, PercolateParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/_percolate", index, type);
-            PercolateParameters parameters = options.Invoke(new PercolateParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="index">The index of the document being percolated.</param>
-        /// <param name="type">The type of the document being percolated.</param>
-        /// <param name="body">The percolator request definition using the percolate DSL</param>
-        public virtual HttpResponseMessage PercolatePost(string index, string type, Byte[] body)
-        {
-            string uri = string.Format("/{0}/{1}/_percolate", index, type);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="index">The index of the document being percolated.</param>
-        /// <param name="type">The type of the document being percolated.</param>
-        /// <param name="body">The percolator request definition using the percolate DSL</param>
-        public virtual async Task<HttpResponseMessage> PercolatePostAsync(string index, string type, Byte[] body)
-        {
-            string uri = string.Format("/{0}/{1}/_percolate", index, type);
+            if ((options != null))
+            {
+                PercolateParameters parameters = options.Invoke(new PercolateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -229,11 +245,14 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document being percolated.</param>
         /// <param name="body">The percolator request definition using the percolate DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage PercolatePost(string index, string type, Byte[] body, Func<PercolateParameters, PercolateParameters> options)
+        public virtual HttpResponseMessage PercolatePostString(string index, string type, string body, Func<PercolateParameters, PercolateParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/_percolate", index, type);
-            PercolateParameters parameters = options.Invoke(new PercolateParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                PercolateParameters parameters = options.Invoke(new PercolateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
@@ -242,57 +261,14 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document being percolated.</param>
         /// <param name="body">The percolator request definition using the percolate DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> PercolatePostAsync(string index, string type, Byte[] body, Func<PercolateParameters, PercolateParameters> options)
+        public virtual async Task<HttpResponseMessage> PercolatePostStringAsync(string index, string type, string body, Func<PercolateParameters, PercolateParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/_percolate", index, type);
-            PercolateParameters parameters = options.Invoke(new PercolateParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="index">The index of the document being percolated.</param>
-        /// <param name="type">The type of the document being percolated.</param>
-        /// <param name="body">The percolator request definition using the percolate DSL</param>
-        public virtual HttpResponseMessage PercolatePost(string index, string type, string body)
-        {
-            string uri = string.Format("/{0}/{1}/_percolate", index, type);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="index">The index of the document being percolated.</param>
-        /// <param name="type">The type of the document being percolated.</param>
-        /// <param name="body">The percolator request definition using the percolate DSL</param>
-        public virtual async Task<HttpResponseMessage> PercolatePostAsync(string index, string type, string body)
-        {
-            string uri = string.Format("/{0}/{1}/_percolate", index, type);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="index">The index of the document being percolated.</param>
-        /// <param name="type">The type of the document being percolated.</param>
-        /// <param name="body">The percolator request definition using the percolate DSL</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage PercolatePost(string index, string type, string body, Func<PercolateParameters, PercolateParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_percolate", index, type);
-            PercolateParameters parameters = options.Invoke(new PercolateParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="index">The index of the document being percolated.</param>
-        /// <param name="type">The type of the document being percolated.</param>
-        /// <param name="body">The percolator request definition using the percolate DSL</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> PercolatePostAsync(string index, string type, string body, Func<PercolateParameters, PercolateParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_percolate", index, type);
-            PercolateParameters parameters = options.Invoke(new PercolateParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                PercolateParameters parameters = options.Invoke(new PercolateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -300,22 +276,32 @@ namespace Elasticsearch.Client
         /// <param name="index">The index of the document being percolated.</param>
         /// <param name="type">The type of the document being percolated.</param>
         /// <param name="id">Substitute the document in the request body with a document that is known by the specified id. On top of the id, the index and type parameter will be used to retrieve the document from within the cluster.</param>
-        /// <param name="body">The percolator request definition using the percolate DSL</param>
-        public virtual HttpResponseMessage PercolateGet(string index, string type, string id, Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage PercolateGet(string index, string type, string id, Func<PercolateParameters, PercolateParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/{2}/_percolate", index, type, id);
-            return this.Execute("GET", uri, body);
+            if ((options != null))
+            {
+                PercolateParameters parameters = options.Invoke(new PercolateParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
         /// <param name="index">The index of the document being percolated.</param>
         /// <param name="type">The type of the document being percolated.</param>
         /// <param name="id">Substitute the document in the request body with a document that is known by the specified id. On top of the id, the index and type parameter will be used to retrieve the document from within the cluster.</param>
-        /// <param name="body">The percolator request definition using the percolate DSL</param>
-        public virtual async Task<HttpResponseMessage> PercolateGetAsync(string index, string type, string id, Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> PercolateGetAsync(string index, string type, string id, Func<PercolateParameters, PercolateParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/{2}/_percolate", index, type, id);
-            return await this.ExecuteAsync("GET", uri, body);
+            if ((options != null))
+            {
+                PercolateParameters parameters = options.Invoke(new PercolateParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return await this.ExecuteAsync("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
@@ -324,11 +310,14 @@ namespace Elasticsearch.Client
         /// <param name="id">Substitute the document in the request body with a document that is known by the specified id. On top of the id, the index and type parameter will be used to retrieve the document from within the cluster.</param>
         /// <param name="body">The percolator request definition using the percolate DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage PercolateGet(string index, string type, string id, Stream body, Func<PercolateParameters, PercolateParameters> options)
+        public virtual HttpResponseMessage PercolateGet(string index, string type, string id, Stream body, Func<PercolateParameters, PercolateParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/{2}/_percolate", index, type, id);
-            PercolateParameters parameters = options.Invoke(new PercolateParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                PercolateParameters parameters = options.Invoke(new PercolateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri, body);
         }
         
@@ -338,33 +327,14 @@ namespace Elasticsearch.Client
         /// <param name="id">Substitute the document in the request body with a document that is known by the specified id. On top of the id, the index and type parameter will be used to retrieve the document from within the cluster.</param>
         /// <param name="body">The percolator request definition using the percolate DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> PercolateGetAsync(string index, string type, string id, Stream body, Func<PercolateParameters, PercolateParameters> options)
+        public virtual async Task<HttpResponseMessage> PercolateGetAsync(string index, string type, string id, Stream body, Func<PercolateParameters, PercolateParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/{2}/_percolate", index, type, id);
-            PercolateParameters parameters = options.Invoke(new PercolateParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="index">The index of the document being percolated.</param>
-        /// <param name="type">The type of the document being percolated.</param>
-        /// <param name="id">Substitute the document in the request body with a document that is known by the specified id. On top of the id, the index and type parameter will be used to retrieve the document from within the cluster.</param>
-        /// <param name="body">The percolator request definition using the percolate DSL</param>
-        public virtual HttpResponseMessage PercolateGet(string index, string type, string id, Byte[] body)
-        {
-            string uri = string.Format("/{0}/{1}/{2}/_percolate", index, type, id);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="index">The index of the document being percolated.</param>
-        /// <param name="type">The type of the document being percolated.</param>
-        /// <param name="id">Substitute the document in the request body with a document that is known by the specified id. On top of the id, the index and type parameter will be used to retrieve the document from within the cluster.</param>
-        /// <param name="body">The percolator request definition using the percolate DSL</param>
-        public virtual async Task<HttpResponseMessage> PercolateGetAsync(string index, string type, string id, Byte[] body)
-        {
-            string uri = string.Format("/{0}/{1}/{2}/_percolate", index, type, id);
+            if ((options != null))
+            {
+                PercolateParameters parameters = options.Invoke(new PercolateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri, body);
         }
         
@@ -374,11 +344,14 @@ namespace Elasticsearch.Client
         /// <param name="id">Substitute the document in the request body with a document that is known by the specified id. On top of the id, the index and type parameter will be used to retrieve the document from within the cluster.</param>
         /// <param name="body">The percolator request definition using the percolate DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage PercolateGet(string index, string type, string id, Byte[] body, Func<PercolateParameters, PercolateParameters> options)
+        public virtual HttpResponseMessage PercolateGet(string index, string type, string id, Byte[] body, Func<PercolateParameters, PercolateParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/{2}/_percolate", index, type, id);
-            PercolateParameters parameters = options.Invoke(new PercolateParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                PercolateParameters parameters = options.Invoke(new PercolateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri, body);
         }
         
@@ -388,33 +361,14 @@ namespace Elasticsearch.Client
         /// <param name="id">Substitute the document in the request body with a document that is known by the specified id. On top of the id, the index and type parameter will be used to retrieve the document from within the cluster.</param>
         /// <param name="body">The percolator request definition using the percolate DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> PercolateGetAsync(string index, string type, string id, Byte[] body, Func<PercolateParameters, PercolateParameters> options)
+        public virtual async Task<HttpResponseMessage> PercolateGetAsync(string index, string type, string id, Byte[] body, Func<PercolateParameters, PercolateParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/{2}/_percolate", index, type, id);
-            PercolateParameters parameters = options.Invoke(new PercolateParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="index">The index of the document being percolated.</param>
-        /// <param name="type">The type of the document being percolated.</param>
-        /// <param name="id">Substitute the document in the request body with a document that is known by the specified id. On top of the id, the index and type parameter will be used to retrieve the document from within the cluster.</param>
-        /// <param name="body">The percolator request definition using the percolate DSL</param>
-        public virtual HttpResponseMessage PercolateGet(string index, string type, string id, string body)
-        {
-            string uri = string.Format("/{0}/{1}/{2}/_percolate", index, type, id);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="index">The index of the document being percolated.</param>
-        /// <param name="type">The type of the document being percolated.</param>
-        /// <param name="id">Substitute the document in the request body with a document that is known by the specified id. On top of the id, the index and type parameter will be used to retrieve the document from within the cluster.</param>
-        /// <param name="body">The percolator request definition using the percolate DSL</param>
-        public virtual async Task<HttpResponseMessage> PercolateGetAsync(string index, string type, string id, string body)
-        {
-            string uri = string.Format("/{0}/{1}/{2}/_percolate", index, type, id);
+            if ((options != null))
+            {
+                PercolateParameters parameters = options.Invoke(new PercolateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri, body);
         }
         
@@ -424,11 +378,14 @@ namespace Elasticsearch.Client
         /// <param name="id">Substitute the document in the request body with a document that is known by the specified id. On top of the id, the index and type parameter will be used to retrieve the document from within the cluster.</param>
         /// <param name="body">The percolator request definition using the percolate DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage PercolateGet(string index, string type, string id, string body, Func<PercolateParameters, PercolateParameters> options)
+        public virtual HttpResponseMessage PercolateGetString(string index, string type, string id, string body, Func<PercolateParameters, PercolateParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/{2}/_percolate", index, type, id);
-            PercolateParameters parameters = options.Invoke(new PercolateParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                PercolateParameters parameters = options.Invoke(new PercolateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri, body);
         }
         
@@ -438,11 +395,14 @@ namespace Elasticsearch.Client
         /// <param name="id">Substitute the document in the request body with a document that is known by the specified id. On top of the id, the index and type parameter will be used to retrieve the document from within the cluster.</param>
         /// <param name="body">The percolator request definition using the percolate DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> PercolateGetAsync(string index, string type, string id, string body, Func<PercolateParameters, PercolateParameters> options)
+        public virtual async Task<HttpResponseMessage> PercolateGetStringAsync(string index, string type, string id, string body, Func<PercolateParameters, PercolateParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/{2}/_percolate", index, type, id);
-            PercolateParameters parameters = options.Invoke(new PercolateParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                PercolateParameters parameters = options.Invoke(new PercolateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri, body);
         }
         
@@ -450,22 +410,32 @@ namespace Elasticsearch.Client
         /// <param name="index">The index of the document being percolated.</param>
         /// <param name="type">The type of the document being percolated.</param>
         /// <param name="id">Substitute the document in the request body with a document that is known by the specified id. On top of the id, the index and type parameter will be used to retrieve the document from within the cluster.</param>
-        /// <param name="body">The percolator request definition using the percolate DSL</param>
-        public virtual HttpResponseMessage PercolatePost(string index, string type, string id, Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage PercolatePost(string index, string type, string id, Func<PercolateParameters, PercolateParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/{2}/_percolate", index, type, id);
-            return this.Execute("POST", uri, body);
+            if ((options != null))
+            {
+                PercolateParameters parameters = options.Invoke(new PercolateParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return this.Execute("POST", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
         /// <param name="index">The index of the document being percolated.</param>
         /// <param name="type">The type of the document being percolated.</param>
         /// <param name="id">Substitute the document in the request body with a document that is known by the specified id. On top of the id, the index and type parameter will be used to retrieve the document from within the cluster.</param>
-        /// <param name="body">The percolator request definition using the percolate DSL</param>
-        public virtual async Task<HttpResponseMessage> PercolatePostAsync(string index, string type, string id, Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> PercolatePostAsync(string index, string type, string id, Func<PercolateParameters, PercolateParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/{2}/_percolate", index, type, id);
-            return await this.ExecuteAsync("POST", uri, body);
+            if ((options != null))
+            {
+                PercolateParameters parameters = options.Invoke(new PercolateParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return await this.ExecuteAsync("POST", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
@@ -474,11 +444,14 @@ namespace Elasticsearch.Client
         /// <param name="id">Substitute the document in the request body with a document that is known by the specified id. On top of the id, the index and type parameter will be used to retrieve the document from within the cluster.</param>
         /// <param name="body">The percolator request definition using the percolate DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage PercolatePost(string index, string type, string id, Stream body, Func<PercolateParameters, PercolateParameters> options)
+        public virtual HttpResponseMessage PercolatePost(string index, string type, string id, Stream body, Func<PercolateParameters, PercolateParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/{2}/_percolate", index, type, id);
-            PercolateParameters parameters = options.Invoke(new PercolateParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                PercolateParameters parameters = options.Invoke(new PercolateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
@@ -488,33 +461,14 @@ namespace Elasticsearch.Client
         /// <param name="id">Substitute the document in the request body with a document that is known by the specified id. On top of the id, the index and type parameter will be used to retrieve the document from within the cluster.</param>
         /// <param name="body">The percolator request definition using the percolate DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> PercolatePostAsync(string index, string type, string id, Stream body, Func<PercolateParameters, PercolateParameters> options)
+        public virtual async Task<HttpResponseMessage> PercolatePostAsync(string index, string type, string id, Stream body, Func<PercolateParameters, PercolateParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/{2}/_percolate", index, type, id);
-            PercolateParameters parameters = options.Invoke(new PercolateParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="index">The index of the document being percolated.</param>
-        /// <param name="type">The type of the document being percolated.</param>
-        /// <param name="id">Substitute the document in the request body with a document that is known by the specified id. On top of the id, the index and type parameter will be used to retrieve the document from within the cluster.</param>
-        /// <param name="body">The percolator request definition using the percolate DSL</param>
-        public virtual HttpResponseMessage PercolatePost(string index, string type, string id, Byte[] body)
-        {
-            string uri = string.Format("/{0}/{1}/{2}/_percolate", index, type, id);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="index">The index of the document being percolated.</param>
-        /// <param name="type">The type of the document being percolated.</param>
-        /// <param name="id">Substitute the document in the request body with a document that is known by the specified id. On top of the id, the index and type parameter will be used to retrieve the document from within the cluster.</param>
-        /// <param name="body">The percolator request definition using the percolate DSL</param>
-        public virtual async Task<HttpResponseMessage> PercolatePostAsync(string index, string type, string id, Byte[] body)
-        {
-            string uri = string.Format("/{0}/{1}/{2}/_percolate", index, type, id);
+            if ((options != null))
+            {
+                PercolateParameters parameters = options.Invoke(new PercolateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -524,11 +478,14 @@ namespace Elasticsearch.Client
         /// <param name="id">Substitute the document in the request body with a document that is known by the specified id. On top of the id, the index and type parameter will be used to retrieve the document from within the cluster.</param>
         /// <param name="body">The percolator request definition using the percolate DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage PercolatePost(string index, string type, string id, Byte[] body, Func<PercolateParameters, PercolateParameters> options)
+        public virtual HttpResponseMessage PercolatePost(string index, string type, string id, Byte[] body, Func<PercolateParameters, PercolateParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/{2}/_percolate", index, type, id);
-            PercolateParameters parameters = options.Invoke(new PercolateParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                PercolateParameters parameters = options.Invoke(new PercolateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
@@ -538,33 +495,14 @@ namespace Elasticsearch.Client
         /// <param name="id">Substitute the document in the request body with a document that is known by the specified id. On top of the id, the index and type parameter will be used to retrieve the document from within the cluster.</param>
         /// <param name="body">The percolator request definition using the percolate DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> PercolatePostAsync(string index, string type, string id, Byte[] body, Func<PercolateParameters, PercolateParameters> options)
+        public virtual async Task<HttpResponseMessage> PercolatePostAsync(string index, string type, string id, Byte[] body, Func<PercolateParameters, PercolateParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/{2}/_percolate", index, type, id);
-            PercolateParameters parameters = options.Invoke(new PercolateParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="index">The index of the document being percolated.</param>
-        /// <param name="type">The type of the document being percolated.</param>
-        /// <param name="id">Substitute the document in the request body with a document that is known by the specified id. On top of the id, the index and type parameter will be used to retrieve the document from within the cluster.</param>
-        /// <param name="body">The percolator request definition using the percolate DSL</param>
-        public virtual HttpResponseMessage PercolatePost(string index, string type, string id, string body)
-        {
-            string uri = string.Format("/{0}/{1}/{2}/_percolate", index, type, id);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
-        /// <param name="index">The index of the document being percolated.</param>
-        /// <param name="type">The type of the document being percolated.</param>
-        /// <param name="id">Substitute the document in the request body with a document that is known by the specified id. On top of the id, the index and type parameter will be used to retrieve the document from within the cluster.</param>
-        /// <param name="body">The percolator request definition using the percolate DSL</param>
-        public virtual async Task<HttpResponseMessage> PercolatePostAsync(string index, string type, string id, string body)
-        {
-            string uri = string.Format("/{0}/{1}/{2}/_percolate", index, type, id);
+            if ((options != null))
+            {
+                PercolateParameters parameters = options.Invoke(new PercolateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -574,11 +512,14 @@ namespace Elasticsearch.Client
         /// <param name="id">Substitute the document in the request body with a document that is known by the specified id. On top of the id, the index and type parameter will be used to retrieve the document from within the cluster.</param>
         /// <param name="body">The percolator request definition using the percolate DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage PercolatePost(string index, string type, string id, string body, Func<PercolateParameters, PercolateParameters> options)
+        public virtual HttpResponseMessage PercolatePostString(string index, string type, string id, string body, Func<PercolateParameters, PercolateParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/{2}/_percolate", index, type, id);
-            PercolateParameters parameters = options.Invoke(new PercolateParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                PercolateParameters parameters = options.Invoke(new PercolateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
@@ -588,11 +529,14 @@ namespace Elasticsearch.Client
         /// <param name="id">Substitute the document in the request body with a document that is known by the specified id. On top of the id, the index and type parameter will be used to retrieve the document from within the cluster.</param>
         /// <param name="body">The percolator request definition using the percolate DSL</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> PercolatePostAsync(string index, string type, string id, string body, Func<PercolateParameters, PercolateParameters> options)
+        public virtual async Task<HttpResponseMessage> PercolatePostStringAsync(string index, string type, string id, string body, Func<PercolateParameters, PercolateParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/{2}/_percolate", index, type, id);
-            PercolateParameters parameters = options.Invoke(new PercolateParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                PercolateParameters parameters = options.Invoke(new PercolateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
     }

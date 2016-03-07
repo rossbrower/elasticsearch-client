@@ -22,115 +22,85 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
         /// <param name="body">The definition of `actions` to perform</param>
-        public virtual HttpResponseMessage IndicesUpdateAliases(Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage IndicesUpdateAliases(Stream body, Func<IndicesUpdateAliasesParameters, IndicesUpdateAliasesParameters> options = null)
         {
             string uri = "/_aliases";
+            if ((options != null))
+            {
+                IndicesUpdateAliasesParameters parameters = options.Invoke(new IndicesUpdateAliasesParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
         /// <param name="body">The definition of `actions` to perform</param>
-        public virtual async Task<HttpResponseMessage> IndicesUpdateAliasesAsync(Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> IndicesUpdateAliasesAsync(Stream body, Func<IndicesUpdateAliasesParameters, IndicesUpdateAliasesParameters> options = null)
         {
             string uri = "/_aliases";
+            if ((options != null))
+            {
+                IndicesUpdateAliasesParameters parameters = options.Invoke(new IndicesUpdateAliasesParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
         /// <param name="body">The definition of `actions` to perform</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage IndicesUpdateAliases(Stream body, Func<IndicesUpdateAliasesParameters, IndicesUpdateAliasesParameters> options)
+        public virtual HttpResponseMessage IndicesUpdateAliases(Byte[] body, Func<IndicesUpdateAliasesParameters, IndicesUpdateAliasesParameters> options = null)
         {
             string uri = "/_aliases";
-            IndicesUpdateAliasesParameters parameters = options.Invoke(new IndicesUpdateAliasesParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesUpdateAliasesParameters parameters = options.Invoke(new IndicesUpdateAliasesParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
         /// <param name="body">The definition of `actions` to perform</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> IndicesUpdateAliasesAsync(Stream body, Func<IndicesUpdateAliasesParameters, IndicesUpdateAliasesParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesUpdateAliasesAsync(Byte[] body, Func<IndicesUpdateAliasesParameters, IndicesUpdateAliasesParameters> options = null)
         {
             string uri = "/_aliases";
-            IndicesUpdateAliasesParameters parameters = options.Invoke(new IndicesUpdateAliasesParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
-        /// <param name="body">The definition of `actions` to perform</param>
-        public virtual HttpResponseMessage IndicesUpdateAliases(Byte[] body)
-        {
-            string uri = "/_aliases";
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
-        /// <param name="body">The definition of `actions` to perform</param>
-        public virtual async Task<HttpResponseMessage> IndicesUpdateAliasesAsync(Byte[] body)
-        {
-            string uri = "/_aliases";
+            if ((options != null))
+            {
+                IndicesUpdateAliasesParameters parameters = options.Invoke(new IndicesUpdateAliasesParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
         /// <param name="body">The definition of `actions` to perform</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage IndicesUpdateAliases(Byte[] body, Func<IndicesUpdateAliasesParameters, IndicesUpdateAliasesParameters> options)
+        public virtual HttpResponseMessage IndicesUpdateAliasesString(string body, Func<IndicesUpdateAliasesParameters, IndicesUpdateAliasesParameters> options = null)
         {
             string uri = "/_aliases";
-            IndicesUpdateAliasesParameters parameters = options.Invoke(new IndicesUpdateAliasesParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesUpdateAliasesParameters parameters = options.Invoke(new IndicesUpdateAliasesParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
         /// <param name="body">The definition of `actions` to perform</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> IndicesUpdateAliasesAsync(Byte[] body, Func<IndicesUpdateAliasesParameters, IndicesUpdateAliasesParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesUpdateAliasesStringAsync(string body, Func<IndicesUpdateAliasesParameters, IndicesUpdateAliasesParameters> options = null)
         {
             string uri = "/_aliases";
-            IndicesUpdateAliasesParameters parameters = options.Invoke(new IndicesUpdateAliasesParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
-        /// <param name="body">The definition of `actions` to perform</param>
-        public virtual HttpResponseMessage IndicesUpdateAliases(string body)
-        {
-            string uri = "/_aliases";
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
-        /// <param name="body">The definition of `actions` to perform</param>
-        public virtual async Task<HttpResponseMessage> IndicesUpdateAliasesAsync(string body)
-        {
-            string uri = "/_aliases";
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
-        /// <param name="body">The definition of `actions` to perform</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage IndicesUpdateAliases(string body, Func<IndicesUpdateAliasesParameters, IndicesUpdateAliasesParameters> options)
-        {
-            string uri = "/_aliases";
-            IndicesUpdateAliasesParameters parameters = options.Invoke(new IndicesUpdateAliasesParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
-        /// <param name="body">The definition of `actions` to perform</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> IndicesUpdateAliasesAsync(string body, Func<IndicesUpdateAliasesParameters, IndicesUpdateAliasesParameters> options)
-        {
-            string uri = "/_aliases";
-            IndicesUpdateAliasesParameters parameters = options.Invoke(new IndicesUpdateAliasesParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesUpdateAliasesParameters parameters = options.Invoke(new IndicesUpdateAliasesParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
     }

@@ -23,30 +23,15 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
         /// <param name="repository">A repository name</param>
         /// <param name="body">The repository definition</param>
-        public virtual HttpResponseMessage SnapshotCreateRepositoryPut(string repository, Stream body)
-        {
-            string uri = string.Format("/_snapshot/{0}", repository);
-            return this.Execute("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
-        /// <param name="repository">A repository name</param>
-        /// <param name="body">The repository definition</param>
-        public virtual async Task<HttpResponseMessage> SnapshotCreateRepositoryPutAsync(string repository, Stream body)
-        {
-            string uri = string.Format("/_snapshot/{0}", repository);
-            return await this.ExecuteAsync("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
-        /// <param name="repository">A repository name</param>
-        /// <param name="body">The repository definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage SnapshotCreateRepositoryPut(string repository, Stream body, Func<SnapshotCreateRepositoryParameters, SnapshotCreateRepositoryParameters> options)
+        public virtual HttpResponseMessage SnapshotCreateRepositoryPut(string repository, Stream body, Func<SnapshotCreateRepositoryParameters, SnapshotCreateRepositoryParameters> options = null)
         {
             string uri = string.Format("/_snapshot/{0}", repository);
-            SnapshotCreateRepositoryParameters parameters = options.Invoke(new SnapshotCreateRepositoryParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                SnapshotCreateRepositoryParameters parameters = options.Invoke(new SnapshotCreateRepositoryParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("PUT", uri, body);
         }
         
@@ -54,29 +39,14 @@ namespace Elasticsearch.Client
         /// <param name="repository">A repository name</param>
         /// <param name="body">The repository definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> SnapshotCreateRepositoryPutAsync(string repository, Stream body, Func<SnapshotCreateRepositoryParameters, SnapshotCreateRepositoryParameters> options)
+        public virtual async Task<HttpResponseMessage> SnapshotCreateRepositoryPutAsync(string repository, Stream body, Func<SnapshotCreateRepositoryParameters, SnapshotCreateRepositoryParameters> options = null)
         {
             string uri = string.Format("/_snapshot/{0}", repository);
-            SnapshotCreateRepositoryParameters parameters = options.Invoke(new SnapshotCreateRepositoryParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
-        /// <param name="repository">A repository name</param>
-        /// <param name="body">The repository definition</param>
-        public virtual HttpResponseMessage SnapshotCreateRepositoryPut(string repository, Byte[] body)
-        {
-            string uri = string.Format("/_snapshot/{0}", repository);
-            return this.Execute("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
-        /// <param name="repository">A repository name</param>
-        /// <param name="body">The repository definition</param>
-        public virtual async Task<HttpResponseMessage> SnapshotCreateRepositoryPutAsync(string repository, Byte[] body)
-        {
-            string uri = string.Format("/_snapshot/{0}", repository);
+            if ((options != null))
+            {
+                SnapshotCreateRepositoryParameters parameters = options.Invoke(new SnapshotCreateRepositoryParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("PUT", uri, body);
         }
         
@@ -84,11 +54,14 @@ namespace Elasticsearch.Client
         /// <param name="repository">A repository name</param>
         /// <param name="body">The repository definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage SnapshotCreateRepositoryPut(string repository, Byte[] body, Func<SnapshotCreateRepositoryParameters, SnapshotCreateRepositoryParameters> options)
+        public virtual HttpResponseMessage SnapshotCreateRepositoryPut(string repository, Byte[] body, Func<SnapshotCreateRepositoryParameters, SnapshotCreateRepositoryParameters> options = null)
         {
             string uri = string.Format("/_snapshot/{0}", repository);
-            SnapshotCreateRepositoryParameters parameters = options.Invoke(new SnapshotCreateRepositoryParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                SnapshotCreateRepositoryParameters parameters = options.Invoke(new SnapshotCreateRepositoryParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("PUT", uri, body);
         }
         
@@ -96,29 +69,14 @@ namespace Elasticsearch.Client
         /// <param name="repository">A repository name</param>
         /// <param name="body">The repository definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> SnapshotCreateRepositoryPutAsync(string repository, Byte[] body, Func<SnapshotCreateRepositoryParameters, SnapshotCreateRepositoryParameters> options)
+        public virtual async Task<HttpResponseMessage> SnapshotCreateRepositoryPutAsync(string repository, Byte[] body, Func<SnapshotCreateRepositoryParameters, SnapshotCreateRepositoryParameters> options = null)
         {
             string uri = string.Format("/_snapshot/{0}", repository);
-            SnapshotCreateRepositoryParameters parameters = options.Invoke(new SnapshotCreateRepositoryParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
-        /// <param name="repository">A repository name</param>
-        /// <param name="body">The repository definition</param>
-        public virtual HttpResponseMessage SnapshotCreateRepositoryPut(string repository, string body)
-        {
-            string uri = string.Format("/_snapshot/{0}", repository);
-            return this.Execute("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
-        /// <param name="repository">A repository name</param>
-        /// <param name="body">The repository definition</param>
-        public virtual async Task<HttpResponseMessage> SnapshotCreateRepositoryPutAsync(string repository, string body)
-        {
-            string uri = string.Format("/_snapshot/{0}", repository);
+            if ((options != null))
+            {
+                SnapshotCreateRepositoryParameters parameters = options.Invoke(new SnapshotCreateRepositoryParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("PUT", uri, body);
         }
         
@@ -126,11 +84,14 @@ namespace Elasticsearch.Client
         /// <param name="repository">A repository name</param>
         /// <param name="body">The repository definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage SnapshotCreateRepositoryPut(string repository, string body, Func<SnapshotCreateRepositoryParameters, SnapshotCreateRepositoryParameters> options)
+        public virtual HttpResponseMessage SnapshotCreateRepositoryPutString(string repository, string body, Func<SnapshotCreateRepositoryParameters, SnapshotCreateRepositoryParameters> options = null)
         {
             string uri = string.Format("/_snapshot/{0}", repository);
-            SnapshotCreateRepositoryParameters parameters = options.Invoke(new SnapshotCreateRepositoryParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                SnapshotCreateRepositoryParameters parameters = options.Invoke(new SnapshotCreateRepositoryParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("PUT", uri, body);
         }
         
@@ -138,29 +99,44 @@ namespace Elasticsearch.Client
         /// <param name="repository">A repository name</param>
         /// <param name="body">The repository definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> SnapshotCreateRepositoryPutAsync(string repository, string body, Func<SnapshotCreateRepositoryParameters, SnapshotCreateRepositoryParameters> options)
+        public virtual async Task<HttpResponseMessage> SnapshotCreateRepositoryPutStringAsync(string repository, string body, Func<SnapshotCreateRepositoryParameters, SnapshotCreateRepositoryParameters> options = null)
         {
             string uri = string.Format("/_snapshot/{0}", repository);
-            SnapshotCreateRepositoryParameters parameters = options.Invoke(new SnapshotCreateRepositoryParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                SnapshotCreateRepositoryParameters parameters = options.Invoke(new SnapshotCreateRepositoryParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("PUT", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
         /// <param name="repository">A repository name</param>
         /// <param name="body">The repository definition</param>
-        public virtual HttpResponseMessage SnapshotCreateRepositoryPost(string repository, Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage SnapshotCreateRepositoryPost(string repository, Stream body, Func<SnapshotCreateRepositoryParameters, SnapshotCreateRepositoryParameters> options = null)
         {
             string uri = string.Format("/_snapshot/{0}", repository);
+            if ((options != null))
+            {
+                SnapshotCreateRepositoryParameters parameters = options.Invoke(new SnapshotCreateRepositoryParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
         /// <param name="repository">A repository name</param>
         /// <param name="body">The repository definition</param>
-        public virtual async Task<HttpResponseMessage> SnapshotCreateRepositoryPostAsync(string repository, Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> SnapshotCreateRepositoryPostAsync(string repository, Stream body, Func<SnapshotCreateRepositoryParameters, SnapshotCreateRepositoryParameters> options = null)
         {
             string uri = string.Format("/_snapshot/{0}", repository);
+            if ((options != null))
+            {
+                SnapshotCreateRepositoryParameters parameters = options.Invoke(new SnapshotCreateRepositoryParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -168,11 +144,14 @@ namespace Elasticsearch.Client
         /// <param name="repository">A repository name</param>
         /// <param name="body">The repository definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage SnapshotCreateRepositoryPost(string repository, Stream body, Func<SnapshotCreateRepositoryParameters, SnapshotCreateRepositoryParameters> options)
+        public virtual HttpResponseMessage SnapshotCreateRepositoryPost(string repository, Byte[] body, Func<SnapshotCreateRepositoryParameters, SnapshotCreateRepositoryParameters> options = null)
         {
             string uri = string.Format("/_snapshot/{0}", repository);
-            SnapshotCreateRepositoryParameters parameters = options.Invoke(new SnapshotCreateRepositoryParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                SnapshotCreateRepositoryParameters parameters = options.Invoke(new SnapshotCreateRepositoryParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
@@ -180,29 +159,14 @@ namespace Elasticsearch.Client
         /// <param name="repository">A repository name</param>
         /// <param name="body">The repository definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> SnapshotCreateRepositoryPostAsync(string repository, Stream body, Func<SnapshotCreateRepositoryParameters, SnapshotCreateRepositoryParameters> options)
+        public virtual async Task<HttpResponseMessage> SnapshotCreateRepositoryPostAsync(string repository, Byte[] body, Func<SnapshotCreateRepositoryParameters, SnapshotCreateRepositoryParameters> options = null)
         {
             string uri = string.Format("/_snapshot/{0}", repository);
-            SnapshotCreateRepositoryParameters parameters = options.Invoke(new SnapshotCreateRepositoryParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
-        /// <param name="repository">A repository name</param>
-        /// <param name="body">The repository definition</param>
-        public virtual HttpResponseMessage SnapshotCreateRepositoryPost(string repository, Byte[] body)
-        {
-            string uri = string.Format("/_snapshot/{0}", repository);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
-        /// <param name="repository">A repository name</param>
-        /// <param name="body">The repository definition</param>
-        public virtual async Task<HttpResponseMessage> SnapshotCreateRepositoryPostAsync(string repository, Byte[] body)
-        {
-            string uri = string.Format("/_snapshot/{0}", repository);
+            if ((options != null))
+            {
+                SnapshotCreateRepositoryParameters parameters = options.Invoke(new SnapshotCreateRepositoryParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -210,11 +174,14 @@ namespace Elasticsearch.Client
         /// <param name="repository">A repository name</param>
         /// <param name="body">The repository definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage SnapshotCreateRepositoryPost(string repository, Byte[] body, Func<SnapshotCreateRepositoryParameters, SnapshotCreateRepositoryParameters> options)
+        public virtual HttpResponseMessage SnapshotCreateRepositoryPostString(string repository, string body, Func<SnapshotCreateRepositoryParameters, SnapshotCreateRepositoryParameters> options = null)
         {
             string uri = string.Format("/_snapshot/{0}", repository);
-            SnapshotCreateRepositoryParameters parameters = options.Invoke(new SnapshotCreateRepositoryParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                SnapshotCreateRepositoryParameters parameters = options.Invoke(new SnapshotCreateRepositoryParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
@@ -222,53 +189,14 @@ namespace Elasticsearch.Client
         /// <param name="repository">A repository name</param>
         /// <param name="body">The repository definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> SnapshotCreateRepositoryPostAsync(string repository, Byte[] body, Func<SnapshotCreateRepositoryParameters, SnapshotCreateRepositoryParameters> options)
+        public virtual async Task<HttpResponseMessage> SnapshotCreateRepositoryPostStringAsync(string repository, string body, Func<SnapshotCreateRepositoryParameters, SnapshotCreateRepositoryParameters> options = null)
         {
             string uri = string.Format("/_snapshot/{0}", repository);
-            SnapshotCreateRepositoryParameters parameters = options.Invoke(new SnapshotCreateRepositoryParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
-        /// <param name="repository">A repository name</param>
-        /// <param name="body">The repository definition</param>
-        public virtual HttpResponseMessage SnapshotCreateRepositoryPost(string repository, string body)
-        {
-            string uri = string.Format("/_snapshot/{0}", repository);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
-        /// <param name="repository">A repository name</param>
-        /// <param name="body">The repository definition</param>
-        public virtual async Task<HttpResponseMessage> SnapshotCreateRepositoryPostAsync(string repository, string body)
-        {
-            string uri = string.Format("/_snapshot/{0}", repository);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
-        /// <param name="repository">A repository name</param>
-        /// <param name="body">The repository definition</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage SnapshotCreateRepositoryPost(string repository, string body, Func<SnapshotCreateRepositoryParameters, SnapshotCreateRepositoryParameters> options)
-        {
-            string uri = string.Format("/_snapshot/{0}", repository);
-            SnapshotCreateRepositoryParameters parameters = options.Invoke(new SnapshotCreateRepositoryParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
-        /// <param name="repository">A repository name</param>
-        /// <param name="body">The repository definition</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> SnapshotCreateRepositoryPostAsync(string repository, string body, Func<SnapshotCreateRepositoryParameters, SnapshotCreateRepositoryParameters> options)
-        {
-            string uri = string.Format("/_snapshot/{0}", repository);
-            SnapshotCreateRepositoryParameters parameters = options.Invoke(new SnapshotCreateRepositoryParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                SnapshotCreateRepositoryParameters parameters = options.Invoke(new SnapshotCreateRepositoryParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
     }

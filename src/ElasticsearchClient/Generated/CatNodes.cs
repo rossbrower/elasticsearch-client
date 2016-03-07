@@ -21,36 +21,28 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-nodes.html"/></summary>
-        public virtual HttpResponseMessage CatNodes()
-        {
-            string uri = "/_cat/nodes";
-            return this.Execute("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-nodes.html"/></summary>
-        public virtual async Task<HttpResponseMessage> CatNodesAsync()
-        {
-            string uri = "/_cat/nodes";
-            return await this.ExecuteAsync("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-nodes.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage CatNodes(Func<CatNodesParameters, CatNodesParameters> options)
+        public virtual HttpResponseMessage CatNodes(Func<CatNodesParameters, CatNodesParameters> options = null)
         {
             string uri = "/_cat/nodes";
-            CatNodesParameters parameters = options.Invoke(new CatNodesParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CatNodesParameters parameters = options.Invoke(new CatNodesParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-nodes.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> CatNodesAsync(Func<CatNodesParameters, CatNodesParameters> options)
+        public virtual async Task<HttpResponseMessage> CatNodesAsync(Func<CatNodesParameters, CatNodesParameters> options = null)
         {
             string uri = "/_cat/nodes";
-            CatNodesParameters parameters = options.Invoke(new CatNodesParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CatNodesParameters parameters = options.Invoke(new CatNodesParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri);
         }
     }

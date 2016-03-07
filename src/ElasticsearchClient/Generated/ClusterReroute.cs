@@ -21,116 +21,112 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-reroute.html"/></summary>
-        /// <param name="body">The definition of `commands` to perform (`move`, `cancel`, `allocate`)</param>
-        public virtual HttpResponseMessage ClusterReroute(Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage ClusterReroute(Func<ClusterRerouteParameters, ClusterRerouteParameters> options = null)
         {
             string uri = "/_cluster/reroute";
+            if ((options != null))
+            {
+                ClusterRerouteParameters parameters = options.Invoke(new ClusterRerouteParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return this.Execute("POST", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-reroute.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> ClusterRerouteAsync(Func<ClusterRerouteParameters, ClusterRerouteParameters> options = null)
+        {
+            string uri = "/_cluster/reroute";
+            if ((options != null))
+            {
+                ClusterRerouteParameters parameters = options.Invoke(new ClusterRerouteParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return await this.ExecuteAsync("POST", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-reroute.html"/></summary>
+        /// <param name="body">The definition of `commands` to perform (`move`, `cancel`, `allocate`)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage ClusterReroute(Stream body, Func<ClusterRerouteParameters, ClusterRerouteParameters> options = null)
+        {
+            string uri = "/_cluster/reroute";
+            if ((options != null))
+            {
+                ClusterRerouteParameters parameters = options.Invoke(new ClusterRerouteParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-reroute.html"/></summary>
         /// <param name="body">The definition of `commands` to perform (`move`, `cancel`, `allocate`)</param>
-        public virtual async Task<HttpResponseMessage> ClusterRerouteAsync(Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> ClusterRerouteAsync(Stream body, Func<ClusterRerouteParameters, ClusterRerouteParameters> options = null)
         {
             string uri = "/_cluster/reroute";
+            if ((options != null))
+            {
+                ClusterRerouteParameters parameters = options.Invoke(new ClusterRerouteParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-reroute.html"/></summary>
         /// <param name="body">The definition of `commands` to perform (`move`, `cancel`, `allocate`)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage ClusterReroute(Stream body, Func<ClusterRerouteParameters, ClusterRerouteParameters> options)
+        public virtual HttpResponseMessage ClusterReroute(Byte[] body, Func<ClusterRerouteParameters, ClusterRerouteParameters> options = null)
         {
             string uri = "/_cluster/reroute";
-            ClusterRerouteParameters parameters = options.Invoke(new ClusterRerouteParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                ClusterRerouteParameters parameters = options.Invoke(new ClusterRerouteParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-reroute.html"/></summary>
         /// <param name="body">The definition of `commands` to perform (`move`, `cancel`, `allocate`)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> ClusterRerouteAsync(Stream body, Func<ClusterRerouteParameters, ClusterRerouteParameters> options)
+        public virtual async Task<HttpResponseMessage> ClusterRerouteAsync(Byte[] body, Func<ClusterRerouteParameters, ClusterRerouteParameters> options = null)
         {
             string uri = "/_cluster/reroute";
-            ClusterRerouteParameters parameters = options.Invoke(new ClusterRerouteParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-reroute.html"/></summary>
-        /// <param name="body">The definition of `commands` to perform (`move`, `cancel`, `allocate`)</param>
-        public virtual HttpResponseMessage ClusterReroute(Byte[] body)
-        {
-            string uri = "/_cluster/reroute";
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-reroute.html"/></summary>
-        /// <param name="body">The definition of `commands` to perform (`move`, `cancel`, `allocate`)</param>
-        public virtual async Task<HttpResponseMessage> ClusterRerouteAsync(Byte[] body)
-        {
-            string uri = "/_cluster/reroute";
+            if ((options != null))
+            {
+                ClusterRerouteParameters parameters = options.Invoke(new ClusterRerouteParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-reroute.html"/></summary>
         /// <param name="body">The definition of `commands` to perform (`move`, `cancel`, `allocate`)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage ClusterReroute(Byte[] body, Func<ClusterRerouteParameters, ClusterRerouteParameters> options)
+        public virtual HttpResponseMessage ClusterRerouteString(string body, Func<ClusterRerouteParameters, ClusterRerouteParameters> options = null)
         {
             string uri = "/_cluster/reroute";
-            ClusterRerouteParameters parameters = options.Invoke(new ClusterRerouteParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                ClusterRerouteParameters parameters = options.Invoke(new ClusterRerouteParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-reroute.html"/></summary>
         /// <param name="body">The definition of `commands` to perform (`move`, `cancel`, `allocate`)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> ClusterRerouteAsync(Byte[] body, Func<ClusterRerouteParameters, ClusterRerouteParameters> options)
+        public virtual async Task<HttpResponseMessage> ClusterRerouteStringAsync(string body, Func<ClusterRerouteParameters, ClusterRerouteParameters> options = null)
         {
             string uri = "/_cluster/reroute";
-            ClusterRerouteParameters parameters = options.Invoke(new ClusterRerouteParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-reroute.html"/></summary>
-        /// <param name="body">The definition of `commands` to perform (`move`, `cancel`, `allocate`)</param>
-        public virtual HttpResponseMessage ClusterReroute(string body)
-        {
-            string uri = "/_cluster/reroute";
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-reroute.html"/></summary>
-        /// <param name="body">The definition of `commands` to perform (`move`, `cancel`, `allocate`)</param>
-        public virtual async Task<HttpResponseMessage> ClusterRerouteAsync(string body)
-        {
-            string uri = "/_cluster/reroute";
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-reroute.html"/></summary>
-        /// <param name="body">The definition of `commands` to perform (`move`, `cancel`, `allocate`)</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage ClusterReroute(string body, Func<ClusterRerouteParameters, ClusterRerouteParameters> options)
-        {
-            string uri = "/_cluster/reroute";
-            ClusterRerouteParameters parameters = options.Invoke(new ClusterRerouteParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-reroute.html"/></summary>
-        /// <param name="body">The definition of `commands` to perform (`move`, `cancel`, `allocate`)</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> ClusterRerouteAsync(string body, Func<ClusterRerouteParameters, ClusterRerouteParameters> options)
-        {
-            string uri = "/_cluster/reroute";
-            ClusterRerouteParameters parameters = options.Invoke(new ClusterRerouteParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                ClusterRerouteParameters parameters = options.Invoke(new ClusterRerouteParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
     }

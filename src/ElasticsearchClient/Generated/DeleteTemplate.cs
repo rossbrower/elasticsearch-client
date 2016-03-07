@@ -22,39 +22,29 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
         /// <param name="id">Template ID</param>
-        public virtual HttpResponseMessage DeleteTemplate(string id)
-        {
-            string uri = string.Format("/_search/template/{0}", id);
-            return this.Execute("DELETE", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
-        /// <param name="id">Template ID</param>
-        public virtual async Task<HttpResponseMessage> DeleteTemplateAsync(string id)
-        {
-            string uri = string.Format("/_search/template/{0}", id);
-            return await this.ExecuteAsync("DELETE", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
-        /// <param name="id">Template ID</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage DeleteTemplate(string id, Func<DeleteTemplateParameters, DeleteTemplateParameters> options)
+        public virtual HttpResponseMessage DeleteTemplate(string id, Func<DeleteTemplateParameters, DeleteTemplateParameters> options = null)
         {
             string uri = string.Format("/_search/template/{0}", id);
-            DeleteTemplateParameters parameters = options.Invoke(new DeleteTemplateParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                DeleteTemplateParameters parameters = options.Invoke(new DeleteTemplateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("DELETE", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
         /// <param name="id">Template ID</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> DeleteTemplateAsync(string id, Func<DeleteTemplateParameters, DeleteTemplateParameters> options)
+        public virtual async Task<HttpResponseMessage> DeleteTemplateAsync(string id, Func<DeleteTemplateParameters, DeleteTemplateParameters> options = null)
         {
             string uri = string.Format("/_search/template/{0}", id);
-            DeleteTemplateParameters parameters = options.Invoke(new DeleteTemplateParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                DeleteTemplateParameters parameters = options.Invoke(new DeleteTemplateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("DELETE", uri);
         }
     }

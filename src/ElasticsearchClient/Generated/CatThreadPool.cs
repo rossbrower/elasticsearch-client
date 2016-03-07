@@ -21,36 +21,28 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-thread-pool.html"/></summary>
-        public virtual HttpResponseMessage CatThreadPool()
-        {
-            string uri = "/_cat/thread_pool";
-            return this.Execute("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-thread-pool.html"/></summary>
-        public virtual async Task<HttpResponseMessage> CatThreadPoolAsync()
-        {
-            string uri = "/_cat/thread_pool";
-            return await this.ExecuteAsync("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-thread-pool.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage CatThreadPool(Func<CatThreadPoolParameters, CatThreadPoolParameters> options)
+        public virtual HttpResponseMessage CatThreadPool(Func<CatThreadPoolParameters, CatThreadPoolParameters> options = null)
         {
             string uri = "/_cat/thread_pool";
-            CatThreadPoolParameters parameters = options.Invoke(new CatThreadPoolParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CatThreadPoolParameters parameters = options.Invoke(new CatThreadPoolParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-thread-pool.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> CatThreadPoolAsync(Func<CatThreadPoolParameters, CatThreadPoolParameters> options)
+        public virtual async Task<HttpResponseMessage> CatThreadPoolAsync(Func<CatThreadPoolParameters, CatThreadPoolParameters> options = null)
         {
             string uri = "/_cat/thread_pool";
-            CatThreadPoolParameters parameters = options.Invoke(new CatThreadPoolParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CatThreadPoolParameters parameters = options.Invoke(new CatThreadPoolParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri);
         }
     }

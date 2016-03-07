@@ -21,146 +21,110 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-clearcache.html"/></summary>
-        public virtual HttpResponseMessage IndicesClearCachePost()
-        {
-            string uri = "/_cache/clear";
-            return this.Execute("POST", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-clearcache.html"/></summary>
-        public virtual async Task<HttpResponseMessage> IndicesClearCachePostAsync()
-        {
-            string uri = "/_cache/clear";
-            return await this.ExecuteAsync("POST", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-clearcache.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage IndicesClearCachePost(Func<IndicesClearCacheParameters, IndicesClearCacheParameters> options)
+        public virtual HttpResponseMessage IndicesClearCachePost(Func<IndicesClearCacheParameters, IndicesClearCacheParameters> options = null)
         {
             string uri = "/_cache/clear";
-            IndicesClearCacheParameters parameters = options.Invoke(new IndicesClearCacheParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesClearCacheParameters parameters = options.Invoke(new IndicesClearCacheParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-clearcache.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> IndicesClearCachePostAsync(Func<IndicesClearCacheParameters, IndicesClearCacheParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesClearCachePostAsync(Func<IndicesClearCacheParameters, IndicesClearCacheParameters> options = null)
         {
             string uri = "/_cache/clear";
-            IndicesClearCacheParameters parameters = options.Invoke(new IndicesClearCacheParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesClearCacheParameters parameters = options.Invoke(new IndicesClearCacheParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-clearcache.html"/></summary>
-        public virtual HttpResponseMessage IndicesClearCacheGet()
-        {
-            string uri = "/_cache/clear";
-            return this.Execute("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-clearcache.html"/></summary>
-        public virtual async Task<HttpResponseMessage> IndicesClearCacheGetAsync()
-        {
-            string uri = "/_cache/clear";
-            return await this.ExecuteAsync("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-clearcache.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage IndicesClearCacheGet(Func<IndicesClearCacheParameters, IndicesClearCacheParameters> options)
+        public virtual HttpResponseMessage IndicesClearCacheGet(Func<IndicesClearCacheParameters, IndicesClearCacheParameters> options = null)
         {
             string uri = "/_cache/clear";
-            IndicesClearCacheParameters parameters = options.Invoke(new IndicesClearCacheParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesClearCacheParameters parameters = options.Invoke(new IndicesClearCacheParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-clearcache.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> IndicesClearCacheGetAsync(Func<IndicesClearCacheParameters, IndicesClearCacheParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesClearCacheGetAsync(Func<IndicesClearCacheParameters, IndicesClearCacheParameters> options = null)
         {
             string uri = "/_cache/clear";
-            IndicesClearCacheParameters parameters = options.Invoke(new IndicesClearCacheParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-clearcache.html"/></summary>
-        /// <param name="index">A comma-separated list of index name to limit the operation</param>
-        public virtual HttpResponseMessage IndicesClearCachePost(string index)
-        {
-            string uri = string.Format("/{0}/_cache/clear", index);
-            return this.Execute("POST", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-clearcache.html"/></summary>
-        /// <param name="index">A comma-separated list of index name to limit the operation</param>
-        public virtual async Task<HttpResponseMessage> IndicesClearCachePostAsync(string index)
-        {
-            string uri = string.Format("/{0}/_cache/clear", index);
-            return await this.ExecuteAsync("POST", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-clearcache.html"/></summary>
-        /// <param name="index">A comma-separated list of index name to limit the operation</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage IndicesClearCachePost(string index, Func<IndicesClearCacheParameters, IndicesClearCacheParameters> options)
-        {
-            string uri = string.Format("/{0}/_cache/clear", index);
-            IndicesClearCacheParameters parameters = options.Invoke(new IndicesClearCacheParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("POST", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-clearcache.html"/></summary>
-        /// <param name="index">A comma-separated list of index name to limit the operation</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> IndicesClearCachePostAsync(string index, Func<IndicesClearCacheParameters, IndicesClearCacheParameters> options)
-        {
-            string uri = string.Format("/{0}/_cache/clear", index);
-            IndicesClearCacheParameters parameters = options.Invoke(new IndicesClearCacheParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-clearcache.html"/></summary>
-        /// <param name="index">A comma-separated list of index name to limit the operation</param>
-        public virtual HttpResponseMessage IndicesClearCacheGet(string index)
-        {
-            string uri = string.Format("/{0}/_cache/clear", index);
-            return this.Execute("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-clearcache.html"/></summary>
-        /// <param name="index">A comma-separated list of index name to limit the operation</param>
-        public virtual async Task<HttpResponseMessage> IndicesClearCacheGetAsync(string index)
-        {
-            string uri = string.Format("/{0}/_cache/clear", index);
+            if ((options != null))
+            {
+                IndicesClearCacheParameters parameters = options.Invoke(new IndicesClearCacheParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-clearcache.html"/></summary>
         /// <param name="index">A comma-separated list of index name to limit the operation</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage IndicesClearCacheGet(string index, Func<IndicesClearCacheParameters, IndicesClearCacheParameters> options)
+        public virtual HttpResponseMessage IndicesClearCachePost(string index, Func<IndicesClearCacheParameters, IndicesClearCacheParameters> options = null)
         {
             string uri = string.Format("/{0}/_cache/clear", index);
-            IndicesClearCacheParameters parameters = options.Invoke(new IndicesClearCacheParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesClearCacheParameters parameters = options.Invoke(new IndicesClearCacheParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return this.Execute("POST", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-clearcache.html"/></summary>
+        /// <param name="index">A comma-separated list of index name to limit the operation</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> IndicesClearCachePostAsync(string index, Func<IndicesClearCacheParameters, IndicesClearCacheParameters> options = null)
+        {
+            string uri = string.Format("/{0}/_cache/clear", index);
+            if ((options != null))
+            {
+                IndicesClearCacheParameters parameters = options.Invoke(new IndicesClearCacheParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return await this.ExecuteAsync("POST", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-clearcache.html"/></summary>
+        /// <param name="index">A comma-separated list of index name to limit the operation</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage IndicesClearCacheGet(string index, Func<IndicesClearCacheParameters, IndicesClearCacheParameters> options = null)
+        {
+            string uri = string.Format("/{0}/_cache/clear", index);
+            if ((options != null))
+            {
+                IndicesClearCacheParameters parameters = options.Invoke(new IndicesClearCacheParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-clearcache.html"/></summary>
         /// <param name="index">A comma-separated list of index name to limit the operation</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> IndicesClearCacheGetAsync(string index, Func<IndicesClearCacheParameters, IndicesClearCacheParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesClearCacheGetAsync(string index, Func<IndicesClearCacheParameters, IndicesClearCacheParameters> options = null)
         {
             string uri = string.Format("/{0}/_cache/clear", index);
-            IndicesClearCacheParameters parameters = options.Invoke(new IndicesClearCacheParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesClearCacheParameters parameters = options.Invoke(new IndicesClearCacheParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri);
         }
     }

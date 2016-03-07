@@ -21,74 +21,56 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-upgrade.html"/></summary>
-        public virtual HttpResponseMessage IndicesGetUpgrade()
-        {
-            string uri = "/_upgrade";
-            return this.Execute("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-upgrade.html"/></summary>
-        public virtual async Task<HttpResponseMessage> IndicesGetUpgradeAsync()
-        {
-            string uri = "/_upgrade";
-            return await this.ExecuteAsync("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-upgrade.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage IndicesGetUpgrade(Func<IndicesGetUpgradeParameters, IndicesGetUpgradeParameters> options)
+        public virtual HttpResponseMessage IndicesGetUpgrade(Func<IndicesGetUpgradeParameters, IndicesGetUpgradeParameters> options = null)
         {
             string uri = "/_upgrade";
-            IndicesGetUpgradeParameters parameters = options.Invoke(new IndicesGetUpgradeParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesGetUpgradeParameters parameters = options.Invoke(new IndicesGetUpgradeParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-upgrade.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> IndicesGetUpgradeAsync(Func<IndicesGetUpgradeParameters, IndicesGetUpgradeParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesGetUpgradeAsync(Func<IndicesGetUpgradeParameters, IndicesGetUpgradeParameters> options = null)
         {
             string uri = "/_upgrade";
-            IndicesGetUpgradeParameters parameters = options.Invoke(new IndicesGetUpgradeParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-upgrade.html"/></summary>
-        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
-        public virtual HttpResponseMessage IndicesGetUpgrade(string index)
-        {
-            string uri = string.Format("/{0}/_upgrade", index);
-            return this.Execute("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-upgrade.html"/></summary>
-        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
-        public virtual async Task<HttpResponseMessage> IndicesGetUpgradeAsync(string index)
-        {
-            string uri = string.Format("/{0}/_upgrade", index);
+            if ((options != null))
+            {
+                IndicesGetUpgradeParameters parameters = options.Invoke(new IndicesGetUpgradeParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-upgrade.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage IndicesGetUpgrade(string index, Func<IndicesGetUpgradeParameters, IndicesGetUpgradeParameters> options)
+        public virtual HttpResponseMessage IndicesGetUpgrade(string index, Func<IndicesGetUpgradeParameters, IndicesGetUpgradeParameters> options = null)
         {
             string uri = string.Format("/{0}/_upgrade", index);
-            IndicesGetUpgradeParameters parameters = options.Invoke(new IndicesGetUpgradeParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesGetUpgradeParameters parameters = options.Invoke(new IndicesGetUpgradeParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-upgrade.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> IndicesGetUpgradeAsync(string index, Func<IndicesGetUpgradeParameters, IndicesGetUpgradeParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesGetUpgradeAsync(string index, Func<IndicesGetUpgradeParameters, IndicesGetUpgradeParameters> options = null)
         {
             string uri = string.Format("/{0}/_upgrade", index);
-            IndicesGetUpgradeParameters parameters = options.Invoke(new IndicesGetUpgradeParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesGetUpgradeParameters parameters = options.Invoke(new IndicesGetUpgradeParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri);
         }
     }

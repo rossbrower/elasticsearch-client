@@ -21,36 +21,28 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat.html"/></summary>
-        public virtual HttpResponseMessage CatHelp()
-        {
-            string uri = "/_cat";
-            return this.Execute("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat.html"/></summary>
-        public virtual async Task<HttpResponseMessage> CatHelpAsync()
-        {
-            string uri = "/_cat";
-            return await this.ExecuteAsync("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage CatHelp(Func<CatHelpParameters, CatHelpParameters> options)
+        public virtual HttpResponseMessage CatHelp(Func<CatHelpParameters, CatHelpParameters> options = null)
         {
             string uri = "/_cat";
-            CatHelpParameters parameters = options.Invoke(new CatHelpParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CatHelpParameters parameters = options.Invoke(new CatHelpParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> CatHelpAsync(Func<CatHelpParameters, CatHelpParameters> options)
+        public virtual async Task<HttpResponseMessage> CatHelpAsync(Func<CatHelpParameters, CatHelpParameters> options = null)
         {
             string uri = "/_cat";
-            CatHelpParameters parameters = options.Invoke(new CatHelpParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CatHelpParameters parameters = options.Invoke(new CatHelpParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri);
         }
     }

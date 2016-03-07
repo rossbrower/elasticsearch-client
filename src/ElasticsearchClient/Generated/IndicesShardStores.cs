@@ -21,74 +21,56 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-shards-stores.html"/></summary>
-        public virtual HttpResponseMessage IndicesShardStores()
-        {
-            string uri = "/_shard_stores";
-            return this.Execute("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-shards-stores.html"/></summary>
-        public virtual async Task<HttpResponseMessage> IndicesShardStoresAsync()
-        {
-            string uri = "/_shard_stores";
-            return await this.ExecuteAsync("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-shards-stores.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage IndicesShardStores(Func<IndicesShardStoresParameters, IndicesShardStoresParameters> options)
+        public virtual HttpResponseMessage IndicesShardStores(Func<IndicesShardStoresParameters, IndicesShardStoresParameters> options = null)
         {
             string uri = "/_shard_stores";
-            IndicesShardStoresParameters parameters = options.Invoke(new IndicesShardStoresParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesShardStoresParameters parameters = options.Invoke(new IndicesShardStoresParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-shards-stores.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> IndicesShardStoresAsync(Func<IndicesShardStoresParameters, IndicesShardStoresParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesShardStoresAsync(Func<IndicesShardStoresParameters, IndicesShardStoresParameters> options = null)
         {
             string uri = "/_shard_stores";
-            IndicesShardStoresParameters parameters = options.Invoke(new IndicesShardStoresParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-shards-stores.html"/></summary>
-        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
-        public virtual HttpResponseMessage IndicesShardStores(string index)
-        {
-            string uri = string.Format("/{0}/_shard_stores", index);
-            return this.Execute("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-shards-stores.html"/></summary>
-        /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
-        public virtual async Task<HttpResponseMessage> IndicesShardStoresAsync(string index)
-        {
-            string uri = string.Format("/{0}/_shard_stores", index);
+            if ((options != null))
+            {
+                IndicesShardStoresParameters parameters = options.Invoke(new IndicesShardStoresParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-shards-stores.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage IndicesShardStores(string index, Func<IndicesShardStoresParameters, IndicesShardStoresParameters> options)
+        public virtual HttpResponseMessage IndicesShardStores(string index, Func<IndicesShardStoresParameters, IndicesShardStoresParameters> options = null)
         {
             string uri = string.Format("/{0}/_shard_stores", index);
-            IndicesShardStoresParameters parameters = options.Invoke(new IndicesShardStoresParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesShardStoresParameters parameters = options.Invoke(new IndicesShardStoresParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-shards-stores.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> IndicesShardStoresAsync(string index, Func<IndicesShardStoresParameters, IndicesShardStoresParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesShardStoresAsync(string index, Func<IndicesShardStoresParameters, IndicesShardStoresParameters> options = null)
         {
             string uri = string.Format("/{0}/_shard_stores", index);
-            IndicesShardStoresParameters parameters = options.Invoke(new IndicesShardStoresParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesShardStoresParameters parameters = options.Invoke(new IndicesShardStoresParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri);
         }
     }

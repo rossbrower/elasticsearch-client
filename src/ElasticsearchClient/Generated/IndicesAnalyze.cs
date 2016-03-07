@@ -21,260 +21,265 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
-        /// <param name="body">The text on which the analysis should be performed</param>
-        public virtual HttpResponseMessage IndicesAnalyzeGet(Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage IndicesAnalyzeGet(Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
             string uri = "/_analyze";
-            return this.Execute("GET", uri, body);
+            if ((options != null))
+            {
+                IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
-        /// <param name="body">The text on which the analysis should be performed</param>
-        public virtual async Task<HttpResponseMessage> IndicesAnalyzeGetAsync(Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> IndicesAnalyzeGetAsync(Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
             string uri = "/_analyze";
-            return await this.ExecuteAsync("GET", uri, body);
+            if ((options != null))
+            {
+                IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return await this.ExecuteAsync("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
         /// <param name="body">The text on which the analysis should be performed</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage IndicesAnalyzeGet(Stream body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options)
+        public virtual HttpResponseMessage IndicesAnalyzeGet(Stream body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
             string uri = "/_analyze";
-            IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
-        /// <param name="body">The text on which the analysis should be performed</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> IndicesAnalyzeGetAsync(Stream body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options)
-        {
-            string uri = "/_analyze";
-            IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
-        /// <param name="body">The text on which the analysis should be performed</param>
-        public virtual HttpResponseMessage IndicesAnalyzeGet(Byte[] body)
-        {
-            string uri = "/_analyze";
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
-        /// <param name="body">The text on which the analysis should be performed</param>
-        public virtual async Task<HttpResponseMessage> IndicesAnalyzeGetAsync(Byte[] body)
-        {
-            string uri = "/_analyze";
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
-        /// <param name="body">The text on which the analysis should be performed</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage IndicesAnalyzeGet(Byte[] body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options)
-        {
-            string uri = "/_analyze";
-            IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
         /// <param name="body">The text on which the analysis should be performed</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> IndicesAnalyzeGetAsync(Byte[] body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesAnalyzeGetAsync(Stream body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
             string uri = "/_analyze";
-            IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
-        /// <param name="body">The text on which the analysis should be performed</param>
-        public virtual HttpResponseMessage IndicesAnalyzeGet(string body)
-        {
-            string uri = "/_analyze";
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
-        /// <param name="body">The text on which the analysis should be performed</param>
-        public virtual async Task<HttpResponseMessage> IndicesAnalyzeGetAsync(string body)
-        {
-            string uri = "/_analyze";
+            if ((options != null))
+            {
+                IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
         /// <param name="body">The text on which the analysis should be performed</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage IndicesAnalyzeGet(string body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options)
+        public virtual HttpResponseMessage IndicesAnalyzeGet(Byte[] body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
             string uri = "/_analyze";
-            IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
         /// <param name="body">The text on which the analysis should be performed</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> IndicesAnalyzeGetAsync(string body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesAnalyzeGetAsync(Byte[] body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
             string uri = "/_analyze";
-            IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
         /// <param name="body">The text on which the analysis should be performed</param>
-        public virtual HttpResponseMessage IndicesAnalyzePost(Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage IndicesAnalyzeGetString(string body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
             string uri = "/_analyze";
+            if ((options != null))
+            {
+                IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
+        /// <param name="body">The text on which the analysis should be performed</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> IndicesAnalyzeGetStringAsync(string body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
+        {
+            string uri = "/_analyze";
+            if ((options != null))
+            {
+                IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage IndicesAnalyzePost(Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
+        {
+            string uri = "/_analyze";
+            if ((options != null))
+            {
+                IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return this.Execute("POST", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> IndicesAnalyzePostAsync(Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
+        {
+            string uri = "/_analyze";
+            if ((options != null))
+            {
+                IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return await this.ExecuteAsync("POST", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
+        /// <param name="body">The text on which the analysis should be performed</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage IndicesAnalyzePost(Stream body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
+        {
+            string uri = "/_analyze";
+            if ((options != null))
+            {
+                IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
         /// <param name="body">The text on which the analysis should be performed</param>
-        public virtual async Task<HttpResponseMessage> IndicesAnalyzePostAsync(Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> IndicesAnalyzePostAsync(Stream body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
             string uri = "/_analyze";
+            if ((options != null))
+            {
+                IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
         /// <param name="body">The text on which the analysis should be performed</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage IndicesAnalyzePost(Stream body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options)
+        public virtual HttpResponseMessage IndicesAnalyzePost(Byte[] body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
             string uri = "/_analyze";
-            IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
         /// <param name="body">The text on which the analysis should be performed</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> IndicesAnalyzePostAsync(Stream body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesAnalyzePostAsync(Byte[] body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
             string uri = "/_analyze";
-            IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
-        /// <param name="body">The text on which the analysis should be performed</param>
-        public virtual HttpResponseMessage IndicesAnalyzePost(Byte[] body)
-        {
-            string uri = "/_analyze";
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
-        /// <param name="body">The text on which the analysis should be performed</param>
-        public virtual async Task<HttpResponseMessage> IndicesAnalyzePostAsync(Byte[] body)
-        {
-            string uri = "/_analyze";
+            if ((options != null))
+            {
+                IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
         /// <param name="body">The text on which the analysis should be performed</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage IndicesAnalyzePost(Byte[] body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options)
+        public virtual HttpResponseMessage IndicesAnalyzePostString(string body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
             string uri = "/_analyze";
-            IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
         /// <param name="body">The text on which the analysis should be performed</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> IndicesAnalyzePostAsync(Byte[] body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesAnalyzePostStringAsync(string body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
             string uri = "/_analyze";
-            IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
-        /// <param name="body">The text on which the analysis should be performed</param>
-        public virtual HttpResponseMessage IndicesAnalyzePost(string body)
-        {
-            string uri = "/_analyze";
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
-        /// <param name="body">The text on which the analysis should be performed</param>
-        public virtual async Task<HttpResponseMessage> IndicesAnalyzePostAsync(string body)
-        {
-            string uri = "/_analyze";
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
-        /// <param name="body">The text on which the analysis should be performed</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage IndicesAnalyzePost(string body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options)
-        {
-            string uri = "/_analyze";
-            IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
-        /// <param name="body">The text on which the analysis should be performed</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> IndicesAnalyzePostAsync(string body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options)
-        {
-            string uri = "/_analyze";
-            IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
         /// <param name="index">The name of the index to scope the operation</param>
-        /// <param name="body">The text on which the analysis should be performed</param>
-        public virtual HttpResponseMessage IndicesAnalyzeGet(string index, Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage IndicesAnalyzeGet(string index, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
             string uri = string.Format("/{0}/_analyze", index);
-            return this.Execute("GET", uri, body);
+            if ((options != null))
+            {
+                IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
         /// <param name="index">The name of the index to scope the operation</param>
-        /// <param name="body">The text on which the analysis should be performed</param>
-        public virtual async Task<HttpResponseMessage> IndicesAnalyzeGetAsync(string index, Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> IndicesAnalyzeGetAsync(string index, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
             string uri = string.Format("/{0}/_analyze", index);
-            return await this.ExecuteAsync("GET", uri, body);
+            if ((options != null))
+            {
+                IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return await this.ExecuteAsync("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
         /// <param name="index">The name of the index to scope the operation</param>
         /// <param name="body">The text on which the analysis should be performed</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage IndicesAnalyzeGet(string index, Stream body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options)
+        public virtual HttpResponseMessage IndicesAnalyzeGet(string index, Stream body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
             string uri = string.Format("/{0}/_analyze", index);
-            IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri, body);
         }
         
@@ -282,29 +287,14 @@ namespace Elasticsearch.Client
         /// <param name="index">The name of the index to scope the operation</param>
         /// <param name="body">The text on which the analysis should be performed</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> IndicesAnalyzeGetAsync(string index, Stream body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesAnalyzeGetAsync(string index, Stream body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
             string uri = string.Format("/{0}/_analyze", index);
-            IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
-        /// <param name="index">The name of the index to scope the operation</param>
-        /// <param name="body">The text on which the analysis should be performed</param>
-        public virtual HttpResponseMessage IndicesAnalyzeGet(string index, Byte[] body)
-        {
-            string uri = string.Format("/{0}/_analyze", index);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
-        /// <param name="index">The name of the index to scope the operation</param>
-        /// <param name="body">The text on which the analysis should be performed</param>
-        public virtual async Task<HttpResponseMessage> IndicesAnalyzeGetAsync(string index, Byte[] body)
-        {
-            string uri = string.Format("/{0}/_analyze", index);
+            if ((options != null))
+            {
+                IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri, body);
         }
         
@@ -312,11 +302,14 @@ namespace Elasticsearch.Client
         /// <param name="index">The name of the index to scope the operation</param>
         /// <param name="body">The text on which the analysis should be performed</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage IndicesAnalyzeGet(string index, Byte[] body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options)
+        public virtual HttpResponseMessage IndicesAnalyzeGet(string index, Byte[] body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
             string uri = string.Format("/{0}/_analyze", index);
-            IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri, body);
         }
         
@@ -324,29 +317,14 @@ namespace Elasticsearch.Client
         /// <param name="index">The name of the index to scope the operation</param>
         /// <param name="body">The text on which the analysis should be performed</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> IndicesAnalyzeGetAsync(string index, Byte[] body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesAnalyzeGetAsync(string index, Byte[] body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
             string uri = string.Format("/{0}/_analyze", index);
-            IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
-        /// <param name="index">The name of the index to scope the operation</param>
-        /// <param name="body">The text on which the analysis should be performed</param>
-        public virtual HttpResponseMessage IndicesAnalyzeGet(string index, string body)
-        {
-            string uri = string.Format("/{0}/_analyze", index);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
-        /// <param name="index">The name of the index to scope the operation</param>
-        /// <param name="body">The text on which the analysis should be performed</param>
-        public virtual async Task<HttpResponseMessage> IndicesAnalyzeGetAsync(string index, string body)
-        {
-            string uri = string.Format("/{0}/_analyze", index);
+            if ((options != null))
+            {
+                IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri, body);
         }
         
@@ -354,11 +332,14 @@ namespace Elasticsearch.Client
         /// <param name="index">The name of the index to scope the operation</param>
         /// <param name="body">The text on which the analysis should be performed</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage IndicesAnalyzeGet(string index, string body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options)
+        public virtual HttpResponseMessage IndicesAnalyzeGetString(string index, string body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
             string uri = string.Format("/{0}/_analyze", index);
-            IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri, body);
         }
         
@@ -366,41 +347,57 @@ namespace Elasticsearch.Client
         /// <param name="index">The name of the index to scope the operation</param>
         /// <param name="body">The text on which the analysis should be performed</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> IndicesAnalyzeGetAsync(string index, string body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesAnalyzeGetStringAsync(string index, string body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
             string uri = string.Format("/{0}/_analyze", index);
-            IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
         /// <param name="index">The name of the index to scope the operation</param>
-        /// <param name="body">The text on which the analysis should be performed</param>
-        public virtual HttpResponseMessage IndicesAnalyzePost(string index, Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage IndicesAnalyzePost(string index, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
             string uri = string.Format("/{0}/_analyze", index);
-            return this.Execute("POST", uri, body);
+            if ((options != null))
+            {
+                IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return this.Execute("POST", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
         /// <param name="index">The name of the index to scope the operation</param>
-        /// <param name="body">The text on which the analysis should be performed</param>
-        public virtual async Task<HttpResponseMessage> IndicesAnalyzePostAsync(string index, Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> IndicesAnalyzePostAsync(string index, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
             string uri = string.Format("/{0}/_analyze", index);
-            return await this.ExecuteAsync("POST", uri, body);
+            if ((options != null))
+            {
+                IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return await this.ExecuteAsync("POST", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
         /// <param name="index">The name of the index to scope the operation</param>
         /// <param name="body">The text on which the analysis should be performed</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage IndicesAnalyzePost(string index, Stream body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options)
+        public virtual HttpResponseMessage IndicesAnalyzePost(string index, Stream body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
             string uri = string.Format("/{0}/_analyze", index);
-            IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
@@ -408,29 +405,14 @@ namespace Elasticsearch.Client
         /// <param name="index">The name of the index to scope the operation</param>
         /// <param name="body">The text on which the analysis should be performed</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> IndicesAnalyzePostAsync(string index, Stream body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesAnalyzePostAsync(string index, Stream body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
             string uri = string.Format("/{0}/_analyze", index);
-            IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
-        /// <param name="index">The name of the index to scope the operation</param>
-        /// <param name="body">The text on which the analysis should be performed</param>
-        public virtual HttpResponseMessage IndicesAnalyzePost(string index, Byte[] body)
-        {
-            string uri = string.Format("/{0}/_analyze", index);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
-        /// <param name="index">The name of the index to scope the operation</param>
-        /// <param name="body">The text on which the analysis should be performed</param>
-        public virtual async Task<HttpResponseMessage> IndicesAnalyzePostAsync(string index, Byte[] body)
-        {
-            string uri = string.Format("/{0}/_analyze", index);
+            if ((options != null))
+            {
+                IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -438,11 +420,14 @@ namespace Elasticsearch.Client
         /// <param name="index">The name of the index to scope the operation</param>
         /// <param name="body">The text on which the analysis should be performed</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage IndicesAnalyzePost(string index, Byte[] body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options)
+        public virtual HttpResponseMessage IndicesAnalyzePost(string index, Byte[] body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
             string uri = string.Format("/{0}/_analyze", index);
-            IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
@@ -450,29 +435,14 @@ namespace Elasticsearch.Client
         /// <param name="index">The name of the index to scope the operation</param>
         /// <param name="body">The text on which the analysis should be performed</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> IndicesAnalyzePostAsync(string index, Byte[] body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesAnalyzePostAsync(string index, Byte[] body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
             string uri = string.Format("/{0}/_analyze", index);
-            IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
-        /// <param name="index">The name of the index to scope the operation</param>
-        /// <param name="body">The text on which the analysis should be performed</param>
-        public virtual HttpResponseMessage IndicesAnalyzePost(string index, string body)
-        {
-            string uri = string.Format("/{0}/_analyze", index);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-analyze.html"/></summary>
-        /// <param name="index">The name of the index to scope the operation</param>
-        /// <param name="body">The text on which the analysis should be performed</param>
-        public virtual async Task<HttpResponseMessage> IndicesAnalyzePostAsync(string index, string body)
-        {
-            string uri = string.Format("/{0}/_analyze", index);
+            if ((options != null))
+            {
+                IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -480,11 +450,14 @@ namespace Elasticsearch.Client
         /// <param name="index">The name of the index to scope the operation</param>
         /// <param name="body">The text on which the analysis should be performed</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage IndicesAnalyzePost(string index, string body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options)
+        public virtual HttpResponseMessage IndicesAnalyzePostString(string index, string body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
             string uri = string.Format("/{0}/_analyze", index);
-            IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
@@ -492,11 +465,14 @@ namespace Elasticsearch.Client
         /// <param name="index">The name of the index to scope the operation</param>
         /// <param name="body">The text on which the analysis should be performed</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> IndicesAnalyzePostAsync(string index, string body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesAnalyzePostStringAsync(string index, string body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
             string uri = string.Format("/{0}/_analyze", index);
-            IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesAnalyzeParameters parameters = options.Invoke(new IndicesAnalyzeParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
     }

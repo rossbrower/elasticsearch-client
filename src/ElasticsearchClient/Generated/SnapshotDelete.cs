@@ -23,30 +23,15 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
         /// <param name="snapshot">A snapshot name</param>
         /// <param name="repository">A repository name</param>
-        public virtual HttpResponseMessage SnapshotDelete(string snapshot, string repository)
-        {
-            string uri = string.Format("/_0/{1}/{0}", snapshot, repository);
-            return this.Execute("DELETE", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
-        /// <param name="snapshot">A snapshot name</param>
-        /// <param name="repository">A repository name</param>
-        public virtual async Task<HttpResponseMessage> SnapshotDeleteAsync(string snapshot, string repository)
-        {
-            string uri = string.Format("/_0/{1}/{0}", snapshot, repository);
-            return await this.ExecuteAsync("DELETE", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
-        /// <param name="snapshot">A snapshot name</param>
-        /// <param name="repository">A repository name</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage SnapshotDelete(string snapshot, string repository, Func<SnapshotDeleteParameters, SnapshotDeleteParameters> options)
+        public virtual HttpResponseMessage SnapshotDelete(string snapshot, string repository, Func<SnapshotDeleteParameters, SnapshotDeleteParameters> options = null)
         {
             string uri = string.Format("/_0/{1}/{0}", snapshot, repository);
-            SnapshotDeleteParameters parameters = options.Invoke(new SnapshotDeleteParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                SnapshotDeleteParameters parameters = options.Invoke(new SnapshotDeleteParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("DELETE", uri);
         }
         
@@ -54,11 +39,14 @@ namespace Elasticsearch.Client
         /// <param name="snapshot">A snapshot name</param>
         /// <param name="repository">A repository name</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> SnapshotDeleteAsync(string snapshot, string repository, Func<SnapshotDeleteParameters, SnapshotDeleteParameters> options)
+        public virtual async Task<HttpResponseMessage> SnapshotDeleteAsync(string snapshot, string repository, Func<SnapshotDeleteParameters, SnapshotDeleteParameters> options = null)
         {
             string uri = string.Format("/_0/{1}/{0}", snapshot, repository);
-            SnapshotDeleteParameters parameters = options.Invoke(new SnapshotDeleteParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                SnapshotDeleteParameters parameters = options.Invoke(new SnapshotDeleteParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("DELETE", uri);
         }
     }

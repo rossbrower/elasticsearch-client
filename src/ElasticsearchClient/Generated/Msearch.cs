@@ -22,373 +22,169 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
         /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        public virtual HttpResponseMessage MsearchGet(Stream body)
-        {
-            string uri = "/_msearch";
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        public virtual async Task<HttpResponseMessage> MsearchGetAsync(Stream body)
-        {
-            string uri = "/_msearch";
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage MsearchGet(Stream body, Func<MsearchParameters, MsearchParameters> options)
+        public virtual HttpResponseMessage MsearchGet(Stream body, Func<MsearchParameters, MsearchParameters> options = null)
         {
             string uri = "/_msearch";
-            MsearchParameters parameters = options.Invoke(new MsearchParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                MsearchParameters parameters = options.Invoke(new MsearchParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
         /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> MsearchGetAsync(Stream body, Func<MsearchParameters, MsearchParameters> options)
+        public virtual async Task<HttpResponseMessage> MsearchGetAsync(Stream body, Func<MsearchParameters, MsearchParameters> options = null)
         {
             string uri = "/_msearch";
-            MsearchParameters parameters = options.Invoke(new MsearchParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        public virtual HttpResponseMessage MsearchGet(Byte[] body)
-        {
-            string uri = "/_msearch";
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        public virtual async Task<HttpResponseMessage> MsearchGetAsync(Byte[] body)
-        {
-            string uri = "/_msearch";
+            if ((options != null))
+            {
+                MsearchParameters parameters = options.Invoke(new MsearchParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
         /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage MsearchGet(Byte[] body, Func<MsearchParameters, MsearchParameters> options)
+        public virtual HttpResponseMessage MsearchGet(Byte[] body, Func<MsearchParameters, MsearchParameters> options = null)
         {
             string uri = "/_msearch";
-            MsearchParameters parameters = options.Invoke(new MsearchParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                MsearchParameters parameters = options.Invoke(new MsearchParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
         /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> MsearchGetAsync(Byte[] body, Func<MsearchParameters, MsearchParameters> options)
+        public virtual async Task<HttpResponseMessage> MsearchGetAsync(Byte[] body, Func<MsearchParameters, MsearchParameters> options = null)
         {
             string uri = "/_msearch";
-            MsearchParameters parameters = options.Invoke(new MsearchParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        public virtual HttpResponseMessage MsearchGet(string body)
-        {
-            string uri = "/_msearch";
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        public virtual async Task<HttpResponseMessage> MsearchGetAsync(string body)
-        {
-            string uri = "/_msearch";
+            if ((options != null))
+            {
+                MsearchParameters parameters = options.Invoke(new MsearchParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
         /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage MsearchGet(string body, Func<MsearchParameters, MsearchParameters> options)
+        public virtual HttpResponseMessage MsearchGetString(string body, Func<MsearchParameters, MsearchParameters> options = null)
         {
             string uri = "/_msearch";
-            MsearchParameters parameters = options.Invoke(new MsearchParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                MsearchParameters parameters = options.Invoke(new MsearchParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
         /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> MsearchGetAsync(string body, Func<MsearchParameters, MsearchParameters> options)
+        public virtual async Task<HttpResponseMessage> MsearchGetStringAsync(string body, Func<MsearchParameters, MsearchParameters> options = null)
         {
             string uri = "/_msearch";
-            MsearchParameters parameters = options.Invoke(new MsearchParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                MsearchParameters parameters = options.Invoke(new MsearchParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
         /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        public virtual HttpResponseMessage MsearchPost(Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage MsearchPost(Stream body, Func<MsearchParameters, MsearchParameters> options = null)
         {
             string uri = "/_msearch";
+            if ((options != null))
+            {
+                MsearchParameters parameters = options.Invoke(new MsearchParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
         /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        public virtual async Task<HttpResponseMessage> MsearchPostAsync(Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> MsearchPostAsync(Stream body, Func<MsearchParameters, MsearchParameters> options = null)
         {
             string uri = "/_msearch";
+            if ((options != null))
+            {
+                MsearchParameters parameters = options.Invoke(new MsearchParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
         /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage MsearchPost(Stream body, Func<MsearchParameters, MsearchParameters> options)
+        public virtual HttpResponseMessage MsearchPost(Byte[] body, Func<MsearchParameters, MsearchParameters> options = null)
         {
             string uri = "/_msearch";
-            MsearchParameters parameters = options.Invoke(new MsearchParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                MsearchParameters parameters = options.Invoke(new MsearchParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
         /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> MsearchPostAsync(Stream body, Func<MsearchParameters, MsearchParameters> options)
+        public virtual async Task<HttpResponseMessage> MsearchPostAsync(Byte[] body, Func<MsearchParameters, MsearchParameters> options = null)
         {
             string uri = "/_msearch";
-            MsearchParameters parameters = options.Invoke(new MsearchParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        public virtual HttpResponseMessage MsearchPost(Byte[] body)
-        {
-            string uri = "/_msearch";
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        public virtual async Task<HttpResponseMessage> MsearchPostAsync(Byte[] body)
-        {
-            string uri = "/_msearch";
+            if ((options != null))
+            {
+                MsearchParameters parameters = options.Invoke(new MsearchParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
         /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage MsearchPost(Byte[] body, Func<MsearchParameters, MsearchParameters> options)
+        public virtual HttpResponseMessage MsearchPostString(string body, Func<MsearchParameters, MsearchParameters> options = null)
         {
             string uri = "/_msearch";
-            MsearchParameters parameters = options.Invoke(new MsearchParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                MsearchParameters parameters = options.Invoke(new MsearchParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
         /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> MsearchPostAsync(Byte[] body, Func<MsearchParameters, MsearchParameters> options)
+        public virtual async Task<HttpResponseMessage> MsearchPostStringAsync(string body, Func<MsearchParameters, MsearchParameters> options = null)
         {
             string uri = "/_msearch";
-            MsearchParameters parameters = options.Invoke(new MsearchParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        public virtual HttpResponseMessage MsearchPost(string body)
-        {
-            string uri = "/_msearch";
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        public virtual async Task<HttpResponseMessage> MsearchPostAsync(string body)
-        {
-            string uri = "/_msearch";
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage MsearchPost(string body, Func<MsearchParameters, MsearchParameters> options)
-        {
-            string uri = "/_msearch";
-            MsearchParameters parameters = options.Invoke(new MsearchParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> MsearchPostAsync(string body, Func<MsearchParameters, MsearchParameters> options)
-        {
-            string uri = "/_msearch";
-            MsearchParameters parameters = options.Invoke(new MsearchParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to use as default</param>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        public virtual HttpResponseMessage MsearchGet(string index, Stream body)
-        {
-            string uri = string.Format("/{0}/_msearch", index);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to use as default</param>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        public virtual async Task<HttpResponseMessage> MsearchGetAsync(string index, Stream body)
-        {
-            string uri = string.Format("/{0}/_msearch", index);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to use as default</param>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage MsearchGet(string index, Stream body, Func<MsearchParameters, MsearchParameters> options)
-        {
-            string uri = string.Format("/{0}/_msearch", index);
-            MsearchParameters parameters = options.Invoke(new MsearchParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to use as default</param>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> MsearchGetAsync(string index, Stream body, Func<MsearchParameters, MsearchParameters> options)
-        {
-            string uri = string.Format("/{0}/_msearch", index);
-            MsearchParameters parameters = options.Invoke(new MsearchParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to use as default</param>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        public virtual HttpResponseMessage MsearchGet(string index, Byte[] body)
-        {
-            string uri = string.Format("/{0}/_msearch", index);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to use as default</param>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        public virtual async Task<HttpResponseMessage> MsearchGetAsync(string index, Byte[] body)
-        {
-            string uri = string.Format("/{0}/_msearch", index);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to use as default</param>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage MsearchGet(string index, Byte[] body, Func<MsearchParameters, MsearchParameters> options)
-        {
-            string uri = string.Format("/{0}/_msearch", index);
-            MsearchParameters parameters = options.Invoke(new MsearchParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to use as default</param>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> MsearchGetAsync(string index, Byte[] body, Func<MsearchParameters, MsearchParameters> options)
-        {
-            string uri = string.Format("/{0}/_msearch", index);
-            MsearchParameters parameters = options.Invoke(new MsearchParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to use as default</param>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        public virtual HttpResponseMessage MsearchGet(string index, string body)
-        {
-            string uri = string.Format("/{0}/_msearch", index);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to use as default</param>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        public virtual async Task<HttpResponseMessage> MsearchGetAsync(string index, string body)
-        {
-            string uri = string.Format("/{0}/_msearch", index);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to use as default</param>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage MsearchGet(string index, string body, Func<MsearchParameters, MsearchParameters> options)
-        {
-            string uri = string.Format("/{0}/_msearch", index);
-            MsearchParameters parameters = options.Invoke(new MsearchParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to use as default</param>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> MsearchGetAsync(string index, string body, Func<MsearchParameters, MsearchParameters> options)
-        {
-            string uri = string.Format("/{0}/_msearch", index);
-            MsearchParameters parameters = options.Invoke(new MsearchParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to use as default</param>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        public virtual HttpResponseMessage MsearchPost(string index, Stream body)
-        {
-            string uri = string.Format("/{0}/_msearch", index);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to use as default</param>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        public virtual async Task<HttpResponseMessage> MsearchPostAsync(string index, Stream body)
-        {
-            string uri = string.Format("/{0}/_msearch", index);
+            if ((options != null))
+            {
+                MsearchParameters parameters = options.Invoke(new MsearchParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -396,11 +192,104 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to use as default</param>
         /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage MsearchPost(string index, Stream body, Func<MsearchParameters, MsearchParameters> options)
+        public virtual HttpResponseMessage MsearchGet(string index, Stream body, Func<MsearchParameters, MsearchParameters> options = null)
         {
             string uri = string.Format("/{0}/_msearch", index);
-            MsearchParameters parameters = options.Invoke(new MsearchParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                MsearchParameters parameters = options.Invoke(new MsearchParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to use as default</param>
+        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> MsearchGetAsync(string index, Stream body, Func<MsearchParameters, MsearchParameters> options = null)
+        {
+            string uri = string.Format("/{0}/_msearch", index);
+            if ((options != null))
+            {
+                MsearchParameters parameters = options.Invoke(new MsearchParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to use as default</param>
+        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage MsearchGet(string index, Byte[] body, Func<MsearchParameters, MsearchParameters> options = null)
+        {
+            string uri = string.Format("/{0}/_msearch", index);
+            if ((options != null))
+            {
+                MsearchParameters parameters = options.Invoke(new MsearchParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to use as default</param>
+        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> MsearchGetAsync(string index, Byte[] body, Func<MsearchParameters, MsearchParameters> options = null)
+        {
+            string uri = string.Format("/{0}/_msearch", index);
+            if ((options != null))
+            {
+                MsearchParameters parameters = options.Invoke(new MsearchParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to use as default</param>
+        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage MsearchGetString(string index, string body, Func<MsearchParameters, MsearchParameters> options = null)
+        {
+            string uri = string.Format("/{0}/_msearch", index);
+            if ((options != null))
+            {
+                MsearchParameters parameters = options.Invoke(new MsearchParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to use as default</param>
+        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> MsearchGetStringAsync(string index, string body, Func<MsearchParameters, MsearchParameters> options = null)
+        {
+            string uri = string.Format("/{0}/_msearch", index);
+            if ((options != null))
+            {
+                MsearchParameters parameters = options.Invoke(new MsearchParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to use as default</param>
+        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage MsearchPost(string index, Stream body, Func<MsearchParameters, MsearchParameters> options = null)
+        {
+            string uri = string.Format("/{0}/_msearch", index);
+            if ((options != null))
+            {
+                MsearchParameters parameters = options.Invoke(new MsearchParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
@@ -408,29 +297,44 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to use as default</param>
         /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> MsearchPostAsync(string index, Stream body, Func<MsearchParameters, MsearchParameters> options)
+        public virtual async Task<HttpResponseMessage> MsearchPostAsync(string index, Stream body, Func<MsearchParameters, MsearchParameters> options = null)
         {
             string uri = string.Format("/{0}/_msearch", index);
-            MsearchParameters parameters = options.Invoke(new MsearchParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                MsearchParameters parameters = options.Invoke(new MsearchParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
         /// <param name="index">A comma-separated list of index names to use as default</param>
         /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        public virtual HttpResponseMessage MsearchPost(string index, Byte[] body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage MsearchPost(string index, Byte[] body, Func<MsearchParameters, MsearchParameters> options = null)
         {
             string uri = string.Format("/{0}/_msearch", index);
+            if ((options != null))
+            {
+                MsearchParameters parameters = options.Invoke(new MsearchParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
         /// <param name="index">A comma-separated list of index names to use as default</param>
         /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        public virtual async Task<HttpResponseMessage> MsearchPostAsync(string index, Byte[] body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> MsearchPostAsync(string index, Byte[] body, Func<MsearchParameters, MsearchParameters> options = null)
         {
             string uri = string.Format("/{0}/_msearch", index);
+            if ((options != null))
+            {
+                MsearchParameters parameters = options.Invoke(new MsearchParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -438,11 +342,14 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to use as default</param>
         /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage MsearchPost(string index, Byte[] body, Func<MsearchParameters, MsearchParameters> options)
+        public virtual HttpResponseMessage MsearchPostString(string index, string body, Func<MsearchParameters, MsearchParameters> options = null)
         {
             string uri = string.Format("/{0}/_msearch", index);
-            MsearchParameters parameters = options.Invoke(new MsearchParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                MsearchParameters parameters = options.Invoke(new MsearchParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
@@ -450,211 +357,14 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to use as default</param>
         /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> MsearchPostAsync(string index, Byte[] body, Func<MsearchParameters, MsearchParameters> options)
+        public virtual async Task<HttpResponseMessage> MsearchPostStringAsync(string index, string body, Func<MsearchParameters, MsearchParameters> options = null)
         {
             string uri = string.Format("/{0}/_msearch", index);
-            MsearchParameters parameters = options.Invoke(new MsearchParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to use as default</param>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        public virtual HttpResponseMessage MsearchPost(string index, string body)
-        {
-            string uri = string.Format("/{0}/_msearch", index);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to use as default</param>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        public virtual async Task<HttpResponseMessage> MsearchPostAsync(string index, string body)
-        {
-            string uri = string.Format("/{0}/_msearch", index);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to use as default</param>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage MsearchPost(string index, string body, Func<MsearchParameters, MsearchParameters> options)
-        {
-            string uri = string.Format("/{0}/_msearch", index);
-            MsearchParameters parameters = options.Invoke(new MsearchParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to use as default</param>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> MsearchPostAsync(string index, string body, Func<MsearchParameters, MsearchParameters> options)
-        {
-            string uri = string.Format("/{0}/_msearch", index);
-            MsearchParameters parameters = options.Invoke(new MsearchParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to use as default</param>
-        /// <param name="type">A comma-separated list of document types to use as default</param>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        public virtual HttpResponseMessage MsearchGet(string index, string type, Stream body)
-        {
-            string uri = string.Format("/{0}/{1}/_msearch", index, type);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to use as default</param>
-        /// <param name="type">A comma-separated list of document types to use as default</param>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        public virtual async Task<HttpResponseMessage> MsearchGetAsync(string index, string type, Stream body)
-        {
-            string uri = string.Format("/{0}/{1}/_msearch", index, type);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to use as default</param>
-        /// <param name="type">A comma-separated list of document types to use as default</param>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage MsearchGet(string index, string type, Stream body, Func<MsearchParameters, MsearchParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_msearch", index, type);
-            MsearchParameters parameters = options.Invoke(new MsearchParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to use as default</param>
-        /// <param name="type">A comma-separated list of document types to use as default</param>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> MsearchGetAsync(string index, string type, Stream body, Func<MsearchParameters, MsearchParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_msearch", index, type);
-            MsearchParameters parameters = options.Invoke(new MsearchParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to use as default</param>
-        /// <param name="type">A comma-separated list of document types to use as default</param>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        public virtual HttpResponseMessage MsearchGet(string index, string type, Byte[] body)
-        {
-            string uri = string.Format("/{0}/{1}/_msearch", index, type);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to use as default</param>
-        /// <param name="type">A comma-separated list of document types to use as default</param>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        public virtual async Task<HttpResponseMessage> MsearchGetAsync(string index, string type, Byte[] body)
-        {
-            string uri = string.Format("/{0}/{1}/_msearch", index, type);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to use as default</param>
-        /// <param name="type">A comma-separated list of document types to use as default</param>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage MsearchGet(string index, string type, Byte[] body, Func<MsearchParameters, MsearchParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_msearch", index, type);
-            MsearchParameters parameters = options.Invoke(new MsearchParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to use as default</param>
-        /// <param name="type">A comma-separated list of document types to use as default</param>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> MsearchGetAsync(string index, string type, Byte[] body, Func<MsearchParameters, MsearchParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_msearch", index, type);
-            MsearchParameters parameters = options.Invoke(new MsearchParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to use as default</param>
-        /// <param name="type">A comma-separated list of document types to use as default</param>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        public virtual HttpResponseMessage MsearchGet(string index, string type, string body)
-        {
-            string uri = string.Format("/{0}/{1}/_msearch", index, type);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to use as default</param>
-        /// <param name="type">A comma-separated list of document types to use as default</param>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        public virtual async Task<HttpResponseMessage> MsearchGetAsync(string index, string type, string body)
-        {
-            string uri = string.Format("/{0}/{1}/_msearch", index, type);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to use as default</param>
-        /// <param name="type">A comma-separated list of document types to use as default</param>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage MsearchGet(string index, string type, string body, Func<MsearchParameters, MsearchParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_msearch", index, type);
-            MsearchParameters parameters = options.Invoke(new MsearchParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to use as default</param>
-        /// <param name="type">A comma-separated list of document types to use as default</param>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> MsearchGetAsync(string index, string type, string body, Func<MsearchParameters, MsearchParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_msearch", index, type);
-            MsearchParameters parameters = options.Invoke(new MsearchParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to use as default</param>
-        /// <param name="type">A comma-separated list of document types to use as default</param>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        public virtual HttpResponseMessage MsearchPost(string index, string type, Stream body)
-        {
-            string uri = string.Format("/{0}/{1}/_msearch", index, type);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to use as default</param>
-        /// <param name="type">A comma-separated list of document types to use as default</param>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        public virtual async Task<HttpResponseMessage> MsearchPostAsync(string index, string type, Stream body)
-        {
-            string uri = string.Format("/{0}/{1}/_msearch", index, type);
+            if ((options != null))
+            {
+                MsearchParameters parameters = options.Invoke(new MsearchParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -663,11 +373,110 @@ namespace Elasticsearch.Client
         /// <param name="type">A comma-separated list of document types to use as default</param>
         /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage MsearchPost(string index, string type, Stream body, Func<MsearchParameters, MsearchParameters> options)
+        public virtual HttpResponseMessage MsearchGet(string index, string type, Stream body, Func<MsearchParameters, MsearchParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/_msearch", index, type);
-            MsearchParameters parameters = options.Invoke(new MsearchParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                MsearchParameters parameters = options.Invoke(new MsearchParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to use as default</param>
+        /// <param name="type">A comma-separated list of document types to use as default</param>
+        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> MsearchGetAsync(string index, string type, Stream body, Func<MsearchParameters, MsearchParameters> options = null)
+        {
+            string uri = string.Format("/{0}/{1}/_msearch", index, type);
+            if ((options != null))
+            {
+                MsearchParameters parameters = options.Invoke(new MsearchParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to use as default</param>
+        /// <param name="type">A comma-separated list of document types to use as default</param>
+        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage MsearchGet(string index, string type, Byte[] body, Func<MsearchParameters, MsearchParameters> options = null)
+        {
+            string uri = string.Format("/{0}/{1}/_msearch", index, type);
+            if ((options != null))
+            {
+                MsearchParameters parameters = options.Invoke(new MsearchParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to use as default</param>
+        /// <param name="type">A comma-separated list of document types to use as default</param>
+        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> MsearchGetAsync(string index, string type, Byte[] body, Func<MsearchParameters, MsearchParameters> options = null)
+        {
+            string uri = string.Format("/{0}/{1}/_msearch", index, type);
+            if ((options != null))
+            {
+                MsearchParameters parameters = options.Invoke(new MsearchParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to use as default</param>
+        /// <param name="type">A comma-separated list of document types to use as default</param>
+        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage MsearchGetString(string index, string type, string body, Func<MsearchParameters, MsearchParameters> options = null)
+        {
+            string uri = string.Format("/{0}/{1}/_msearch", index, type);
+            if ((options != null))
+            {
+                MsearchParameters parameters = options.Invoke(new MsearchParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return this.Execute("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to use as default</param>
+        /// <param name="type">A comma-separated list of document types to use as default</param>
+        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> MsearchGetStringAsync(string index, string type, string body, Func<MsearchParameters, MsearchParameters> options = null)
+        {
+            string uri = string.Format("/{0}/{1}/_msearch", index, type);
+            if ((options != null))
+            {
+                MsearchParameters parameters = options.Invoke(new MsearchParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return await this.ExecuteAsync("GET", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
+        /// <param name="index">A comma-separated list of index names to use as default</param>
+        /// <param name="type">A comma-separated list of document types to use as default</param>
+        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage MsearchPost(string index, string type, Stream body, Func<MsearchParameters, MsearchParameters> options = null)
+        {
+            string uri = string.Format("/{0}/{1}/_msearch", index, type);
+            if ((options != null))
+            {
+                MsearchParameters parameters = options.Invoke(new MsearchParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
@@ -676,11 +485,14 @@ namespace Elasticsearch.Client
         /// <param name="type">A comma-separated list of document types to use as default</param>
         /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> MsearchPostAsync(string index, string type, Stream body, Func<MsearchParameters, MsearchParameters> options)
+        public virtual async Task<HttpResponseMessage> MsearchPostAsync(string index, string type, Stream body, Func<MsearchParameters, MsearchParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/_msearch", index, type);
-            MsearchParameters parameters = options.Invoke(new MsearchParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                MsearchParameters parameters = options.Invoke(new MsearchParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -688,9 +500,15 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to use as default</param>
         /// <param name="type">A comma-separated list of document types to use as default</param>
         /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        public virtual HttpResponseMessage MsearchPost(string index, string type, Byte[] body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage MsearchPost(string index, string type, Byte[] body, Func<MsearchParameters, MsearchParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/_msearch", index, type);
+            if ((options != null))
+            {
+                MsearchParameters parameters = options.Invoke(new MsearchParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
@@ -698,9 +516,15 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to use as default</param>
         /// <param name="type">A comma-separated list of document types to use as default</param>
         /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        public virtual async Task<HttpResponseMessage> MsearchPostAsync(string index, string type, Byte[] body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> MsearchPostAsync(string index, string type, Byte[] body, Func<MsearchParameters, MsearchParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/_msearch", index, type);
+            if ((options != null))
+            {
+                MsearchParameters parameters = options.Invoke(new MsearchParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -709,11 +533,14 @@ namespace Elasticsearch.Client
         /// <param name="type">A comma-separated list of document types to use as default</param>
         /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage MsearchPost(string index, string type, Byte[] body, Func<MsearchParameters, MsearchParameters> options)
+        public virtual HttpResponseMessage MsearchPostString(string index, string type, string body, Func<MsearchParameters, MsearchParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/_msearch", index, type);
-            MsearchParameters parameters = options.Invoke(new MsearchParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                MsearchParameters parameters = options.Invoke(new MsearchParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
@@ -722,57 +549,14 @@ namespace Elasticsearch.Client
         /// <param name="type">A comma-separated list of document types to use as default</param>
         /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> MsearchPostAsync(string index, string type, Byte[] body, Func<MsearchParameters, MsearchParameters> options)
+        public virtual async Task<HttpResponseMessage> MsearchPostStringAsync(string index, string type, string body, Func<MsearchParameters, MsearchParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/_msearch", index, type);
-            MsearchParameters parameters = options.Invoke(new MsearchParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to use as default</param>
-        /// <param name="type">A comma-separated list of document types to use as default</param>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        public virtual HttpResponseMessage MsearchPost(string index, string type, string body)
-        {
-            string uri = string.Format("/{0}/{1}/_msearch", index, type);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to use as default</param>
-        /// <param name="type">A comma-separated list of document types to use as default</param>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        public virtual async Task<HttpResponseMessage> MsearchPostAsync(string index, string type, string body)
-        {
-            string uri = string.Format("/{0}/{1}/_msearch", index, type);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to use as default</param>
-        /// <param name="type">A comma-separated list of document types to use as default</param>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage MsearchPost(string index, string type, string body, Func<MsearchParameters, MsearchParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_msearch", index, type);
-            MsearchParameters parameters = options.Invoke(new MsearchParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to use as default</param>
-        /// <param name="type">A comma-separated list of document types to use as default</param>
-        /// <param name="body">The request definitions (metadata-search request definition pairs), separated by newlines</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> MsearchPostAsync(string index, string type, string body, Func<MsearchParameters, MsearchParameters> options)
-        {
-            string uri = string.Format("/{0}/{1}/_msearch", index, type);
-            MsearchParameters parameters = options.Invoke(new MsearchParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                MsearchParameters parameters = options.Invoke(new MsearchParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
     }

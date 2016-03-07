@@ -21,74 +21,56 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-indices.html"/></summary>
-        public virtual HttpResponseMessage CatIndices()
-        {
-            string uri = "/_cat/indices";
-            return this.Execute("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-indices.html"/></summary>
-        public virtual async Task<HttpResponseMessage> CatIndicesAsync()
-        {
-            string uri = "/_cat/indices";
-            return await this.ExecuteAsync("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-indices.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage CatIndices(Func<CatIndicesParameters, CatIndicesParameters> options)
+        public virtual HttpResponseMessage CatIndices(Func<CatIndicesParameters, CatIndicesParameters> options = null)
         {
             string uri = "/_cat/indices";
-            CatIndicesParameters parameters = options.Invoke(new CatIndicesParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CatIndicesParameters parameters = options.Invoke(new CatIndicesParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-indices.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> CatIndicesAsync(Func<CatIndicesParameters, CatIndicesParameters> options)
+        public virtual async Task<HttpResponseMessage> CatIndicesAsync(Func<CatIndicesParameters, CatIndicesParameters> options = null)
         {
             string uri = "/_cat/indices";
-            CatIndicesParameters parameters = options.Invoke(new CatIndicesParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-indices.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to limit the returned information</param>
-        public virtual HttpResponseMessage CatIndices(string index)
-        {
-            string uri = string.Format("/_cat/indices/{0}", index);
-            return this.Execute("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-indices.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to limit the returned information</param>
-        public virtual async Task<HttpResponseMessage> CatIndicesAsync(string index)
-        {
-            string uri = string.Format("/_cat/indices/{0}", index);
+            if ((options != null))
+            {
+                CatIndicesParameters parameters = options.Invoke(new CatIndicesParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-indices.html"/></summary>
         /// <param name="index">A comma-separated list of index names to limit the returned information</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage CatIndices(string index, Func<CatIndicesParameters, CatIndicesParameters> options)
+        public virtual HttpResponseMessage CatIndices(string index, Func<CatIndicesParameters, CatIndicesParameters> options = null)
         {
             string uri = string.Format("/_cat/indices/{0}", index);
-            CatIndicesParameters parameters = options.Invoke(new CatIndicesParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CatIndicesParameters parameters = options.Invoke(new CatIndicesParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-indices.html"/></summary>
         /// <param name="index">A comma-separated list of index names to limit the returned information</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> CatIndicesAsync(string index, Func<CatIndicesParameters, CatIndicesParameters> options)
+        public virtual async Task<HttpResponseMessage> CatIndicesAsync(string index, Func<CatIndicesParameters, CatIndicesParameters> options = null)
         {
             string uri = string.Format("/_cat/indices/{0}", index);
-            CatIndicesParameters parameters = options.Invoke(new CatIndicesParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CatIndicesParameters parameters = options.Invoke(new CatIndicesParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri);
         }
     }

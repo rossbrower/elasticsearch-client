@@ -21,92 +21,56 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-info.html"/></summary>
-        public virtual HttpResponseMessage NodesInfo()
-        {
-            string uri = "/_nodes";
-            return this.Execute("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-info.html"/></summary>
-        public virtual async Task<HttpResponseMessage> NodesInfoAsync()
-        {
-            string uri = "/_nodes";
-            return await this.ExecuteAsync("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-info.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage NodesInfo(Func<NodesInfoParameters, NodesInfoParameters> options)
+        public virtual HttpResponseMessage NodesInfo(Func<NodesInfoParameters, NodesInfoParameters> options = null)
         {
             string uri = "/_nodes";
-            NodesInfoParameters parameters = options.Invoke(new NodesInfoParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                NodesInfoParameters parameters = options.Invoke(new NodesInfoParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-info.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> NodesInfoAsync(Func<NodesInfoParameters, NodesInfoParameters> options)
+        public virtual async Task<HttpResponseMessage> NodesInfoAsync(Func<NodesInfoParameters, NodesInfoParameters> options = null)
         {
             string uri = "/_nodes";
-            NodesInfoParameters parameters = options.Invoke(new NodesInfoParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-info.html"/></summary>
-        /// <param name="node_id">A comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes</param>
-        public virtual HttpResponseMessage NodesInfo(string node_id)
-        {
-            string uri = string.Format("/_nodes/{0}", node_id);
-            return this.Execute("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-info.html"/></summary>
-        /// <param name="node_id">A comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes</param>
-        public virtual async Task<HttpResponseMessage> NodesInfoAsync(string node_id)
-        {
-            string uri = string.Format("/_nodes/{0}", node_id);
+            if ((options != null))
+            {
+                NodesInfoParameters parameters = options.Invoke(new NodesInfoParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-info.html"/></summary>
         /// <param name="node_id">A comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage NodesInfo(string node_id, Func<NodesInfoParameters, NodesInfoParameters> options)
+        public virtual HttpResponseMessage NodesInfo(string node_id, Func<NodesInfoParameters, NodesInfoParameters> options = null)
         {
             string uri = string.Format("/_nodes/{0}", node_id);
-            NodesInfoParameters parameters = options.Invoke(new NodesInfoParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                NodesInfoParameters parameters = options.Invoke(new NodesInfoParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-info.html"/></summary>
         /// <param name="node_id">A comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> NodesInfoAsync(string node_id, Func<NodesInfoParameters, NodesInfoParameters> options)
+        public virtual async Task<HttpResponseMessage> NodesInfoAsync(string node_id, Func<NodesInfoParameters, NodesInfoParameters> options = null)
         {
             string uri = string.Format("/_nodes/{0}", node_id);
-            NodesInfoParameters parameters = options.Invoke(new NodesInfoParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-info.html"/></summary>
-        /// <param name="node_id">A comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes</param>
-        /// <param name="metric">A comma-separated list of metrics you wish returned. Leave empty to return all.</param>
-        public virtual HttpResponseMessage NodesInfo(string node_id, string metric)
-        {
-            string uri = string.Format("/_nodes/{0}/{1}", node_id, metric);
-            return this.Execute("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-info.html"/></summary>
-        /// <param name="node_id">A comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes</param>
-        /// <param name="metric">A comma-separated list of metrics you wish returned. Leave empty to return all.</param>
-        public virtual async Task<HttpResponseMessage> NodesInfoAsync(string node_id, string metric)
-        {
-            string uri = string.Format("/_nodes/{0}/{1}", node_id, metric);
+            if ((options != null))
+            {
+                NodesInfoParameters parameters = options.Invoke(new NodesInfoParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri);
         }
         
@@ -114,11 +78,14 @@ namespace Elasticsearch.Client
         /// <param name="node_id">A comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes</param>
         /// <param name="metric">A comma-separated list of metrics you wish returned. Leave empty to return all.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage NodesInfo(string node_id, string metric, Func<NodesInfoParameters, NodesInfoParameters> options)
+        public virtual HttpResponseMessage NodesInfo(string node_id, string metric, Func<NodesInfoParameters, NodesInfoParameters> options = null)
         {
             string uri = string.Format("/_nodes/{0}/{1}", node_id, metric);
-            NodesInfoParameters parameters = options.Invoke(new NodesInfoParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                NodesInfoParameters parameters = options.Invoke(new NodesInfoParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri);
         }
         
@@ -126,11 +93,14 @@ namespace Elasticsearch.Client
         /// <param name="node_id">A comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes</param>
         /// <param name="metric">A comma-separated list of metrics you wish returned. Leave empty to return all.</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> NodesInfoAsync(string node_id, string metric, Func<NodesInfoParameters, NodesInfoParameters> options)
+        public virtual async Task<HttpResponseMessage> NodesInfoAsync(string node_id, string metric, Func<NodesInfoParameters, NodesInfoParameters> options = null)
         {
             string uri = string.Format("/_nodes/{0}/{1}", node_id, metric);
-            NodesInfoParameters parameters = options.Invoke(new NodesInfoParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                NodesInfoParameters parameters = options.Invoke(new NodesInfoParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri);
         }
     }

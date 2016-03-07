@@ -21,36 +21,28 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-nodeattrs.html"/></summary>
-        public virtual HttpResponseMessage CatNodeattrs()
-        {
-            string uri = "/_cat/nodeattrs";
-            return this.Execute("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-nodeattrs.html"/></summary>
-        public virtual async Task<HttpResponseMessage> CatNodeattrsAsync()
-        {
-            string uri = "/_cat/nodeattrs";
-            return await this.ExecuteAsync("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-nodeattrs.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage CatNodeattrs(Func<CatNodeattrsParameters, CatNodeattrsParameters> options)
+        public virtual HttpResponseMessage CatNodeattrs(Func<CatNodeattrsParameters, CatNodeattrsParameters> options = null)
         {
             string uri = "/_cat/nodeattrs";
-            CatNodeattrsParameters parameters = options.Invoke(new CatNodeattrsParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CatNodeattrsParameters parameters = options.Invoke(new CatNodeattrsParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-nodeattrs.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> CatNodeattrsAsync(Func<CatNodeattrsParameters, CatNodeattrsParameters> options)
+        public virtual async Task<HttpResponseMessage> CatNodeattrsAsync(Func<CatNodeattrsParameters, CatNodeattrsParameters> options = null)
         {
             string uri = "/_cat/nodeattrs";
-            CatNodeattrsParameters parameters = options.Invoke(new CatNodeattrsParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CatNodeattrsParameters parameters = options.Invoke(new CatNodeattrsParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri);
         }
     }

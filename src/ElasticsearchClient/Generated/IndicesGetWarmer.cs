@@ -21,92 +21,56 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
-        public virtual HttpResponseMessage IndicesGetWarmer()
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage IndicesGetWarmer(Func<IndicesGetWarmerParameters, IndicesGetWarmerParameters> options = null)
         {
             string uri = "/_warmer";
+            if ((options != null))
+            {
+                IndicesGetWarmerParameters parameters = options.Invoke(new IndicesGetWarmerParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
-        public virtual async Task<HttpResponseMessage> IndicesGetWarmerAsync()
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> IndicesGetWarmerAsync(Func<IndicesGetWarmerParameters, IndicesGetWarmerParameters> options = null)
         {
             string uri = "/_warmer";
-            return await this.ExecuteAsync("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage IndicesGetWarmer(Func<IndicesGetWarmerParameters, IndicesGetWarmerParameters> options)
-        {
-            string uri = "/_warmer";
-            IndicesGetWarmerParameters parameters = options.Invoke(new IndicesGetWarmerParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> IndicesGetWarmerAsync(Func<IndicesGetWarmerParameters, IndicesGetWarmerParameters> options)
-        {
-            string uri = "/_warmer";
-            IndicesGetWarmerParameters parameters = options.Invoke(new IndicesGetWarmerParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesGetWarmerParameters parameters = options.Invoke(new IndicesGetWarmerParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` to perform the operation on all indices</param>
-        public virtual HttpResponseMessage IndicesGetWarmer(string index)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage IndicesGetWarmer(string index, Func<IndicesGetWarmerParameters, IndicesGetWarmerParameters> options = null)
         {
             string uri = string.Format("/{0}/_warmer", index);
+            if ((options != null))
+            {
+                IndicesGetWarmerParameters parameters = options.Invoke(new IndicesGetWarmerParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` to perform the operation on all indices</param>
-        public virtual async Task<HttpResponseMessage> IndicesGetWarmerAsync(string index)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> IndicesGetWarmerAsync(string index, Func<IndicesGetWarmerParameters, IndicesGetWarmerParameters> options = null)
         {
             string uri = string.Format("/{0}/_warmer", index);
-            return await this.ExecuteAsync("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` to perform the operation on all indices</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage IndicesGetWarmer(string index, Func<IndicesGetWarmerParameters, IndicesGetWarmerParameters> options)
-        {
-            string uri = string.Format("/{0}/_warmer", index);
-            IndicesGetWarmerParameters parameters = options.Invoke(new IndicesGetWarmerParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` to perform the operation on all indices</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> IndicesGetWarmerAsync(string index, Func<IndicesGetWarmerParameters, IndicesGetWarmerParameters> options)
-        {
-            string uri = string.Format("/{0}/_warmer", index);
-            IndicesGetWarmerParameters parameters = options.Invoke(new IndicesGetWarmerParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` to perform the operation on all indices</param>
-        /// <param name="name">The name of the warmer (supports wildcards); leave empty to get all warmers</param>
-        public virtual HttpResponseMessage IndicesGetWarmer(string index, string name)
-        {
-            string uri = string.Format("/{0}/_warmer/{1}", index, name);
-            return this.Execute("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` to perform the operation on all indices</param>
-        /// <param name="name">The name of the warmer (supports wildcards); leave empty to get all warmers</param>
-        public virtual async Task<HttpResponseMessage> IndicesGetWarmerAsync(string index, string name)
-        {
-            string uri = string.Format("/{0}/_warmer/{1}", index, name);
+            if ((options != null))
+            {
+                IndicesGetWarmerParameters parameters = options.Invoke(new IndicesGetWarmerParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri);
         }
         
@@ -114,11 +78,14 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` to perform the operation on all indices</param>
         /// <param name="name">The name of the warmer (supports wildcards); leave empty to get all warmers</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage IndicesGetWarmer(string index, string name, Func<IndicesGetWarmerParameters, IndicesGetWarmerParameters> options)
+        public virtual HttpResponseMessage IndicesGetWarmer(string index, string name, Func<IndicesGetWarmerParameters, IndicesGetWarmerParameters> options = null)
         {
             string uri = string.Format("/{0}/_warmer/{1}", index, name);
-            IndicesGetWarmerParameters parameters = options.Invoke(new IndicesGetWarmerParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesGetWarmerParameters parameters = options.Invoke(new IndicesGetWarmerParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri);
         }
         
@@ -126,31 +93,14 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` to perform the operation on all indices</param>
         /// <param name="name">The name of the warmer (supports wildcards); leave empty to get all warmers</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> IndicesGetWarmerAsync(string index, string name, Func<IndicesGetWarmerParameters, IndicesGetWarmerParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesGetWarmerAsync(string index, string name, Func<IndicesGetWarmerParameters, IndicesGetWarmerParameters> options = null)
         {
             string uri = string.Format("/{0}/_warmer/{1}", index, name);
-            IndicesGetWarmerParameters parameters = options.Invoke(new IndicesGetWarmerParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` to perform the operation on all indices</param>
-        /// <param name="type">A comma-separated list of document types to restrict the operation; leave empty to perform the operation on all types</param>
-        /// <param name="name">The name of the warmer (supports wildcards); leave empty to get all warmers</param>
-        public virtual HttpResponseMessage IndicesGetWarmer(string index, string type, string name)
-        {
-            string uri = string.Format("/{0}/{1}/_warmer/{2}", index, type, name);
-            return this.Execute("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` to perform the operation on all indices</param>
-        /// <param name="type">A comma-separated list of document types to restrict the operation; leave empty to perform the operation on all types</param>
-        /// <param name="name">The name of the warmer (supports wildcards); leave empty to get all warmers</param>
-        public virtual async Task<HttpResponseMessage> IndicesGetWarmerAsync(string index, string type, string name)
-        {
-            string uri = string.Format("/{0}/{1}/_warmer/{2}", index, type, name);
+            if ((options != null))
+            {
+                IndicesGetWarmerParameters parameters = options.Invoke(new IndicesGetWarmerParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri);
         }
         
@@ -159,11 +109,14 @@ namespace Elasticsearch.Client
         /// <param name="type">A comma-separated list of document types to restrict the operation; leave empty to perform the operation on all types</param>
         /// <param name="name">The name of the warmer (supports wildcards); leave empty to get all warmers</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage IndicesGetWarmer(string index, string type, string name, Func<IndicesGetWarmerParameters, IndicesGetWarmerParameters> options)
+        public virtual HttpResponseMessage IndicesGetWarmer(string index, string type, string name, Func<IndicesGetWarmerParameters, IndicesGetWarmerParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/_warmer/{2}", index, type, name);
-            IndicesGetWarmerParameters parameters = options.Invoke(new IndicesGetWarmerParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesGetWarmerParameters parameters = options.Invoke(new IndicesGetWarmerParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri);
         }
         
@@ -172,11 +125,14 @@ namespace Elasticsearch.Client
         /// <param name="type">A comma-separated list of document types to restrict the operation; leave empty to perform the operation on all types</param>
         /// <param name="name">The name of the warmer (supports wildcards); leave empty to get all warmers</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> IndicesGetWarmerAsync(string index, string type, string name, Func<IndicesGetWarmerParameters, IndicesGetWarmerParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesGetWarmerAsync(string index, string type, string name, Func<IndicesGetWarmerParameters, IndicesGetWarmerParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/_warmer/{2}", index, type, name);
-            IndicesGetWarmerParameters parameters = options.Invoke(new IndicesGetWarmerParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesGetWarmerParameters parameters = options.Invoke(new IndicesGetWarmerParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri);
         }
     }

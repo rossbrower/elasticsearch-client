@@ -21,36 +21,28 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-repositories.html"/></summary>
-        public virtual HttpResponseMessage CatRepositories()
-        {
-            string uri = "/_cat/repositories";
-            return this.Execute("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-repositories.html"/></summary>
-        public virtual async Task<HttpResponseMessage> CatRepositoriesAsync()
-        {
-            string uri = "/_cat/repositories";
-            return await this.ExecuteAsync("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-repositories.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage CatRepositories(Func<CatRepositoriesParameters, CatRepositoriesParameters> options)
+        public virtual HttpResponseMessage CatRepositories(Func<CatRepositoriesParameters, CatRepositoriesParameters> options = null)
         {
             string uri = "/_cat/repositories";
-            CatRepositoriesParameters parameters = options.Invoke(new CatRepositoriesParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CatRepositoriesParameters parameters = options.Invoke(new CatRepositoriesParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-repositories.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> CatRepositoriesAsync(Func<CatRepositoriesParameters, CatRepositoriesParameters> options)
+        public virtual async Task<HttpResponseMessage> CatRepositoriesAsync(Func<CatRepositoriesParameters, CatRepositoriesParameters> options = null)
         {
             string uri = "/_cat/repositories";
-            CatRepositoriesParameters parameters = options.Invoke(new CatRepositoriesParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CatRepositoriesParameters parameters = options.Invoke(new CatRepositoriesParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri);
         }
     }

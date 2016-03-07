@@ -24,32 +24,15 @@ namespace Elasticsearch.Client
         /// <param name="index">The name of the index</param>
         /// <param name="type">The type of the document</param>
         /// <param name="id">The document ID</param>
-        public virtual HttpResponseMessage Delete(string index, string type, string id)
-        {
-            string uri = string.Format("/{0}/{1}/{2}", index, type, id);
-            return this.Execute("DELETE", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-delete.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="type">The type of the document</param>
-        /// <param name="id">The document ID</param>
-        public virtual async Task<HttpResponseMessage> DeleteAsync(string index, string type, string id)
-        {
-            string uri = string.Format("/{0}/{1}/{2}", index, type, id);
-            return await this.ExecuteAsync("DELETE", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-delete.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="type">The type of the document</param>
-        /// <param name="id">The document ID</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage Delete(string index, string type, string id, Func<DeleteParameters, DeleteParameters> options)
+        public virtual HttpResponseMessage Delete(string index, string type, string id, Func<DeleteParameters, DeleteParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/{2}", index, type, id);
-            DeleteParameters parameters = options.Invoke(new DeleteParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                DeleteParameters parameters = options.Invoke(new DeleteParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("DELETE", uri);
         }
         
@@ -58,11 +41,14 @@ namespace Elasticsearch.Client
         /// <param name="type">The type of the document</param>
         /// <param name="id">The document ID</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> DeleteAsync(string index, string type, string id, Func<DeleteParameters, DeleteParameters> options)
+        public virtual async Task<HttpResponseMessage> DeleteAsync(string index, string type, string id, Func<DeleteParameters, DeleteParameters> options = null)
         {
             string uri = string.Format("/{0}/{1}/{2}", index, type, id);
-            DeleteParameters parameters = options.Invoke(new DeleteParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                DeleteParameters parameters = options.Invoke(new DeleteParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("DELETE", uri);
         }
     }

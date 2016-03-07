@@ -21,92 +21,56 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
-        public virtual HttpResponseMessage IndicesGetAliases()
-        {
-            string uri = "/_aliases";
-            return this.Execute("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
-        public virtual async Task<HttpResponseMessage> IndicesGetAliasesAsync()
-        {
-            string uri = "/_aliases";
-            return await this.ExecuteAsync("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage IndicesGetAliases(Func<IndicesGetAliasesParameters, IndicesGetAliasesParameters> options)
+        public virtual HttpResponseMessage IndicesGetAliases(Func<IndicesGetAliasesParameters, IndicesGetAliasesParameters> options = null)
         {
             string uri = "/_aliases";
-            IndicesGetAliasesParameters parameters = options.Invoke(new IndicesGetAliasesParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesGetAliasesParameters parameters = options.Invoke(new IndicesGetAliasesParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> IndicesGetAliasesAsync(Func<IndicesGetAliasesParameters, IndicesGetAliasesParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesGetAliasesAsync(Func<IndicesGetAliasesParameters, IndicesGetAliasesParameters> options = null)
         {
             string uri = "/_aliases";
-            IndicesGetAliasesParameters parameters = options.Invoke(new IndicesGetAliasesParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to filter aliases</param>
-        public virtual HttpResponseMessage IndicesGetAliases(string index)
-        {
-            string uri = string.Format("/{0}/_aliases", index);
-            return this.Execute("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to filter aliases</param>
-        public virtual async Task<HttpResponseMessage> IndicesGetAliasesAsync(string index)
-        {
-            string uri = string.Format("/{0}/_aliases", index);
+            if ((options != null))
+            {
+                IndicesGetAliasesParameters parameters = options.Invoke(new IndicesGetAliasesParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
         /// <param name="index">A comma-separated list of index names to filter aliases</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage IndicesGetAliases(string index, Func<IndicesGetAliasesParameters, IndicesGetAliasesParameters> options)
+        public virtual HttpResponseMessage IndicesGetAliases(string index, Func<IndicesGetAliasesParameters, IndicesGetAliasesParameters> options = null)
         {
             string uri = string.Format("/{0}/_aliases", index);
-            IndicesGetAliasesParameters parameters = options.Invoke(new IndicesGetAliasesParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesGetAliasesParameters parameters = options.Invoke(new IndicesGetAliasesParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
         /// <param name="index">A comma-separated list of index names to filter aliases</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> IndicesGetAliasesAsync(string index, Func<IndicesGetAliasesParameters, IndicesGetAliasesParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesGetAliasesAsync(string index, Func<IndicesGetAliasesParameters, IndicesGetAliasesParameters> options = null)
         {
             string uri = string.Format("/{0}/_aliases", index);
-            IndicesGetAliasesParameters parameters = options.Invoke(new IndicesGetAliasesParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to filter aliases</param>
-        /// <param name="name">A comma-separated list of alias names to filter</param>
-        public virtual HttpResponseMessage IndicesGetAliases(string index, string name)
-        {
-            string uri = string.Format("/{0}/_aliases/{1}", index, name);
-            return this.Execute("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to filter aliases</param>
-        /// <param name="name">A comma-separated list of alias names to filter</param>
-        public virtual async Task<HttpResponseMessage> IndicesGetAliasesAsync(string index, string name)
-        {
-            string uri = string.Format("/{0}/_aliases/{1}", index, name);
+            if ((options != null))
+            {
+                IndicesGetAliasesParameters parameters = options.Invoke(new IndicesGetAliasesParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri);
         }
         
@@ -114,11 +78,14 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to filter aliases</param>
         /// <param name="name">A comma-separated list of alias names to filter</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage IndicesGetAliases(string index, string name, Func<IndicesGetAliasesParameters, IndicesGetAliasesParameters> options)
+        public virtual HttpResponseMessage IndicesGetAliases(string index, string name, Func<IndicesGetAliasesParameters, IndicesGetAliasesParameters> options = null)
         {
             string uri = string.Format("/{0}/_aliases/{1}", index, name);
-            IndicesGetAliasesParameters parameters = options.Invoke(new IndicesGetAliasesParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesGetAliasesParameters parameters = options.Invoke(new IndicesGetAliasesParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri);
         }
         
@@ -126,11 +93,14 @@ namespace Elasticsearch.Client
         /// <param name="index">A comma-separated list of index names to filter aliases</param>
         /// <param name="name">A comma-separated list of alias names to filter</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> IndicesGetAliasesAsync(string index, string name, Func<IndicesGetAliasesParameters, IndicesGetAliasesParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesGetAliasesAsync(string index, string name, Func<IndicesGetAliasesParameters, IndicesGetAliasesParameters> options = null)
         {
             string uri = string.Format("/{0}/_aliases/{1}", index, name);
-            IndicesGetAliasesParameters parameters = options.Invoke(new IndicesGetAliasesParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesGetAliasesParameters parameters = options.Invoke(new IndicesGetAliasesParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri);
         }
     }

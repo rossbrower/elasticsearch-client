@@ -221,61 +221,41 @@ namespace Elasticsearch.Client.Generator
             var body = description.Body;
             if (body == null)
             {
-                yield return NoBodyNoParams(methodName, docLink, httpMethod, urlPath, urlParts);
-                yield return NoBodyNoParams(methodName, docLink, httpMethod, urlPath, urlParts, true);
-                if (parameterType != null)
-                {
-                    yield return NoBodyWithParams(methodName, docLink, httpMethod, urlPath, urlParts, parameterType);
-                    yield return
-                        NoBodyWithParams(methodName, docLink, httpMethod, urlPath, urlParts, parameterType, true);
-                }
+                yield return NoBody(methodName, docLink, httpMethod, urlPath, urlParts, parameterType);
+                yield return NoBody(methodName, docLink, httpMethod, urlPath, urlParts, parameterType, true);
             }
             else
             {
+                if (!body.Required)
+                {
+                    yield return NoBody(methodName, docLink, httpMethod, urlPath, urlParts, parameterType);
+                    yield return NoBody(methodName, docLink, httpMethod, urlPath, urlParts, parameterType, true);
+                }
                 foreach (var bodyType in BodyTypes)
                 {
-                    yield return BodyNoParams(methodName, docLink, httpMethod, urlPath, urlParts, body, bodyType);
-                    yield return BodyNoParams(methodName, docLink, httpMethod, urlPath, urlParts, body, bodyType, true);
-                    if (parameterType != null)
-                    {
-                        yield return
-                            BodyWithParams(methodName, docLink, httpMethod, urlPath, urlParts, body, bodyType,
-                                parameterType);
-                        yield return
-                            BodyWithParams(methodName, docLink, httpMethod, urlPath, urlParts, body, bodyType,
-                                parameterType, true);
-                    }
+                    yield return
+                        GenerateMethod(methodName, docLink, httpMethod, urlPath, urlParts, body, bodyType, parameterType);
+                    yield return
+                        GenerateMethod(methodName, docLink, httpMethod, urlPath, urlParts, body, bodyType, parameterType, true);
                 }
             }
         }
 
-        private static CodeMemberMethod NoBodyNoParams(string name, string docLink, string httpMethod, string uri,
-            IList<Parameter> urlParts, bool async = false)
-        {
-            return GenerateMethod(name, docLink, httpMethod, uri, urlParts, null, null, null, async);
-        }
-
-        private static CodeMemberMethod NoBodyWithParams(string name, string docLink, string httpMethod, string uri,
+        private static CodeMemberMethod NoBody(string name, string docLink, string httpMethod, string uri,
             IList<Parameter> urlParts, string parameterType, bool async = false)
         {
             return GenerateMethod(name, docLink, httpMethod, uri, urlParts, null, null, parameterType, async);
         }
 
-        private static CodeMemberMethod BodyNoParams(string name, string docLink, string httpMethod, string uri,
-            IList<Parameter> urlParts, Parameter body, Type bodyType, bool async = false)
-        {
-            return GenerateMethod(name, docLink, httpMethod, uri, urlParts, body, bodyType, null, async);
-        }
-
-        private static CodeMemberMethod BodyWithParams(string name, string docLink, string httpMethod, string uri,
-            IList<Parameter> urlParts, Parameter body, Type bodyType, string parameterType, bool async = false)
-        {
-            return GenerateMethod(name, docLink, httpMethod, uri, urlParts, body, bodyType, parameterType, async);
-        }
-
         private static CodeMemberMethod GenerateMethod(string name, string docLink, string httpMethod, string uri, 
             IList<Parameter> urlParts, Parameter body, Type bodyType, string parameterType = null, bool async = false)
         {
+            string disamb = string.Empty;
+            if (body != null && bodyType == typeof (string))
+            {
+                disamb = "String";
+            }
+            name += disamb;
             var method = new CodeMemberMethod
             {
                 Name = async ? name + "Async" : name,
@@ -336,12 +316,13 @@ namespace Elasticsearch.Client.Generator
             if (body != null)
             {
                 //add method parameter for the body type and pass the reference to the execute method.
+                const string bodyVariable = "body";
                 var paramDeclare = bodyType == typeof (string)
-                    ? new CodeParameterDeclarationExpression(bodyType, "body")
-                    : new CodeParameterDeclarationExpression(bodyType.Name, "body");
+                    ? new CodeParameterDeclarationExpression(bodyType, bodyVariable)
+                    : new CodeParameterDeclarationExpression(bodyType.Name, bodyVariable);
                 method.Parameters.Add(paramDeclare);
                 method.Comments.Add(GetParameterCommentStatement(body.Name, body.Description));
-                executeInvoke.Parameters.Add(new CodeVariableReferenceExpression("body"));
+                executeInvoke.Parameters.Add(new CodeVariableReferenceExpression(bodyVariable));
             }
             if (parameterType != null)
             {
@@ -351,16 +332,20 @@ namespace Elasticsearch.Client.Generator
                 funcType.TypeArguments.Add(parameterType);
                 const string parameters = "parameters";
                 const string options = "options";
-                method.Parameters.Add(new CodeParameterDeclarationExpression(funcType, options));
+                method.Parameters.Add(new CodeParameterDeclarationExpression(funcType, options + " = null"));
                 method.Comments.Add(GetParameterCommentStatement("options",
                     "The function to set optional url parameters."));
                 //create the params object and pass it to the function.
-                method.Statements.Add(new CodeVariableDeclarationStatement(parameterType, parameters,
-                    new CodeMethodInvokeExpression(new CodeVariableReferenceExpression(options),
-                        "Invoke", new CodeObjectCreateExpression(parameterType))));
-                method.Statements.Add(new CodeAssignStatement(new CodeVariableReferenceExpression("uri"),
-                    new CodeMethodInvokeExpression(new CodeVariableReferenceExpression(parameters), "GetUri",
-                        new CodeVariableReferenceExpression("uri"))));
+                var nullCheck = new CodeBinaryOperatorExpression(new CodeVariableReferenceExpression("options"),
+                    CodeBinaryOperatorType.IdentityInequality, new CodePrimitiveExpression(null));
+                var ifStatement = new CodeConditionStatement(nullCheck,
+                    new CodeVariableDeclarationStatement(parameterType, parameters,
+                        new CodeMethodInvokeExpression(new CodeVariableReferenceExpression(options),
+                            "Invoke", new CodeObjectCreateExpression(parameterType))),
+                    new CodeAssignStatement(new CodeVariableReferenceExpression("uri"),
+                        new CodeMethodInvokeExpression(new CodeVariableReferenceExpression(parameters), "GetUri",
+                            new CodeVariableReferenceExpression("uri"))));
+                method.Statements.Add(ifStatement);
             }
             method.Statements.Add(new CodeMethodReturnStatement(executeInvoke));
             return method;

@@ -21,36 +21,28 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-plugins.html"/></summary>
-        public virtual HttpResponseMessage CatPlugins()
-        {
-            string uri = "/_cat/plugins";
-            return this.Execute("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-plugins.html"/></summary>
-        public virtual async Task<HttpResponseMessage> CatPluginsAsync()
-        {
-            string uri = "/_cat/plugins";
-            return await this.ExecuteAsync("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-plugins.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage CatPlugins(Func<CatPluginsParameters, CatPluginsParameters> options)
+        public virtual HttpResponseMessage CatPlugins(Func<CatPluginsParameters, CatPluginsParameters> options = null)
         {
             string uri = "/_cat/plugins";
-            CatPluginsParameters parameters = options.Invoke(new CatPluginsParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CatPluginsParameters parameters = options.Invoke(new CatPluginsParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-plugins.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> CatPluginsAsync(Func<CatPluginsParameters, CatPluginsParameters> options)
+        public virtual async Task<HttpResponseMessage> CatPluginsAsync(Func<CatPluginsParameters, CatPluginsParameters> options = null)
         {
             string uri = "/_cat/plugins";
-            CatPluginsParameters parameters = options.Invoke(new CatPluginsParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CatPluginsParameters parameters = options.Invoke(new CatPluginsParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri);
         }
     }

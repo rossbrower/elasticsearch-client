@@ -22,6 +22,22 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
         /// <param name="scroll_id">A comma-separated list of scroll IDs to clear</param>
+        public virtual HttpResponseMessage ClearScroll(string scroll_id)
+        {
+            string uri = string.Format("/_search/scroll/{0}", scroll_id);
+            return this.Execute("DELETE", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
+        /// <param name="scroll_id">A comma-separated list of scroll IDs to clear</param>
+        public virtual async Task<HttpResponseMessage> ClearScrollAsync(string scroll_id)
+        {
+            string uri = string.Format("/_search/scroll/{0}", scroll_id);
+            return await this.ExecuteAsync("DELETE", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
+        /// <param name="scroll_id">A comma-separated list of scroll IDs to clear</param>
         /// <param name="body">A comma-separated list of scroll IDs to clear if none was specified via the scroll_id parameter</param>
         public virtual HttpResponseMessage ClearScroll(string scroll_id, Stream body)
         {
@@ -59,7 +75,7 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
         /// <param name="scroll_id">A comma-separated list of scroll IDs to clear</param>
         /// <param name="body">A comma-separated list of scroll IDs to clear if none was specified via the scroll_id parameter</param>
-        public virtual HttpResponseMessage ClearScroll(string scroll_id, string body)
+        public virtual HttpResponseMessage ClearScrollString(string scroll_id, string body)
         {
             string uri = string.Format("/_search/scroll/{0}", scroll_id);
             return this.Execute("DELETE", uri, body);
@@ -68,10 +84,24 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
         /// <param name="scroll_id">A comma-separated list of scroll IDs to clear</param>
         /// <param name="body">A comma-separated list of scroll IDs to clear if none was specified via the scroll_id parameter</param>
-        public virtual async Task<HttpResponseMessage> ClearScrollAsync(string scroll_id, string body)
+        public virtual async Task<HttpResponseMessage> ClearScrollStringAsync(string scroll_id, string body)
         {
             string uri = string.Format("/_search/scroll/{0}", scroll_id);
             return await this.ExecuteAsync("DELETE", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
+        public virtual HttpResponseMessage ClearScroll()
+        {
+            string uri = "/_search/scroll";
+            return this.Execute("DELETE", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
+        public virtual async Task<HttpResponseMessage> ClearScrollAsync()
+        {
+            string uri = "/_search/scroll";
+            return await this.ExecuteAsync("DELETE", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
@@ -108,7 +138,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
         /// <param name="body">A comma-separated list of scroll IDs to clear if none was specified via the scroll_id parameter</param>
-        public virtual HttpResponseMessage ClearScroll(string body)
+        public virtual HttpResponseMessage ClearScrollString(string body)
         {
             string uri = "/_search/scroll";
             return this.Execute("DELETE", uri, body);
@@ -116,7 +146,7 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
         /// <param name="body">A comma-separated list of scroll IDs to clear if none was specified via the scroll_id parameter</param>
-        public virtual async Task<HttpResponseMessage> ClearScrollAsync(string body)
+        public virtual async Task<HttpResponseMessage> ClearScrollStringAsync(string body)
         {
             string uri = "/_search/scroll";
             return await this.ExecuteAsync("DELETE", uri, body);

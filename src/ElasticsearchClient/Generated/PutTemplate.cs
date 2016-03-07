@@ -23,30 +23,15 @@ namespace Elasticsearch.Client
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
         /// <param name="id">Template ID</param>
         /// <param name="body">The document</param>
-        public virtual HttpResponseMessage PutTemplatePut(string id, Stream body)
-        {
-            string uri = string.Format("/_search/template/{0}", id);
-            return this.Execute("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
-        /// <param name="id">Template ID</param>
-        /// <param name="body">The document</param>
-        public virtual async Task<HttpResponseMessage> PutTemplatePutAsync(string id, Stream body)
-        {
-            string uri = string.Format("/_search/template/{0}", id);
-            return await this.ExecuteAsync("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
-        /// <param name="id">Template ID</param>
-        /// <param name="body">The document</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage PutTemplatePut(string id, Stream body, Func<PutTemplateParameters, PutTemplateParameters> options)
+        public virtual HttpResponseMessage PutTemplatePut(string id, Stream body, Func<PutTemplateParameters, PutTemplateParameters> options = null)
         {
             string uri = string.Format("/_search/template/{0}", id);
-            PutTemplateParameters parameters = options.Invoke(new PutTemplateParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                PutTemplateParameters parameters = options.Invoke(new PutTemplateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("PUT", uri, body);
         }
         
@@ -54,29 +39,14 @@ namespace Elasticsearch.Client
         /// <param name="id">Template ID</param>
         /// <param name="body">The document</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> PutTemplatePutAsync(string id, Stream body, Func<PutTemplateParameters, PutTemplateParameters> options)
+        public virtual async Task<HttpResponseMessage> PutTemplatePutAsync(string id, Stream body, Func<PutTemplateParameters, PutTemplateParameters> options = null)
         {
             string uri = string.Format("/_search/template/{0}", id);
-            PutTemplateParameters parameters = options.Invoke(new PutTemplateParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
-        /// <param name="id">Template ID</param>
-        /// <param name="body">The document</param>
-        public virtual HttpResponseMessage PutTemplatePut(string id, Byte[] body)
-        {
-            string uri = string.Format("/_search/template/{0}", id);
-            return this.Execute("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
-        /// <param name="id">Template ID</param>
-        /// <param name="body">The document</param>
-        public virtual async Task<HttpResponseMessage> PutTemplatePutAsync(string id, Byte[] body)
-        {
-            string uri = string.Format("/_search/template/{0}", id);
+            if ((options != null))
+            {
+                PutTemplateParameters parameters = options.Invoke(new PutTemplateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("PUT", uri, body);
         }
         
@@ -84,11 +54,14 @@ namespace Elasticsearch.Client
         /// <param name="id">Template ID</param>
         /// <param name="body">The document</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage PutTemplatePut(string id, Byte[] body, Func<PutTemplateParameters, PutTemplateParameters> options)
+        public virtual HttpResponseMessage PutTemplatePut(string id, Byte[] body, Func<PutTemplateParameters, PutTemplateParameters> options = null)
         {
             string uri = string.Format("/_search/template/{0}", id);
-            PutTemplateParameters parameters = options.Invoke(new PutTemplateParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                PutTemplateParameters parameters = options.Invoke(new PutTemplateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("PUT", uri, body);
         }
         
@@ -96,29 +69,14 @@ namespace Elasticsearch.Client
         /// <param name="id">Template ID</param>
         /// <param name="body">The document</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> PutTemplatePutAsync(string id, Byte[] body, Func<PutTemplateParameters, PutTemplateParameters> options)
+        public virtual async Task<HttpResponseMessage> PutTemplatePutAsync(string id, Byte[] body, Func<PutTemplateParameters, PutTemplateParameters> options = null)
         {
             string uri = string.Format("/_search/template/{0}", id);
-            PutTemplateParameters parameters = options.Invoke(new PutTemplateParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
-        /// <param name="id">Template ID</param>
-        /// <param name="body">The document</param>
-        public virtual HttpResponseMessage PutTemplatePut(string id, string body)
-        {
-            string uri = string.Format("/_search/template/{0}", id);
-            return this.Execute("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
-        /// <param name="id">Template ID</param>
-        /// <param name="body">The document</param>
-        public virtual async Task<HttpResponseMessage> PutTemplatePutAsync(string id, string body)
-        {
-            string uri = string.Format("/_search/template/{0}", id);
+            if ((options != null))
+            {
+                PutTemplateParameters parameters = options.Invoke(new PutTemplateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("PUT", uri, body);
         }
         
@@ -126,11 +84,14 @@ namespace Elasticsearch.Client
         /// <param name="id">Template ID</param>
         /// <param name="body">The document</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage PutTemplatePut(string id, string body, Func<PutTemplateParameters, PutTemplateParameters> options)
+        public virtual HttpResponseMessage PutTemplatePutString(string id, string body, Func<PutTemplateParameters, PutTemplateParameters> options = null)
         {
             string uri = string.Format("/_search/template/{0}", id);
-            PutTemplateParameters parameters = options.Invoke(new PutTemplateParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                PutTemplateParameters parameters = options.Invoke(new PutTemplateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("PUT", uri, body);
         }
         
@@ -138,29 +99,44 @@ namespace Elasticsearch.Client
         /// <param name="id">Template ID</param>
         /// <param name="body">The document</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> PutTemplatePutAsync(string id, string body, Func<PutTemplateParameters, PutTemplateParameters> options)
+        public virtual async Task<HttpResponseMessage> PutTemplatePutStringAsync(string id, string body, Func<PutTemplateParameters, PutTemplateParameters> options = null)
         {
             string uri = string.Format("/_search/template/{0}", id);
-            PutTemplateParameters parameters = options.Invoke(new PutTemplateParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                PutTemplateParameters parameters = options.Invoke(new PutTemplateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("PUT", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
         /// <param name="id">Template ID</param>
         /// <param name="body">The document</param>
-        public virtual HttpResponseMessage PutTemplatePost(string id, Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage PutTemplatePost(string id, Stream body, Func<PutTemplateParameters, PutTemplateParameters> options = null)
         {
             string uri = string.Format("/_search/template/{0}", id);
+            if ((options != null))
+            {
+                PutTemplateParameters parameters = options.Invoke(new PutTemplateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
         /// <param name="id">Template ID</param>
         /// <param name="body">The document</param>
-        public virtual async Task<HttpResponseMessage> PutTemplatePostAsync(string id, Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> PutTemplatePostAsync(string id, Stream body, Func<PutTemplateParameters, PutTemplateParameters> options = null)
         {
             string uri = string.Format("/_search/template/{0}", id);
+            if ((options != null))
+            {
+                PutTemplateParameters parameters = options.Invoke(new PutTemplateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -168,11 +144,14 @@ namespace Elasticsearch.Client
         /// <param name="id">Template ID</param>
         /// <param name="body">The document</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage PutTemplatePost(string id, Stream body, Func<PutTemplateParameters, PutTemplateParameters> options)
+        public virtual HttpResponseMessage PutTemplatePost(string id, Byte[] body, Func<PutTemplateParameters, PutTemplateParameters> options = null)
         {
             string uri = string.Format("/_search/template/{0}", id);
-            PutTemplateParameters parameters = options.Invoke(new PutTemplateParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                PutTemplateParameters parameters = options.Invoke(new PutTemplateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
@@ -180,29 +159,14 @@ namespace Elasticsearch.Client
         /// <param name="id">Template ID</param>
         /// <param name="body">The document</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> PutTemplatePostAsync(string id, Stream body, Func<PutTemplateParameters, PutTemplateParameters> options)
+        public virtual async Task<HttpResponseMessage> PutTemplatePostAsync(string id, Byte[] body, Func<PutTemplateParameters, PutTemplateParameters> options = null)
         {
             string uri = string.Format("/_search/template/{0}", id);
-            PutTemplateParameters parameters = options.Invoke(new PutTemplateParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
-        /// <param name="id">Template ID</param>
-        /// <param name="body">The document</param>
-        public virtual HttpResponseMessage PutTemplatePost(string id, Byte[] body)
-        {
-            string uri = string.Format("/_search/template/{0}", id);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
-        /// <param name="id">Template ID</param>
-        /// <param name="body">The document</param>
-        public virtual async Task<HttpResponseMessage> PutTemplatePostAsync(string id, Byte[] body)
-        {
-            string uri = string.Format("/_search/template/{0}", id);
+            if ((options != null))
+            {
+                PutTemplateParameters parameters = options.Invoke(new PutTemplateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -210,11 +174,14 @@ namespace Elasticsearch.Client
         /// <param name="id">Template ID</param>
         /// <param name="body">The document</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage PutTemplatePost(string id, Byte[] body, Func<PutTemplateParameters, PutTemplateParameters> options)
+        public virtual HttpResponseMessage PutTemplatePostString(string id, string body, Func<PutTemplateParameters, PutTemplateParameters> options = null)
         {
             string uri = string.Format("/_search/template/{0}", id);
-            PutTemplateParameters parameters = options.Invoke(new PutTemplateParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                PutTemplateParameters parameters = options.Invoke(new PutTemplateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
@@ -222,53 +189,14 @@ namespace Elasticsearch.Client
         /// <param name="id">Template ID</param>
         /// <param name="body">The document</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> PutTemplatePostAsync(string id, Byte[] body, Func<PutTemplateParameters, PutTemplateParameters> options)
+        public virtual async Task<HttpResponseMessage> PutTemplatePostStringAsync(string id, string body, Func<PutTemplateParameters, PutTemplateParameters> options = null)
         {
             string uri = string.Format("/_search/template/{0}", id);
-            PutTemplateParameters parameters = options.Invoke(new PutTemplateParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
-        /// <param name="id">Template ID</param>
-        /// <param name="body">The document</param>
-        public virtual HttpResponseMessage PutTemplatePost(string id, string body)
-        {
-            string uri = string.Format("/_search/template/{0}", id);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
-        /// <param name="id">Template ID</param>
-        /// <param name="body">The document</param>
-        public virtual async Task<HttpResponseMessage> PutTemplatePostAsync(string id, string body)
-        {
-            string uri = string.Format("/_search/template/{0}", id);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
-        /// <param name="id">Template ID</param>
-        /// <param name="body">The document</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage PutTemplatePost(string id, string body, Func<PutTemplateParameters, PutTemplateParameters> options)
-        {
-            string uri = string.Format("/_search/template/{0}", id);
-            PutTemplateParameters parameters = options.Invoke(new PutTemplateParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
-        /// <param name="id">Template ID</param>
-        /// <param name="body">The document</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> PutTemplatePostAsync(string id, string body, Func<PutTemplateParameters, PutTemplateParameters> options)
-        {
-            string uri = string.Format("/_search/template/{0}", id);
-            PutTemplateParameters parameters = options.Invoke(new PutTemplateParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                PutTemplateParameters parameters = options.Invoke(new PutTemplateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
     }

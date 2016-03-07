@@ -21,74 +21,56 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-allocation.html"/></summary>
-        public virtual HttpResponseMessage CatAllocation()
-        {
-            string uri = "/_cat/allocation";
-            return this.Execute("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-allocation.html"/></summary>
-        public virtual async Task<HttpResponseMessage> CatAllocationAsync()
-        {
-            string uri = "/_cat/allocation";
-            return await this.ExecuteAsync("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-allocation.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage CatAllocation(Func<CatAllocationParameters, CatAllocationParameters> options)
+        public virtual HttpResponseMessage CatAllocation(Func<CatAllocationParameters, CatAllocationParameters> options = null)
         {
             string uri = "/_cat/allocation";
-            CatAllocationParameters parameters = options.Invoke(new CatAllocationParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CatAllocationParameters parameters = options.Invoke(new CatAllocationParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-allocation.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> CatAllocationAsync(Func<CatAllocationParameters, CatAllocationParameters> options)
+        public virtual async Task<HttpResponseMessage> CatAllocationAsync(Func<CatAllocationParameters, CatAllocationParameters> options = null)
         {
             string uri = "/_cat/allocation";
-            CatAllocationParameters parameters = options.Invoke(new CatAllocationParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-allocation.html"/></summary>
-        /// <param name="node_id">A comma-separated list of node IDs or names to limit the returned information</param>
-        public virtual HttpResponseMessage CatAllocation(string node_id)
-        {
-            string uri = string.Format("/_cat/allocation/{0}", node_id);
-            return this.Execute("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-allocation.html"/></summary>
-        /// <param name="node_id">A comma-separated list of node IDs or names to limit the returned information</param>
-        public virtual async Task<HttpResponseMessage> CatAllocationAsync(string node_id)
-        {
-            string uri = string.Format("/_cat/allocation/{0}", node_id);
+            if ((options != null))
+            {
+                CatAllocationParameters parameters = options.Invoke(new CatAllocationParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-allocation.html"/></summary>
         /// <param name="node_id">A comma-separated list of node IDs or names to limit the returned information</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage CatAllocation(string node_id, Func<CatAllocationParameters, CatAllocationParameters> options)
+        public virtual HttpResponseMessage CatAllocation(string node_id, Func<CatAllocationParameters, CatAllocationParameters> options = null)
         {
             string uri = string.Format("/_cat/allocation/{0}", node_id);
-            CatAllocationParameters parameters = options.Invoke(new CatAllocationParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CatAllocationParameters parameters = options.Invoke(new CatAllocationParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-allocation.html"/></summary>
         /// <param name="node_id">A comma-separated list of node IDs or names to limit the returned information</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> CatAllocationAsync(string node_id, Func<CatAllocationParameters, CatAllocationParameters> options)
+        public virtual async Task<HttpResponseMessage> CatAllocationAsync(string node_id, Func<CatAllocationParameters, CatAllocationParameters> options = null)
         {
             string uri = string.Format("/_cat/allocation/{0}", node_id);
-            CatAllocationParameters parameters = options.Invoke(new CatAllocationParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CatAllocationParameters parameters = options.Invoke(new CatAllocationParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri);
         }
     }

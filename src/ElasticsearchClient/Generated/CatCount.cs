@@ -21,74 +21,56 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-count.html"/></summary>
-        public virtual HttpResponseMessage CatCount()
-        {
-            string uri = "/_cat/count";
-            return this.Execute("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-count.html"/></summary>
-        public virtual async Task<HttpResponseMessage> CatCountAsync()
-        {
-            string uri = "/_cat/count";
-            return await this.ExecuteAsync("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-count.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage CatCount(Func<CatCountParameters, CatCountParameters> options)
+        public virtual HttpResponseMessage CatCount(Func<CatCountParameters, CatCountParameters> options = null)
         {
             string uri = "/_cat/count";
-            CatCountParameters parameters = options.Invoke(new CatCountParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CatCountParameters parameters = options.Invoke(new CatCountParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-count.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> CatCountAsync(Func<CatCountParameters, CatCountParameters> options)
+        public virtual async Task<HttpResponseMessage> CatCountAsync(Func<CatCountParameters, CatCountParameters> options = null)
         {
             string uri = "/_cat/count";
-            CatCountParameters parameters = options.Invoke(new CatCountParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-count.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to limit the returned information</param>
-        public virtual HttpResponseMessage CatCount(string index)
-        {
-            string uri = string.Format("/_cat/count/{0}", index);
-            return this.Execute("GET", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-count.html"/></summary>
-        /// <param name="index">A comma-separated list of index names to limit the returned information</param>
-        public virtual async Task<HttpResponseMessage> CatCountAsync(string index)
-        {
-            string uri = string.Format("/_cat/count/{0}", index);
+            if ((options != null))
+            {
+                CatCountParameters parameters = options.Invoke(new CatCountParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-count.html"/></summary>
         /// <param name="index">A comma-separated list of index names to limit the returned information</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage CatCount(string index, Func<CatCountParameters, CatCountParameters> options)
+        public virtual HttpResponseMessage CatCount(string index, Func<CatCountParameters, CatCountParameters> options = null)
         {
             string uri = string.Format("/_cat/count/{0}", index);
-            CatCountParameters parameters = options.Invoke(new CatCountParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CatCountParameters parameters = options.Invoke(new CatCountParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-count.html"/></summary>
         /// <param name="index">A comma-separated list of index names to limit the returned information</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> CatCountAsync(string index, Func<CatCountParameters, CatCountParameters> options)
+        public virtual async Task<HttpResponseMessage> CatCountAsync(string index, Func<CatCountParameters, CatCountParameters> options = null)
         {
             string uri = string.Format("/_cat/count/{0}", index);
-            CatCountParameters parameters = options.Invoke(new CatCountParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                CatCountParameters parameters = options.Invoke(new CatCountParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("GET", uri);
         }
     }

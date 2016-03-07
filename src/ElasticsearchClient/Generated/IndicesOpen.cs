@@ -22,39 +22,29 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-open-close.html"/></summary>
         /// <param name="index">A comma separated list of indices to open</param>
-        public virtual HttpResponseMessage IndicesOpen(string index)
-        {
-            string uri = string.Format("/{0}/_open", index);
-            return this.Execute("POST", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-open-close.html"/></summary>
-        /// <param name="index">A comma separated list of indices to open</param>
-        public virtual async Task<HttpResponseMessage> IndicesOpenAsync(string index)
-        {
-            string uri = string.Format("/{0}/_open", index);
-            return await this.ExecuteAsync("POST", uri);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-open-close.html"/></summary>
-        /// <param name="index">A comma separated list of indices to open</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage IndicesOpen(string index, Func<IndicesOpenParameters, IndicesOpenParameters> options)
+        public virtual HttpResponseMessage IndicesOpen(string index, Func<IndicesOpenParameters, IndicesOpenParameters> options = null)
         {
             string uri = string.Format("/{0}/_open", index);
-            IndicesOpenParameters parameters = options.Invoke(new IndicesOpenParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesOpenParameters parameters = options.Invoke(new IndicesOpenParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-open-close.html"/></summary>
         /// <param name="index">A comma separated list of indices to open</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> IndicesOpenAsync(string index, Func<IndicesOpenParameters, IndicesOpenParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesOpenAsync(string index, Func<IndicesOpenParameters, IndicesOpenParameters> options = null)
         {
             string uri = string.Format("/{0}/_open", index);
-            IndicesOpenParameters parameters = options.Invoke(new IndicesOpenParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesOpenParameters parameters = options.Invoke(new IndicesOpenParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri);
         }
     }

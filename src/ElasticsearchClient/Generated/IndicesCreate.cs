@@ -22,73 +22,44 @@ namespace Elasticsearch.Client
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-create-index.html"/></summary>
         /// <param name="index">The name of the index</param>
-        /// <param name="body">The configuration for the index (`settings` and `mappings`)</param>
-        public virtual HttpResponseMessage IndicesCreatePut(string index, Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage IndicesCreatePut(string index, Func<IndicesCreateParameters, IndicesCreateParameters> options = null)
         {
             string uri = string.Format("/{0}", index);
-            return this.Execute("PUT", uri, body);
+            if ((options != null))
+            {
+                IndicesCreateParameters parameters = options.Invoke(new IndicesCreateParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return this.Execute("PUT", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-create-index.html"/></summary>
         /// <param name="index">The name of the index</param>
-        /// <param name="body">The configuration for the index (`settings` and `mappings`)</param>
-        public virtual async Task<HttpResponseMessage> IndicesCreatePutAsync(string index, Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> IndicesCreatePutAsync(string index, Func<IndicesCreateParameters, IndicesCreateParameters> options = null)
         {
             string uri = string.Format("/{0}", index);
-            return await this.ExecuteAsync("PUT", uri, body);
+            if ((options != null))
+            {
+                IndicesCreateParameters parameters = options.Invoke(new IndicesCreateParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return await this.ExecuteAsync("PUT", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-create-index.html"/></summary>
         /// <param name="index">The name of the index</param>
         /// <param name="body">The configuration for the index (`settings` and `mappings`)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage IndicesCreatePut(string index, Stream body, Func<IndicesCreateParameters, IndicesCreateParameters> options)
+        public virtual HttpResponseMessage IndicesCreatePut(string index, Stream body, Func<IndicesCreateParameters, IndicesCreateParameters> options = null)
         {
             string uri = string.Format("/{0}", index);
-            IndicesCreateParameters parameters = options.Invoke(new IndicesCreateParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-create-index.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="body">The configuration for the index (`settings` and `mappings`)</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> IndicesCreatePutAsync(string index, Stream body, Func<IndicesCreateParameters, IndicesCreateParameters> options)
-        {
-            string uri = string.Format("/{0}", index);
-            IndicesCreateParameters parameters = options.Invoke(new IndicesCreateParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-create-index.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="body">The configuration for the index (`settings` and `mappings`)</param>
-        public virtual HttpResponseMessage IndicesCreatePut(string index, Byte[] body)
-        {
-            string uri = string.Format("/{0}", index);
-            return this.Execute("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-create-index.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="body">The configuration for the index (`settings` and `mappings`)</param>
-        public virtual async Task<HttpResponseMessage> IndicesCreatePutAsync(string index, Byte[] body)
-        {
-            string uri = string.Format("/{0}", index);
-            return await this.ExecuteAsync("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-create-index.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="body">The configuration for the index (`settings` and `mappings`)</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage IndicesCreatePut(string index, Byte[] body, Func<IndicesCreateParameters, IndicesCreateParameters> options)
-        {
-            string uri = string.Format("/{0}", index);
-            IndicesCreateParameters parameters = options.Invoke(new IndicesCreateParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesCreateParameters parameters = options.Invoke(new IndicesCreateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("PUT", uri, body);
         }
         
@@ -96,29 +67,14 @@ namespace Elasticsearch.Client
         /// <param name="index">The name of the index</param>
         /// <param name="body">The configuration for the index (`settings` and `mappings`)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> IndicesCreatePutAsync(string index, Byte[] body, Func<IndicesCreateParameters, IndicesCreateParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesCreatePutAsync(string index, Stream body, Func<IndicesCreateParameters, IndicesCreateParameters> options = null)
         {
             string uri = string.Format("/{0}", index);
-            IndicesCreateParameters parameters = options.Invoke(new IndicesCreateParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-create-index.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="body">The configuration for the index (`settings` and `mappings`)</param>
-        public virtual HttpResponseMessage IndicesCreatePut(string index, string body)
-        {
-            string uri = string.Format("/{0}", index);
-            return this.Execute("PUT", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-create-index.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="body">The configuration for the index (`settings` and `mappings`)</param>
-        public virtual async Task<HttpResponseMessage> IndicesCreatePutAsync(string index, string body)
-        {
-            string uri = string.Format("/{0}", index);
+            if ((options != null))
+            {
+                IndicesCreateParameters parameters = options.Invoke(new IndicesCreateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("PUT", uri, body);
         }
         
@@ -126,11 +82,14 @@ namespace Elasticsearch.Client
         /// <param name="index">The name of the index</param>
         /// <param name="body">The configuration for the index (`settings` and `mappings`)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage IndicesCreatePut(string index, string body, Func<IndicesCreateParameters, IndicesCreateParameters> options)
+        public virtual HttpResponseMessage IndicesCreatePut(string index, Byte[] body, Func<IndicesCreateParameters, IndicesCreateParameters> options = null)
         {
             string uri = string.Format("/{0}", index);
-            IndicesCreateParameters parameters = options.Invoke(new IndicesCreateParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesCreateParameters parameters = options.Invoke(new IndicesCreateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("PUT", uri, body);
         }
         
@@ -138,29 +97,102 @@ namespace Elasticsearch.Client
         /// <param name="index">The name of the index</param>
         /// <param name="body">The configuration for the index (`settings` and `mappings`)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> IndicesCreatePutAsync(string index, string body, Func<IndicesCreateParameters, IndicesCreateParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesCreatePutAsync(string index, Byte[] body, Func<IndicesCreateParameters, IndicesCreateParameters> options = null)
         {
             string uri = string.Format("/{0}", index);
-            IndicesCreateParameters parameters = options.Invoke(new IndicesCreateParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesCreateParameters parameters = options.Invoke(new IndicesCreateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("PUT", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-create-index.html"/></summary>
         /// <param name="index">The name of the index</param>
         /// <param name="body">The configuration for the index (`settings` and `mappings`)</param>
-        public virtual HttpResponseMessage IndicesCreatePost(string index, Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage IndicesCreatePutString(string index, string body, Func<IndicesCreateParameters, IndicesCreateParameters> options = null)
         {
             string uri = string.Format("/{0}", index);
+            if ((options != null))
+            {
+                IndicesCreateParameters parameters = options.Invoke(new IndicesCreateParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return this.Execute("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-create-index.html"/></summary>
+        /// <param name="index">The name of the index</param>
+        /// <param name="body">The configuration for the index (`settings` and `mappings`)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> IndicesCreatePutStringAsync(string index, string body, Func<IndicesCreateParameters, IndicesCreateParameters> options = null)
+        {
+            string uri = string.Format("/{0}", index);
+            if ((options != null))
+            {
+                IndicesCreateParameters parameters = options.Invoke(new IndicesCreateParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return await this.ExecuteAsync("PUT", uri, body);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-create-index.html"/></summary>
+        /// <param name="index">The name of the index</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage IndicesCreatePost(string index, Func<IndicesCreateParameters, IndicesCreateParameters> options = null)
+        {
+            string uri = string.Format("/{0}", index);
+            if ((options != null))
+            {
+                IndicesCreateParameters parameters = options.Invoke(new IndicesCreateParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return this.Execute("POST", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-create-index.html"/></summary>
+        /// <param name="index">The name of the index</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> IndicesCreatePostAsync(string index, Func<IndicesCreateParameters, IndicesCreateParameters> options = null)
+        {
+            string uri = string.Format("/{0}", index);
+            if ((options != null))
+            {
+                IndicesCreateParameters parameters = options.Invoke(new IndicesCreateParameters());
+                uri = parameters.GetUri(uri);
+            }
+            return await this.ExecuteAsync("POST", uri);
+        }
+        
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-create-index.html"/></summary>
+        /// <param name="index">The name of the index</param>
+        /// <param name="body">The configuration for the index (`settings` and `mappings`)</param>
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual HttpResponseMessage IndicesCreatePost(string index, Stream body, Func<IndicesCreateParameters, IndicesCreateParameters> options = null)
+        {
+            string uri = string.Format("/{0}", index);
+            if ((options != null))
+            {
+                IndicesCreateParameters parameters = options.Invoke(new IndicesCreateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-create-index.html"/></summary>
         /// <param name="index">The name of the index</param>
         /// <param name="body">The configuration for the index (`settings` and `mappings`)</param>
-        public virtual async Task<HttpResponseMessage> IndicesCreatePostAsync(string index, Stream body)
+        /// <param name="options">The function to set optional url parameters.</param>
+        public virtual async Task<HttpResponseMessage> IndicesCreatePostAsync(string index, Stream body, Func<IndicesCreateParameters, IndicesCreateParameters> options = null)
         {
             string uri = string.Format("/{0}", index);
+            if ((options != null))
+            {
+                IndicesCreateParameters parameters = options.Invoke(new IndicesCreateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -168,11 +200,14 @@ namespace Elasticsearch.Client
         /// <param name="index">The name of the index</param>
         /// <param name="body">The configuration for the index (`settings` and `mappings`)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage IndicesCreatePost(string index, Stream body, Func<IndicesCreateParameters, IndicesCreateParameters> options)
+        public virtual HttpResponseMessage IndicesCreatePost(string index, Byte[] body, Func<IndicesCreateParameters, IndicesCreateParameters> options = null)
         {
             string uri = string.Format("/{0}", index);
-            IndicesCreateParameters parameters = options.Invoke(new IndicesCreateParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesCreateParameters parameters = options.Invoke(new IndicesCreateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
@@ -180,29 +215,14 @@ namespace Elasticsearch.Client
         /// <param name="index">The name of the index</param>
         /// <param name="body">The configuration for the index (`settings` and `mappings`)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> IndicesCreatePostAsync(string index, Stream body, Func<IndicesCreateParameters, IndicesCreateParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesCreatePostAsync(string index, Byte[] body, Func<IndicesCreateParameters, IndicesCreateParameters> options = null)
         {
             string uri = string.Format("/{0}", index);
-            IndicesCreateParameters parameters = options.Invoke(new IndicesCreateParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-create-index.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="body">The configuration for the index (`settings` and `mappings`)</param>
-        public virtual HttpResponseMessage IndicesCreatePost(string index, Byte[] body)
-        {
-            string uri = string.Format("/{0}", index);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-create-index.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="body">The configuration for the index (`settings` and `mappings`)</param>
-        public virtual async Task<HttpResponseMessage> IndicesCreatePostAsync(string index, Byte[] body)
-        {
-            string uri = string.Format("/{0}", index);
+            if ((options != null))
+            {
+                IndicesCreateParameters parameters = options.Invoke(new IndicesCreateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
         
@@ -210,11 +230,14 @@ namespace Elasticsearch.Client
         /// <param name="index">The name of the index</param>
         /// <param name="body">The configuration for the index (`settings` and `mappings`)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage IndicesCreatePost(string index, Byte[] body, Func<IndicesCreateParameters, IndicesCreateParameters> options)
+        public virtual HttpResponseMessage IndicesCreatePostString(string index, string body, Func<IndicesCreateParameters, IndicesCreateParameters> options = null)
         {
             string uri = string.Format("/{0}", index);
-            IndicesCreateParameters parameters = options.Invoke(new IndicesCreateParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesCreateParameters parameters = options.Invoke(new IndicesCreateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return this.Execute("POST", uri, body);
         }
         
@@ -222,53 +245,14 @@ namespace Elasticsearch.Client
         /// <param name="index">The name of the index</param>
         /// <param name="body">The configuration for the index (`settings` and `mappings`)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> IndicesCreatePostAsync(string index, Byte[] body, Func<IndicesCreateParameters, IndicesCreateParameters> options)
+        public virtual async Task<HttpResponseMessage> IndicesCreatePostStringAsync(string index, string body, Func<IndicesCreateParameters, IndicesCreateParameters> options = null)
         {
             string uri = string.Format("/{0}", index);
-            IndicesCreateParameters parameters = options.Invoke(new IndicesCreateParameters());
-            uri = parameters.GetUri(uri);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-create-index.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="body">The configuration for the index (`settings` and `mappings`)</param>
-        public virtual HttpResponseMessage IndicesCreatePost(string index, string body)
-        {
-            string uri = string.Format("/{0}", index);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-create-index.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="body">The configuration for the index (`settings` and `mappings`)</param>
-        public virtual async Task<HttpResponseMessage> IndicesCreatePostAsync(string index, string body)
-        {
-            string uri = string.Format("/{0}", index);
-            return await this.ExecuteAsync("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-create-index.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="body">The configuration for the index (`settings` and `mappings`)</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage IndicesCreatePost(string index, string body, Func<IndicesCreateParameters, IndicesCreateParameters> options)
-        {
-            string uri = string.Format("/{0}", index);
-            IndicesCreateParameters parameters = options.Invoke(new IndicesCreateParameters());
-            uri = parameters.GetUri(uri);
-            return this.Execute("POST", uri, body);
-        }
-        
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-create-index.html"/></summary>
-        /// <param name="index">The name of the index</param>
-        /// <param name="body">The configuration for the index (`settings` and `mappings`)</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> IndicesCreatePostAsync(string index, string body, Func<IndicesCreateParameters, IndicesCreateParameters> options)
-        {
-            string uri = string.Format("/{0}", index);
-            IndicesCreateParameters parameters = options.Invoke(new IndicesCreateParameters());
-            uri = parameters.GetUri(uri);
+            if ((options != null))
+            {
+                IndicesCreateParameters parameters = options.Invoke(new IndicesCreateParameters());
+                uri = parameters.GetUri(uri);
+            }
             return await this.ExecuteAsync("POST", uri, body);
         }
     }
