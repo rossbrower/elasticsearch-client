@@ -3,14 +3,12 @@
   "version": 2,
   "targets": {
     "DNX,Version=v4.5.1": {
-      "ElasticsearchClient/1.0.0": {
+      "ElasticsearchClient/2.2.0": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
-        "dependencies": {
-          "System.Collections.Concurrent": "4.0.11-beta-23516",
-          "System.Net.Http": "4.0.1-beta-23516",
-          "System.Threading.Tasks": "4.0.11-beta-23516"
-        }
+        "frameworkAssemblies": [
+          "System.Net.Http"
+        ]
       },
       "Microsoft.Dnx.Compilation.Abstractions/1.0.0-rc1-final": {
         "type": "package",
@@ -142,27 +140,6 @@
           "lib/net45/Newtonsoft.Json.dll": {}
         }
       },
-      "System.Collections.Concurrent/4.0.11-beta-23516": {
-        "type": "package",
-        "compile": {
-          "ref/net45/_._": {}
-        },
-        "runtime": {
-          "lib/net45/_._": {}
-        }
-      },
-      "System.Net.Http/4.0.1-beta-23516": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "System.Net.Http"
-        ],
-        "compile": {
-          "ref/net45/_._": {}
-        },
-        "runtime": {
-          "lib/net45/_._": {}
-        }
-      },
       "System.Threading.Tasks/4.0.11-beta-23516": {
         "type": "package",
         "compile": {
@@ -283,7 +260,7 @@
       }
     },
     "DNXCore,Version=v5.0": {
-      "ElasticsearchClient/1.0.0": {
+      "ElasticsearchClient/2.2.0": {
         "type": "project",
         "framework": ".NETPlatform,Version=v5.4",
         "dependencies": {
@@ -1177,14 +1154,12 @@
       }
     },
     "DNX,Version=v4.5.1/win7-x86": {
-      "ElasticsearchClient/1.0.0": {
+      "ElasticsearchClient/2.2.0": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
-        "dependencies": {
-          "System.Collections.Concurrent": "4.0.11-beta-23516",
-          "System.Net.Http": "4.0.1-beta-23516",
-          "System.Threading.Tasks": "4.0.11-beta-23516"
-        }
+        "frameworkAssemblies": [
+          "System.Net.Http"
+        ]
       },
       "Microsoft.Dnx.Compilation.Abstractions/1.0.0-rc1-final": {
         "type": "package",
@@ -1314,33 +1289,6 @@
         },
         "runtime": {
           "lib/net45/Newtonsoft.Json.dll": {}
-        }
-      },
-      "runtime.win7.System.Net.Http/4.0.1-beta-23516": {
-        "type": "package",
-        "compile": {
-          "ref/dotnet/_._": {}
-        }
-      },
-      "System.Collections.Concurrent/4.0.11-beta-23516": {
-        "type": "package",
-        "compile": {
-          "ref/net45/_._": {}
-        },
-        "runtime": {
-          "lib/net45/_._": {}
-        }
-      },
-      "System.Net.Http/4.0.1-beta-23516": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "System.Net.Http"
-        ],
-        "compile": {
-          "ref/net45/_._": {}
-        },
-        "runtime": {
-          "lib/net45/_._": {}
         }
       },
       "System.Threading.Tasks/4.0.11-beta-23516": {
@@ -1463,14 +1411,12 @@
       }
     },
     "DNX,Version=v4.5.1/win7-x64": {
-      "ElasticsearchClient/1.0.0": {
+      "ElasticsearchClient/2.2.0": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
-        "dependencies": {
-          "System.Collections.Concurrent": "4.0.11-beta-23516",
-          "System.Net.Http": "4.0.1-beta-23516",
-          "System.Threading.Tasks": "4.0.11-beta-23516"
-        }
+        "frameworkAssemblies": [
+          "System.Net.Http"
+        ]
       },
       "Microsoft.Dnx.Compilation.Abstractions/1.0.0-rc1-final": {
         "type": "package",
@@ -1602,33 +1548,6 @@
           "lib/net45/Newtonsoft.Json.dll": {}
         }
       },
-      "runtime.win7.System.Net.Http/4.0.1-beta-23516": {
-        "type": "package",
-        "compile": {
-          "ref/dotnet/_._": {}
-        }
-      },
-      "System.Collections.Concurrent/4.0.11-beta-23516": {
-        "type": "package",
-        "compile": {
-          "ref/net45/_._": {}
-        },
-        "runtime": {
-          "lib/net45/_._": {}
-        }
-      },
-      "System.Net.Http/4.0.1-beta-23516": {
-        "type": "package",
-        "frameworkAssemblies": [
-          "System.Net.Http"
-        ],
-        "compile": {
-          "ref/net45/_._": {}
-        },
-        "runtime": {
-          "lib/net45/_._": {}
-        }
-      },
       "System.Threading.Tasks/4.0.11-beta-23516": {
         "type": "package",
         "compile": {
@@ -1749,7 +1668,7 @@
       }
     },
     "DNXCore,Version=v5.0/win7-x86": {
-      "ElasticsearchClient/1.0.0": {
+      "ElasticsearchClient/2.2.0": {
         "type": "project",
         "framework": ".NETPlatform,Version=v5.4",
         "dependencies": {
@@ -3082,7 +3001,7 @@
       }
     },
     "DNXCore,Version=v5.0/win7-x64": {
-      "ElasticsearchClient/1.0.0": {
+      "ElasticsearchClient/2.2.0": {
         "type": "project",
         "framework": ".NETPlatform,Version=v5.4",
         "dependencies": {
@@ -4416,7 +4335,7 @@
     }
   },
   "libraries": {
-    "ElasticsearchClient/1.0.0": {
+    "ElasticsearchClient/2.2.0": {
       "type": "project",
       "path": "../ElasticsearchClient/project.json"
     },
@@ -7200,7 +7119,7 @@
   },
   "projectFileDependencyGroups": {
     "": [
-      "ElasticsearchClient >= 1.0.0-*",
+      "ElasticsearchClient >= 2.2.0-*",
       "System.Threading.Tasks >= 4.0.11-beta-23516",
       "xunit >= 2.1.0",
       "xunit.runner.dnx >= 2.1.0-rc1-build204"
