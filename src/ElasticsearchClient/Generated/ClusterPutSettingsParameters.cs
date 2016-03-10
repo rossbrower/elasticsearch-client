@@ -24,7 +24,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual ClusterPutSettingsParameters flat_settings(bool value)
         {
-            this.SetValue("flat_settings", value);
+            this.SetValue("flat_settings", value.ToString().ToLower());
             return this;
         }
         

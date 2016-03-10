@@ -32,7 +32,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual SearchParameters analyze_wildcard(bool value)
         {
-            this.SetValue("analyze_wildcard", value);
+            this.SetValue("analyze_wildcard", value.ToString().ToLower());
             return this;
         }
         
@@ -56,7 +56,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual SearchParameters explain(bool value)
         {
-            this.SetValue("explain", value);
+            this.SetValue("explain", value.ToString().ToLower());
             return this;
         }
         
@@ -88,7 +88,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual SearchParameters ignore_unavailable(bool value)
         {
-            this.SetValue("ignore_unavailable", value);
+            this.SetValue("ignore_unavailable", value.ToString().ToLower());
             return this;
         }
         
@@ -96,7 +96,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual SearchParameters allow_no_indices(bool value)
         {
-            this.SetValue("allow_no_indices", value);
+            this.SetValue("allow_no_indices", value.ToString().ToLower());
             return this;
         }
         
@@ -112,7 +112,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual SearchParameters lenient(bool value)
         {
-            this.SetValue("lenient", value);
+            this.SetValue("lenient", value.ToString().ToLower());
             return this;
         }
         
@@ -120,7 +120,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual SearchParameters lowercase_expanded_terms(bool value)
         {
-            this.SetValue("lowercase_expanded_terms", value);
+            this.SetValue("lowercase_expanded_terms", value.ToString().ToLower());
             return this;
         }
         
@@ -264,7 +264,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual SearchParameters track_scores(bool value)
         {
-            this.SetValue("track_scores", value);
+            this.SetValue("track_scores", value.ToString().ToLower());
             return this;
         }
         
@@ -272,7 +272,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual SearchParameters version(bool value)
         {
-            this.SetValue("version", value);
+            this.SetValue("version", value.ToString().ToLower());
             return this;
         }
         
@@ -280,7 +280,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual SearchParameters request_cache(bool value)
         {
-            this.SetValue("request_cache", value);
+            this.SetValue("request_cache", value.ToString().ToLower());
             return this;
         }
     }

@@ -24,7 +24,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual NodesInfoParameters flat_settings(bool value)
         {
-            this.SetValue("flat_settings", value);
+            this.SetValue("flat_settings", value.ToString().ToLower());
             return this;
         }
         
@@ -32,7 +32,7 @@ namespace Elasticsearch.Client
         /// <param name="value"><para>Default: False</para></param>
         public virtual NodesInfoParameters human(bool value)
         {
-            this.SetValue("human", value);
+            this.SetValue("human", value.ToString().ToLower());
             return this;
         }
         

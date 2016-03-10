@@ -56,7 +56,7 @@ namespace Elasticsearch.Client
         /// <param name="value"><para>Default: False</para></param>
         public virtual IndicesStatsParameters human(bool value)
         {
-            this.SetValue("human", value);
+            this.SetValue("human", value.ToString().ToLower());
             return this;
         }
         

@@ -32,7 +32,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual IndicesPutWarmerParameters ignore_unavailable(bool value)
         {
-            this.SetValue("ignore_unavailable", value);
+            this.SetValue("ignore_unavailable", value.ToString().ToLower());
             return this;
         }
         
@@ -40,7 +40,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual IndicesPutWarmerParameters allow_no_indices(bool value)
         {
-            this.SetValue("allow_no_indices", value);
+            this.SetValue("allow_no_indices", value.ToString().ToLower());
             return this;
         }
         
@@ -56,7 +56,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual IndicesPutWarmerParameters request_cache(bool value)
         {
-            this.SetValue("request_cache", value);
+            this.SetValue("request_cache", value.ToString().ToLower());
             return this;
         }
     }

@@ -24,7 +24,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual IndicesValidateQueryParameters explain(bool value)
         {
-            this.SetValue("explain", value);
+            this.SetValue("explain", value.ToString().ToLower());
             return this;
         }
         
@@ -32,7 +32,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual IndicesValidateQueryParameters ignore_unavailable(bool value)
         {
-            this.SetValue("ignore_unavailable", value);
+            this.SetValue("ignore_unavailable", value.ToString().ToLower());
             return this;
         }
         
@@ -40,7 +40,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual IndicesValidateQueryParameters allow_no_indices(bool value)
         {
-            this.SetValue("allow_no_indices", value);
+            this.SetValue("allow_no_indices", value.ToString().ToLower());
             return this;
         }
         
@@ -72,7 +72,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual IndicesValidateQueryParameters analyze_wildcard(bool value)
         {
-            this.SetValue("analyze_wildcard", value);
+            this.SetValue("analyze_wildcard", value.ToString().ToLower());
             return this;
         }
         
@@ -96,7 +96,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual IndicesValidateQueryParameters lenient(bool value)
         {
-            this.SetValue("lenient", value);
+            this.SetValue("lenient", value.ToString().ToLower());
             return this;
         }
         
@@ -104,7 +104,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual IndicesValidateQueryParameters lowercase_expanded_terms(bool value)
         {
-            this.SetValue("lowercase_expanded_terms", value);
+            this.SetValue("lowercase_expanded_terms", value.ToString().ToLower());
             return this;
         }
         
@@ -112,7 +112,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual IndicesValidateQueryParameters rewrite(bool value)
         {
-            this.SetValue("rewrite", value);
+            this.SetValue("rewrite", value.ToString().ToLower());
             return this;
         }
     }

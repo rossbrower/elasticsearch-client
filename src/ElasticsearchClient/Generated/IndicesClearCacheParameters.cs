@@ -24,7 +24,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual IndicesClearCacheParameters field_data(bool value)
         {
-            this.SetValue("field_data", value);
+            this.SetValue("field_data", value.ToString().ToLower());
             return this;
         }
         
@@ -32,7 +32,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual IndicesClearCacheParameters fielddata(bool value)
         {
-            this.SetValue("fielddata", value);
+            this.SetValue("fielddata", value.ToString().ToLower());
             return this;
         }
         
@@ -48,7 +48,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual IndicesClearCacheParameters query(bool value)
         {
-            this.SetValue("query", value);
+            this.SetValue("query", value.ToString().ToLower());
             return this;
         }
         
@@ -56,7 +56,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual IndicesClearCacheParameters ignore_unavailable(bool value)
         {
-            this.SetValue("ignore_unavailable", value);
+            this.SetValue("ignore_unavailable", value.ToString().ToLower());
             return this;
         }
         
@@ -64,7 +64,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual IndicesClearCacheParameters allow_no_indices(bool value)
         {
-            this.SetValue("allow_no_indices", value);
+            this.SetValue("allow_no_indices", value.ToString().ToLower());
             return this;
         }
         
@@ -88,7 +88,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual IndicesClearCacheParameters recycler(bool value)
         {
-            this.SetValue("recycler", value);
+            this.SetValue("recycler", value.ToString().ToLower());
             return this;
         }
         
@@ -96,7 +96,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual IndicesClearCacheParameters request(bool value)
         {
-            this.SetValue("request", value);
+            this.SetValue("request", value.ToString().ToLower());
             return this;
         }
     }

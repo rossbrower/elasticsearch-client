@@ -32,7 +32,7 @@ namespace Elasticsearch.Client
         /// <param name="value"><para>Default: False</para></param>
         public virtual MtermvectorsParameters term_statistics(bool value)
         {
-            this.SetValue("term_statistics", value);
+            this.SetValue("term_statistics", value.ToString().ToLower());
             return this;
         }
         
@@ -40,7 +40,7 @@ namespace Elasticsearch.Client
         /// <param name="value"><para>Default: True</para></param>
         public virtual MtermvectorsParameters field_statistics(bool value)
         {
-            this.SetValue("field_statistics", value);
+            this.SetValue("field_statistics", value.ToString().ToLower());
             return this;
         }
         
@@ -56,7 +56,7 @@ namespace Elasticsearch.Client
         /// <param name="value"><para>Default: True</para></param>
         public virtual MtermvectorsParameters offsets(bool value)
         {
-            this.SetValue("offsets", value);
+            this.SetValue("offsets", value.ToString().ToLower());
             return this;
         }
         
@@ -64,7 +64,7 @@ namespace Elasticsearch.Client
         /// <param name="value"><para>Default: True</para></param>
         public virtual MtermvectorsParameters positions(bool value)
         {
-            this.SetValue("positions", value);
+            this.SetValue("positions", value.ToString().ToLower());
             return this;
         }
         
@@ -72,7 +72,7 @@ namespace Elasticsearch.Client
         /// <param name="value"><para>Default: True</para></param>
         public virtual MtermvectorsParameters payloads(bool value)
         {
-            this.SetValue("payloads", value);
+            this.SetValue("payloads", value.ToString().ToLower());
             return this;
         }
         
@@ -104,7 +104,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual MtermvectorsParameters realtime(bool value)
         {
-            this.SetValue("realtime", value);
+            this.SetValue("realtime", value.ToString().ToLower());
             return this;
         }
         

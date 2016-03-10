@@ -40,7 +40,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual SnapshotCreateRepositoryParameters verify(bool value)
         {
-            this.SetValue("verify", value);
+            this.SetValue("verify", value.ToString().ToLower());
             return this;
         }
     }

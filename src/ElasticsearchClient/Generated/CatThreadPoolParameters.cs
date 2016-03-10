@@ -24,7 +24,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual CatThreadPoolParameters local(bool value)
         {
-            this.SetValue("local", value);
+            this.SetValue("local", value.ToString().ToLower());
             return this;
         }
         
@@ -48,7 +48,7 @@ namespace Elasticsearch.Client
         /// <param name="value"><para>Default: False</para></param>
         public virtual CatThreadPoolParameters help(bool value)
         {
-            this.SetValue("help", value);
+            this.SetValue("help", value.ToString().ToLower());
             return this;
         }
         
@@ -56,7 +56,7 @@ namespace Elasticsearch.Client
         /// <param name="value"><para>Default: False</para></param>
         public virtual CatThreadPoolParameters v(bool value)
         {
-            this.SetValue("v", value);
+            this.SetValue("v", value.ToString().ToLower());
             return this;
         }
         
@@ -64,7 +64,7 @@ namespace Elasticsearch.Client
         /// <param name="value"><para>Default: False</para></param>
         public virtual CatThreadPoolParameters full_id(bool value)
         {
-            this.SetValue("full_id", value);
+            this.SetValue("full_id", value.ToString().ToLower());
             return this;
         }
     }

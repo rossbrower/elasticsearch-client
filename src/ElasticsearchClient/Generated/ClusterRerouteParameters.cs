@@ -24,7 +24,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual ClusterRerouteParameters dry_run(bool value)
         {
-            this.SetValue("dry_run", value);
+            this.SetValue("dry_run", value.ToString().ToLower());
             return this;
         }
         
@@ -32,7 +32,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual ClusterRerouteParameters explain(bool value)
         {
-            this.SetValue("explain", value);
+            this.SetValue("explain", value.ToString().ToLower());
             return this;
         }
         

@@ -24,7 +24,7 @@ namespace Elasticsearch.Client
         /// <param name="value"><para>Default: False</para></param>
         public virtual CatSnapshotsParameters ignore_unavailable(bool value)
         {
-            this.SetValue("ignore_unavailable", value);
+            this.SetValue("ignore_unavailable", value.ToString().ToLower());
             return this;
         }
         
@@ -48,7 +48,7 @@ namespace Elasticsearch.Client
         /// <param name="value"><para>Default: False</para></param>
         public virtual CatSnapshotsParameters help(bool value)
         {
-            this.SetValue("help", value);
+            this.SetValue("help", value.ToString().ToLower());
             return this;
         }
         
@@ -56,7 +56,7 @@ namespace Elasticsearch.Client
         /// <param name="value"><para>Default: False</para></param>
         public virtual CatSnapshotsParameters v(bool value)
         {
-            this.SetValue("v", value);
+            this.SetValue("v", value.ToString().ToLower());
             return this;
         }
     }

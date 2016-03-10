@@ -56,7 +56,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual UpdateParameters refresh(bool value)
         {
-            this.SetValue("refresh", value);
+            this.SetValue("refresh", value.ToString().ToLower());
             return this;
         }
         
@@ -80,7 +80,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual UpdateParameters scripted_upsert(bool value)
         {
-            this.SetValue("scripted_upsert", value);
+            this.SetValue("scripted_upsert", value.ToString().ToLower());
             return this;
         }
         

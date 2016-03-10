@@ -14,52 +14,52 @@ namespace Elasticsearch.Client
             mConnectionPool = pool;
         }
 
-        private async Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri)
+        public virtual async Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri)
         {
             return await ExecuteAsyncImpl(httpMethod, uri);
         }
 
-        private async Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri, Stream body)
+        public virtual async Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri, Stream body)
         {
             return await ExecuteAsyncImpl(httpMethod, uri, body == null
                 ? null
                 : new StreamContent(body));
         }
 
-        private async Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri, byte[] body)
+        public virtual async Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri, byte[] body)
         {
             return await ExecuteAsyncImpl(httpMethod, uri, body == null
                 ? null
                 : new ByteArrayContent(body));
         }
 
-        private async Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri, string body)
+        public virtual async Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri, string body)
         {
             return await ExecuteAsyncImpl(httpMethod, uri, body == null
                 ? null
                 : new StringContent(body, Encoding.UTF8, "application/json"));
         }
 
-        private HttpResponseMessage Execute(string httpMethod, string uri)
+        public virtual HttpResponseMessage Execute(string httpMethod, string uri)
         {
             return ExecuteAwait(httpMethod, uri).Result;
         }
 
-        private HttpResponseMessage Execute(string httpMethod, string uri, Stream body)
+        public virtual HttpResponseMessage Execute(string httpMethod, string uri, Stream body)
         {
             return ExecuteAwait(httpMethod, uri, body == null
                 ? null
                 : new StreamContent(body)).Result;
         }
 
-        private HttpResponseMessage Execute(string httpMethod, string uri, byte[] body)
+        public virtual HttpResponseMessage Execute(string httpMethod, string uri, byte[] body)
         {
             return ExecuteAwait(httpMethod, uri, body == null
                 ? null
                 : new ByteArrayContent(body)).Result;
         }
 
-        private HttpResponseMessage Execute(string httpMethod, string uri, string body)
+        public virtual HttpResponseMessage Execute(string httpMethod, string uri, string body)
         {
             return ExecuteAwait(httpMethod, uri, body == null
                 ? null

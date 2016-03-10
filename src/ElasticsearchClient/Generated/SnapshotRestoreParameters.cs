@@ -32,7 +32,7 @@ namespace Elasticsearch.Client
         /// <param name="value"><para>Default: False</para></param>
         public virtual SnapshotRestoreParameters wait_for_completion(bool value)
         {
-            this.SetValue("wait_for_completion", value);
+            this.SetValue("wait_for_completion", value.ToString().ToLower());
             return this;
         }
     }

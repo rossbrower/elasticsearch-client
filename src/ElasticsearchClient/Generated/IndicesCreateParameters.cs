@@ -40,7 +40,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual IndicesCreateParameters update_all_types(bool value)
         {
-            this.SetValue("update_all_types", value);
+            this.SetValue("update_all_types", value.ToString().ToLower());
             return this;
         }
     }

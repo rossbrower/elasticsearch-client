@@ -130,7 +130,7 @@ namespace Elasticsearch.Client.Generator
                     Attributes = MemberAttributes.Public                    
                 };
                 method.Comments.Add(GetSummaryComment(parameter.Description));
-                CodeParameterDeclarationExpression parameterDeclaration;
+                Type paramType;         
                 switch (parameter.Type)
                 {
                     case null:
@@ -142,17 +142,18 @@ namespace Elasticsearch.Client.Generator
                     case "string":
                     case "time":
                     case "duration":
-                        parameterDeclaration = new CodeParameterDeclarationExpression(typeof (string), "value");
+                        paramType = typeof (string);
                         break;
                     case "boolean":
-                        parameterDeclaration = new CodeParameterDeclarationExpression(typeof (bool), "value");
+                        paramType = typeof(bool);
                         break;
                     case "number":
-                        parameterDeclaration = new CodeParameterDeclarationExpression(typeof (long), "value");
+                        paramType = typeof (long);
                         break;
                     default:
                         throw new InvalidDataException("Unknown parameter type " + parameter.Type);
                 }
+                var parameterDeclaration = new CodeParameterDeclarationExpression(paramType, "value");
                 method.Parameters.Add(parameterDeclaration);
                 var paramDescription = "";
                 if (parameter.Options != null && parameter.Options.Count > 0)
@@ -163,10 +164,21 @@ namespace Elasticsearch.Client.Generator
                 {
                     paramDescription += $"<para>Default: {parameter.Default}</para>";
                 }
+                CodeExpression valueExpression;
+                if (paramType == typeof (bool))
+                {
+                    var inner = new CodeMethodInvokeExpression(
+                        new CodeVariableReferenceExpression("value"), "ToString");
+                    valueExpression = new CodeMethodInvokeExpression(inner, "ToLower");
+                }
+                else
+                {
+                    valueExpression = new CodeVariableReferenceExpression("value");
+                }
                 method.Comments.Add(GetParameterCommentStatement("value", paramDescription));
                 method.Statements.Add(new CodeMethodInvokeExpression(new CodeThisReferenceExpression(), "SetValue",
                     new CodePrimitiveExpression(parameter.Name),
-                    new CodeVariableReferenceExpression("value")));
+                    valueExpression));
                 method.Statements.Add(new CodeMethodReturnStatement(new CodeThisReferenceExpression()));
                 yield return method;
             }

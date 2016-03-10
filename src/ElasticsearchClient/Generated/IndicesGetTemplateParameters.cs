@@ -24,7 +24,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual IndicesGetTemplateParameters flat_settings(bool value)
         {
-            this.SetValue("flat_settings", value);
+            this.SetValue("flat_settings", value.ToString().ToLower());
             return this;
         }
         
@@ -40,7 +40,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual IndicesGetTemplateParameters local(bool value)
         {
-            this.SetValue("local", value);
+            this.SetValue("local", value.ToString().ToLower());
             return this;
         }
     }

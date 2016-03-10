@@ -48,7 +48,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual GetParameters realtime(bool value)
         {
-            this.SetValue("realtime", value);
+            this.SetValue("realtime", value.ToString().ToLower());
             return this;
         }
         
@@ -56,7 +56,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual GetParameters refresh(bool value)
         {
-            this.SetValue("refresh", value);
+            this.SetValue("refresh", value.ToString().ToLower());
             return this;
         }
         

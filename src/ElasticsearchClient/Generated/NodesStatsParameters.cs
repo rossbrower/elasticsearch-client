@@ -48,7 +48,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual NodesStatsParameters groups(bool value)
         {
-            this.SetValue("groups", value);
+            this.SetValue("groups", value.ToString().ToLower());
             return this;
         }
         
@@ -56,7 +56,7 @@ namespace Elasticsearch.Client
         /// <param name="value"><para>Default: False</para></param>
         public virtual NodesStatsParameters human(bool value)
         {
-            this.SetValue("human", value);
+            this.SetValue("human", value.ToString().ToLower());
             return this;
         }
         

@@ -48,7 +48,7 @@ namespace Elasticsearch.Client
         /// <param name="value"><para>Default: False</para></param>
         public virtual CatRecoveryParameters help(bool value)
         {
-            this.SetValue("help", value);
+            this.SetValue("help", value.ToString().ToLower());
             return this;
         }
         
@@ -56,7 +56,7 @@ namespace Elasticsearch.Client
         /// <param name="value"><para>Default: False</para></param>
         public virtual CatRecoveryParameters v(bool value)
         {
-            this.SetValue("v", value);
+            this.SetValue("v", value.ToString().ToLower());
             return this;
         }
     }

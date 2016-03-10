@@ -24,7 +24,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual IndicesUpgradeParameters allow_no_indices(bool value)
         {
-            this.SetValue("allow_no_indices", value);
+            this.SetValue("allow_no_indices", value.ToString().ToLower());
             return this;
         }
         
@@ -40,7 +40,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual IndicesUpgradeParameters ignore_unavailable(bool value)
         {
-            this.SetValue("ignore_unavailable", value);
+            this.SetValue("ignore_unavailable", value.ToString().ToLower());
             return this;
         }
         
@@ -48,7 +48,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual IndicesUpgradeParameters wait_for_completion(bool value)
         {
-            this.SetValue("wait_for_completion", value);
+            this.SetValue("wait_for_completion", value.ToString().ToLower());
             return this;
         }
         
@@ -56,7 +56,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual IndicesUpgradeParameters only_ancient_segments(bool value)
         {
-            this.SetValue("only_ancient_segments", value);
+            this.SetValue("only_ancient_segments", value.ToString().ToLower());
             return this;
         }
     }

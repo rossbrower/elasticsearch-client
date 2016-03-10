@@ -24,7 +24,7 @@ namespace Elasticsearch.Client
         /// <param name="value"><para>Default: False</para></param>
         public virtual IndicesRecoveryParameters detailed(bool value)
         {
-            this.SetValue("detailed", value);
+            this.SetValue("detailed", value.ToString().ToLower());
             return this;
         }
         
@@ -32,7 +32,7 @@ namespace Elasticsearch.Client
         /// <param name="value"><para>Default: False</para></param>
         public virtual IndicesRecoveryParameters active_only(bool value)
         {
-            this.SetValue("active_only", value);
+            this.SetValue("active_only", value.ToString().ToLower());
             return this;
         }
         
@@ -40,7 +40,7 @@ namespace Elasticsearch.Client
         /// <param name="value"><para>Default: False</para></param>
         public virtual IndicesRecoveryParameters human(bool value)
         {
-            this.SetValue("human", value);
+            this.SetValue("human", value.ToString().ToLower());
             return this;
         }
     }

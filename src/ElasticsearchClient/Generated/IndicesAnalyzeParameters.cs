@@ -64,7 +64,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual IndicesAnalyzeParameters prefer_local(bool value)
         {
-            this.SetValue("prefer_local", value);
+            this.SetValue("prefer_local", value.ToString().ToLower());
             return this;
         }
         
@@ -88,7 +88,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual IndicesAnalyzeParameters detail(bool value)
         {
-            this.SetValue("detail", value);
+            this.SetValue("detail", value.ToString().ToLower());
             return this;
         }
         

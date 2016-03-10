@@ -48,7 +48,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual IndexParameters refresh(bool value)
         {
-            this.SetValue("refresh", value);
+            this.SetValue("refresh", value.ToString().ToLower());
             return this;
         }
         

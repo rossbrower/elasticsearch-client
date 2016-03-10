@@ -24,7 +24,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual ClusterPendingTasksParameters local(bool value)
         {
-            this.SetValue("local", value);
+            this.SetValue("local", value.ToString().ToLower());
             return this;
         }
         

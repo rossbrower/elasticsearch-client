@@ -48,7 +48,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual NodesHotThreadsParameters ignore_idle_threads(bool value)
         {
-            this.SetValue("ignore_idle_threads", value);
+            this.SetValue("ignore_idle_threads", value.ToString().ToLower());
             return this;
         }
         

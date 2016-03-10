@@ -24,7 +24,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual ExplainParameters analyze_wildcard(bool value)
         {
-            this.SetValue("analyze_wildcard", value);
+            this.SetValue("analyze_wildcard", value.ToString().ToLower());
             return this;
         }
         
@@ -64,7 +64,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual ExplainParameters lenient(bool value)
         {
-            this.SetValue("lenient", value);
+            this.SetValue("lenient", value.ToString().ToLower());
             return this;
         }
         
@@ -72,7 +72,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual ExplainParameters lowercase_expanded_terms(bool value)
         {
-            this.SetValue("lowercase_expanded_terms", value);
+            this.SetValue("lowercase_expanded_terms", value.ToString().ToLower());
             return this;
         }
         

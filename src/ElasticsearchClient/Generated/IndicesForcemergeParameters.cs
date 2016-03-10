@@ -24,7 +24,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual IndicesForcemergeParameters flush(bool value)
         {
-            this.SetValue("flush", value);
+            this.SetValue("flush", value.ToString().ToLower());
             return this;
         }
         
@@ -32,7 +32,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual IndicesForcemergeParameters ignore_unavailable(bool value)
         {
-            this.SetValue("ignore_unavailable", value);
+            this.SetValue("ignore_unavailable", value.ToString().ToLower());
             return this;
         }
         
@@ -40,7 +40,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual IndicesForcemergeParameters allow_no_indices(bool value)
         {
-            this.SetValue("allow_no_indices", value);
+            this.SetValue("allow_no_indices", value.ToString().ToLower());
             return this;
         }
         
@@ -64,7 +64,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual IndicesForcemergeParameters only_expunge_deletes(bool value)
         {
-            this.SetValue("only_expunge_deletes", value);
+            this.SetValue("only_expunge_deletes", value.ToString().ToLower());
             return this;
         }
         
@@ -72,7 +72,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual IndicesForcemergeParameters wait_for_merge(bool value)
         {
-            this.SetValue("wait_for_merge", value);
+            this.SetValue("wait_for_merge", value.ToString().ToLower());
             return this;
         }
     }

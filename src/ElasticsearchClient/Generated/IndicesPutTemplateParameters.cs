@@ -32,7 +32,7 @@ namespace Elasticsearch.Client
         /// <param name="value"><para>Default: False</para></param>
         public virtual IndicesPutTemplateParameters create(bool value)
         {
-            this.SetValue("create", value);
+            this.SetValue("create", value.ToString().ToLower());
             return this;
         }
         
@@ -56,7 +56,7 @@ namespace Elasticsearch.Client
         /// <param name="value"></param>
         public virtual IndicesPutTemplateParameters flat_settings(bool value)
         {
-            this.SetValue("flat_settings", value);
+            this.SetValue("flat_settings", value.ToString().ToLower());
             return this;
         }
     }
