@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Xunit;
@@ -11,64 +10,29 @@ namespace Elasticsearch.Client.Tests
         public static void Validate(Func<ElasticsearchClient, HttpResponseMessage> func,
             string expectedMethod, string expectedUri)
         {
-            func(new RequestValidatorClient(expectedMethod, expectedUri));
+            func(new ElasticsearchClient(new RequestValidatorPool(expectedMethod, expectedUri)));
         }
 
-        private class RequestValidatorClient : ElasticsearchClient
+        private class RequestValidatorPool : IConnectionPool
         {
             private readonly string mExpectedMethod;
             private readonly string mExpectedUri;
+            private readonly Action<HttpContent> mContentValidator;
 
-            internal RequestValidatorClient(string expectedMethod, string expectedUri) : base(null)
+            internal RequestValidatorPool(string expectedMethod, string expectedUri, 
+                Action<HttpContent> contentValidator = null)
             {
                 mExpectedMethod = expectedMethod;
                 mExpectedUri = expectedUri;
+                mContentValidator = contentValidator;
             }
 
-            public override Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri)
-            {
-                return Validate(httpMethod, uri);
-            }
-
-            public override Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri, Stream body)
-            {
-                return Validate(httpMethod, uri);
-            }
-
-            public override Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri, byte[] body)
-            {
-                return Validate(httpMethod, uri);
-            }
-
-            public override Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri, string body)
-            {
-                return Validate(httpMethod, uri);
-            }
-
-            public override HttpResponseMessage Execute(string httpMethod, string uri)
-            {
-                return Validate(httpMethod, uri).Result;
-            }
-
-            public override HttpResponseMessage Execute(string httpMethod, string uri, Stream body)
-            {
-                return Validate(httpMethod, uri).Result;
-            }
-
-            public override HttpResponseMessage Execute(string httpMethod, string uri, byte[] body)
-            {
-                return Validate(httpMethod, uri).Result;
-            }
-
-            public override HttpResponseMessage Execute(string httpMethod, string uri, string body)
-            {
-                return Validate(httpMethod, uri).Result;
-            }
-
-            private Task<HttpResponseMessage> Validate(string httpMethod, string uri)
+            public Task<HttpResponseMessage> Execute(string httpMethod, string uri,
+                HttpContent content = null, bool synchronous = false)
             {
                 Assert.Equal(mExpectedMethod, httpMethod);
                 Assert.Equal(mExpectedUri, uri);
+                mContentValidator?.Invoke(content);
                 return Task.FromResult<HttpResponseMessage>(null);
             }
         }

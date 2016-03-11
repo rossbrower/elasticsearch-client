@@ -5,7 +5,11 @@ using System.Net.Http;
 
 namespace Elasticsearch.Client
 {
-    public class RandomConnectionPool : IConnectionPool, IDisposable
+    /// <summary>
+    /// This class merely selects a node at random from the given list.
+    /// No failure detection provided.
+    /// </summary>
+    public class RandomConnectionPool : ConnectionPoolBase, IDisposable
     {
         private readonly List<HttpClient> mServers;
         private readonly Random mRandom;
@@ -25,7 +29,7 @@ namespace Elasticsearch.Client
                 }));
         }
 
-        public HttpClient GetClient()
+        public override HttpClient GetClient()
         {
             //todo could add Fisher-Yates Shuffle.
             return mServers[mRandom.Next(mServers.Count)];

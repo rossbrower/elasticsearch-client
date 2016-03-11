@@ -3,7 +3,11 @@ using System.Net.Http;
 
 namespace Elasticsearch.Client
 {
-    public class SingleConnectionPool : IConnectionPool, IDisposable
+    /// <summary>
+    /// Single connection client.
+    /// No failure detection provided.
+    /// </summary>
+    public class SingleConnectionPool : ConnectionPoolBase, IDisposable
     {
         private readonly HttpClient mClient;
 
@@ -12,7 +16,7 @@ namespace Elasticsearch.Client
             mClient = new HttpClient {BaseAddress = new Uri(uri)};
         }
 
-        public HttpClient GetClient()
+        public override HttpClient GetClient()
         {
             return mClient;
         }
