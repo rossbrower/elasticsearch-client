@@ -1,10 +1,10 @@
 ﻿{
   "version": "2.2.0-*",
-  "description": "ElasticsearchClient Class Library",
-  "authors": [ "ross.brower" ],
-  "tags": [ "" ],
-  "projectUrl": "",
-  "licenseUrl": "",
+  "description": "Unofficial low-level .Net client for Elasticsearch built from the REST API spec and HttpClient.",
+  "authors": [ "Ross Brower" ],
+  "tags": [ "elasticsearch" ],
+  "projectUrl": "https://github.com/rossbrower/elasticsearch-client",
+  "licenseUrl": "https://github.com/rossbrower/elasticsearch-client/blob/master/license.txt",
   "frameworks": {
     "net451": {
       "frameworkAssemblies": {
