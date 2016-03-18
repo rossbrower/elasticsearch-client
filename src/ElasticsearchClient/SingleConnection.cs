@@ -7,7 +7,7 @@ namespace Elasticsearch.Client
     /// Single connection client.
     /// No failure detection provided.
     /// </summary>
-    public class SingleConnection : ConnectionBase, IDisposable
+    public class SingleConnection : ConnectionBase
     {
         private readonly HttpClient mClient;
 
@@ -27,9 +27,16 @@ namespace Elasticsearch.Client
             return mClient;
         }
 
-        public void Dispose()
+        public override void Dispose()
         {
-            mClient.Dispose();
+            try
+            {
+                mClient.Dispose();
+            }
+            finally
+            {
+                base.Dispose();
+            }
         }
     }
 }

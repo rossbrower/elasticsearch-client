@@ -35,6 +35,10 @@ namespace Elasticsearch.Client.Tests
                 mContentValidator?.Invoke(content);
                 return Task.FromResult<HttpResponseMessage>(null);
             }
+
+            public void Dispose()
+            {                
+            }
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Elasticsearch.Client
     /// <summary>
     /// Retries requests if exceptions are thrown and maintains a list of known good and bad uris.
     /// </summary>
-    public class ConnectionPool : IConnection, IDisposable
+    public class ConnectionPool : IConnection
     {
         private readonly ConcurrentDictionary<string, byte> mFailedUris; 
         private readonly ConcurrentDictionary<string, HttpClient> mClients;

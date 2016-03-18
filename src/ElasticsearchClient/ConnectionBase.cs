@@ -27,5 +27,9 @@ namespace Elasticsearch.Client
             var client = GetClient();
             return await mDispatcher.Execute(client, httpMethod, uri, content, synchronous);
         }
+
+        public virtual void Dispose()
+        {            
+        }
     }
 }
