@@ -13,7 +13,7 @@ namespace Elasticsearch.Client.Tests
             func(new ElasticsearchClient(new RequestValidatorPool(expectedMethod, expectedUri)));
         }
 
-        private class RequestValidatorPool : IConnectionPool
+        private class RequestValidatorPool : IConnection
         {
             private readonly string mExpectedMethod;
             private readonly string mExpectedUri;

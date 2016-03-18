@@ -8,7 +8,7 @@ namespace Elasticsearch.Client.Tests
         [Fact]
         public async Task TestBasicOperations()
         {
-            using (var pool = new SingleConnectionPool())
+            using (var pool = new SingleConnection())
             {
                 var client = new ElasticsearchClient(pool);
                 using (var resp = await client.IndicesCreatePostAsync("foo"))

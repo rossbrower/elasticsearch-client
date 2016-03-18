@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Elasticsearch.Client
 {
-    public interface IConnectionPool
+    public interface IConnection
     {
         Task<HttpResponseMessage> Execute(string httpMethod, string uri,
             HttpContent content = null, bool synchronous = false);
