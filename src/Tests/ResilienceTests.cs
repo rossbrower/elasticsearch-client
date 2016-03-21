@@ -38,7 +38,7 @@ namespace Elasticsearch.Client.Tests
                 }
                 await Task.WhenAll(Enumerable.Range(0, 1000).Select(i => client.ClusterHealthAsync()));
             }
-        }
+        }        
 
         private class ExceptionDispatcher<T>: IDispatcher where T: Exception
         {
@@ -51,13 +51,18 @@ namespace Elasticsearch.Client.Tests
                 mRandom = new Random();
             }
 
-            public Task<HttpResponseMessage> Execute(HttpClient client, string httpMethod, string uri, HttpContent content = null, bool synchronous = false)
+            public HttpResponseMessage Execute(HttpClient client, string httpMethod, string uri, HttpContent content = null)
             {
                 if (mRandom.Next(20) == 1)
                 {
                     throw mException;
                 }
-                return Task.FromResult(new HttpResponseMessage(HttpStatusCode.OK));
+                return new HttpResponseMessage(HttpStatusCode.OK);
+            }
+
+            public Task<HttpResponseMessage> ExecuteAsync(HttpClient client, string httpMethod, string uri, HttpContent content = null)
+            {
+                return Task.FromResult(Execute(client, httpMethod, uri, content));
             }
         }
     }

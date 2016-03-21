@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace Elasticsearch.Client
 {
@@ -7,9 +8,10 @@ namespace Elasticsearch.Client
     /// Single connection client.
     /// No failure detection provided.
     /// </summary>
-    public class SingleConnection : ConnectionBase
+    public class SingleConnection : IConnection
     {
-        private readonly HttpClient mClient;
+        private readonly IDispatcher mDispatcher;
+        private readonly HttpClient mClient;        
 
         /// <summary>
         /// Create a new SingleConnection.
@@ -17,26 +19,25 @@ namespace Elasticsearch.Client
         /// <param name="uri">Optional uri of the node.</param>
         /// <param name="dispatcher">Optional dispatcher.</param>
         public SingleConnection(string uri = "http://localhost:9200", IDispatcher dispatcher = null)
-            : base(dispatcher)
         {
+            mDispatcher = dispatcher ?? new Dispatcher();
             mClient = new HttpClient {BaseAddress = new Uri(uri)};
         }
 
-        protected override HttpClient GetClient()
+        public virtual async Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri,
+            HttpContent content = null)
         {
-            return mClient;
+            return await mDispatcher.ExecuteAsync(mClient, httpMethod, uri, content);
         }
 
-        public override void Dispose()
+        public HttpResponseMessage Execute(string httpMethod, string uri, HttpContent content = null)
         {
-            try
-            {
-                mClient.Dispose();
-            }
-            finally
-            {
-                base.Dispose();
-            }
+            return mDispatcher.Execute(mClient, httpMethod, uri, content);
+        }
+
+        public void Dispose()
+        {
+            mClient.Dispose();
         }
     }
 }

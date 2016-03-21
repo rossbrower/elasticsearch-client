@@ -27,17 +27,21 @@ namespace Elasticsearch.Client.Tests
                 mContentValidator = contentValidator;
             }
 
-            public Task<HttpResponseMessage> Execute(string httpMethod, string uri,
-                HttpContent content = null, bool synchronous = false)
+            public Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri, HttpContent content = null)
+            {
+                return Task.FromResult(Execute(httpMethod, uri, content));
+            }
+
+            public HttpResponseMessage Execute(string httpMethod, string uri, HttpContent content = null)
             {
                 Assert.Equal(mExpectedMethod, httpMethod);
                 Assert.Equal(mExpectedUri, uri);
                 mContentValidator?.Invoke(content);
-                return Task.FromResult<HttpResponseMessage>(null);
+                return null;
             }
 
             public void Dispose()
-            {                
+            {
             }
         }
     }

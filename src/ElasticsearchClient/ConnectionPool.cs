@@ -12,7 +12,7 @@ namespace Elasticsearch.Client
     /// </summary>
     public class ConnectionPool : IConnection
     {
-        private readonly ConcurrentDictionary<string, byte> mFailedUris; 
+        private readonly ConcurrentDictionary<string, byte> mFailedUris;
         private readonly ConcurrentDictionary<string, HttpClient> mClients;
         private readonly IDispatcher mDispatcher;
 
@@ -28,44 +28,68 @@ namespace Elasticsearch.Client
             }
         }
 
-        public async Task<HttpResponseMessage> Execute(string httpMethod, string uri, HttpContent content = null, bool synchronous = false)
+        public HttpResponseMessage Execute(string httpMethod, string uri, HttpContent content = null)
         {
             Exception exception = null;
             foreach (var client in mClients.Values)
             {
                 try
                 {
-                    return await mDispatcher.Execute(client, httpMethod, uri, content, synchronous);
+                    return mDispatcher.Execute(client, httpMethod, uri, content);
                 }
                 catch (Exception e)
                 {
                     exception = e;
-                }
-                var clientUri = client.BaseAddress.ToString();
-                mFailedUris.TryAdd(clientUri, 0);
-                HttpClient failed;
-                if (mClients.TryRemove(clientUri, out failed))
-                {
-                    failed.Dispose();
-                }
-                client.Dispose();
+                    RemoveClient(client);
+                }                
             }
             foreach (var failedUri in mFailedUris.Keys)
             {
-                HttpClient client = new HttpClient {BaseAddress = new Uri(failedUri)};
+                var client = new HttpClient {BaseAddress = new Uri(failedUri)};
                 try
                 {
-                    var resp = await mDispatcher.Execute(client, httpMethod, uri, content, synchronous);
-                    mClients.TryAdd(failedUri, client);
-                    byte x;
-                    mFailedUris.TryRemove(failedUri, out x);
+                    var resp = mDispatcher.Execute(client, httpMethod, uri, content);
+                    AddClient(failedUri, client);
                     return resp;
                 }
                 catch (Exception e)
                 {
                     exception = e;
+                    client.Dispose();
+                }                
+            }
+            throw exception ?? new InvalidOperationException("No clients available to service the request.");
+        }
+
+        public async Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri, HttpContent content = null)
+        {
+            Exception exception = null;
+            foreach (var client in mClients.Values)
+            {
+                try
+                {
+                    return await mDispatcher.ExecuteAsync(client, httpMethod, uri, content);
                 }
-                client.Dispose();
+                catch (Exception e)
+                {
+                    exception = e;
+                    RemoveClient(client);
+                }
+            }
+            foreach (var failedUri in mFailedUris.Keys)
+            {
+                var client = new HttpClient {BaseAddress = new Uri(failedUri)};
+                try
+                {
+                    var resp = await mDispatcher.ExecuteAsync(client, httpMethod, uri, content);
+                    AddClient(failedUri, client);
+                    return resp;
+                }
+                catch (Exception e)
+                {
+                    exception = e;
+                    client.Dispose();
+                }
             }
             throw exception ?? new InvalidOperationException("No clients available to service the request.");
         }
@@ -77,6 +101,25 @@ namespace Elasticsearch.Client
                 httpClient.Dispose();
             }
             mClients.Clear();
+        }
+
+        private void RemoveClient(HttpClient client)
+        {
+            var clientUri = client.BaseAddress.ToString();
+            mFailedUris.TryAdd(clientUri, 0);
+            HttpClient failed;
+            if (mClients.TryRemove(clientUri, out failed))
+            {
+                failed.Dispose();
+            }
+            client.Dispose();
+        }
+
+        private void AddClient(string failedUri, HttpClient client)
+        {
+            mClients.TryAdd(failedUri, client);
+            byte x;
+            mFailedUris.TryRemove(failedUri, out x);
         }
     }
 }
