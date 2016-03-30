@@ -86,13 +86,13 @@ namespace Elasticsearch.Client
         
         /// <summary>With `true`, outputs more advanced details. (default: false)</summary>
         /// <param name="value"></param>
-        public virtual IndicesAnalyzeParameters detail(bool value)
+        public virtual IndicesAnalyzeParameters explain(bool value)
         {
-            this.SetValue("detail", value.ToString().ToLower());
+            this.SetValue("explain", value.ToString().ToLower());
             return this;
         }
         
-        /// <summary>A comma-separated list of token attributes to output, this parameter works only with `detail=true`</summary>
+        /// <summary>A comma-separated list of token attributes to output, this parameter works only with `explain=true`</summary>
         /// <param name="value"></param>
         public virtual IndicesAnalyzeParameters attributes(string value)
         {

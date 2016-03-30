@@ -147,8 +147,11 @@ namespace Elasticsearch.Client.Generator
                     case "boolean":
                         paramType = typeof(bool);
                         break;
-                    case "number":
+                    case "number":                    
                         paramType = typeof (long);
+                        break;
+                    case "integer":
+                        paramType = typeof(int);
                         break;
                     default:
                         throw new InvalidDataException("Unknown parameter type " + parameter.Type);
@@ -315,6 +318,9 @@ namespace Elasticsearch.Client.Generator
                     case "string":
                         urlPathType = typeof (string);
                         break;
+                    case "number":
+                        urlPathType = typeof (long);
+                        break;
                     default:
                         throw new InvalidDataException("Unknown parameter type " + urlPart.Type);
                 }
@@ -402,6 +408,7 @@ namespace Elasticsearch.Client.Generator
 
         private static IEnumerable<Parameter> ReadParameters(JsonReader reader)
         {
+            var parameters = new Dictionary<string, Parameter>();
             var depth = reader.Depth;
             reader.Read();
             while (reader.Read() && reader.Depth > depth)
@@ -409,10 +416,13 @@ namespace Elasticsearch.Client.Generator
                 switch (reader.TokenType)
                 {
                     case JsonToken.PropertyName:
-                        yield return ReadParameter(reader);
+                        var p = ReadParameter(reader);
+                        //last in wins on duplicates...
+                        parameters[p.Name] = p; 
                         break;
                 }
             }
+            return parameters.Values;
         }
 
         private static Parameter ReadParameter(JsonReader reader)
