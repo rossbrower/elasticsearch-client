@@ -24,9 +24,9 @@ namespace Elasticsearch.Client.Tests
         [Fact]
         public async Task ConnectionPoolRandomFailures()
         {
-            var uris = new[] {"http://localhost:9200"};
+            var uris = new[] {"http://localhost:9200", "http://localhost:9200" , "http://localhost:9200" };
             var query = Encoding.UTF8.GetBytes("{\"match_all\":{}}");
-            using (var pool = new ConnectionPool(uris, new ExceptionDispatcher()))
+            using (var pool = new ConnectionPool(uris, new ExceptionDispatcher(), true))
             {
                 var client = new ElasticsearchClient(pool);
                 await Task.WhenAll(Enumerable.Range(0, 1000).Select(async i =>

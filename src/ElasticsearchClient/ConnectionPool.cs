@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -18,13 +19,20 @@ namespace Elasticsearch.Client
         private readonly ReaderWriterLockSlim mLock;
         private readonly HttpClient[] mClients;
         private readonly IDispatcher mDispatcher;
+        private readonly bool mRandomize;
+        private readonly Random mRandom;
 
-        public ConnectionPool(IEnumerable<string> uris, IDispatcher dispatcher = null)
+        public ConnectionPool(IEnumerable<string> uris, IDispatcher dispatcher = null, bool randomize = false)
         {
             mDispatcher = dispatcher ?? new Dispatcher();
             mFailureIds = new HashSet<int>();
             mSuccessIds = new HashSet<int>();
             mLock = new ReaderWriterLockSlim();
+            mRandomize = randomize;
+            if (randomize)
+            {
+                mRandom = new Random();
+            }
             var uriArray = uris.ToArray();
             mClients = new HttpClient[uriArray.Length];
             for (var i = 0; i < uriArray.Length; i++)
@@ -123,17 +131,29 @@ namespace Elasticsearch.Client
 
         private int[] GetSuccessIds()
         {
+            int[] ids;
             mLock.EnterReadLock();
             try
             {
-                var ids = new int[mSuccessIds.Count];
+                ids = new int[mSuccessIds.Count];
                 mSuccessIds.CopyTo(ids);
-                return ids;
             }
             finally
             {
                 mLock.ExitReadLock();
             }
+            if (mRandomize)
+            {
+                var n = ids.Length;
+                while (n > 1)
+                {
+                    var k = mRandom.Next(n--);
+                    var temp = ids[n];
+                    ids[n] = ids[k];
+                    ids[k] = temp;
+                }
+            }
+            return ids;
         }
 
         private int[] GetFailureIds()
