@@ -28,11 +28,19 @@ namespace Elasticsearch.Client
             return this;
         }
         
-        /// <summary>A comma-separated list of character filters to use for the analysis</summary>
+        /// <summary>Deprecated : A comma-separated list of character filters to use for the analysis</summary>
         /// <param name="value"></param>
         public virtual IndicesAnalyzeParameters char_filters(string value)
         {
             this.SetValue("char_filters", value);
+            return this;
+        }
+        
+        /// <summary>A comma-separated list of character filters to use for the analysis</summary>
+        /// <param name="value"></param>
+        public virtual IndicesAnalyzeParameters char_filter(string value)
+        {
+            this.SetValue("char_filter", value);
             return this;
         }
         
@@ -44,11 +52,19 @@ namespace Elasticsearch.Client
             return this;
         }
         
-        /// <summary>A comma-separated list of filters to use for the analysis</summary>
+        /// <summary>Deprecated : A comma-separated list of filters to use for the analysis</summary>
         /// <param name="value"></param>
         public virtual IndicesAnalyzeParameters filters(string value)
         {
             this.SetValue("filters", value);
+            return this;
+        }
+        
+        /// <summary>A comma-separated list of filters to use for the analysis</summary>
+        /// <param name="value"></param>
+        public virtual IndicesAnalyzeParameters filter(string value)
+        {
+            this.SetValue("filter", value);
             return this;
         }
         

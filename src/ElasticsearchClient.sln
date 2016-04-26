@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ElasticsearchClient", "ElasticsearchClient\ElasticsearchClient.xproj", "{B195B916-E6E2-4004-9E3A-0903DFBDA530}"
 EndProject

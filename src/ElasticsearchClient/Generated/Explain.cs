@@ -33,7 +33,7 @@ namespace Elasticsearch.Client
                 ExplainParameters parameters = options.Invoke(new ExplainParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("GET", uri);
+            return mConnection.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-explain.html"/></summary>
@@ -49,7 +49,7 @@ namespace Elasticsearch.Client
                 ExplainParameters parameters = options.Invoke(new ExplainParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("GET", uri);
+            return await mConnection.ExecuteAsync("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-explain.html"/></summary>
@@ -66,7 +66,7 @@ namespace Elasticsearch.Client
                 ExplainParameters parameters = options.Invoke(new ExplainParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("GET", uri, body);
+            return mConnection.Execute("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-explain.html"/></summary>
@@ -83,7 +83,7 @@ namespace Elasticsearch.Client
                 ExplainParameters parameters = options.Invoke(new ExplainParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("GET", uri, body);
+            return await mConnection.ExecuteAsync("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-explain.html"/></summary>
@@ -100,7 +100,7 @@ namespace Elasticsearch.Client
                 ExplainParameters parameters = options.Invoke(new ExplainParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("GET", uri, body);
+            return mConnection.Execute("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-explain.html"/></summary>
@@ -117,7 +117,7 @@ namespace Elasticsearch.Client
                 ExplainParameters parameters = options.Invoke(new ExplainParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("GET", uri, body);
+            return await mConnection.ExecuteAsync("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-explain.html"/></summary>
@@ -134,7 +134,7 @@ namespace Elasticsearch.Client
                 ExplainParameters parameters = options.Invoke(new ExplainParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("GET", uri, body);
+            return mConnection.Execute("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-explain.html"/></summary>
@@ -151,7 +151,7 @@ namespace Elasticsearch.Client
                 ExplainParameters parameters = options.Invoke(new ExplainParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("GET", uri, body);
+            return await mConnection.ExecuteAsync("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-explain.html"/></summary>
@@ -167,7 +167,7 @@ namespace Elasticsearch.Client
                 ExplainParameters parameters = options.Invoke(new ExplainParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("POST", uri);
+            return mConnection.Execute("POST", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-explain.html"/></summary>
@@ -183,7 +183,7 @@ namespace Elasticsearch.Client
                 ExplainParameters parameters = options.Invoke(new ExplainParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("POST", uri);
+            return await mConnection.ExecuteAsync("POST", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-explain.html"/></summary>
@@ -200,7 +200,7 @@ namespace Elasticsearch.Client
                 ExplainParameters parameters = options.Invoke(new ExplainParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("POST", uri, body);
+            return mConnection.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-explain.html"/></summary>
@@ -217,7 +217,7 @@ namespace Elasticsearch.Client
                 ExplainParameters parameters = options.Invoke(new ExplainParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("POST", uri, body);
+            return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-explain.html"/></summary>
@@ -234,7 +234,7 @@ namespace Elasticsearch.Client
                 ExplainParameters parameters = options.Invoke(new ExplainParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("POST", uri, body);
+            return mConnection.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-explain.html"/></summary>
@@ -251,7 +251,7 @@ namespace Elasticsearch.Client
                 ExplainParameters parameters = options.Invoke(new ExplainParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("POST", uri, body);
+            return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-explain.html"/></summary>
@@ -268,7 +268,7 @@ namespace Elasticsearch.Client
                 ExplainParameters parameters = options.Invoke(new ExplainParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("POST", uri, body);
+            return mConnection.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-explain.html"/></summary>
@@ -285,7 +285,7 @@ namespace Elasticsearch.Client
                 ExplainParameters parameters = options.Invoke(new ExplainParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("POST", uri, body);
+            return await mConnection.ExecuteAsync("POST", uri, body);
         }
     }
 }

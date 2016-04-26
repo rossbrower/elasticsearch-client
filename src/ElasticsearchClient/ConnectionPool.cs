@@ -1,8 +1,9 @@
 ﻿using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Elasticsearch.Client
@@ -12,114 +13,170 @@ namespace Elasticsearch.Client
     /// </summary>
     public class ConnectionPool : IConnection
     {
-        private readonly ConcurrentDictionary<string, byte> mFailedUris;
-        private readonly ConcurrentDictionary<string, HttpClient> mClients;
+        private readonly HashSet<int> mFailureIds;
+        private readonly HashSet<int> mSuccessIds;
+        private readonly ReaderWriterLockSlim mLock;
+        private readonly HttpClient[] mClients;
         private readonly IDispatcher mDispatcher;
 
         public ConnectionPool(IEnumerable<string> uris, IDispatcher dispatcher = null)
         {
-            mFailedUris = new ConcurrentDictionary<string, byte>();
-            mClients = new ConcurrentDictionary<string, HttpClient>();
             mDispatcher = dispatcher ?? new Dispatcher();
-            foreach (var uri in uris.Select(u => u.ToLower()).Distinct())
+            mFailureIds = new HashSet<int>();
+            mSuccessIds = new HashSet<int>();
+            mLock = new ReaderWriterLockSlim();
+            var uriArray = uris.ToArray();
+            mClients = new HttpClient[uriArray.Length];
+            for (var i = 0; i < uriArray.Length; i++)
             {
-                var client = new HttpClient {BaseAddress = new Uri(uri)};
-                mClients.TryAdd(client.BaseAddress.ToString(), client);
+                mClients[i] = new HttpClient {BaseAddress = new Uri(uriArray[i])};
+                mSuccessIds.Add(i);
             }
         }
 
-        public HttpResponseMessage Execute(string httpMethod, string uri, HttpContent content = null)
+        public async Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri)
         {
-            Exception exception = null;
-            foreach (var client in mClients.Values)
-            {
-                try
-                {
-                    return mDispatcher.Execute(client, httpMethod, uri, content);
-                }
-                catch (Exception e)
-                {
-                    exception = e;
-                    RemoveClient(client);
-                }                
-            }
-            foreach (var failedUri in mFailedUris.Keys)
-            {
-                var client = new HttpClient {BaseAddress = new Uri(failedUri)};
-                try
-                {
-                    var resp = mDispatcher.Execute(client, httpMethod, uri, content);
-                    AddClient(failedUri, client);
-                    return resp;
-                }
-                catch (Exception e)
-                {
-                    exception = e;
-                    client.Dispose();
-                }                
-            }
-            throw exception ?? new InvalidOperationException("No clients available to service the request.");
+            return await ExecuteImpl(httpMethod, uri);
         }
 
-        public async Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri, HttpContent content = null)
+        public async Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri, Stream body)
         {
-            Exception exception = null;
-            foreach (var client in mClients.Values)
+            byte[] content;
+            using (var ms = new MemoryStream())
             {
-                try
-                {
-                    return await mDispatcher.ExecuteAsync(client, httpMethod, uri, content);
-                }
-                catch (Exception e)
-                {
-                    exception = e;
-                    RemoveClient(client);
-                }
+                body.Position = 0;
+                await body.CopyToAsync(ms);
+                content = ms.ToArray();
             }
-            foreach (var failedUri in mFailedUris.Keys)
-            {
-                var client = new HttpClient {BaseAddress = new Uri(failedUri)};
-                try
-                {
-                    var resp = await mDispatcher.ExecuteAsync(client, httpMethod, uri, content);
-                    AddClient(failedUri, client);
-                    return resp;
-                }
-                catch (Exception e)
-                {
-                    exception = e;
-                    client.Dispose();
-                }
-            }
-            throw exception ?? new InvalidOperationException("No clients available to service the request.");
+            return await ExecuteAsync(httpMethod, uri, content);
+        }
+
+        public async Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri, byte[] body)
+        {
+            return await ExecuteImpl(httpMethod, uri, () => new ByteArrayContent(body));
+        }
+
+        public async Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri, string body)
+        {
+            return await ExecuteImpl(httpMethod, uri, () => new StringContent(body));
+        }
+
+        public HttpResponseMessage Execute(string httpMethod, string uri)
+        {
+            return ExecuteAsync(httpMethod, uri).Result;
+        }
+
+        public HttpResponseMessage Execute(string httpMethod, string uri, Stream body)
+        {
+            return ExecuteAsync(httpMethod, uri, body).Result;
+        }
+
+        public HttpResponseMessage Execute(string httpMethod, string uri, byte[] body)
+        {
+            return ExecuteAsync(httpMethod, uri, body).Result;
+        }
+
+        public HttpResponseMessage Execute(string httpMethod, string uri, string body)
+        {
+            return ExecuteAsync(httpMethod, uri, body).Result;
         }
 
         public void Dispose()
         {
-            foreach (var httpClient in mClients.Values)
+            mLock.Dispose();
+            foreach (var httpClient in mClients)
             {
                 httpClient.Dispose();
             }
-            mClients.Clear();
         }
 
-        private void RemoveClient(HttpClient client)
+        private async Task<HttpResponseMessage> ExecuteImpl(string httpMethod, string uri, Func<HttpContent> contentFunc = null)
         {
-            var clientUri = client.BaseAddress.ToString();
-            mFailedUris.TryAdd(clientUri, 0);
-            HttpClient failed;
-            if (mClients.TryRemove(clientUri, out failed))
+            Exception exception = null;
+            foreach (var clientId in GetSuccessIds())
             {
-                failed.Dispose();
+                try
+                {
+                    return await mDispatcher.ExecuteAsync(mClients[clientId], httpMethod, uri, contentFunc?.Invoke());
+                }
+                catch (Exception e)
+                {
+                    exception = e;
+                    RecordFailure(clientId);
+                }
             }
-            client.Dispose();
+            foreach (var clientId in GetFailureIds())
+            {
+                try
+                {
+                    var resp = await mDispatcher.ExecuteAsync(mClients[clientId], httpMethod, uri, contentFunc?.Invoke());
+                    RecordSuccess(clientId);
+                    return resp;
+                }
+                catch (Exception e)
+                {
+                    exception = e;
+                }
+            }
+            throw exception ?? new InvalidOperationException("No clients available to service the request.");
         }
 
-        private void AddClient(string failedUri, HttpClient client)
+        private int[] GetSuccessIds()
         {
-            mClients.TryAdd(failedUri, client);
-            byte x;
-            mFailedUris.TryRemove(failedUri, out x);
+            mLock.EnterReadLock();
+            try
+            {
+                var ids = new int[mSuccessIds.Count];
+                mSuccessIds.CopyTo(ids);
+                return ids;
+            }
+            finally
+            {
+                mLock.ExitReadLock();
+            }
+        }
+
+        private int[] GetFailureIds()
+        {
+            mLock.EnterReadLock();
+            try
+            {
+                var ids = new int[mFailureIds.Count];
+                mFailureIds.CopyTo(ids);
+                return ids;
+            }
+            finally
+            {
+                mLock.ExitReadLock();
+            }
+        }
+
+        private void RecordFailure(int clientId)
+        {
+            mLock.EnterWriteLock();
+            try
+            {
+                mSuccessIds.Remove(clientId);
+                mFailureIds.Add(clientId);
+            }
+            finally 
+            {
+                mLock.ExitWriteLock();
+            }
+        }
+
+        private void RecordSuccess(int clientId)
+        {
+            mLock.EnterWriteLock();
+            try
+            {
+                mFailureIds.Remove(clientId);
+                mSuccessIds.Add(clientId);
+            }
+            finally
+            {
+                mLock.ExitWriteLock();
+            }
         }
     }
 }

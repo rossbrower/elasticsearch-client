@@ -31,7 +31,7 @@ namespace Elasticsearch.Client
                 GetTemplateParameters parameters = options.Invoke(new GetTemplateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("GET", uri);
+            return mConnection.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
@@ -45,7 +45,7 @@ namespace Elasticsearch.Client
                 GetTemplateParameters parameters = options.Invoke(new GetTemplateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("GET", uri);
+            return await mConnection.ExecuteAsync("GET", uri);
         }
     }
 }

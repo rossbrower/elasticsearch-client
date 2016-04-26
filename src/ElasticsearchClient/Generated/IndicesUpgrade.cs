@@ -30,7 +30,7 @@ namespace Elasticsearch.Client
                 IndicesUpgradeParameters parameters = options.Invoke(new IndicesUpgradeParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("POST", uri);
+            return mConnection.Execute("POST", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-upgrade.html"/></summary>
@@ -43,7 +43,7 @@ namespace Elasticsearch.Client
                 IndicesUpgradeParameters parameters = options.Invoke(new IndicesUpgradeParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("POST", uri);
+            return await mConnection.ExecuteAsync("POST", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-upgrade.html"/></summary>
@@ -57,7 +57,7 @@ namespace Elasticsearch.Client
                 IndicesUpgradeParameters parameters = options.Invoke(new IndicesUpgradeParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("POST", uri);
+            return mConnection.Execute("POST", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-upgrade.html"/></summary>
@@ -71,7 +71,7 @@ namespace Elasticsearch.Client
                 IndicesUpgradeParameters parameters = options.Invoke(new IndicesUpgradeParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("POST", uri);
+            return await mConnection.ExecuteAsync("POST", uri);
         }
     }
 }

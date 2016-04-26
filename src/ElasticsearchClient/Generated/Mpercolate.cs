@@ -31,7 +31,7 @@ namespace Elasticsearch.Client
                 MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("GET", uri, body);
+            return mConnection.Execute("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
@@ -45,7 +45,7 @@ namespace Elasticsearch.Client
                 MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("GET", uri, body);
+            return await mConnection.ExecuteAsync("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
@@ -59,7 +59,7 @@ namespace Elasticsearch.Client
                 MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("GET", uri, body);
+            return mConnection.Execute("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
@@ -73,7 +73,7 @@ namespace Elasticsearch.Client
                 MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("GET", uri, body);
+            return await mConnection.ExecuteAsync("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
@@ -87,7 +87,7 @@ namespace Elasticsearch.Client
                 MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("GET", uri, body);
+            return mConnection.Execute("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
@@ -101,7 +101,7 @@ namespace Elasticsearch.Client
                 MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("GET", uri, body);
+            return await mConnection.ExecuteAsync("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
@@ -115,7 +115,7 @@ namespace Elasticsearch.Client
                 MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("POST", uri, body);
+            return mConnection.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
@@ -129,7 +129,7 @@ namespace Elasticsearch.Client
                 MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("POST", uri, body);
+            return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
@@ -143,7 +143,7 @@ namespace Elasticsearch.Client
                 MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("POST", uri, body);
+            return mConnection.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
@@ -157,7 +157,7 @@ namespace Elasticsearch.Client
                 MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("POST", uri, body);
+            return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
@@ -171,7 +171,7 @@ namespace Elasticsearch.Client
                 MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("POST", uri, body);
+            return mConnection.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
@@ -185,7 +185,7 @@ namespace Elasticsearch.Client
                 MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("POST", uri, body);
+            return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
@@ -200,7 +200,7 @@ namespace Elasticsearch.Client
                 MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("GET", uri, body);
+            return mConnection.Execute("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
@@ -215,7 +215,7 @@ namespace Elasticsearch.Client
                 MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("GET", uri, body);
+            return await mConnection.ExecuteAsync("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
@@ -230,7 +230,7 @@ namespace Elasticsearch.Client
                 MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("GET", uri, body);
+            return mConnection.Execute("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
@@ -245,7 +245,7 @@ namespace Elasticsearch.Client
                 MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("GET", uri, body);
+            return await mConnection.ExecuteAsync("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
@@ -260,7 +260,7 @@ namespace Elasticsearch.Client
                 MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("GET", uri, body);
+            return mConnection.Execute("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
@@ -275,7 +275,7 @@ namespace Elasticsearch.Client
                 MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("GET", uri, body);
+            return await mConnection.ExecuteAsync("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
@@ -290,7 +290,7 @@ namespace Elasticsearch.Client
                 MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("POST", uri, body);
+            return mConnection.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
@@ -305,7 +305,7 @@ namespace Elasticsearch.Client
                 MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("POST", uri, body);
+            return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
@@ -320,7 +320,7 @@ namespace Elasticsearch.Client
                 MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("POST", uri, body);
+            return mConnection.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
@@ -335,7 +335,7 @@ namespace Elasticsearch.Client
                 MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("POST", uri, body);
+            return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
@@ -350,7 +350,7 @@ namespace Elasticsearch.Client
                 MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("POST", uri, body);
+            return mConnection.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
@@ -365,7 +365,7 @@ namespace Elasticsearch.Client
                 MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("POST", uri, body);
+            return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
@@ -381,7 +381,7 @@ namespace Elasticsearch.Client
                 MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("GET", uri, body);
+            return mConnection.Execute("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
@@ -397,7 +397,7 @@ namespace Elasticsearch.Client
                 MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("GET", uri, body);
+            return await mConnection.ExecuteAsync("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
@@ -413,7 +413,7 @@ namespace Elasticsearch.Client
                 MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("GET", uri, body);
+            return mConnection.Execute("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
@@ -429,7 +429,7 @@ namespace Elasticsearch.Client
                 MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("GET", uri, body);
+            return await mConnection.ExecuteAsync("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
@@ -445,7 +445,7 @@ namespace Elasticsearch.Client
                 MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("GET", uri, body);
+            return mConnection.Execute("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
@@ -461,7 +461,7 @@ namespace Elasticsearch.Client
                 MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("GET", uri, body);
+            return await mConnection.ExecuteAsync("GET", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
@@ -477,7 +477,7 @@ namespace Elasticsearch.Client
                 MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("POST", uri, body);
+            return mConnection.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
@@ -493,7 +493,7 @@ namespace Elasticsearch.Client
                 MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("POST", uri, body);
+            return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
@@ -509,7 +509,7 @@ namespace Elasticsearch.Client
                 MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("POST", uri, body);
+            return mConnection.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
@@ -525,7 +525,7 @@ namespace Elasticsearch.Client
                 MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("POST", uri, body);
+            return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
@@ -541,7 +541,7 @@ namespace Elasticsearch.Client
                 MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("POST", uri, body);
+            return mConnection.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-percolate.html"/></summary>
@@ -557,7 +557,7 @@ namespace Elasticsearch.Client
                 MpercolateParameters parameters = options.Invoke(new MpercolateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("POST", uri, body);
+            return await mConnection.ExecuteAsync("POST", uri, body);
         }
     }
 }

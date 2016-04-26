@@ -30,7 +30,7 @@ namespace Elasticsearch.Client
                 SearchShardsParameters parameters = options.Invoke(new SearchShardsParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("GET", uri);
+            return mConnection.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-shards.html"/></summary>
@@ -43,7 +43,7 @@ namespace Elasticsearch.Client
                 SearchShardsParameters parameters = options.Invoke(new SearchShardsParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("GET", uri);
+            return await mConnection.ExecuteAsync("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-shards.html"/></summary>
@@ -56,7 +56,7 @@ namespace Elasticsearch.Client
                 SearchShardsParameters parameters = options.Invoke(new SearchShardsParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("POST", uri);
+            return mConnection.Execute("POST", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-shards.html"/></summary>
@@ -69,7 +69,7 @@ namespace Elasticsearch.Client
                 SearchShardsParameters parameters = options.Invoke(new SearchShardsParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("POST", uri);
+            return await mConnection.ExecuteAsync("POST", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-shards.html"/></summary>
@@ -83,7 +83,7 @@ namespace Elasticsearch.Client
                 SearchShardsParameters parameters = options.Invoke(new SearchShardsParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("GET", uri);
+            return mConnection.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-shards.html"/></summary>
@@ -97,7 +97,7 @@ namespace Elasticsearch.Client
                 SearchShardsParameters parameters = options.Invoke(new SearchShardsParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("GET", uri);
+            return await mConnection.ExecuteAsync("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-shards.html"/></summary>
@@ -111,7 +111,7 @@ namespace Elasticsearch.Client
                 SearchShardsParameters parameters = options.Invoke(new SearchShardsParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("POST", uri);
+            return mConnection.Execute("POST", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-shards.html"/></summary>
@@ -125,7 +125,7 @@ namespace Elasticsearch.Client
                 SearchShardsParameters parameters = options.Invoke(new SearchShardsParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("POST", uri);
+            return await mConnection.ExecuteAsync("POST", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-shards.html"/></summary>
@@ -140,7 +140,7 @@ namespace Elasticsearch.Client
                 SearchShardsParameters parameters = options.Invoke(new SearchShardsParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("GET", uri);
+            return mConnection.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-shards.html"/></summary>
@@ -155,7 +155,7 @@ namespace Elasticsearch.Client
                 SearchShardsParameters parameters = options.Invoke(new SearchShardsParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("GET", uri);
+            return await mConnection.ExecuteAsync("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-shards.html"/></summary>
@@ -170,7 +170,7 @@ namespace Elasticsearch.Client
                 SearchShardsParameters parameters = options.Invoke(new SearchShardsParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("POST", uri);
+            return mConnection.Execute("POST", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-shards.html"/></summary>
@@ -185,7 +185,7 @@ namespace Elasticsearch.Client
                 SearchShardsParameters parameters = options.Invoke(new SearchShardsParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("POST", uri);
+            return await mConnection.ExecuteAsync("POST", uri);
         }
     }
 }

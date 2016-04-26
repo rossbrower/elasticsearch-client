@@ -11,7 +11,7 @@ namespace Elasticsearch.Client.Generator
             string testPath;
             if (args == null || args.Length == 0)
             {
-                inputPath = @"C:\elasticsearch-client\lib\rest-api-spec\rest-api-spec\src\main\resources\rest-api-spec\api";
+                inputPath = @"C:\elasticsearch-client\lib\rest-api-spec\src\main\resources\rest-api-spec\api";
                 classPath = @"C:\elasticsearch-client\src\ElasticsearchClient\Generated";
                 testPath =  @"C:\elasticsearch-client\src\UnitTests\Generated";
             }

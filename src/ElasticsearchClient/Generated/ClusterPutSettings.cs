@@ -30,7 +30,7 @@ namespace Elasticsearch.Client
                 ClusterPutSettingsParameters parameters = options.Invoke(new ClusterPutSettingsParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("PUT", uri);
+            return mConnection.Execute("PUT", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-update-settings.html"/></summary>
@@ -43,7 +43,7 @@ namespace Elasticsearch.Client
                 ClusterPutSettingsParameters parameters = options.Invoke(new ClusterPutSettingsParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("PUT", uri);
+            return await mConnection.ExecuteAsync("PUT", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-update-settings.html"/></summary>
@@ -57,7 +57,7 @@ namespace Elasticsearch.Client
                 ClusterPutSettingsParameters parameters = options.Invoke(new ClusterPutSettingsParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("PUT", uri, body);
+            return mConnection.Execute("PUT", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-update-settings.html"/></summary>
@@ -71,7 +71,7 @@ namespace Elasticsearch.Client
                 ClusterPutSettingsParameters parameters = options.Invoke(new ClusterPutSettingsParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("PUT", uri, body);
+            return await mConnection.ExecuteAsync("PUT", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-update-settings.html"/></summary>
@@ -85,7 +85,7 @@ namespace Elasticsearch.Client
                 ClusterPutSettingsParameters parameters = options.Invoke(new ClusterPutSettingsParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("PUT", uri, body);
+            return mConnection.Execute("PUT", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-update-settings.html"/></summary>
@@ -99,7 +99,7 @@ namespace Elasticsearch.Client
                 ClusterPutSettingsParameters parameters = options.Invoke(new ClusterPutSettingsParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("PUT", uri, body);
+            return await mConnection.ExecuteAsync("PUT", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-update-settings.html"/></summary>
@@ -113,7 +113,7 @@ namespace Elasticsearch.Client
                 ClusterPutSettingsParameters parameters = options.Invoke(new ClusterPutSettingsParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("PUT", uri, body);
+            return mConnection.Execute("PUT", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-update-settings.html"/></summary>
@@ -127,7 +127,7 @@ namespace Elasticsearch.Client
                 ClusterPutSettingsParameters parameters = options.Invoke(new ClusterPutSettingsParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("PUT", uri, body);
+            return await mConnection.ExecuteAsync("PUT", uri, body);
         }
     }
 }

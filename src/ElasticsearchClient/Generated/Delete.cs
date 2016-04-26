@@ -33,7 +33,7 @@ namespace Elasticsearch.Client
                 DeleteParameters parameters = options.Invoke(new DeleteParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("DELETE", uri);
+            return mConnection.Execute("DELETE", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-delete.html"/></summary>
@@ -49,7 +49,7 @@ namespace Elasticsearch.Client
                 DeleteParameters parameters = options.Invoke(new DeleteParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("DELETE", uri);
+            return await mConnection.ExecuteAsync("DELETE", uri);
         }
     }
 }

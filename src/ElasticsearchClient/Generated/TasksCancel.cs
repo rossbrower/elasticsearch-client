@@ -30,7 +30,7 @@ namespace Elasticsearch.Client
                 TasksCancelParameters parameters = options.Invoke(new TasksCancelParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("POST", uri);
+            return mConnection.Execute("POST", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/tasks-cancel.html"/></summary>
@@ -43,13 +43,13 @@ namespace Elasticsearch.Client
                 TasksCancelParameters parameters = options.Invoke(new TasksCancelParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("POST", uri);
+            return await mConnection.ExecuteAsync("POST", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/tasks-cancel.html"/></summary>
-        /// <param name="task_id">Cancel the task with specified id</param>
+        /// <param name="task_id">Cancel the task with specified task id (node_id:task_number)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage TasksCancel(long task_id, Func<TasksCancelParameters, TasksCancelParameters> options = null)
+        public virtual HttpResponseMessage TasksCancel(string task_id, Func<TasksCancelParameters, TasksCancelParameters> options = null)
         {
             string uri = string.Format("/_tasks/{0}/_cancel", task_id);
             if ((options != null))
@@ -57,13 +57,13 @@ namespace Elasticsearch.Client
                 TasksCancelParameters parameters = options.Invoke(new TasksCancelParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("POST", uri);
+            return mConnection.Execute("POST", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/tasks-cancel.html"/></summary>
-        /// <param name="task_id">Cancel the task with specified id</param>
+        /// <param name="task_id">Cancel the task with specified task id (node_id:task_number)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> TasksCancelAsync(long task_id, Func<TasksCancelParameters, TasksCancelParameters> options = null)
+        public virtual async Task<HttpResponseMessage> TasksCancelAsync(string task_id, Func<TasksCancelParameters, TasksCancelParameters> options = null)
         {
             string uri = string.Format("/_tasks/{0}/_cancel", task_id);
             if ((options != null))
@@ -71,7 +71,7 @@ namespace Elasticsearch.Client
                 TasksCancelParameters parameters = options.Invoke(new TasksCancelParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("POST", uri);
+            return await mConnection.ExecuteAsync("POST", uri);
         }
     }
 }

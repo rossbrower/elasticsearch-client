@@ -25,7 +25,7 @@ namespace Elasticsearch.Client
         public virtual HttpResponseMessage ClearScroll(string scroll_id)
         {
             string uri = string.Format("/_search/scroll/{0}", scroll_id);
-            return this.Execute("DELETE", uri);
+            return mConnection.Execute("DELETE", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
@@ -33,7 +33,7 @@ namespace Elasticsearch.Client
         public virtual async Task<HttpResponseMessage> ClearScrollAsync(string scroll_id)
         {
             string uri = string.Format("/_search/scroll/{0}", scroll_id);
-            return await this.ExecuteAsync("DELETE", uri);
+            return await mConnection.ExecuteAsync("DELETE", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
@@ -42,7 +42,7 @@ namespace Elasticsearch.Client
         public virtual HttpResponseMessage ClearScroll(string scroll_id, Stream body)
         {
             string uri = string.Format("/_search/scroll/{0}", scroll_id);
-            return this.Execute("DELETE", uri, body);
+            return mConnection.Execute("DELETE", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
@@ -51,7 +51,7 @@ namespace Elasticsearch.Client
         public virtual async Task<HttpResponseMessage> ClearScrollAsync(string scroll_id, Stream body)
         {
             string uri = string.Format("/_search/scroll/{0}", scroll_id);
-            return await this.ExecuteAsync("DELETE", uri, body);
+            return await mConnection.ExecuteAsync("DELETE", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
@@ -60,7 +60,7 @@ namespace Elasticsearch.Client
         public virtual HttpResponseMessage ClearScroll(string scroll_id, Byte[] body)
         {
             string uri = string.Format("/_search/scroll/{0}", scroll_id);
-            return this.Execute("DELETE", uri, body);
+            return mConnection.Execute("DELETE", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
@@ -69,7 +69,7 @@ namespace Elasticsearch.Client
         public virtual async Task<HttpResponseMessage> ClearScrollAsync(string scroll_id, Byte[] body)
         {
             string uri = string.Format("/_search/scroll/{0}", scroll_id);
-            return await this.ExecuteAsync("DELETE", uri, body);
+            return await mConnection.ExecuteAsync("DELETE", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
@@ -78,7 +78,7 @@ namespace Elasticsearch.Client
         public virtual HttpResponseMessage ClearScrollString(string scroll_id, string body)
         {
             string uri = string.Format("/_search/scroll/{0}", scroll_id);
-            return this.Execute("DELETE", uri, body);
+            return mConnection.Execute("DELETE", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
@@ -87,21 +87,21 @@ namespace Elasticsearch.Client
         public virtual async Task<HttpResponseMessage> ClearScrollStringAsync(string scroll_id, string body)
         {
             string uri = string.Format("/_search/scroll/{0}", scroll_id);
-            return await this.ExecuteAsync("DELETE", uri, body);
+            return await mConnection.ExecuteAsync("DELETE", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
         public virtual HttpResponseMessage ClearScroll()
         {
             string uri = "/_search/scroll";
-            return this.Execute("DELETE", uri);
+            return mConnection.Execute("DELETE", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
         public virtual async Task<HttpResponseMessage> ClearScrollAsync()
         {
             string uri = "/_search/scroll";
-            return await this.ExecuteAsync("DELETE", uri);
+            return await mConnection.ExecuteAsync("DELETE", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
@@ -109,7 +109,7 @@ namespace Elasticsearch.Client
         public virtual HttpResponseMessage ClearScroll(Stream body)
         {
             string uri = "/_search/scroll";
-            return this.Execute("DELETE", uri, body);
+            return mConnection.Execute("DELETE", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
@@ -117,7 +117,7 @@ namespace Elasticsearch.Client
         public virtual async Task<HttpResponseMessage> ClearScrollAsync(Stream body)
         {
             string uri = "/_search/scroll";
-            return await this.ExecuteAsync("DELETE", uri, body);
+            return await mConnection.ExecuteAsync("DELETE", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
@@ -125,7 +125,7 @@ namespace Elasticsearch.Client
         public virtual HttpResponseMessage ClearScroll(Byte[] body)
         {
             string uri = "/_search/scroll";
-            return this.Execute("DELETE", uri, body);
+            return mConnection.Execute("DELETE", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
@@ -133,7 +133,7 @@ namespace Elasticsearch.Client
         public virtual async Task<HttpResponseMessage> ClearScrollAsync(Byte[] body)
         {
             string uri = "/_search/scroll";
-            return await this.ExecuteAsync("DELETE", uri, body);
+            return await mConnection.ExecuteAsync("DELETE", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
@@ -141,7 +141,7 @@ namespace Elasticsearch.Client
         public virtual HttpResponseMessage ClearScrollString(string body)
         {
             string uri = "/_search/scroll";
-            return this.Execute("DELETE", uri, body);
+            return mConnection.Execute("DELETE", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
@@ -149,7 +149,7 @@ namespace Elasticsearch.Client
         public virtual async Task<HttpResponseMessage> ClearScrollStringAsync(string body)
         {
             string uri = "/_search/scroll";
-            return await this.ExecuteAsync("DELETE", uri, body);
+            return await mConnection.ExecuteAsync("DELETE", uri, body);
         }
     }
 }
