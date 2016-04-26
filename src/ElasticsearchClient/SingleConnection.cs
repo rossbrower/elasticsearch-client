@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -24,20 +25,61 @@ namespace Elasticsearch.Client
             mClient = new HttpClient {BaseAddress = new Uri(uri)};
         }
 
-        public virtual async Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri,
-            HttpContent content = null)
-        {
-            return await mDispatcher.ExecuteAsync(mClient, httpMethod, uri, content);
-        }
-
-        public HttpResponseMessage Execute(string httpMethod, string uri, HttpContent content = null)
-        {
-            return mDispatcher.Execute(mClient, httpMethod, uri, content);
-        }
-
         public void Dispose()
         {
             mClient.Dispose();
+        }
+
+        public async Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri)
+        {
+            return await mDispatcher.ExecuteAsync(mClient, httpMethod, uri);
+        }
+
+        public async Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri, Stream body)
+        {
+            if (body == null)
+            {
+                return await mDispatcher.ExecuteAsync(mClient, httpMethod, uri);
+            }
+            return await mDispatcher.ExecuteAsync(mClient, httpMethod, uri, new StreamContent(body));
+        }
+
+        public async Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri, byte[] body)
+        {
+            if (body == null)
+            {
+                return await mDispatcher.ExecuteAsync(mClient, httpMethod, uri);
+            }
+            return await mDispatcher.ExecuteAsync(mClient, httpMethod, uri, new ByteArrayContent(body));
+        }
+
+        public async Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri, string body)
+        {
+            if (body == null)
+            {
+                return await mDispatcher.ExecuteAsync(mClient, httpMethod, uri);
+            }
+            return await mDispatcher.ExecuteAsync(mClient, httpMethod, uri, new StringContent(body));
+        }
+
+        public HttpResponseMessage Execute(string httpMethod, string uri)
+        {
+            return ExecuteAsync(httpMethod, uri).Result;
+        }
+
+        public HttpResponseMessage Execute(string httpMethod, string uri, Stream body)
+        {
+            return ExecuteAsync(httpMethod, uri, body).Result;
+        }
+
+        public HttpResponseMessage Execute(string httpMethod, string uri, byte[] body)
+        {
+            return ExecuteAsync(httpMethod, uri, body).Result;
+        }
+
+        public HttpResponseMessage Execute(string httpMethod, string uri, string body)
+        {
+            return ExecuteAsync(httpMethod, uri, body).Result;
         }
     }
 }

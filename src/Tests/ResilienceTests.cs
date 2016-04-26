@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -16,10 +17,6 @@ namespace Elasticsearch.Client.Tests
             using (var pool = new ConnectionPool(uris))
             {
                 var client = new ElasticsearchClient(pool);
-                for (int i = 0; i < 100; i++)
-                {
-                    client.ClusterHealth();
-                }
                 await Task.WhenAll(Enumerable.Range(0, 100).Select(asi => client.ClusterHealthAsync()));
             }
         }
@@ -27,43 +24,54 @@ namespace Elasticsearch.Client.Tests
         [Fact]
         public async Task ConnectionPoolRandomFailures()
         {
-            var exception = new HttpRequestException("Fail!");
-            var uris = new[] {"http://localhost:7777", "http://localhost:9200", "http://local.foo"};
-            using (var pool = new ConnectionPool(uris, new ExceptionDispatcher<HttpRequestException>(exception)))
+            var uris = new[] {"http://localhost:9200"};
+            var query = Encoding.UTF8.GetBytes("{\"match_all\":{}}");
+            using (var pool = new ConnectionPool(uris, new ExceptionDispatcher()))
             {
                 var client = new ElasticsearchClient(pool);
-                for (int i = 0; i < 1000; i++)
+                await Task.WhenAll(Enumerable.Range(0, 1000).Select(async i =>
                 {
-                    client.ClusterHealth();
-                }
-                await Task.WhenAll(Enumerable.Range(0, 1000).Select(i => client.ClusterHealthAsync()));
+                    try
+                    {
+                        return await client.SearchPostAsync(query);
+                    }
+                    catch (RandomException)
+                    {
+                        return new HttpResponseMessage(HttpStatusCode.InternalServerError)
+                        {
+                            ReasonPhrase = "Random!"
+                        };
+                    }
+                }));
             }
-        }        
+        }
 
-        private class ExceptionDispatcher<T>: IDispatcher where T: Exception
+        private class ExceptionDispatcher : IDispatcher
         {
             private readonly Random mRandom;
-            private readonly T mException;
 
-            public ExceptionDispatcher(T exception)
+            public ExceptionDispatcher()
             {
-                mException = exception;
                 mRandom = new Random();
             }
 
-            public HttpResponseMessage Execute(HttpClient client, string httpMethod, string uri, HttpContent content = null)
+            public async Task<HttpResponseMessage> ExecuteAsync(HttpClient client, string httpMethod, string uri,
+                HttpContent content = null)
             {
+                var message = new HttpRequestMessage(new HttpMethod(httpMethod), uri)
+                {
+                    Content = content
+                };
                 if (mRandom.Next(20) == 1)
                 {
-                    throw mException;
+                    throw new RandomException();
                 }
-                return new HttpResponseMessage(HttpStatusCode.OK);
+                return await client.SendAsync(message).ConfigureAwait(false);
             }
+        }
 
-            public Task<HttpResponseMessage> ExecuteAsync(HttpClient client, string httpMethod, string uri, HttpContent content = null)
-            {
-                return Task.FromResult(Execute(client, httpMethod, uri, content));
-            }
+        private class RandomException : Exception
+        {
         }
     }
 }

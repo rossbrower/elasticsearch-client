@@ -31,7 +31,7 @@ namespace Elasticsearch.Client
                 IndicesGetParameters parameters = options.Invoke(new IndicesGetParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("GET", uri);
+            return mConnection.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-index.html"/></summary>
@@ -45,7 +45,7 @@ namespace Elasticsearch.Client
                 IndicesGetParameters parameters = options.Invoke(new IndicesGetParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("GET", uri);
+            return await mConnection.ExecuteAsync("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-index.html"/></summary>
@@ -60,7 +60,7 @@ namespace Elasticsearch.Client
                 IndicesGetParameters parameters = options.Invoke(new IndicesGetParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("GET", uri);
+            return mConnection.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-index.html"/></summary>
@@ -75,7 +75,7 @@ namespace Elasticsearch.Client
                 IndicesGetParameters parameters = options.Invoke(new IndicesGetParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("GET", uri);
+            return await mConnection.ExecuteAsync("GET", uri);
         }
     }
 }

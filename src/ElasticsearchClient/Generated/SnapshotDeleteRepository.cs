@@ -31,7 +31,7 @@ namespace Elasticsearch.Client
                 SnapshotDeleteRepositoryParameters parameters = options.Invoke(new SnapshotDeleteRepositoryParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("DELETE", uri);
+            return mConnection.Execute("DELETE", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
@@ -45,7 +45,7 @@ namespace Elasticsearch.Client
                 SnapshotDeleteRepositoryParameters parameters = options.Invoke(new SnapshotDeleteRepositoryParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("DELETE", uri);
+            return await mConnection.ExecuteAsync("DELETE", uri);
         }
     }
 }

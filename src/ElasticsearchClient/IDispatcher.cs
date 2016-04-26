@@ -7,8 +7,5 @@ namespace Elasticsearch.Client
     {
         Task<HttpResponseMessage> ExecuteAsync(HttpClient client, string httpMethod, string uri,
             HttpContent content = null);
-
-        HttpResponseMessage Execute(HttpClient client, string httpMethod, string uri,
-            HttpContent content = null);
     }
 }

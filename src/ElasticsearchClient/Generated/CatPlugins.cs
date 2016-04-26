@@ -30,7 +30,7 @@ namespace Elasticsearch.Client
                 CatPluginsParameters parameters = options.Invoke(new CatPluginsParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("GET", uri);
+            return mConnection.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-plugins.html"/></summary>
@@ -43,7 +43,7 @@ namespace Elasticsearch.Client
                 CatPluginsParameters parameters = options.Invoke(new CatPluginsParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("GET", uri);
+            return await mConnection.ExecuteAsync("GET", uri);
         }
     }
 }

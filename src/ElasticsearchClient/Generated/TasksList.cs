@@ -30,7 +30,7 @@ namespace Elasticsearch.Client
                 TasksListParameters parameters = options.Invoke(new TasksListParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("GET", uri);
+            return mConnection.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/tasks-list.html"/></summary>
@@ -43,13 +43,13 @@ namespace Elasticsearch.Client
                 TasksListParameters parameters = options.Invoke(new TasksListParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("GET", uri);
+            return await mConnection.ExecuteAsync("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/tasks-list.html"/></summary>
-        /// <param name="task_id">Return the task with specified id</param>
+        /// <param name="task_id">Return the task with specified id (node_id:task_number)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage TasksList(long task_id, Func<TasksListParameters, TasksListParameters> options = null)
+        public virtual HttpResponseMessage TasksList(string task_id, Func<TasksListParameters, TasksListParameters> options = null)
         {
             string uri = string.Format("/_tasks/{0}", task_id);
             if ((options != null))
@@ -57,13 +57,13 @@ namespace Elasticsearch.Client
                 TasksListParameters parameters = options.Invoke(new TasksListParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("GET", uri);
+            return mConnection.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/tasks-list.html"/></summary>
-        /// <param name="task_id">Return the task with specified id</param>
+        /// <param name="task_id">Return the task with specified id (node_id:task_number)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> TasksListAsync(long task_id, Func<TasksListParameters, TasksListParameters> options = null)
+        public virtual async Task<HttpResponseMessage> TasksListAsync(string task_id, Func<TasksListParameters, TasksListParameters> options = null)
         {
             string uri = string.Format("/_tasks/{0}", task_id);
             if ((options != null))
@@ -71,7 +71,7 @@ namespace Elasticsearch.Client
                 TasksListParameters parameters = options.Invoke(new TasksListParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("GET", uri);
+            return await mConnection.ExecuteAsync("GET", uri);
         }
     }
 }

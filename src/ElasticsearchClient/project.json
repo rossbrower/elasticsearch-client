@@ -11,6 +11,11 @@
         "System.Net.Http": "4.0.0.0"
       }
     },
+    "net461": {
+      "frameworkAssemblies": {
+        "System.Net.Http": "4.0.0.0"
+      }
+    },
     "dotnet5.4": {
       "dependencies": {
         "Microsoft.CSharp": "4.0.1-beta-23516",
