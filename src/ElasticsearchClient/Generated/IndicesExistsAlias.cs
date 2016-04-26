@@ -31,7 +31,7 @@ namespace Elasticsearch.Client
                 IndicesExistsAliasParameters parameters = options.Invoke(new IndicesExistsAliasParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("HEAD", uri);
+            return mConnection.Execute("HEAD", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
@@ -45,7 +45,7 @@ namespace Elasticsearch.Client
                 IndicesExistsAliasParameters parameters = options.Invoke(new IndicesExistsAliasParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("HEAD", uri);
+            return await mConnection.ExecuteAsync("HEAD", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
@@ -60,7 +60,7 @@ namespace Elasticsearch.Client
                 IndicesExistsAliasParameters parameters = options.Invoke(new IndicesExistsAliasParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("HEAD", uri);
+            return mConnection.Execute("HEAD", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
@@ -75,7 +75,7 @@ namespace Elasticsearch.Client
                 IndicesExistsAliasParameters parameters = options.Invoke(new IndicesExistsAliasParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("HEAD", uri);
+            return await mConnection.ExecuteAsync("HEAD", uri);
         }
     }
 }

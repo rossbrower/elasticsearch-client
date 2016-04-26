@@ -52,9 +52,9 @@ namespace Elasticsearch.Client
             return this;
         }
         
-        /// <summary>Return tasks with specified parent task id. Set to -1 to return all.</summary>
+        /// <summary>Return tasks with specified parent task id (node_id:task_number). Set to -1 to return all.</summary>
         /// <param name="value"></param>
-        public virtual TasksListParameters parent_task(long value)
+        public virtual TasksListParameters parent_task(string value)
         {
             this.SetValue("parent_task", value);
             return this;

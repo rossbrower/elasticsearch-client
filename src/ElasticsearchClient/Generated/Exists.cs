@@ -33,7 +33,7 @@ namespace Elasticsearch.Client
                 ExistsParameters parameters = options.Invoke(new ExistsParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("HEAD", uri);
+            return mConnection.Execute("HEAD", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-get.html"/></summary>
@@ -49,7 +49,7 @@ namespace Elasticsearch.Client
                 ExistsParameters parameters = options.Invoke(new ExistsParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("HEAD", uri);
+            return await mConnection.ExecuteAsync("HEAD", uri);
         }
     }
 }

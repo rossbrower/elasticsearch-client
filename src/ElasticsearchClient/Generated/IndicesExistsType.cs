@@ -32,7 +32,7 @@ namespace Elasticsearch.Client
                 IndicesExistsTypeParameters parameters = options.Invoke(new IndicesExistsTypeParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("HEAD", uri);
+            return mConnection.Execute("HEAD", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-types-exists.html"/></summary>
@@ -47,7 +47,7 @@ namespace Elasticsearch.Client
                 IndicesExistsTypeParameters parameters = options.Invoke(new IndicesExistsTypeParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("HEAD", uri);
+            return await mConnection.ExecuteAsync("HEAD", uri);
         }
     }
 }

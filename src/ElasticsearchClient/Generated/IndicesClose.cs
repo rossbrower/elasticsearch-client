@@ -31,7 +31,7 @@ namespace Elasticsearch.Client
                 IndicesCloseParameters parameters = options.Invoke(new IndicesCloseParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("POST", uri);
+            return mConnection.Execute("POST", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-open-close.html"/></summary>
@@ -45,7 +45,7 @@ namespace Elasticsearch.Client
                 IndicesCloseParameters parameters = options.Invoke(new IndicesCloseParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("POST", uri);
+            return await mConnection.ExecuteAsync("POST", uri);
         }
     }
 }

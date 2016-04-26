@@ -31,7 +31,7 @@ namespace Elasticsearch.Client
                 CatSnapshotsParameters parameters = options.Invoke(new CatSnapshotsParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("GET", uri);
+            return mConnection.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-snapshots.html"/></summary>
@@ -45,7 +45,7 @@ namespace Elasticsearch.Client
                 CatSnapshotsParameters parameters = options.Invoke(new CatSnapshotsParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("GET", uri);
+            return await mConnection.ExecuteAsync("GET", uri);
         }
     }
 }

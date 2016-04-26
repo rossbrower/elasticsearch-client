@@ -32,7 +32,7 @@ namespace Elasticsearch.Client
                 SnapshotCreateParameters parameters = options.Invoke(new SnapshotCreateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("PUT", uri);
+            return mConnection.Execute("PUT", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
@@ -47,7 +47,7 @@ namespace Elasticsearch.Client
                 SnapshotCreateParameters parameters = options.Invoke(new SnapshotCreateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("PUT", uri);
+            return await mConnection.ExecuteAsync("PUT", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
@@ -63,7 +63,7 @@ namespace Elasticsearch.Client
                 SnapshotCreateParameters parameters = options.Invoke(new SnapshotCreateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("PUT", uri, body);
+            return mConnection.Execute("PUT", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
@@ -79,7 +79,7 @@ namespace Elasticsearch.Client
                 SnapshotCreateParameters parameters = options.Invoke(new SnapshotCreateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("PUT", uri, body);
+            return await mConnection.ExecuteAsync("PUT", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
@@ -95,7 +95,7 @@ namespace Elasticsearch.Client
                 SnapshotCreateParameters parameters = options.Invoke(new SnapshotCreateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("PUT", uri, body);
+            return mConnection.Execute("PUT", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
@@ -111,7 +111,7 @@ namespace Elasticsearch.Client
                 SnapshotCreateParameters parameters = options.Invoke(new SnapshotCreateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("PUT", uri, body);
+            return await mConnection.ExecuteAsync("PUT", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
@@ -127,7 +127,7 @@ namespace Elasticsearch.Client
                 SnapshotCreateParameters parameters = options.Invoke(new SnapshotCreateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("PUT", uri, body);
+            return mConnection.Execute("PUT", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
@@ -143,7 +143,7 @@ namespace Elasticsearch.Client
                 SnapshotCreateParameters parameters = options.Invoke(new SnapshotCreateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("PUT", uri, body);
+            return await mConnection.ExecuteAsync("PUT", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
@@ -158,7 +158,7 @@ namespace Elasticsearch.Client
                 SnapshotCreateParameters parameters = options.Invoke(new SnapshotCreateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("POST", uri);
+            return mConnection.Execute("POST", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
@@ -173,7 +173,7 @@ namespace Elasticsearch.Client
                 SnapshotCreateParameters parameters = options.Invoke(new SnapshotCreateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("POST", uri);
+            return await mConnection.ExecuteAsync("POST", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
@@ -189,7 +189,7 @@ namespace Elasticsearch.Client
                 SnapshotCreateParameters parameters = options.Invoke(new SnapshotCreateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("POST", uri, body);
+            return mConnection.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
@@ -205,7 +205,7 @@ namespace Elasticsearch.Client
                 SnapshotCreateParameters parameters = options.Invoke(new SnapshotCreateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("POST", uri, body);
+            return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
@@ -221,7 +221,7 @@ namespace Elasticsearch.Client
                 SnapshotCreateParameters parameters = options.Invoke(new SnapshotCreateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("POST", uri, body);
+            return mConnection.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
@@ -237,7 +237,7 @@ namespace Elasticsearch.Client
                 SnapshotCreateParameters parameters = options.Invoke(new SnapshotCreateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("POST", uri, body);
+            return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
@@ -253,7 +253,7 @@ namespace Elasticsearch.Client
                 SnapshotCreateParameters parameters = options.Invoke(new SnapshotCreateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("POST", uri, body);
+            return mConnection.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
@@ -269,7 +269,7 @@ namespace Elasticsearch.Client
                 SnapshotCreateParameters parameters = options.Invoke(new SnapshotCreateParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("POST", uri, body);
+            return await mConnection.ExecuteAsync("POST", uri, body);
         }
     }
 }

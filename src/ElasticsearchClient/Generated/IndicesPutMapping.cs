@@ -33,7 +33,7 @@ namespace Elasticsearch.Client
                 IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("PUT", uri, body);
+            return mConnection.Execute("PUT", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
@@ -49,7 +49,7 @@ namespace Elasticsearch.Client
                 IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("PUT", uri, body);
+            return await mConnection.ExecuteAsync("PUT", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
@@ -65,7 +65,7 @@ namespace Elasticsearch.Client
                 IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("PUT", uri, body);
+            return mConnection.Execute("PUT", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
@@ -81,7 +81,7 @@ namespace Elasticsearch.Client
                 IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("PUT", uri, body);
+            return await mConnection.ExecuteAsync("PUT", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
@@ -97,7 +97,7 @@ namespace Elasticsearch.Client
                 IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("PUT", uri, body);
+            return mConnection.Execute("PUT", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
@@ -113,7 +113,7 @@ namespace Elasticsearch.Client
                 IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("PUT", uri, body);
+            return await mConnection.ExecuteAsync("PUT", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
@@ -129,7 +129,7 @@ namespace Elasticsearch.Client
                 IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("POST", uri, body);
+            return mConnection.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
@@ -145,7 +145,7 @@ namespace Elasticsearch.Client
                 IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("POST", uri, body);
+            return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
@@ -161,7 +161,7 @@ namespace Elasticsearch.Client
                 IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("POST", uri, body);
+            return mConnection.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
@@ -177,7 +177,7 @@ namespace Elasticsearch.Client
                 IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("POST", uri, body);
+            return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
@@ -193,7 +193,7 @@ namespace Elasticsearch.Client
                 IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("POST", uri, body);
+            return mConnection.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
@@ -209,7 +209,7 @@ namespace Elasticsearch.Client
                 IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("POST", uri, body);
+            return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
@@ -224,7 +224,7 @@ namespace Elasticsearch.Client
                 IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("PUT", uri, body);
+            return mConnection.Execute("PUT", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
@@ -239,7 +239,7 @@ namespace Elasticsearch.Client
                 IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("PUT", uri, body);
+            return await mConnection.ExecuteAsync("PUT", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
@@ -254,7 +254,7 @@ namespace Elasticsearch.Client
                 IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("PUT", uri, body);
+            return mConnection.Execute("PUT", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
@@ -269,7 +269,7 @@ namespace Elasticsearch.Client
                 IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("PUT", uri, body);
+            return await mConnection.ExecuteAsync("PUT", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
@@ -284,7 +284,7 @@ namespace Elasticsearch.Client
                 IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("PUT", uri, body);
+            return mConnection.Execute("PUT", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
@@ -299,7 +299,7 @@ namespace Elasticsearch.Client
                 IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("PUT", uri, body);
+            return await mConnection.ExecuteAsync("PUT", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
@@ -314,7 +314,7 @@ namespace Elasticsearch.Client
                 IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("POST", uri, body);
+            return mConnection.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
@@ -329,7 +329,7 @@ namespace Elasticsearch.Client
                 IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("POST", uri, body);
+            return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
@@ -344,7 +344,7 @@ namespace Elasticsearch.Client
                 IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("POST", uri, body);
+            return mConnection.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
@@ -359,7 +359,7 @@ namespace Elasticsearch.Client
                 IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("POST", uri, body);
+            return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
@@ -374,7 +374,7 @@ namespace Elasticsearch.Client
                 IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
                 uri = parameters.GetUri(uri);
             }
-            return this.Execute("POST", uri, body);
+            return mConnection.Execute("POST", uri, body);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
@@ -389,7 +389,7 @@ namespace Elasticsearch.Client
                 IndicesPutMappingParameters parameters = options.Invoke(new IndicesPutMappingParameters());
                 uri = parameters.GetUri(uri);
             }
-            return await this.ExecuteAsync("POST", uri, body);
+            return await mConnection.ExecuteAsync("POST", uri, body);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Xunit;
@@ -10,16 +11,17 @@ namespace Elasticsearch.Client.Tests
         public static void Validate(Func<ElasticsearchClient, HttpResponseMessage> func,
             string expectedMethod, string expectedUri)
         {
-            func(new ElasticsearchClient(new RequestValidatorPool(expectedMethod, expectedUri)));
+            var dispatcher = new RequestValidatorDispatcher(expectedMethod, expectedUri);
+            func(new ElasticsearchClient(new SingleConnection(dispatcher: dispatcher)));
         }
 
-        private class RequestValidatorPool : IConnection
+        private class RequestValidatorDispatcher : IDispatcher
         {
             private readonly string mExpectedMethod;
             private readonly string mExpectedUri;
             private readonly Action<HttpContent> mContentValidator;
 
-            internal RequestValidatorPool(string expectedMethod, string expectedUri, 
+            internal RequestValidatorDispatcher(string expectedMethod, string expectedUri, 
                 Action<HttpContent> contentValidator = null)
             {
                 mExpectedMethod = expectedMethod;
@@ -27,21 +29,12 @@ namespace Elasticsearch.Client.Tests
                 mContentValidator = contentValidator;
             }
 
-            public Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri, HttpContent content = null)
-            {
-                return Task.FromResult(Execute(httpMethod, uri, content));
-            }
-
-            public HttpResponseMessage Execute(string httpMethod, string uri, HttpContent content = null)
+            public Task<HttpResponseMessage> ExecuteAsync(HttpClient client, string httpMethod, string uri, HttpContent content = null)
             {
                 Assert.Equal(mExpectedMethod, httpMethod);
                 Assert.Equal(mExpectedUri, uri);
                 mContentValidator?.Invoke(content);
-                return null;
-            }
-
-            public void Dispose()
-            {
+                return Task.FromResult(new HttpResponseMessage(HttpStatusCode.OK));
             }
         }
     }

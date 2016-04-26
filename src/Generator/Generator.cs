@@ -297,11 +297,11 @@ namespace Elasticsearch.Client.Generator
             CodeExpression thisRef;
             if (async)
             {
-                thisRef = new CodeVariableReferenceExpression("await this");
+                thisRef = new CodeVariableReferenceExpression("await mConnection");
             }
             else
             {
-                thisRef = new CodeThisReferenceExpression();
+                thisRef = new CodeVariableReferenceExpression("mConnection");
             }
             var executeInvoke = new CodeMethodInvokeExpression(thisRef, async ? "ExecuteAsync" : "Execute",
                 new CodePrimitiveExpression(httpMethod), new CodeVariableReferenceExpression("uri"));            
