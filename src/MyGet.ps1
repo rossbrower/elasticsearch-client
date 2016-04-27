@@ -1,2 +1,2 @@
-& dnu restore .\ElasticsearchClient\project.json 2>1
-& "$env:msbuildexe" .\MyGet.sln /p:Configuration=$env:Configuration /m /v:M /fl /flp:LogFile="msbuild.log;Verbosity=Normal" /nr:false 2>1
+Get-ChildItem -Path $PSScriptRoot -Filter ElasticsearchClient\project.json -Recurse | ForEach-Object { & dnu restore $_.FullName 2>1 }
+Get-ChildItem -Path $PSScriptRoot -Filter MyGet.sln -Recurse | ForEach-Object { & "$env:msbuildexe" $_.FullName /p:Configuration=$env:Configuration /m /v:M /fl /flp:LogFile="msbuild.log;Verbosity=Normal" /nr:false 2>1 }
