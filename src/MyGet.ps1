@@ -24,4 +24,4 @@ else
 Get-ChildItem -Path $PSScriptRoot -Filter project.json -Recurse | ForEach-Object { & dnu restore $_.FullName 2>1 }
 
 # run msbuild on the solution file
-Get-ChildItem -Path $PSScriptRoot -Filter *.sln -Recurse | ForEach-Object { & "$env:msbuildexe" $_.FullName /p:Configuration=$env:Configuration /m /v:M /fl /flp:LogFile="msbuild.log;Verbosity=Normal" /nr:false 2>1 }
+Get-ChildItem -Path $PSScriptRoot -Filter myget.sln -Recurse | ForEach-Object { & "$env:msbuildexe" $_.FullName /p:Configuration=$env:Configuration /m /v:M /fl /flp:LogFile="msbuild.log;Verbosity=Normal" /nr:false 2>1 }
