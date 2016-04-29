@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Elasticsearch.Client
@@ -12,17 +14,25 @@ namespace Elasticsearch.Client
     public class SingleConnection : IConnection
     {
         private readonly IDispatcher mDispatcher;
-        private readonly HttpClient mClient;        
+        private readonly HttpClient mClient;
 
         /// <summary>
         /// Create a new SingleConnection.
         /// </summary>        
         /// <param name="uri">Optional uri of the node.</param>
-        /// <param name="dispatcher">Optional dispatcher.</param>
-        public SingleConnection(string uri = "http://localhost:9200", IDispatcher dispatcher = null)
+        /// <param name="dispatcher">Optional dispatcher implementation. If null, <see cref="Dispatcher"/> will be used.</param>
+        /// <param name="authenticationOptions">Optional authentication options for use with Shield.</param>
+        public SingleConnection(string uri = "http://localhost:9200", IDispatcher dispatcher = null,
+            AuthenticationOptions authenticationOptions = null)
         {
             mDispatcher = dispatcher ?? new Dispatcher();
             mClient = new HttpClient {BaseAddress = new Uri(uri)};
+            if (authenticationOptions != null)
+            {
+                var bytes = Encoding.UTF8.GetBytes($"{authenticationOptions.Username}:{authenticationOptions.Password}");
+                mClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic",
+                    Convert.ToBase64String(bytes));
+            }
         }
 
         public void Dispose()

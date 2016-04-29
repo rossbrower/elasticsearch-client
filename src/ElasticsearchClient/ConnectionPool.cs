@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -21,7 +23,15 @@ namespace Elasticsearch.Client
         private readonly bool mRandomize;
         private readonly Random mRandom;
 
-        public ConnectionPool(IEnumerable<string> uris, IDispatcher dispatcher = null, bool randomize = false)
+        /// <summary>
+        /// Create a new ConnectionPool.
+        /// </summary>
+        /// <param name="uris">The list of uris to use in the pool.</param>
+        /// <param name="dispatcher">Optional dispatcher implementation. If null, <see cref="Dispatcher"/> will be used.</param>
+        /// <param name="randomize">Whether to randomize the list of uris on each request.</param>
+        /// <param name="authenticationOptions">Optional authentication options for use with Shield.</param>
+        public ConnectionPool(IEnumerable<string> uris, IDispatcher dispatcher = null, bool randomize = false, 
+            AuthenticationOptions authenticationOptions = null)
         {
             mDispatcher = dispatcher ?? new Dispatcher();
             mFailureIds = new HashSet<int>();
@@ -36,7 +46,14 @@ namespace Elasticsearch.Client
             mClients = new HttpClient[uriArray.Length];
             for (var i = 0; i < uriArray.Length; i++)
             {
-                mClients[i] = new HttpClient {BaseAddress = new Uri(uriArray[i])};
+                var client = new HttpClient { BaseAddress = new Uri(uriArray[i]) };
+                if (authenticationOptions != null)
+                {
+                    var bytes = Encoding.UTF8.GetBytes($"{authenticationOptions.Username}:{authenticationOptions.Password}");
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic",
+                        Convert.ToBase64String(bytes));
+                }
+                mClients[i] = client;
                 mSuccessIds.Add(i);
             }
         }
