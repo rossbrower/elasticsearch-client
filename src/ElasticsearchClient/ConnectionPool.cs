@@ -60,7 +60,7 @@ namespace Elasticsearch.Client
 
         public async Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri)
         {
-            return await ExecuteImpl(httpMethod, uri);
+            return await ExecuteImpl(httpMethod, uri).ConfigureAwait(false);
         }
 
         public async Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri, Stream body)
@@ -69,20 +69,20 @@ namespace Elasticsearch.Client
             using (var ms = new MemoryStream())
             {
                 body.Position = 0;
-                await body.CopyToAsync(ms);
+                await body.CopyToAsync(ms).ConfigureAwait(false);
                 content = ms.ToArray();
             }
-            return await ExecuteAsync(httpMethod, uri, content);
+            return await ExecuteAsync(httpMethod, uri, content).ConfigureAwait(false);
         }
 
         public async Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri, byte[] body)
         {
-            return await ExecuteImpl(httpMethod, uri, () => new ByteArrayContent(body));
+            return await ExecuteImpl(httpMethod, uri, () => new ByteArrayContent(body)).ConfigureAwait(false);
         }
 
         public async Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri, string body)
         {
-            return await ExecuteImpl(httpMethod, uri, () => new StringContent(body));
+            return await ExecuteImpl(httpMethod, uri, () => new StringContent(body)).ConfigureAwait(false);
         }
 
         public HttpResponseMessage Execute(string httpMethod, string uri)
@@ -121,7 +121,7 @@ namespace Elasticsearch.Client
             {
                 try
                 {
-                    return await mDispatcher.ExecuteAsync(mClients[clientId], httpMethod, uri, contentFunc?.Invoke());
+                    return await mDispatcher.ExecuteAsync(mClients[clientId], httpMethod, uri, contentFunc?.Invoke()).ConfigureAwait(false);
                 }
                 catch (Exception e)
                 {
@@ -133,7 +133,7 @@ namespace Elasticsearch.Client
             {
                 try
                 {
-                    var resp = await mDispatcher.ExecuteAsync(mClients[clientId], httpMethod, uri, contentFunc?.Invoke());
+                    var resp = await mDispatcher.ExecuteAsync(mClients[clientId], httpMethod, uri, contentFunc?.Invoke()).ConfigureAwait(false);
                     RecordSuccess(clientId);
                     return resp;
                 }
