@@ -42,34 +42,34 @@ namespace Elasticsearch.Client
 
         public async Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri)
         {
-            return await mDispatcher.ExecuteAsync(mClient, httpMethod, uri);
+            return await mDispatcher.ExecuteAsync(mClient, httpMethod, uri).ConfigureAwait(false);
         }
 
         public async Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri, Stream body)
         {
             if (body == null)
             {
-                return await mDispatcher.ExecuteAsync(mClient, httpMethod, uri);
+                return await mDispatcher.ExecuteAsync(mClient, httpMethod, uri).ConfigureAwait(false);
             }
-            return await mDispatcher.ExecuteAsync(mClient, httpMethod, uri, new StreamContent(body));
+            return await mDispatcher.ExecuteAsync(mClient, httpMethod, uri, new StreamContent(body)).ConfigureAwait(false);
         }
 
         public async Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri, byte[] body)
         {
             if (body == null)
             {
-                return await mDispatcher.ExecuteAsync(mClient, httpMethod, uri);
+                return await mDispatcher.ExecuteAsync(mClient, httpMethod, uri).ConfigureAwait(false);
             }
-            return await mDispatcher.ExecuteAsync(mClient, httpMethod, uri, new ByteArrayContent(body));
+            return await mDispatcher.ExecuteAsync(mClient, httpMethod, uri, new ByteArrayContent(body)).ConfigureAwait(false);
         }
 
         public async Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri, string body)
         {
             if (body == null)
             {
-                return await mDispatcher.ExecuteAsync(mClient, httpMethod, uri);
+                return await mDispatcher.ExecuteAsync(mClient, httpMethod, uri).ConfigureAwait(false);
             }
-            return await mDispatcher.ExecuteAsync(mClient, httpMethod, uri, new StringContent(body));
+            return await mDispatcher.ExecuteAsync(mClient, httpMethod, uri, new StringContent(body)).ConfigureAwait(false);
         }
 
         public HttpResponseMessage Execute(string httpMethod, string uri)
