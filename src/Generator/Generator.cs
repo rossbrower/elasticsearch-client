@@ -153,6 +153,9 @@ namespace Elasticsearch.Client.Generator
                     case "integer":
                         paramType = typeof(int);
                         break;
+                    case "float":
+                        paramType = typeof(double);
+                        break;
                     default:
                         throw new InvalidDataException("Unknown parameter type " + parameter.Type);
                 }
@@ -491,6 +494,10 @@ namespace Elasticsearch.Client.Generator
                         break;
                     case JsonToken.Boolean:
                         return (bool) reader.Value;
+                    case JsonToken.Integer:
+                        return Convert.ToInt32(reader.Value);
+                    case JsonToken.Float:
+                        return Convert.ToDouble(reader.Value);
                     case JsonToken.Null:
                         return null;
                     case JsonToken.EndArray:

@@ -17,22 +17,14 @@ namespace Elasticsearch.Client
     using System.Threading.Tasks;
     
     
-    public class GetScriptParameters : Parameters
+    public class ReindexRethrottleParameters : Parameters
     {
         
-        /// <summary>Explicit version number for concurrency control</summary>
+        /// <summary>The throttle to set on this request in sub-requests per second. 0 means set no throttle. As does "unlimited". Otherwise it must be a float.</summary>
         /// <param name="value"></param>
-        public virtual GetScriptParameters version(long value)
+        public virtual ReindexRethrottleParameters requests_per_second(double value)
         {
-            this.SetValue("version", value);
-            return this;
-        }
-        
-        /// <summary>Specific version type</summary>
-        /// <param name="value"><para>Options: internal,external,external_gte,force</para></param>
-        public virtual GetScriptParameters version_type(string value)
-        {
-            this.SetValue("version_type", value);
+            this.SetValue("requests_per_second", value);
             return this;
         }
     }

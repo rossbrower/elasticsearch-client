@@ -20,7 +20,7 @@ namespace Elasticsearch.Client
     public partial class ElasticsearchClient
     {
         
-        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/master/plugins-reindex.html"/></summary>
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/master/docs-reindex.html"/></summary>
         /// <param name="body">The search definition using the Query DSL and the prototype for the index request.</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual HttpResponseMessage Reindex(Stream body, Func<ReindexParameters, ReindexParameters> options = null)
@@ -34,7 +34,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
         
-        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/master/plugins-reindex.html"/></summary>
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/master/docs-reindex.html"/></summary>
         /// <param name="body">The search definition using the Query DSL and the prototype for the index request.</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual async Task<HttpResponseMessage> ReindexAsync(Stream body, Func<ReindexParameters, ReindexParameters> options = null)
@@ -48,7 +48,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
-        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/master/plugins-reindex.html"/></summary>
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/master/docs-reindex.html"/></summary>
         /// <param name="body">The search definition using the Query DSL and the prototype for the index request.</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual HttpResponseMessage Reindex(Byte[] body, Func<ReindexParameters, ReindexParameters> options = null)
@@ -62,7 +62,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
         
-        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/master/plugins-reindex.html"/></summary>
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/master/docs-reindex.html"/></summary>
         /// <param name="body">The search definition using the Query DSL and the prototype for the index request.</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual async Task<HttpResponseMessage> ReindexAsync(Byte[] body, Func<ReindexParameters, ReindexParameters> options = null)
@@ -76,7 +76,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
-        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/master/plugins-reindex.html"/></summary>
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/master/docs-reindex.html"/></summary>
         /// <param name="body">The search definition using the Query DSL and the prototype for the index request.</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual HttpResponseMessage ReindexString(string body, Func<ReindexParameters, ReindexParameters> options = null)
@@ -90,7 +90,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
         
-        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/master/plugins-reindex.html"/></summary>
+        /// <summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/master/docs-reindex.html"/></summary>
         /// <param name="body">The search definition using the Query DSL and the prototype for the index request.</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual async Task<HttpResponseMessage> ReindexStringAsync(string body, Func<ReindexParameters, ReindexParameters> options = null)

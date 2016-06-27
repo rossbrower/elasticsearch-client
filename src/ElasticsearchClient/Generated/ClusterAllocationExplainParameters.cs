@@ -17,22 +17,14 @@ namespace Elasticsearch.Client
     using System.Threading.Tasks;
     
     
-    public class GetTemplateParameters : Parameters
+    public class ClusterAllocationExplainParameters : Parameters
     {
         
-        /// <summary>Explicit version number for concurrency control</summary>
+        /// <summary>Return 'YES' decisions in explanation (default: false)</summary>
         /// <param name="value"></param>
-        public virtual GetTemplateParameters version(long value)
+        public virtual ClusterAllocationExplainParameters include_yes_decisions(bool value)
         {
-            this.SetValue("version", value);
-            return this;
-        }
-        
-        /// <summary>Specific version type</summary>
-        /// <param name="value"><para>Options: internal,external,external_gte,force</para></param>
-        public virtual GetTemplateParameters version_type(string value)
-        {
-            this.SetValue("version_type", value);
+            this.SetValue("include_yes_decisions", value.ToString().ToLower());
             return this;
         }
     }

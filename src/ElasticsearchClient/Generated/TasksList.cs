@@ -20,7 +20,7 @@ namespace Elasticsearch.Client
     public partial class ElasticsearchClient
     {
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/tasks-list.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/tasks.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual HttpResponseMessage TasksList(Func<TasksListParameters, TasksListParameters> options = null)
         {
@@ -33,7 +33,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/tasks-list.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/tasks.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual async Task<HttpResponseMessage> TasksListAsync(Func<TasksListParameters, TasksListParameters> options = null)
         {
@@ -46,7 +46,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/tasks-list.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/tasks.html"/></summary>
         /// <param name="task_id">Return the task with specified id (node_id:task_number)</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual HttpResponseMessage TasksList(string task_id, Func<TasksListParameters, TasksListParameters> options = null)
@@ -60,7 +60,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/tasks-list.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/tasks.html"/></summary>
         /// <param name="task_id">Return the task with specified id (node_id:task_number)</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual async Task<HttpResponseMessage> TasksListAsync(string task_id, Func<TasksListParameters, TasksListParameters> options = null)

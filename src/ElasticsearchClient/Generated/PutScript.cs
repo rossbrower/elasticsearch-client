@@ -24,15 +24,9 @@ namespace Elasticsearch.Client
         /// <param name="lang">Script language</param>
         /// <param name="id">Script ID</param>
         /// <param name="body">The document</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage PutScriptPut(string lang, string id, Stream body, Func<PutScriptParameters, PutScriptParameters> options = null)
+        public virtual HttpResponseMessage PutScriptPut(string lang, string id, Stream body)
         {
             string uri = string.Format("/_scripts/{0}/{1}", lang, id);
-            if ((options != null))
-            {
-                PutScriptParameters parameters = options.Invoke(new PutScriptParameters());
-                uri = parameters.GetUri(uri);
-            }
             return mConnection.Execute("PUT", uri, body);
         }
         
@@ -40,15 +34,9 @@ namespace Elasticsearch.Client
         /// <param name="lang">Script language</param>
         /// <param name="id">Script ID</param>
         /// <param name="body">The document</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> PutScriptPutAsync(string lang, string id, Stream body, Func<PutScriptParameters, PutScriptParameters> options = null)
+        public virtual async Task<HttpResponseMessage> PutScriptPutAsync(string lang, string id, Stream body)
         {
             string uri = string.Format("/_scripts/{0}/{1}", lang, id);
-            if ((options != null))
-            {
-                PutScriptParameters parameters = options.Invoke(new PutScriptParameters());
-                uri = parameters.GetUri(uri);
-            }
             return await mConnection.ExecuteAsync("PUT", uri, body);
         }
         
@@ -56,15 +44,9 @@ namespace Elasticsearch.Client
         /// <param name="lang">Script language</param>
         /// <param name="id">Script ID</param>
         /// <param name="body">The document</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage PutScriptPut(string lang, string id, Byte[] body, Func<PutScriptParameters, PutScriptParameters> options = null)
+        public virtual HttpResponseMessage PutScriptPut(string lang, string id, Byte[] body)
         {
             string uri = string.Format("/_scripts/{0}/{1}", lang, id);
-            if ((options != null))
-            {
-                PutScriptParameters parameters = options.Invoke(new PutScriptParameters());
-                uri = parameters.GetUri(uri);
-            }
             return mConnection.Execute("PUT", uri, body);
         }
         
@@ -72,15 +54,9 @@ namespace Elasticsearch.Client
         /// <param name="lang">Script language</param>
         /// <param name="id">Script ID</param>
         /// <param name="body">The document</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> PutScriptPutAsync(string lang, string id, Byte[] body, Func<PutScriptParameters, PutScriptParameters> options = null)
+        public virtual async Task<HttpResponseMessage> PutScriptPutAsync(string lang, string id, Byte[] body)
         {
             string uri = string.Format("/_scripts/{0}/{1}", lang, id);
-            if ((options != null))
-            {
-                PutScriptParameters parameters = options.Invoke(new PutScriptParameters());
-                uri = parameters.GetUri(uri);
-            }
             return await mConnection.ExecuteAsync("PUT", uri, body);
         }
         
@@ -88,15 +64,9 @@ namespace Elasticsearch.Client
         /// <param name="lang">Script language</param>
         /// <param name="id">Script ID</param>
         /// <param name="body">The document</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage PutScriptPutString(string lang, string id, string body, Func<PutScriptParameters, PutScriptParameters> options = null)
+        public virtual HttpResponseMessage PutScriptPutString(string lang, string id, string body)
         {
             string uri = string.Format("/_scripts/{0}/{1}", lang, id);
-            if ((options != null))
-            {
-                PutScriptParameters parameters = options.Invoke(new PutScriptParameters());
-                uri = parameters.GetUri(uri);
-            }
             return mConnection.Execute("PUT", uri, body);
         }
         
@@ -104,15 +74,9 @@ namespace Elasticsearch.Client
         /// <param name="lang">Script language</param>
         /// <param name="id">Script ID</param>
         /// <param name="body">The document</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> PutScriptPutStringAsync(string lang, string id, string body, Func<PutScriptParameters, PutScriptParameters> options = null)
+        public virtual async Task<HttpResponseMessage> PutScriptPutStringAsync(string lang, string id, string body)
         {
             string uri = string.Format("/_scripts/{0}/{1}", lang, id);
-            if ((options != null))
-            {
-                PutScriptParameters parameters = options.Invoke(new PutScriptParameters());
-                uri = parameters.GetUri(uri);
-            }
             return await mConnection.ExecuteAsync("PUT", uri, body);
         }
         
@@ -120,15 +84,9 @@ namespace Elasticsearch.Client
         /// <param name="lang">Script language</param>
         /// <param name="id">Script ID</param>
         /// <param name="body">The document</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage PutScriptPost(string lang, string id, Stream body, Func<PutScriptParameters, PutScriptParameters> options = null)
+        public virtual HttpResponseMessage PutScriptPost(string lang, string id, Stream body)
         {
             string uri = string.Format("/_scripts/{0}/{1}", lang, id);
-            if ((options != null))
-            {
-                PutScriptParameters parameters = options.Invoke(new PutScriptParameters());
-                uri = parameters.GetUri(uri);
-            }
             return mConnection.Execute("POST", uri, body);
         }
         
@@ -136,15 +94,9 @@ namespace Elasticsearch.Client
         /// <param name="lang">Script language</param>
         /// <param name="id">Script ID</param>
         /// <param name="body">The document</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> PutScriptPostAsync(string lang, string id, Stream body, Func<PutScriptParameters, PutScriptParameters> options = null)
+        public virtual async Task<HttpResponseMessage> PutScriptPostAsync(string lang, string id, Stream body)
         {
             string uri = string.Format("/_scripts/{0}/{1}", lang, id);
-            if ((options != null))
-            {
-                PutScriptParameters parameters = options.Invoke(new PutScriptParameters());
-                uri = parameters.GetUri(uri);
-            }
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
@@ -152,15 +104,9 @@ namespace Elasticsearch.Client
         /// <param name="lang">Script language</param>
         /// <param name="id">Script ID</param>
         /// <param name="body">The document</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage PutScriptPost(string lang, string id, Byte[] body, Func<PutScriptParameters, PutScriptParameters> options = null)
+        public virtual HttpResponseMessage PutScriptPost(string lang, string id, Byte[] body)
         {
             string uri = string.Format("/_scripts/{0}/{1}", lang, id);
-            if ((options != null))
-            {
-                PutScriptParameters parameters = options.Invoke(new PutScriptParameters());
-                uri = parameters.GetUri(uri);
-            }
             return mConnection.Execute("POST", uri, body);
         }
         
@@ -168,15 +114,9 @@ namespace Elasticsearch.Client
         /// <param name="lang">Script language</param>
         /// <param name="id">Script ID</param>
         /// <param name="body">The document</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> PutScriptPostAsync(string lang, string id, Byte[] body, Func<PutScriptParameters, PutScriptParameters> options = null)
+        public virtual async Task<HttpResponseMessage> PutScriptPostAsync(string lang, string id, Byte[] body)
         {
             string uri = string.Format("/_scripts/{0}/{1}", lang, id);
-            if ((options != null))
-            {
-                PutScriptParameters parameters = options.Invoke(new PutScriptParameters());
-                uri = parameters.GetUri(uri);
-            }
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
@@ -184,15 +124,9 @@ namespace Elasticsearch.Client
         /// <param name="lang">Script language</param>
         /// <param name="id">Script ID</param>
         /// <param name="body">The document</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage PutScriptPostString(string lang, string id, string body, Func<PutScriptParameters, PutScriptParameters> options = null)
+        public virtual HttpResponseMessage PutScriptPostString(string lang, string id, string body)
         {
             string uri = string.Format("/_scripts/{0}/{1}", lang, id);
-            if ((options != null))
-            {
-                PutScriptParameters parameters = options.Invoke(new PutScriptParameters());
-                uri = parameters.GetUri(uri);
-            }
             return mConnection.Execute("POST", uri, body);
         }
         
@@ -200,15 +134,9 @@ namespace Elasticsearch.Client
         /// <param name="lang">Script language</param>
         /// <param name="id">Script ID</param>
         /// <param name="body">The document</param>
-        /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> PutScriptPostStringAsync(string lang, string id, string body, Func<PutScriptParameters, PutScriptParameters> options = null)
+        public virtual async Task<HttpResponseMessage> PutScriptPostStringAsync(string lang, string id, string body)
         {
             string uri = string.Format("/_scripts/{0}/{1}", lang, id);
-            if ((options != null))
-            {
-                PutScriptParameters parameters = options.Invoke(new PutScriptParameters());
-                uri = parameters.GetUri(uri);
-            }
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
     }

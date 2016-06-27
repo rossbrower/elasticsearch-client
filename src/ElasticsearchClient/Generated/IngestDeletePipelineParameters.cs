@@ -17,22 +17,22 @@ namespace Elasticsearch.Client
     using System.Threading.Tasks;
     
     
-    public class DeleteTemplateParameters : Parameters
+    public class IngestDeletePipelineParameters : Parameters
     {
         
-        /// <summary>Explicit version number for concurrency control</summary>
+        /// <summary>Explicit operation timeout for connection to master node</summary>
         /// <param name="value"></param>
-        public virtual DeleteTemplateParameters version(long value)
+        public virtual IngestDeletePipelineParameters master_timeout(string value)
         {
-            this.SetValue("version", value);
+            this.SetValue("master_timeout", value);
             return this;
         }
         
-        /// <summary>Specific version type</summary>
-        /// <param name="value"><para>Options: internal,external,external_gte,force</para></param>
-        public virtual DeleteTemplateParameters version_type(string value)
+        /// <summary>Explicit operation timeout</summary>
+        /// <param name="value"></param>
+        public virtual IngestDeletePipelineParameters timeout(string value)
         {
-            this.SetValue("version_type", value);
+            this.SetValue("timeout", value);
             return this;
         }
     }

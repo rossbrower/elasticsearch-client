@@ -20,8 +20,16 @@ namespace Elasticsearch.Client
     public class CatRecoveryParameters : Parameters
     {
         
+        /// <summary>a short version of the Accept header, e.g. json, yaml</summary>
+        /// <param name="value"></param>
+        public virtual CatRecoveryParameters format(string value)
+        {
+            this.SetValue("format", value);
+            return this;
+        }
+        
         /// <summary>The unit in which to display byte values</summary>
-        /// <param name="value"><para>Options: b,k,m,g</para></param>
+        /// <param name="value"><para>Options: b,k,kb,m,mb,g,gb,t,tb,p,pb</para></param>
         public virtual CatRecoveryParameters bytes(string value)
         {
             this.SetValue("bytes", value);

@@ -20,6 +20,14 @@ namespace Elasticsearch.Client
     public class CatSnapshotsParameters : Parameters
     {
         
+        /// <summary>a short version of the Accept header, e.g. json, yaml</summary>
+        /// <param name="value"></param>
+        public virtual CatSnapshotsParameters format(string value)
+        {
+            this.SetValue("format", value);
+            return this;
+        }
+        
         /// <summary>Set to true to ignore unavailable snapshots</summary>
         /// <param name="value"><para>Default: False</para></param>
         public virtual CatSnapshotsParameters ignore_unavailable(bool value)

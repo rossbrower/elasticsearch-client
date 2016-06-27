@@ -67,5 +67,13 @@ namespace Elasticsearch.Client
             this.SetValue("fields", value);
             return this;
         }
+        
+        /// <summary>The pipeline id to preprocess incoming documents with</summary>
+        /// <param name="value"></param>
+        public virtual BulkParameters pipeline(string value)
+        {
+            this.SetValue("pipeline", value);
+            return this;
+        }
     }
 }

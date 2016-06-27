@@ -3,7 +3,7 @@
   "version": 2,
   "targets": {
     "DNX,Version=v4.5.1": {
-      "ElasticsearchClient/2.3.1": {
+      "ElasticsearchClient/5.0.0-alpha3": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "frameworkAssemblies": [
@@ -260,7 +260,7 @@
       }
     },
     "DNXCore,Version=v5.0": {
-      "ElasticsearchClient/2.3.1": {
+      "ElasticsearchClient/5.0.0-alpha3": {
         "type": "project",
         "framework": ".NETPlatform,Version=v5.4",
         "dependencies": {
@@ -1154,7 +1154,7 @@
       }
     },
     "DNX,Version=v4.5.1/win7-x86": {
-      "ElasticsearchClient/2.3.1": {
+      "ElasticsearchClient/5.0.0-alpha3": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "frameworkAssemblies": [
@@ -1411,7 +1411,7 @@
       }
     },
     "DNX,Version=v4.5.1/win7-x64": {
-      "ElasticsearchClient/2.3.1": {
+      "ElasticsearchClient/5.0.0-alpha3": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "frameworkAssemblies": [
@@ -1668,7 +1668,7 @@
       }
     },
     "DNXCore,Version=v5.0/win7-x86": {
-      "ElasticsearchClient/2.3.1": {
+      "ElasticsearchClient/5.0.0-alpha3": {
         "type": "project",
         "framework": ".NETPlatform,Version=v5.4",
         "dependencies": {
@@ -3001,7 +3001,7 @@
       }
     },
     "DNXCore,Version=v5.0/win7-x64": {
-      "ElasticsearchClient/2.3.1": {
+      "ElasticsearchClient/5.0.0-alpha3": {
         "type": "project",
         "framework": ".NETPlatform,Version=v5.4",
         "dependencies": {
@@ -4335,7 +4335,7 @@
     }
   },
   "libraries": {
-    "ElasticsearchClient/2.3.1": {
+    "ElasticsearchClient/5.0.0-alpha3": {
       "type": "project",
       "path": "../ElasticsearchClient/project.json"
     },
@@ -7119,7 +7119,7 @@
   },
   "projectFileDependencyGroups": {
     "": [
-      "ElasticsearchClient >= 2.3.1-*",
+      "ElasticsearchClient >= 5.0.0-alpha3",
       "System.Threading.Tasks >= 4.0.11-beta-23516",
       "xunit >= 2.1.0",
       "xunit.runner.dnx >= 2.1.0-rc1-build204"

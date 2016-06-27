@@ -67,5 +67,13 @@ namespace Elasticsearch.Client
             this.SetValue("human", value.ToString().ToLower());
             return this;
         }
+        
+        /// <summary>Whether to return all default setting for each of the indices.</summary>
+        /// <param name="value"><para>Default: False</para></param>
+        public virtual IndicesGetSettingsParameters include_defaults(bool value)
+        {
+            this.SetValue("include_defaults", value.ToString().ToLower());
+            return this;
+        }
     }
 }

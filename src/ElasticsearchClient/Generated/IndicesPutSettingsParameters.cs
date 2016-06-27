@@ -28,6 +28,14 @@ namespace Elasticsearch.Client
             return this;
         }
         
+        /// <summary>Whether to update existing settings. If set to `true` existing settings on an index remain unchanged, the default is `false`</summary>
+        /// <param name="value"></param>
+        public virtual IndicesPutSettingsParameters preserve_existing(bool value)
+        {
+            this.SetValue("preserve_existing", value.ToString().ToLower());
+            return this;
+        }
+        
         /// <summary>Whether specified concrete indices should be ignored when unavailable (missing or closed)</summary>
         /// <param name="value"></param>
         public virtual IndicesPutSettingsParameters ignore_unavailable(bool value)

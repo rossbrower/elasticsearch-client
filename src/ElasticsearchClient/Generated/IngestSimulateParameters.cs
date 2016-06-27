@@ -17,22 +17,14 @@ namespace Elasticsearch.Client
     using System.Threading.Tasks;
     
     
-    public class IndicesGetAliasesParameters : Parameters
+    public class IngestSimulateParameters : Parameters
     {
         
-        /// <summary>Explicit operation timeout</summary>
-        /// <param name="value"></param>
-        public virtual IndicesGetAliasesParameters timeout(string value)
+        /// <summary>Verbose mode. Display data output for each processor in executed pipeline</summary>
+        /// <param name="value"><para>Default: False</para></param>
+        public virtual IngestSimulateParameters verbose(bool value)
         {
-            this.SetValue("timeout", value);
-            return this;
-        }
-        
-        /// <summary>Return local information, do not retrieve the state from master node (default: false)</summary>
-        /// <param name="value"></param>
-        public virtual IndicesGetAliasesParameters local(bool value)
-        {
-            this.SetValue("local", value.ToString().ToLower());
+            this.SetValue("verbose", value.ToString().ToLower());
             return this;
         }
     }

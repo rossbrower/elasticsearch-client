@@ -51,5 +51,13 @@ namespace Elasticsearch.Client
             this.SetValue("wait_for_completion", value.ToString().ToLower());
             return this;
         }
+        
+        /// <summary>The throttle for this request in sub-requests per second. 0 means set no throttle.</summary>
+        /// <param name="value"><para>Default: 0</para></param>
+        public virtual ReindexParameters requests_per_second(double value)
+        {
+            this.SetValue("requests_per_second", value);
+            return this;
+        }
     }
 }

@@ -17,12 +17,20 @@ namespace Elasticsearch.Client
     using System.Threading.Tasks;
     
     
-    public class TasksListParameters : Parameters
+    public class CatTasksParameters : Parameters
     {
+        
+        /// <summary>a short version of the Accept header, e.g. json, yaml</summary>
+        /// <param name="value"></param>
+        public virtual CatTasksParameters format(string value)
+        {
+            this.SetValue("format", value);
+            return this;
+        }
         
         /// <summary>A comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes</summary>
         /// <param name="value"></param>
-        public virtual TasksListParameters node_id(string value)
+        public virtual CatTasksParameters node_id(string value)
         {
             this.SetValue("node_id", value);
             return this;
@@ -30,7 +38,7 @@ namespace Elasticsearch.Client
         
         /// <summary>A comma-separated list of actions that should be returned. Leave empty to return all.</summary>
         /// <param name="value"></param>
-        public virtual TasksListParameters actions(string value)
+        public virtual CatTasksParameters actions(string value)
         {
             this.SetValue("actions", value);
             return this;
@@ -38,7 +46,7 @@ namespace Elasticsearch.Client
         
         /// <summary>Return detailed task information (default: false)</summary>
         /// <param name="value"></param>
-        public virtual TasksListParameters detailed(bool value)
+        public virtual CatTasksParameters detailed(bool value)
         {
             this.SetValue("detailed", value.ToString().ToLower());
             return this;
@@ -46,33 +54,41 @@ namespace Elasticsearch.Client
         
         /// <summary>Return tasks with specified parent node.</summary>
         /// <param name="value"></param>
-        public virtual TasksListParameters parent_node(string value)
+        public virtual CatTasksParameters parent_node(string value)
         {
             this.SetValue("parent_node", value);
             return this;
         }
         
-        /// <summary>Return tasks with specified parent task id (node_id:task_number). Set to -1 to return all.</summary>
+        /// <summary>Return tasks with specified parent task id. Set to -1 to return all.</summary>
         /// <param name="value"></param>
-        public virtual TasksListParameters parent_task(string value)
+        public virtual CatTasksParameters parent_task(long value)
         {
             this.SetValue("parent_task", value);
             return this;
         }
         
-        /// <summary>Wait for the matching tasks to complete (default: false)</summary>
+        /// <summary>Comma-separated list of column names to display</summary>
         /// <param name="value"></param>
-        public virtual TasksListParameters wait_for_completion(bool value)
+        public virtual CatTasksParameters h(string value)
         {
-            this.SetValue("wait_for_completion", value.ToString().ToLower());
+            this.SetValue("h", value);
             return this;
         }
         
-        /// <summary>Group tasks by nodes or parent/child relationships</summary>
-        /// <param name="value"><para>Options: nodes,parents</para><para>Default: nodes</para></param>
-        public virtual TasksListParameters group_by(string value)
+        /// <summary>Return help information</summary>
+        /// <param name="value"><para>Default: False</para></param>
+        public virtual CatTasksParameters help(bool value)
         {
-            this.SetValue("group_by", value);
+            this.SetValue("help", value.ToString().ToLower());
+            return this;
+        }
+        
+        /// <summary>Verbose mode. Display column headers</summary>
+        /// <param name="value"><para>Default: False</para></param>
+        public virtual CatTasksParameters v(bool value)
+        {
+            this.SetValue("v", value.ToString().ToLower());
             return this;
         }
     }

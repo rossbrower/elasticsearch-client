@@ -99,5 +99,13 @@ namespace Elasticsearch.Client
             this.SetValue("version_type", value);
             return this;
         }
+        
+        /// <summary>The pipeline id to preprocess incoming documents with</summary>
+        /// <param name="value"></param>
+        public virtual IndexParameters pipeline(string value)
+        {
+            this.SetValue("pipeline", value);
+            return this;
+        }
     }
 }

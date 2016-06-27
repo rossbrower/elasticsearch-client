@@ -20,6 +20,14 @@ namespace Elasticsearch.Client
     public class CatIndicesParameters : Parameters
     {
         
+        /// <summary>a short version of the Accept header, e.g. json, yaml</summary>
+        /// <param name="value"></param>
+        public virtual CatIndicesParameters format(string value)
+        {
+            this.SetValue("format", value);
+            return this;
+        }
+        
         /// <summary>The unit in which to display byte values</summary>
         /// <param name="value"><para>Options: b,k,m,g</para></param>
         public virtual CatIndicesParameters bytes(string value)
