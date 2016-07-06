@@ -44,11 +44,11 @@ namespace Elasticsearch.Client
             return this;
         }
         
-        /// <summary>Refresh the index after performing the operation</summary>
-        /// <param name="value"></param>
-        public virtual IndexParameters refresh(bool value)
+        /// <summary>If `true` then refresh the effected shards to make this operation visible to search, if `wait_for` then wait for a refresh to make this operation visible to search, if `false` (the default) then do nothing with refreshes.</summary>
+        /// <param name="value"><para>Options: true,false,wait_for</para></param>
+        public virtual IndexParameters refresh(string value)
         {
-            this.SetValue("refresh", value.ToString().ToLower());
+            this.SetValue("refresh", value);
             return this;
         }
         

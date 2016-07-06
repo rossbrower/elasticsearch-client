@@ -21,26 +21,28 @@ namespace Elasticsearch.Client
     {
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/tasks.html"/></summary>
+        /// <param name="task_id">Return the task with specified id (node_id:task_number)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual HttpResponseMessage TasksList(Func<TasksListParameters, TasksListParameters> options = null)
+        public virtual HttpResponseMessage TaskGet(string task_id, Func<TaskGetParameters, TaskGetParameters> options = null)
         {
-            string uri = "/_tasks";
+            string uri = string.Format("/_tasks/{0}", task_id);
             if ((options != null))
             {
-                TasksListParameters parameters = options.Invoke(new TasksListParameters());
+                TaskGetParameters parameters = options.Invoke(new TaskGetParameters());
                 uri = parameters.GetUri(uri);
             }
             return mConnection.Execute("GET", uri);
         }
         
         /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/tasks.html"/></summary>
+        /// <param name="task_id">Return the task with specified id (node_id:task_number)</param>
         /// <param name="options">The function to set optional url parameters.</param>
-        public virtual async Task<HttpResponseMessage> TasksListAsync(Func<TasksListParameters, TasksListParameters> options = null)
+        public virtual async Task<HttpResponseMessage> TaskGetAsync(string task_id, Func<TaskGetParameters, TaskGetParameters> options = null)
         {
-            string uri = "/_tasks";
+            string uri = string.Format("/_tasks/{0}", task_id);
             if ((options != null))
             {
-                TasksListParameters parameters = options.Invoke(new TasksListParameters());
+                TaskGetParameters parameters = options.Invoke(new TaskGetParameters());
                 uri = parameters.GetUri(uri);
             }
             return await mConnection.ExecuteAsync("GET", uri);

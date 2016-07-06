@@ -17,22 +17,22 @@ namespace Elasticsearch.Client
     using System.Threading.Tasks;
     
     
-    public class MsearchParameters : Parameters
+    public class IndicesShrinkParameters : Parameters
     {
         
-        /// <summary>Search operation type</summary>
-        /// <param name="value"><para>Options: query_then_fetch,query_and_fetch,dfs_query_then_fetch,dfs_query_and_fetch</para></param>
-        public virtual MsearchParameters search_type(string value)
+        /// <summary>Explicit operation timeout</summary>
+        /// <param name="value"></param>
+        public virtual IndicesShrinkParameters timeout(string value)
         {
-            this.SetValue("search_type", value);
+            this.SetValue("timeout", value);
             return this;
         }
         
-        /// <summary>Controls the maximum number of concurrent searches the multi search api will execute</summary>
+        /// <summary>Specify timeout for connection to master</summary>
         /// <param name="value"></param>
-        public virtual MsearchParameters max_concurrent_searches(long value)
+        public virtual IndicesShrinkParameters master_timeout(string value)
         {
-            this.SetValue("max_concurrent_searches", value);
+            this.SetValue("master_timeout", value);
             return this;
         }
     }
