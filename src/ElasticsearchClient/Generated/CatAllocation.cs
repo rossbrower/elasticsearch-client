@@ -20,7 +20,7 @@ namespace Elasticsearch.Client
     public partial class ElasticsearchClient
     {
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-allocation.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/cat-allocation.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual HttpResponseMessage CatAllocation(Func<CatAllocationParameters, CatAllocationParameters> options = null)
         {
@@ -33,7 +33,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-allocation.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/cat-allocation.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual async Task<HttpResponseMessage> CatAllocationAsync(Func<CatAllocationParameters, CatAllocationParameters> options = null)
         {
@@ -46,7 +46,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-allocation.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/cat-allocation.html"/></summary>
         /// <param name="node_id">A comma-separated list of node IDs or names to limit the returned information</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual HttpResponseMessage CatAllocation(string node_id, Func<CatAllocationParameters, CatAllocationParameters> options = null)
@@ -60,7 +60,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-allocation.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/cat-allocation.html"/></summary>
         /// <param name="node_id">A comma-separated list of node IDs or names to limit the returned information</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual async Task<HttpResponseMessage> CatAllocationAsync(string node_id, Func<CatAllocationParameters, CatAllocationParameters> options = null)

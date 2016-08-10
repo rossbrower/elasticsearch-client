@@ -20,7 +20,7 @@ namespace Elasticsearch.Client
     public partial class ElasticsearchClient
     {
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-repositories.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/cat-repositories.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual HttpResponseMessage CatRepositories(Func<CatRepositoriesParameters, CatRepositoriesParameters> options = null)
         {
@@ -33,7 +33,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-repositories.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/cat-repositories.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual async Task<HttpResponseMessage> CatRepositoriesAsync(Func<CatRepositoriesParameters, CatRepositoriesParameters> options = null)
         {

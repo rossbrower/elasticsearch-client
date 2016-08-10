@@ -20,7 +20,7 @@ namespace Elasticsearch.Client
     public partial class ElasticsearchClient
     {
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/indices-aliases.html"/></summary>
         /// <param name="index">A comma-separated list of index names the alias should point to (supports wildcards); use `_all` to perform the operation on all indices.</param>
         /// <param name="name">The name of the alias to be created or updated</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -35,7 +35,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("PUT", uri);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/indices-aliases.html"/></summary>
         /// <param name="index">A comma-separated list of index names the alias should point to (supports wildcards); use `_all` to perform the operation on all indices.</param>
         /// <param name="name">The name of the alias to be created or updated</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -50,7 +50,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("PUT", uri);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/indices-aliases.html"/></summary>
         /// <param name="index">A comma-separated list of index names the alias should point to (supports wildcards); use `_all` to perform the operation on all indices.</param>
         /// <param name="name">The name of the alias to be created or updated</param>
         /// <param name="body">The settings for the alias, such as `routing` or `filter`</param>
@@ -66,7 +66,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("PUT", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/indices-aliases.html"/></summary>
         /// <param name="index">A comma-separated list of index names the alias should point to (supports wildcards); use `_all` to perform the operation on all indices.</param>
         /// <param name="name">The name of the alias to be created or updated</param>
         /// <param name="body">The settings for the alias, such as `routing` or `filter`</param>
@@ -82,7 +82,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("PUT", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/indices-aliases.html"/></summary>
         /// <param name="index">A comma-separated list of index names the alias should point to (supports wildcards); use `_all` to perform the operation on all indices.</param>
         /// <param name="name">The name of the alias to be created or updated</param>
         /// <param name="body">The settings for the alias, such as `routing` or `filter`</param>
@@ -98,7 +98,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("PUT", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/indices-aliases.html"/></summary>
         /// <param name="index">A comma-separated list of index names the alias should point to (supports wildcards); use `_all` to perform the operation on all indices.</param>
         /// <param name="name">The name of the alias to be created or updated</param>
         /// <param name="body">The settings for the alias, such as `routing` or `filter`</param>
@@ -114,7 +114,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("PUT", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/indices-aliases.html"/></summary>
         /// <param name="index">A comma-separated list of index names the alias should point to (supports wildcards); use `_all` to perform the operation on all indices.</param>
         /// <param name="name">The name of the alias to be created or updated</param>
         /// <param name="body">The settings for the alias, such as `routing` or `filter`</param>
@@ -130,7 +130,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("PUT", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/indices-aliases.html"/></summary>
         /// <param name="index">A comma-separated list of index names the alias should point to (supports wildcards); use `_all` to perform the operation on all indices.</param>
         /// <param name="name">The name of the alias to be created or updated</param>
         /// <param name="body">The settings for the alias, such as `routing` or `filter`</param>
@@ -146,7 +146,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("PUT", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/indices-aliases.html"/></summary>
         /// <param name="index">A comma-separated list of index names the alias should point to (supports wildcards); use `_all` to perform the operation on all indices.</param>
         /// <param name="name">The name of the alias to be created or updated</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -161,7 +161,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/indices-aliases.html"/></summary>
         /// <param name="index">A comma-separated list of index names the alias should point to (supports wildcards); use `_all` to perform the operation on all indices.</param>
         /// <param name="name">The name of the alias to be created or updated</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -176,7 +176,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/indices-aliases.html"/></summary>
         /// <param name="index">A comma-separated list of index names the alias should point to (supports wildcards); use `_all` to perform the operation on all indices.</param>
         /// <param name="name">The name of the alias to be created or updated</param>
         /// <param name="body">The settings for the alias, such as `routing` or `filter`</param>
@@ -192,7 +192,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/indices-aliases.html"/></summary>
         /// <param name="index">A comma-separated list of index names the alias should point to (supports wildcards); use `_all` to perform the operation on all indices.</param>
         /// <param name="name">The name of the alias to be created or updated</param>
         /// <param name="body">The settings for the alias, such as `routing` or `filter`</param>
@@ -208,7 +208,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/indices-aliases.html"/></summary>
         /// <param name="index">A comma-separated list of index names the alias should point to (supports wildcards); use `_all` to perform the operation on all indices.</param>
         /// <param name="name">The name of the alias to be created or updated</param>
         /// <param name="body">The settings for the alias, such as `routing` or `filter`</param>
@@ -224,7 +224,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/indices-aliases.html"/></summary>
         /// <param name="index">A comma-separated list of index names the alias should point to (supports wildcards); use `_all` to perform the operation on all indices.</param>
         /// <param name="name">The name of the alias to be created or updated</param>
         /// <param name="body">The settings for the alias, such as `routing` or `filter`</param>
@@ -240,7 +240,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/indices-aliases.html"/></summary>
         /// <param name="index">A comma-separated list of index names the alias should point to (supports wildcards); use `_all` to perform the operation on all indices.</param>
         /// <param name="name">The name of the alias to be created or updated</param>
         /// <param name="body">The settings for the alias, such as `routing` or `filter`</param>
@@ -256,7 +256,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/indices-aliases.html"/></summary>
         /// <param name="index">A comma-separated list of index names the alias should point to (supports wildcards); use `_all` to perform the operation on all indices.</param>
         /// <param name="name">The name of the alias to be created or updated</param>
         /// <param name="body">The settings for the alias, such as `routing` or `filter`</param>

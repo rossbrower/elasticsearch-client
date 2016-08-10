@@ -20,7 +20,7 @@ namespace Elasticsearch.Client
     public partial class ElasticsearchClient
     {
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-info.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/cluster-nodes-info.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual HttpResponseMessage NodesInfo(Func<NodesInfoParameters, NodesInfoParameters> options = null)
         {
@@ -33,7 +33,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-info.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/cluster-nodes-info.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual async Task<HttpResponseMessage> NodesInfoAsync(Func<NodesInfoParameters, NodesInfoParameters> options = null)
         {
@@ -46,7 +46,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-info.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/cluster-nodes-info.html"/></summary>
         /// <param name="node_id">A comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual HttpResponseMessage NodesInfo(string node_id, Func<NodesInfoParameters, NodesInfoParameters> options = null)
@@ -60,7 +60,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-info.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/cluster-nodes-info.html"/></summary>
         /// <param name="node_id">A comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual async Task<HttpResponseMessage> NodesInfoAsync(string node_id, Func<NodesInfoParameters, NodesInfoParameters> options = null)
@@ -74,7 +74,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-info.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/cluster-nodes-info.html"/></summary>
         /// <param name="node_id">A comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes</param>
         /// <param name="metric">A comma-separated list of metrics you wish returned. Leave empty to return all.</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -89,7 +89,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-nodes-info.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/cluster-nodes-info.html"/></summary>
         /// <param name="node_id">A comma-separated list of node IDs or names to limit the returned information; use `_local` to return information from the node you're connecting to, leave empty to get information from all nodes</param>
         /// <param name="metric">A comma-separated list of metrics you wish returned. Leave empty to return all.</param>
         /// <param name="options">The function to set optional url parameters.</param>

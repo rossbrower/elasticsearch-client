@@ -20,7 +20,7 @@ namespace Elasticsearch.Client
     public partial class ElasticsearchClient
     {
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/search-suggesters.html"/></summary>
         /// <param name="body">The request definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual HttpResponseMessage SuggestPost(Stream body, Func<SuggestParameters, SuggestParameters> options = null)
@@ -34,7 +34,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/search-suggesters.html"/></summary>
         /// <param name="body">The request definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual async Task<HttpResponseMessage> SuggestPostAsync(Stream body, Func<SuggestParameters, SuggestParameters> options = null)
@@ -48,7 +48,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/search-suggesters.html"/></summary>
         /// <param name="body">The request definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual HttpResponseMessage SuggestPost(Byte[] body, Func<SuggestParameters, SuggestParameters> options = null)
@@ -62,7 +62,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/search-suggesters.html"/></summary>
         /// <param name="body">The request definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual async Task<HttpResponseMessage> SuggestPostAsync(Byte[] body, Func<SuggestParameters, SuggestParameters> options = null)
@@ -76,7 +76,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/search-suggesters.html"/></summary>
         /// <param name="body">The request definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual HttpResponseMessage SuggestPostString(string body, Func<SuggestParameters, SuggestParameters> options = null)
@@ -90,7 +90,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/search-suggesters.html"/></summary>
         /// <param name="body">The request definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual async Task<HttpResponseMessage> SuggestPostStringAsync(string body, Func<SuggestParameters, SuggestParameters> options = null)
@@ -104,7 +104,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/search-suggesters.html"/></summary>
         /// <param name="body">The request definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual HttpResponseMessage SuggestGet(Stream body, Func<SuggestParameters, SuggestParameters> options = null)
@@ -118,7 +118,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/search-suggesters.html"/></summary>
         /// <param name="body">The request definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual async Task<HttpResponseMessage> SuggestGetAsync(Stream body, Func<SuggestParameters, SuggestParameters> options = null)
@@ -132,7 +132,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/search-suggesters.html"/></summary>
         /// <param name="body">The request definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual HttpResponseMessage SuggestGet(Byte[] body, Func<SuggestParameters, SuggestParameters> options = null)
@@ -146,7 +146,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/search-suggesters.html"/></summary>
         /// <param name="body">The request definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual async Task<HttpResponseMessage> SuggestGetAsync(Byte[] body, Func<SuggestParameters, SuggestParameters> options = null)
@@ -160,7 +160,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/search-suggesters.html"/></summary>
         /// <param name="body">The request definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual HttpResponseMessage SuggestGetString(string body, Func<SuggestParameters, SuggestParameters> options = null)
@@ -174,7 +174,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/search-suggesters.html"/></summary>
         /// <param name="body">The request definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual async Task<HttpResponseMessage> SuggestGetStringAsync(string body, Func<SuggestParameters, SuggestParameters> options = null)
@@ -188,7 +188,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/search-suggesters.html"/></summary>
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The request definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -203,7 +203,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/search-suggesters.html"/></summary>
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The request definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -218,7 +218,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/search-suggesters.html"/></summary>
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The request definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -233,7 +233,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/search-suggesters.html"/></summary>
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The request definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -248,7 +248,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/search-suggesters.html"/></summary>
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The request definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -263,7 +263,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/search-suggesters.html"/></summary>
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The request definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -278,7 +278,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/search-suggesters.html"/></summary>
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The request definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -293,7 +293,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/search-suggesters.html"/></summary>
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The request definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -308,7 +308,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/search-suggesters.html"/></summary>
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The request definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -323,7 +323,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/search-suggesters.html"/></summary>
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The request definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -338,7 +338,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/search-suggesters.html"/></summary>
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The request definition</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -353,7 +353,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-suggesters.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/search-suggesters.html"/></summary>
         /// <param name="index">A comma-separated list of index names to restrict the operation; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The request definition</param>
         /// <param name="options">The function to set optional url parameters.</param>

@@ -20,7 +20,7 @@ namespace Elasticsearch.Client
     public partial class ElasticsearchClient
     {
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/search-template.html"/></summary>
         /// <param name="id">Template ID</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual HttpResponseMessage DeleteTemplate(string id, Func<DeleteTemplateParameters, DeleteTemplateParameters> options = null)
@@ -34,7 +34,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("DELETE", uri);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/search-template.html"/></summary>
         /// <param name="id">Template ID</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual async Task<HttpResponseMessage> DeleteTemplateAsync(string id, Func<DeleteTemplateParameters, DeleteTemplateParameters> options = null)

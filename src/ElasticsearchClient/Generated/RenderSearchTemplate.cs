@@ -20,21 +20,21 @@ namespace Elasticsearch.Client
     public partial class ElasticsearchClient
     {
         
-        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/2.3/search-template.html"/></summary>
         public virtual HttpResponseMessage RenderSearchTemplateGet()
         {
             string uri = "/_render/template";
             return mConnection.Execute("GET", uri);
         }
         
-        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/2.3/search-template.html"/></summary>
         public virtual async Task<HttpResponseMessage> RenderSearchTemplateGetAsync()
         {
             string uri = "/_render/template";
             return await mConnection.ExecuteAsync("GET", uri);
         }
         
-        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/2.3/search-template.html"/></summary>
         /// <param name="body">The search definition template and its params</param>
         public virtual HttpResponseMessage RenderSearchTemplateGet(Stream body)
         {
@@ -42,7 +42,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
         
-        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/2.3/search-template.html"/></summary>
         /// <param name="body">The search definition template and its params</param>
         public virtual async Task<HttpResponseMessage> RenderSearchTemplateGetAsync(Stream body)
         {
@@ -50,7 +50,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
         
-        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/2.3/search-template.html"/></summary>
         /// <param name="body">The search definition template and its params</param>
         public virtual HttpResponseMessage RenderSearchTemplateGet(Byte[] body)
         {
@@ -58,7 +58,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
         
-        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/2.3/search-template.html"/></summary>
         /// <param name="body">The search definition template and its params</param>
         public virtual async Task<HttpResponseMessage> RenderSearchTemplateGetAsync(Byte[] body)
         {
@@ -66,7 +66,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
         
-        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/2.3/search-template.html"/></summary>
         /// <param name="body">The search definition template and its params</param>
         public virtual HttpResponseMessage RenderSearchTemplateGetString(string body)
         {
@@ -74,7 +74,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
         
-        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/2.3/search-template.html"/></summary>
         /// <param name="body">The search definition template and its params</param>
         public virtual async Task<HttpResponseMessage> RenderSearchTemplateGetStringAsync(string body)
         {
@@ -82,21 +82,21 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
         
-        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/2.3/search-template.html"/></summary>
         public virtual HttpResponseMessage RenderSearchTemplatePost()
         {
             string uri = "/_render/template";
             return mConnection.Execute("POST", uri);
         }
         
-        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/2.3/search-template.html"/></summary>
         public virtual async Task<HttpResponseMessage> RenderSearchTemplatePostAsync()
         {
             string uri = "/_render/template";
             return await mConnection.ExecuteAsync("POST", uri);
         }
         
-        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/2.3/search-template.html"/></summary>
         /// <param name="body">The search definition template and its params</param>
         public virtual HttpResponseMessage RenderSearchTemplatePost(Stream body)
         {
@@ -104,7 +104,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/2.3/search-template.html"/></summary>
         /// <param name="body">The search definition template and its params</param>
         public virtual async Task<HttpResponseMessage> RenderSearchTemplatePostAsync(Stream body)
         {
@@ -112,7 +112,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/2.3/search-template.html"/></summary>
         /// <param name="body">The search definition template and its params</param>
         public virtual HttpResponseMessage RenderSearchTemplatePost(Byte[] body)
         {
@@ -120,7 +120,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/2.3/search-template.html"/></summary>
         /// <param name="body">The search definition template and its params</param>
         public virtual async Task<HttpResponseMessage> RenderSearchTemplatePostAsync(Byte[] body)
         {
@@ -128,7 +128,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/2.3/search-template.html"/></summary>
         /// <param name="body">The search definition template and its params</param>
         public virtual HttpResponseMessage RenderSearchTemplatePostString(string body)
         {
@@ -136,7 +136,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/2.3/search-template.html"/></summary>
         /// <param name="body">The search definition template and its params</param>
         public virtual async Task<HttpResponseMessage> RenderSearchTemplatePostStringAsync(string body)
         {
@@ -144,7 +144,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/2.3/search-template.html"/></summary>
         /// <param name="id">The id of the stored search template</param>
         public virtual HttpResponseMessage RenderSearchTemplateGet(string id)
         {
@@ -152,7 +152,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
         
-        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/2.3/search-template.html"/></summary>
         /// <param name="id">The id of the stored search template</param>
         public virtual async Task<HttpResponseMessage> RenderSearchTemplateGetAsync(string id)
         {
@@ -160,7 +160,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri);
         }
         
-        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/2.3/search-template.html"/></summary>
         /// <param name="id">The id of the stored search template</param>
         /// <param name="body">The search definition template and its params</param>
         public virtual HttpResponseMessage RenderSearchTemplateGet(string id, Stream body)
@@ -169,7 +169,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
         
-        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/2.3/search-template.html"/></summary>
         /// <param name="id">The id of the stored search template</param>
         /// <param name="body">The search definition template and its params</param>
         public virtual async Task<HttpResponseMessage> RenderSearchTemplateGetAsync(string id, Stream body)
@@ -178,7 +178,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
         
-        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/2.3/search-template.html"/></summary>
         /// <param name="id">The id of the stored search template</param>
         /// <param name="body">The search definition template and its params</param>
         public virtual HttpResponseMessage RenderSearchTemplateGet(string id, Byte[] body)
@@ -187,7 +187,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
         
-        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/2.3/search-template.html"/></summary>
         /// <param name="id">The id of the stored search template</param>
         /// <param name="body">The search definition template and its params</param>
         public virtual async Task<HttpResponseMessage> RenderSearchTemplateGetAsync(string id, Byte[] body)
@@ -196,7 +196,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
         
-        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/2.3/search-template.html"/></summary>
         /// <param name="id">The id of the stored search template</param>
         /// <param name="body">The search definition template and its params</param>
         public virtual HttpResponseMessage RenderSearchTemplateGetString(string id, string body)
@@ -205,7 +205,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
         
-        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/2.3/search-template.html"/></summary>
         /// <param name="id">The id of the stored search template</param>
         /// <param name="body">The search definition template and its params</param>
         public virtual async Task<HttpResponseMessage> RenderSearchTemplateGetStringAsync(string id, string body)
@@ -214,7 +214,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
         
-        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/2.3/search-template.html"/></summary>
         /// <param name="id">The id of the stored search template</param>
         public virtual HttpResponseMessage RenderSearchTemplatePost(string id)
         {
@@ -222,7 +222,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri);
         }
         
-        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/2.3/search-template.html"/></summary>
         /// <param name="id">The id of the stored search template</param>
         public virtual async Task<HttpResponseMessage> RenderSearchTemplatePostAsync(string id)
         {
@@ -230,7 +230,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri);
         }
         
-        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/2.3/search-template.html"/></summary>
         /// <param name="id">The id of the stored search template</param>
         /// <param name="body">The search definition template and its params</param>
         public virtual HttpResponseMessage RenderSearchTemplatePost(string id, Stream body)
@@ -239,7 +239,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/2.3/search-template.html"/></summary>
         /// <param name="id">The id of the stored search template</param>
         /// <param name="body">The search definition template and its params</param>
         public virtual async Task<HttpResponseMessage> RenderSearchTemplatePostAsync(string id, Stream body)
@@ -248,7 +248,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/2.3/search-template.html"/></summary>
         /// <param name="id">The id of the stored search template</param>
         /// <param name="body">The search definition template and its params</param>
         public virtual HttpResponseMessage RenderSearchTemplatePost(string id, Byte[] body)
@@ -257,7 +257,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/2.3/search-template.html"/></summary>
         /// <param name="id">The id of the stored search template</param>
         /// <param name="body">The search definition template and its params</param>
         public virtual async Task<HttpResponseMessage> RenderSearchTemplatePostAsync(string id, Byte[] body)
@@ -266,7 +266,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/2.3/search-template.html"/></summary>
         /// <param name="id">The id of the stored search template</param>
         /// <param name="body">The search definition template and its params</param>
         public virtual HttpResponseMessage RenderSearchTemplatePostString(string id, string body)
@@ -275,7 +275,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        /// <summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/2.3/search-template.html"/></summary>
         /// <param name="id">The id of the stored search template</param>
         /// <param name="body">The search definition template and its params</param>
         public virtual async Task<HttpResponseMessage> RenderSearchTemplatePostStringAsync(string id, string body)

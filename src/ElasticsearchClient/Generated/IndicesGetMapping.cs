@@ -20,7 +20,7 @@ namespace Elasticsearch.Client
     public partial class ElasticsearchClient
     {
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-mapping.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/indices-get-mapping.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual HttpResponseMessage IndicesGetMapping(Func<IndicesGetMappingParameters, IndicesGetMappingParameters> options = null)
         {
@@ -33,7 +33,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-mapping.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/indices-get-mapping.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual async Task<HttpResponseMessage> IndicesGetMappingAsync(Func<IndicesGetMappingParameters, IndicesGetMappingParameters> options = null)
         {
@@ -46,7 +46,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-mapping.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/indices-get-mapping.html"/></summary>
         /// <param name="index">A comma-separated list of index names</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual HttpResponseMessage IndicesGetMapping(string index, Func<IndicesGetMappingParameters, IndicesGetMappingParameters> options = null)
@@ -60,7 +60,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-mapping.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/indices-get-mapping.html"/></summary>
         /// <param name="index">A comma-separated list of index names</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual async Task<HttpResponseMessage> IndicesGetMappingAsync(string index, Func<IndicesGetMappingParameters, IndicesGetMappingParameters> options = null)
@@ -74,7 +74,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-mapping.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/indices-get-mapping.html"/></summary>
         /// <param name="index">A comma-separated list of index names</param>
         /// <param name="type">A comma-separated list of document types</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -89,7 +89,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-mapping.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/indices-get-mapping.html"/></summary>
         /// <param name="index">A comma-separated list of index names</param>
         /// <param name="type">A comma-separated list of document types</param>
         /// <param name="options">The function to set optional url parameters.</param>

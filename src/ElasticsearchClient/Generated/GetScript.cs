@@ -20,7 +20,7 @@ namespace Elasticsearch.Client
     public partial class ElasticsearchClient
     {
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-scripting.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/modules-scripting.html"/></summary>
         /// <param name="lang">Script language</param>
         /// <param name="id">Script ID</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -35,7 +35,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-scripting.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/modules-scripting.html"/></summary>
         /// <param name="lang">Script language</param>
         /// <param name="id">Script ID</param>
         /// <param name="options">The function to set optional url parameters.</param>

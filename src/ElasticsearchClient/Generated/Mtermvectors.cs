@@ -20,7 +20,7 @@ namespace Elasticsearch.Client
     public partial class ElasticsearchClient
     {
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual HttpResponseMessage MtermvectorsGet(Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
         {
@@ -33,7 +33,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual async Task<HttpResponseMessage> MtermvectorsGetAsync(Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
         {
@@ -46,7 +46,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual HttpResponseMessage MtermvectorsGet(Stream body, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
@@ -60,7 +60,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual async Task<HttpResponseMessage> MtermvectorsGetAsync(Stream body, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
@@ -74,7 +74,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual HttpResponseMessage MtermvectorsGet(Byte[] body, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
@@ -88,7 +88,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual async Task<HttpResponseMessage> MtermvectorsGetAsync(Byte[] body, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
@@ -102,7 +102,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual HttpResponseMessage MtermvectorsGetString(string body, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
@@ -116,7 +116,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual async Task<HttpResponseMessage> MtermvectorsGetStringAsync(string body, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
@@ -130,7 +130,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual HttpResponseMessage MtermvectorsPost(Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
         {
@@ -143,7 +143,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual async Task<HttpResponseMessage> MtermvectorsPostAsync(Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
         {
@@ -156,7 +156,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual HttpResponseMessage MtermvectorsPost(Stream body, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
@@ -170,7 +170,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual async Task<HttpResponseMessage> MtermvectorsPostAsync(Stream body, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
@@ -184,7 +184,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual HttpResponseMessage MtermvectorsPost(Byte[] body, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
@@ -198,7 +198,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual async Task<HttpResponseMessage> MtermvectorsPostAsync(Byte[] body, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
@@ -212,7 +212,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual HttpResponseMessage MtermvectorsPostString(string body, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
@@ -226,7 +226,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual async Task<HttpResponseMessage> MtermvectorsPostStringAsync(string body, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
@@ -240,7 +240,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual HttpResponseMessage MtermvectorsGet(string index, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
@@ -254,7 +254,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual async Task<HttpResponseMessage> MtermvectorsGetAsync(string index, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
@@ -268,7 +268,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -283,7 +283,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -298,7 +298,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -313,7 +313,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -328,7 +328,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -343,7 +343,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -358,7 +358,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual HttpResponseMessage MtermvectorsPost(string index, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
@@ -372,7 +372,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual async Task<HttpResponseMessage> MtermvectorsPostAsync(string index, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
@@ -386,7 +386,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -401,7 +401,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -416,7 +416,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -431,7 +431,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -446,7 +446,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -461,7 +461,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -476,7 +476,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="type">The type of the document.</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -491,7 +491,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="type">The type of the document.</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -506,7 +506,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
@@ -522,7 +522,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
@@ -538,7 +538,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
@@ -554,7 +554,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
@@ -570,7 +570,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
@@ -586,7 +586,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
@@ -602,7 +602,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="type">The type of the document.</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -617,7 +617,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="type">The type of the document.</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -632,7 +632,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
@@ -648,7 +648,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
@@ -664,7 +664,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
@@ -680,7 +680,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
@@ -696,7 +696,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>
@@ -712,7 +712,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-multi-termvectors.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-multi-termvectors.html"/></summary>
         /// <param name="index">The index in which the document resides.</param>
         /// <param name="type">The type of the document.</param>
         /// <param name="body">Define ids, documents, parameters or a list of parameters per document here. You must at least provide a list of document ids. See documentation.</param>

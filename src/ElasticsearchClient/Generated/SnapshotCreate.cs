@@ -20,7 +20,7 @@ namespace Elasticsearch.Client
     public partial class ElasticsearchClient
     {
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/modules-snapshots.html"/></summary>
         /// <param name="snapshot">A snapshot name</param>
         /// <param name="repository">A repository name</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -35,7 +35,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("PUT", uri);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/modules-snapshots.html"/></summary>
         /// <param name="snapshot">A snapshot name</param>
         /// <param name="repository">A repository name</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -50,7 +50,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("PUT", uri);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/modules-snapshots.html"/></summary>
         /// <param name="snapshot">A snapshot name</param>
         /// <param name="repository">A repository name</param>
         /// <param name="body">The snapshot definition</param>
@@ -66,7 +66,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("PUT", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/modules-snapshots.html"/></summary>
         /// <param name="snapshot">A snapshot name</param>
         /// <param name="repository">A repository name</param>
         /// <param name="body">The snapshot definition</param>
@@ -82,7 +82,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("PUT", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/modules-snapshots.html"/></summary>
         /// <param name="snapshot">A snapshot name</param>
         /// <param name="repository">A repository name</param>
         /// <param name="body">The snapshot definition</param>
@@ -98,7 +98,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("PUT", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/modules-snapshots.html"/></summary>
         /// <param name="snapshot">A snapshot name</param>
         /// <param name="repository">A repository name</param>
         /// <param name="body">The snapshot definition</param>
@@ -114,7 +114,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("PUT", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/modules-snapshots.html"/></summary>
         /// <param name="snapshot">A snapshot name</param>
         /// <param name="repository">A repository name</param>
         /// <param name="body">The snapshot definition</param>
@@ -130,7 +130,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("PUT", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/modules-snapshots.html"/></summary>
         /// <param name="snapshot">A snapshot name</param>
         /// <param name="repository">A repository name</param>
         /// <param name="body">The snapshot definition</param>
@@ -146,7 +146,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("PUT", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/modules-snapshots.html"/></summary>
         /// <param name="snapshot">A snapshot name</param>
         /// <param name="repository">A repository name</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -161,7 +161,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/modules-snapshots.html"/></summary>
         /// <param name="snapshot">A snapshot name</param>
         /// <param name="repository">A repository name</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -176,7 +176,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/modules-snapshots.html"/></summary>
         /// <param name="snapshot">A snapshot name</param>
         /// <param name="repository">A repository name</param>
         /// <param name="body">The snapshot definition</param>
@@ -192,7 +192,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/modules-snapshots.html"/></summary>
         /// <param name="snapshot">A snapshot name</param>
         /// <param name="repository">A repository name</param>
         /// <param name="body">The snapshot definition</param>
@@ -208,7 +208,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/modules-snapshots.html"/></summary>
         /// <param name="snapshot">A snapshot name</param>
         /// <param name="repository">A repository name</param>
         /// <param name="body">The snapshot definition</param>
@@ -224,7 +224,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/modules-snapshots.html"/></summary>
         /// <param name="snapshot">A snapshot name</param>
         /// <param name="repository">A repository name</param>
         /// <param name="body">The snapshot definition</param>
@@ -240,7 +240,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/modules-snapshots.html"/></summary>
         /// <param name="snapshot">A snapshot name</param>
         /// <param name="repository">A repository name</param>
         /// <param name="body">The snapshot definition</param>
@@ -256,7 +256,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/modules-snapshots.html"/></summary>
         /// <param name="snapshot">A snapshot name</param>
         /// <param name="repository">A repository name</param>
         /// <param name="body">The snapshot definition</param>

@@ -20,7 +20,7 @@ namespace Elasticsearch.Client
     public partial class ElasticsearchClient
     {
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-update-settings.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/indices-update-settings.html"/></summary>
         /// <param name="body">The index settings to be updated</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual HttpResponseMessage IndicesPutSettings(Stream body, Func<IndicesPutSettingsParameters, IndicesPutSettingsParameters> options = null)
@@ -34,7 +34,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("PUT", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-update-settings.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/indices-update-settings.html"/></summary>
         /// <param name="body">The index settings to be updated</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual async Task<HttpResponseMessage> IndicesPutSettingsAsync(Stream body, Func<IndicesPutSettingsParameters, IndicesPutSettingsParameters> options = null)
@@ -48,7 +48,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("PUT", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-update-settings.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/indices-update-settings.html"/></summary>
         /// <param name="body">The index settings to be updated</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual HttpResponseMessage IndicesPutSettings(Byte[] body, Func<IndicesPutSettingsParameters, IndicesPutSettingsParameters> options = null)
@@ -62,7 +62,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("PUT", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-update-settings.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/indices-update-settings.html"/></summary>
         /// <param name="body">The index settings to be updated</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual async Task<HttpResponseMessage> IndicesPutSettingsAsync(Byte[] body, Func<IndicesPutSettingsParameters, IndicesPutSettingsParameters> options = null)
@@ -76,7 +76,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("PUT", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-update-settings.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/indices-update-settings.html"/></summary>
         /// <param name="body">The index settings to be updated</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual HttpResponseMessage IndicesPutSettingsString(string body, Func<IndicesPutSettingsParameters, IndicesPutSettingsParameters> options = null)
@@ -90,7 +90,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("PUT", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-update-settings.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/indices-update-settings.html"/></summary>
         /// <param name="body">The index settings to be updated</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual async Task<HttpResponseMessage> IndicesPutSettingsStringAsync(string body, Func<IndicesPutSettingsParameters, IndicesPutSettingsParameters> options = null)
@@ -104,7 +104,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("PUT", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-update-settings.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/indices-update-settings.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The index settings to be updated</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -119,7 +119,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("PUT", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-update-settings.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/indices-update-settings.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The index settings to be updated</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -134,7 +134,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("PUT", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-update-settings.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/indices-update-settings.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The index settings to be updated</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -149,7 +149,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("PUT", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-update-settings.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/indices-update-settings.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The index settings to be updated</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -164,7 +164,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("PUT", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-update-settings.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/indices-update-settings.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The index settings to be updated</param>
         /// <param name="options">The function to set optional url parameters.</param>
@@ -179,7 +179,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("PUT", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-update-settings.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/indices-update-settings.html"/></summary>
         /// <param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         /// <param name="body">The index settings to be updated</param>
         /// <param name="options">The function to set optional url parameters.</param>

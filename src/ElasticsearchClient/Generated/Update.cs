@@ -20,7 +20,7 @@ namespace Elasticsearch.Client
     public partial class ElasticsearchClient
     {
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-update.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-update.html"/></summary>
         /// <param name="index">The name of the index</param>
         /// <param name="type">The type of the document</param>
         /// <param name="id">Document ID</param>
@@ -36,7 +36,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-update.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-update.html"/></summary>
         /// <param name="index">The name of the index</param>
         /// <param name="type">The type of the document</param>
         /// <param name="id">Document ID</param>
@@ -52,7 +52,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-update.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-update.html"/></summary>
         /// <param name="index">The name of the index</param>
         /// <param name="type">The type of the document</param>
         /// <param name="id">Document ID</param>
@@ -69,7 +69,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-update.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-update.html"/></summary>
         /// <param name="index">The name of the index</param>
         /// <param name="type">The type of the document</param>
         /// <param name="id">Document ID</param>
@@ -86,7 +86,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-update.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-update.html"/></summary>
         /// <param name="index">The name of the index</param>
         /// <param name="type">The type of the document</param>
         /// <param name="id">Document ID</param>
@@ -103,7 +103,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-update.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-update.html"/></summary>
         /// <param name="index">The name of the index</param>
         /// <param name="type">The type of the document</param>
         /// <param name="id">Document ID</param>
@@ -120,7 +120,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-update.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-update.html"/></summary>
         /// <param name="index">The name of the index</param>
         /// <param name="type">The type of the document</param>
         /// <param name="id">Document ID</param>
@@ -137,7 +137,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-update.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/docs-update.html"/></summary>
         /// <param name="index">The name of the index</param>
         /// <param name="type">The type of the document</param>
         /// <param name="id">Document ID</param>

@@ -20,7 +20,7 @@ namespace Elasticsearch.Client
     public partial class ElasticsearchClient
     {
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/indices-aliases.html"/></summary>
         /// <param name="body">The definition of `actions` to perform</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual HttpResponseMessage IndicesUpdateAliases(Stream body, Func<IndicesUpdateAliasesParameters, IndicesUpdateAliasesParameters> options = null)
@@ -34,7 +34,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/indices-aliases.html"/></summary>
         /// <param name="body">The definition of `actions` to perform</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual async Task<HttpResponseMessage> IndicesUpdateAliasesAsync(Stream body, Func<IndicesUpdateAliasesParameters, IndicesUpdateAliasesParameters> options = null)
@@ -48,7 +48,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/indices-aliases.html"/></summary>
         /// <param name="body">The definition of `actions` to perform</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual HttpResponseMessage IndicesUpdateAliases(Byte[] body, Func<IndicesUpdateAliasesParameters, IndicesUpdateAliasesParameters> options = null)
@@ -62,7 +62,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/indices-aliases.html"/></summary>
         /// <param name="body">The definition of `actions` to perform</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual async Task<HttpResponseMessage> IndicesUpdateAliasesAsync(Byte[] body, Func<IndicesUpdateAliasesParameters, IndicesUpdateAliasesParameters> options = null)
@@ -76,7 +76,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/indices-aliases.html"/></summary>
         /// <param name="body">The definition of `actions` to perform</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual HttpResponseMessage IndicesUpdateAliasesString(string body, Func<IndicesUpdateAliasesParameters, IndicesUpdateAliasesParameters> options = null)
@@ -90,7 +90,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
         
-        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
+        /// <summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/2.3/indices-aliases.html"/></summary>
         /// <param name="body">The definition of `actions` to perform</param>
         /// <param name="options">The function to set optional url parameters.</param>
         public virtual async Task<HttpResponseMessage> IndicesUpdateAliasesStringAsync(string body, Func<IndicesUpdateAliasesParameters, IndicesUpdateAliasesParameters> options = null)
