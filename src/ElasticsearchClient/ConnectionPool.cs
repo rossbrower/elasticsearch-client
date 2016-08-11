@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -30,7 +31,7 @@ namespace Elasticsearch.Client
         /// <param name="dispatcher">Optional dispatcher implementation. If null, <see cref="Dispatcher"/> will be used.</param>
         /// <param name="randomize">Whether to randomize the list of uris on each request.</param>
         /// <param name="authenticationOptions">Optional authentication options for use with Shield.</param>
-        public ConnectionPool(IEnumerable<string> uris, IDispatcher dispatcher = null, bool randomize = false, 
+        public ConnectionPool(IEnumerable<string> uris, IDispatcher dispatcher = null, bool randomize = true, 
             AuthenticationOptions authenticationOptions = null)
         {
             mDispatcher = dispatcher ?? new Dispatcher();
@@ -121,7 +122,12 @@ namespace Elasticsearch.Client
             {
                 try
                 {
-                    return await mDispatcher.ExecuteAsync(mClients[clientId], httpMethod, uri, contentFunc?.Invoke()).ConfigureAwait(false);
+                    var resp = await mDispatcher.ExecuteAsync(mClients[clientId], httpMethod, uri, contentFunc?.Invoke()).ConfigureAwait(false);
+                    if (resp.StatusCode == HttpStatusCode.ServiceUnavailable)
+                    {
+                        continue;
+                    }
+                    return resp;
                 }
                 catch (Exception e)
                 {
@@ -134,6 +140,10 @@ namespace Elasticsearch.Client
                 try
                 {
                     var resp = await mDispatcher.ExecuteAsync(mClients[clientId], httpMethod, uri, contentFunc?.Invoke()).ConfigureAwait(false);
+                    if (resp.StatusCode == HttpStatusCode.ServiceUnavailable)
+                    {
+                        continue;
+                    }
                     RecordSuccess(clientId);
                     return resp;
                 }
