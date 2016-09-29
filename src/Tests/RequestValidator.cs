@@ -2,7 +2,7 @@
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Xunit;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Elasticsearch.Client.Tests
 {
@@ -31,8 +31,8 @@ namespace Elasticsearch.Client.Tests
 
             public Task<HttpResponseMessage> ExecuteAsync(HttpClient client, string httpMethod, string uri, HttpContent content = null)
             {
-                Assert.Equal(mExpectedMethod, httpMethod);
-                Assert.Equal(mExpectedUri, uri);
+                Assert.AreEqual(mExpectedMethod, httpMethod);
+                Assert.AreEqual(mExpectedUri, uri);
                 mContentValidator?.Invoke(content);
                 return Task.FromResult(new HttpResponseMessage(HttpStatusCode.OK));
             }

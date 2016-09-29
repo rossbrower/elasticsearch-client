@@ -6,13 +6,14 @@ using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Xunit;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Elasticsearch.Client.Tests
 {
+    [TestClass]
     public class ResilienceTests
     {
-        [Fact]
+        [TestMethod]
         public async Task ConnectionPoolBadUris()
         {
             var uris = new[] {"http://localhost:7777", "http://localhost:9200", "http://local.foo"};
@@ -24,7 +25,7 @@ namespace Elasticsearch.Client.Tests
             }
         }
 
-        [Fact]
+        [TestMethod]
         public async Task ConnectionPoolRandomFailures()
         {
             var uris = new[] {"http://localhost:9200", "http://localhost:9200" , "http://localhost:9200" };
@@ -56,7 +57,7 @@ namespace Elasticsearch.Client.Tests
             }
         }
 
-        [Fact]
+        [TestMethod]
         public async Task DispatcherTooManyRequestsRetry()
         {
             var client = new TooManyRequestsClient();
