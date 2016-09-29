@@ -8,18 +8,15 @@ namespace Elasticsearch.Client.Generator
         {
             string inputPath;
             string classPath;
-            string testPath;
             if (args == null || args.Length == 0)
             {
                 inputPath = @"C:\elasticsearch-client\lib\rest-api-spec\src\main\resources\rest-api-spec\api";
                 classPath = @"C:\elasticsearch-client\src\ElasticsearchClient\Generated";
-                testPath =  @"C:\elasticsearch-client\src\UnitTests\Generated";
             }
             else
             {
                 inputPath = args[0];
                 classPath = args[1];
-                testPath = args[2];
             }
             var classDirectory = new DirectoryInfo(classPath);
             if (classDirectory.Exists)
@@ -29,15 +26,10 @@ namespace Elasticsearch.Client.Generator
                     info.Delete();
                 }
             }
-            var testDirectory = new DirectoryInfo(testPath);
-            if (testDirectory.Exists)
+            using (var generator = new Generator())
             {
-                foreach (var info in testDirectory.EnumerateFileSystemInfos())
-                {
-                    info.Delete();
-                }
+               generator.GenerateFromDirectory(inputPath, classPath);
             }
-            Generator.GenerateFromDirectory(inputPath, classPath, testPath);
         }
     }
 }

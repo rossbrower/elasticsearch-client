@@ -1,45 +1,47 @@
 ﻿using System;
-using System.CodeDom;
-using System.CodeDom.Compiler;
 using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
 using System.Linq;
-using Microsoft.CSharp;
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.CodeAnalysis.Formatting;
 using Newtonsoft.Json;
 
 namespace Elasticsearch.Client.Generator
 {
-    public static class Generator
+    public class Generator: IDisposable
     {
-        private const string Namespace = "Elasticsearch.Client";
         private const string ClassName = "ElasticsearchClient";
-        private static readonly TextInfo TextInfo;
-        private static readonly CodeDomProvider Provider;
-        private static readonly CodeNamespaceImport[] Imports;
-        private static readonly Type[] BodyTypes;
+        private const string Parameters = "Parameters";
+        private static readonly string[] BodyTypes;
+        private static readonly string[] Usings;
+        private readonly Workspace mWorkspace;
 
         static Generator()
         {
-            TextInfo = new CultureInfo("en-US", false).TextInfo;
-            Provider = new CSharpCodeProvider(); //this should be disposed, but we're in a console app...
-            Imports = new[]
-            {
-                new CodeNamespaceImport("System"), 
-                new CodeNamespaceImport("System.IO"),
-                new CodeNamespaceImport("System.Net"),
-                new CodeNamespaceImport("System.Net.Http"),
-                new CodeNamespaceImport("System.Threading.Tasks")
-            };
             BodyTypes = new[]
             {
-                typeof (Stream),
-                typeof (byte[]),
-                typeof (string)
+                "Stream",
+                "byte[]",
+                "string"
+            };
+            Usings = new[]
+            {
+                "System",
+                "System.IO",
+                //"System.Net",
+                "System.Net.Http",
+                "System.Threading.Tasks"
             };
         }
 
-        public static void GenerateFromDirectory(string inputPath, string outputPath, string testPath)
+        public Generator()
+        {
+            mWorkspace = new AdhocWorkspace();
+        }
+
+        public void GenerateFromDirectory(string inputPath, string outputPath)
         {
             var directory = new DirectoryInfo(inputPath);
             foreach (var fileInfo in directory.EnumerateFiles("*.json"))
@@ -48,9 +50,13 @@ namespace Elasticsearch.Client.Generator
             }
         }
 
-        public static void GenerateFromFile(string inputFile, string outputPath)
+        public void GenerateFromFile(string inputFile, string outputPath)
         {
-            MethodDescription description = null;
+            if (!Directory.Exists(outputPath))
+            {
+                Directory.CreateDirectory(outputPath);
+            }
+            RestMethod description = null;
             using (var sr = File.OpenText(inputFile))
             {
                 using (var reader = new JsonTextReader(sr))
@@ -59,7 +65,7 @@ namespace Elasticsearch.Client.Generator
                     {
                         if (reader.TokenType == JsonToken.PropertyName)
                         {
-                            description = ReadMethod(reader);
+                            description = RestReader.ReadMethod(reader);
                         }
                     }
                 }
@@ -67,70 +73,75 @@ namespace Elasticsearch.Client.Generator
             GenerateCode(description, outputPath);
         }
 
-        private static void GenerateCode(MethodDescription description, string outputPath)
+        private static NamespaceDeclarationSyntax GetNamespace()
+        {
+            return SyntaxFactory.NamespaceDeclaration(
+                //todo just use identifier name?
+                SyntaxFactory.QualifiedName(
+                    SyntaxFactory.IdentifierName("Elasticsearch"),
+                    SyntaxFactory.IdentifierName("Client")));
+        }
+
+        private static ClassDeclarationSyntax GetParameterClass(string name)
+        {
+            return SyntaxFactory.ClassDeclaration(name)
+                .WithModifiers(SyntaxFactory.TokenList(SyntaxFactory.Token(SyntaxKind.PublicKeyword)))
+                .WithBaseList(SyntaxFactory.BaseList(
+                    SyntaxFactory.SimpleBaseType(SyntaxFactory.IdentifierName(Parameters))
+                        .AsSeparatedList<BaseTypeSyntax>()));
+        }
+
+        private static ClassDeclarationSyntax GetApiClass()
+        {
+            return SyntaxFactory.ClassDeclaration(ClassName)
+                .WithModifiers(SyntaxFactory.TokenList(
+                    SyntaxFactory.Token(SyntaxKind.PublicKeyword),
+                    SyntaxFactory.Token(SyntaxKind.PartialKeyword)));
+        }
+
+        private void GenerateCode(RestMethod description, string outputPath)
         {
             if (description == null)
             {
                 throw new ArgumentNullException(nameof(description));
             }
-            var fileName = GetMethodName(description.Name);
+            var className = GetMethodName(description.Name);
             string paramClassName = null;
             if (description.UrlParams.Count > 0)
             {
-                paramClassName = fileName + "Parameters";
+                paramClassName = className + Parameters;
                 var paramMethods = GenerateParameterMethods(paramClassName, description).ToArray();
-                WriteClass(Namespace, paramClassName, paramMethods, Imports, outputPath, baseType: "Parameters");
-            }            
-            var methods = GenerateMethods(fileName, description, paramClassName).ToArray();
-            WriteClass(Namespace, ClassName, methods, Imports, outputPath, fileName, isPartial: true);
+                var paramFile = Path.Combine(outputPath, paramClassName + ".cs");
+                var paramClass = GetParameterClass(paramClassName).AddMembers(paramMethods);
+                WriteClass(paramClass, paramFile, Enumerable.Empty<string>());
+            }
+            var file = Path.Combine(outputPath, className + ".cs");
+            var methods = GenerateMethods(className, description, paramClassName).ToArray();
+            var apiClass = GetApiClass().AddMembers(methods);
+            WriteClass(apiClass, file, Usings);
         }
 
-        private static void WriteClass(string @namespace, string className, CodeTypeMember[] members, 
-            CodeNamespaceImport[] imports, string outputPath, string fileName = null, 
-            string baseType = null, bool isPartial = false)
-        {
-            if (fileName == null)
+        private void WriteClass(ClassDeclarationSyntax classSyntax, string fileName, IEnumerable<string> usings)
+        {                      
+            var unit = SyntaxFactory.CompilationUnit()
+                .WithUsings(SyntaxFactory.List(usings
+                    .Select(u => SyntaxFactory.UsingDirective(SyntaxFactory.IdentifierName(u)))))
+                .AddMembers(GetNamespace()
+                    .AddMembers(classSyntax));
+            var node = Formatter.Format(unit, mWorkspace);
+            using (var tw = File.CreateText(fileName))
             {
-                fileName = className;
-            }
-            var compileUnit = new CodeCompileUnit();
-            var namespc = new CodeNamespace(@namespace);
-            compileUnit.Namespaces.Add(namespc);
-            namespc.Imports.AddRange(imports);
-            var clss = new CodeTypeDeclaration(className)
-            {
-                Attributes = MemberAttributes.Public,
-                IsPartial = isPartial
-            };
-            if (baseType != null)
-            {
-                clss.BaseTypes.Add(baseType);
-            }
-            namespc.Types.Add(clss);
-            clss.Members.AddRange(members);
-            var outputFile = Path.Combine(outputPath, fileName + ".cs");
-            using (var tw = File.CreateText(outputFile))
-            {
-                Provider.GenerateCodeFromCompileUnit(compileUnit, tw, new CodeGeneratorOptions
-                {
-                    BracingStyle = "C"
-                });
+                node.WriteTo(tw);
             }
         }
 
-        private static IEnumerable<CodeTypeMember> GenerateParameterMethods(string className,
-            MethodDescription description)
+        private static IEnumerable<MemberDeclarationSyntax> GenerateParameterMethods(string className,
+            RestMethod description)
         {
             foreach (var parameter in description.UrlParams)
             {
-                var method = new CodeMemberMethod
-                {
-                    Name = parameter.Name,
-                    ReturnType = new CodeTypeReference(className),
-                    Attributes = MemberAttributes.Public                    
-                };
-                method.Comments.Add(GetSummaryComment(parameter.Description));
-                Type paramType;         
+                var statements = new List<StatementSyntax>();   
+                SyntaxKind paramType;
                 switch (parameter.Type)
                 {
                     case null:
@@ -142,64 +153,74 @@ namespace Elasticsearch.Client.Generator
                     case "string":
                     case "time":
                     case "duration":
-                        paramType = typeof (string);
+                        paramType = SyntaxKind.StringKeyword;
                         break;
                     case "boolean":
-                        paramType = typeof(bool);
+                        paramType = SyntaxKind.BoolKeyword;
                         break;
-                    case "number":                    
-                        paramType = typeof (long);
+                    case "number":
+                        paramType = SyntaxKind.LongKeyword;
                         break;
                     case "integer":
-                        paramType = typeof(int);
+                        paramType = SyntaxKind.IntKeyword;
                         break;
                     case "float":
-                        paramType = typeof(double);
+                        paramType = SyntaxKind.DoubleKeyword;
                         break;
                     default:
                         throw new InvalidDataException("Unknown parameter type " + parameter.Type);
                 }
-                var parameterDeclaration = new CodeParameterDeclarationExpression(paramType, "value");
-                method.Parameters.Add(parameterDeclaration);
-                var paramDescription = "";
-                if (parameter.Options != null && parameter.Options.Count > 0)
+                var type = SyntaxFactory.PredefinedType(SyntaxFactory.Token(paramType));
+                var parameterDeclaration = SyntaxFactory.Parameter(SyntaxFactory.Identifier("value"))
+                    .WithType(type);
+                var parameters = new List<ParameterSyntax>
                 {
-                    paramDescription += $"<para>Options: {string.Join(",", parameter.Options)}</para>";
-                }
-                if (parameter.Default != null)
+                    parameterDeclaration
+                };
+                var valueRef = SyntaxFactory.IdentifierName("value");
+                ExpressionSyntax valueExpression = valueRef;
+                if (paramType == SyntaxKind.BoolKeyword)
                 {
-                    paramDescription += $"<para>Default: {parameter.Default}</para>";
+                    valueExpression = valueRef.Invoke("ToString").Invoke("ToLower");
                 }
-                CodeExpression valueExpression;
-                if (paramType == typeof (bool))
+                var arguments = new List<ArgumentSyntax>
                 {
-                    var inner = new CodeMethodInvokeExpression(
-                        new CodeVariableReferenceExpression("value"), "ToString");
-                    valueExpression = new CodeMethodInvokeExpression(inner, "ToLower");
-                }
-                else
+                    SyntaxFactory.Argument(parameter.Name.AsLiteralExpression()),
+                    SyntaxFactory.Argument(valueExpression)
+                };
+                statements.Add(SyntaxFactory.ExpressionStatement(
+                    SyntaxFactory.InvocationExpression("SetValue".AsIdentifierName(),
+                        arguments.AsArgumentList())));
+                statements.Add(SyntaxFactory.ReturnStatement(SyntaxFactory.ThisExpression()));
+                var trivia = SyntaxFactory.TriviaList(
+                    GetSummaryComment(parameter.Description),
+                    GetParameterTrivia(parameter));
+                var modifiers = new []
                 {
-                    valueExpression = new CodeVariableReferenceExpression("value");
-                }
-                method.Comments.Add(GetParameterCommentStatement("value", paramDescription));
-                method.Statements.Add(new CodeMethodInvokeExpression(new CodeThisReferenceExpression(), "SetValue",
-                    new CodePrimitiveExpression(parameter.Name),
-                    valueExpression));
-                method.Statements.Add(new CodeMethodReturnStatement(new CodeThisReferenceExpression()));
-                yield return method;
+                    SyntaxFactory.Token(SyntaxKind.PublicKeyword),
+                    SyntaxFactory.Token(SyntaxKind.VirtualKeyword)
+                };
+                yield return SyntaxFactory.MethodDeclaration(
+                    SyntaxFactory.ParseTypeName(className),
+                    SyntaxFactory.Identifier(parameter.Name))
+                    .WithModifiers(modifiers.AsTokenList())
+                    .WithBody(statements.AsBlock())
+                    .WithParameterList(parameters.AsParameterList())
+                    .WithLeadingTrivia(trivia);
             }
         }
 
-        private static IEnumerable<CodeTypeMember> GenerateMethods(string baseName, MethodDescription description, string parameterType = null)
+        private static IEnumerable<MemberDeclarationSyntax> GenerateMethods(string baseName, RestMethod description,
+            string parameterType = null)
         {
-            var methods = new List<CodeMemberMethod>();
+            var methods = new List<MemberDeclarationSyntax>();
             HashSet<string> signatures = new HashSet<string>();
             foreach (var urlPath in description.UrlPaths)
             {
-                var dict = new SortedDictionary<int, Parameter>();
+                var dict = new SortedDictionary<int, RestParameter>();
                 foreach (var urlPart in description.UrlParts)
                 {
-                    var index = urlPath.IndexOf(urlPart.Name, StringComparison.InvariantCulture);
+                    var index = urlPath.IndexOf(urlPart.Name, StringComparison.OrdinalIgnoreCase);
                     if (index > 0)
                     {
                         dict.Add(index, urlPart);
@@ -223,7 +244,7 @@ namespace Elasticsearch.Client.Generator
                 {
                     methods.AddRange(description.Methods.SelectMany(httpMethod =>
                     {
-                        var newMethodName = baseName + httpMethod.ToLower().ToCamelCase();
+                        var newMethodName = baseName + ToCamelCase(httpMethod.ToLower());
                         return GenerateOverloads(newMethodName, httpMethod, urlPath, parts, description, parameterType);
                     }));
                 }
@@ -231,9 +252,9 @@ namespace Elasticsearch.Client.Generator
             return methods;
         }
 
-        private static IEnumerable<CodeMemberMethod> GenerateOverloads(string methodName, string httpMethod,
+        private static IEnumerable<MemberDeclarationSyntax> GenerateOverloads(string methodName, string httpMethod,
             string urlPath,
-            IList<Parameter> urlParts, MethodDescription description, string parameterType = null)
+            IList<RestParameter> urlParts, RestMethod description, string parameterType = null)
         {
             var docLink = description.DocumentationLink;
             var body = description.Body;
@@ -254,338 +275,246 @@ namespace Elasticsearch.Client.Generator
                     yield return
                         GenerateMethod(methodName, docLink, httpMethod, urlPath, urlParts, body, bodyType, parameterType);
                     yield return
-                        GenerateMethod(methodName, docLink, httpMethod, urlPath, urlParts, body, bodyType, parameterType, true);
+                        GenerateMethod(methodName, docLink, httpMethod, urlPath, urlParts, body, bodyType, parameterType,
+                            true);
                 }
             }
         }
 
-        private static CodeMemberMethod NoBody(string name, string docLink, string httpMethod, string uri,
-            IList<Parameter> urlParts, string parameterType, bool async = false)
+        private static MemberDeclarationSyntax NoBody(string name, string docLink, string httpMethod, string uri,
+            IList<RestParameter> urlParts, string parameterType, bool async = false)
         {
             return GenerateMethod(name, docLink, httpMethod, uri, urlParts, null, null, parameterType, async);
         }
 
-        private static CodeMemberMethod GenerateMethod(string name, string docLink, string httpMethod, string uri, 
-            IList<Parameter> urlParts, Parameter body, Type bodyType, string parameterType = null, bool async = false)
+        private static MemberDeclarationSyntax GenerateMethod(string name, string docLink, string httpMethod, string uri,
+            IList<RestParameter> urlParts, RestParameter body, string bodyType, string parameterType = null,
+            bool async = false)
         {
             string disamb = string.Empty;
-            if (body != null && bodyType == typeof (string))
+            if (body != null && bodyType == "string")
             {
                 disamb = "String";
             }
             name += disamb;
-            var method = new CodeMemberMethod
+            //start collections for doc comments and parameters.
+            var methodParams = new List<ParameterSyntax>();
+            var methodDocs = new List<SyntaxTrivia>
             {
-                Name = async ? name + "Async" : name,
-                Attributes = MemberAttributes.Public,
-                ReturnType = new CodeTypeReference(async ? "async Task<HttpResponseMessage>" : "HttpResponseMessage")
+                GetDocumentationComment(docLink)
             };
-            method.Comments.Add(GetDocumentationComment(docLink));
-            //set the uri variable to pass into the execute function.
-            var setUri = new CodeVariableDeclarationStatement(typeof(string), "uri");
-            method.Statements.Add(setUri);
-            CodeExpression uriValueExpression;
-            if (urlParts.Count == 0)
+            var methodStatements = new List<StatementSyntax>();
+            //get arguments to pass into the string format call which computes the uri.                         
+            var uriArguments = new ArgumentSyntax[urlParts.Count + 1];
+            for (var i = 0; i < urlParts.Count; i++)
             {
-                uriValueExpression = new CodePrimitiveExpression(uri);
-            }
-            else
-            {
-                var stringTypeRef = new CodeTypeReferenceExpression(typeof (string));
-                uriValueExpression = new CodeMethodInvokeExpression(stringTypeRef, "Format",
-                    new CodePrimitiveExpression(uri));
-            }                        
-            setUri.InitExpression = uriValueExpression;            
-            //return the result of the execute method
-            CodeExpression thisRef;
-            if (async)
-            {
-                thisRef = new CodeVariableReferenceExpression("await mConnection");
-            }
-            else
-            {
-                thisRef = new CodeVariableReferenceExpression("mConnection");
-            }
-            var executeInvoke = new CodeMethodInvokeExpression(thisRef, async ? "ExecuteAsync" : "Execute",
-                new CodePrimitiveExpression(httpMethod), new CodeVariableReferenceExpression("uri"));            
-            var i = 0;     
-            foreach(var urlPart in urlParts)
-            {
+                var urlPart = urlParts[i];
                 //add param comment to method.
-                method.Comments.Add(GetParameterCommentStatement(urlPart.Name, urlPart.Description));
+                methodDocs.Add(GetParameterCommentStatement(urlPart.Name, urlPart.Description));
                 //add parameter to method.
-                Type urlPathType;
+                SyntaxKind urlPathType;
                 switch (urlPart.Type)
                 {
                     case "list":
                     case "string":
-                        urlPathType = typeof (string);
+                        urlPathType = SyntaxKind.StringKeyword;
                         break;
                     case "number":
-                        urlPathType = typeof (long);
+                        urlPathType = SyntaxKind.LongKeyword;
                         break;
                     default:
                         throw new InvalidDataException("Unknown parameter type " + urlPart.Type);
                 }
-                method.Parameters.Add(new CodeParameterDeclarationExpression(urlPathType, urlPart.Name));
+                methodParams.Add(SyntaxFactory.Parameter(SyntaxFactory.Identifier(urlPart.Name))
+                    .WithType(SyntaxFactory.PredefinedType(SyntaxFactory.Token(urlPathType))));
                 //mutate the format string and add parameters to the string.format call.
                 uri = uri.Replace(urlPart.Name, i.ToString());
-                ((CodeMethodInvokeExpression)uriValueExpression).Parameters[0] = new CodePrimitiveExpression(uri);
-                ((CodeMethodInvokeExpression)uriValueExpression).Parameters.Add(new CodeVariableReferenceExpression(urlPart.Name));
-                i++;
-            }            
+                uriArguments[i + 1] = SyntaxFactory.Argument(SyntaxFactory.IdentifierName(urlPart.Name));
+            }
+            ExpressionSyntax uriInitializer;
+            if (urlParts.Count == 0)
+            {
+                uriInitializer = uri.AsLiteralExpression();
+            }
+            else
+            {
+                //todo replace with string interpolation
+                uriArguments[0] = SyntaxFactory.Argument(uri.AsLiteralExpression());
+                uriInitializer = SyntaxFactory.InvocationExpression(
+                    SyntaxFactory.MemberAccessExpression(SyntaxKind.SimpleMemberAccessExpression,
+                        SyntaxFactory.PredefinedType(SyntaxFactory.Token(SyntaxKind.StringKeyword)),
+                        SyntaxFactory.IdentifierName("Format")))
+                    .WithArgumentList(SyntaxFactory.ArgumentList(SyntaxFactory.SeparatedList(
+                        uriArguments)));
+            }
+            //add the uri statement to the body first.
+            var setUri = SyntaxFactory.VariableDeclaration(SyntaxFactory.IdentifierName("var"))
+                .WithVariables(SyntaxFactory.VariableDeclarator("uri")
+                    .WithInitializer(SyntaxFactory.EqualsValueClause(uriInitializer))
+                    .AsSeparatedList());
+            methodStatements.Add(SyntaxFactory.LocalDeclarationStatement(setUri));
+            //return the result of the execute method
+            var executeArgs = new List<ArgumentSyntax>
+            {
+                SyntaxFactory.Argument(SyntaxFactory.LiteralExpression(SyntaxKind.StringLiteralExpression,
+                    SyntaxFactory.Literal(httpMethod))),
+                SyntaxFactory.Argument(SyntaxFactory.IdentifierName("uri"))
+            };
             if (body != null)
             {
                 //add method parameter for the body type and pass the reference to the execute method.
                 const string bodyVariable = "body";
-                var paramDeclare = bodyType == typeof (string)
-                    ? new CodeParameterDeclarationExpression(bodyType, bodyVariable)
-                    : new CodeParameterDeclarationExpression(bodyType.Name, bodyVariable);
-                method.Parameters.Add(paramDeclare);
-                method.Comments.Add(GetParameterCommentStatement(body.Name, body.Description));
-                executeInvoke.Parameters.Add(new CodeVariableReferenceExpression(bodyVariable));
+                var paramDeclare = SyntaxFactory.Parameter(SyntaxFactory.Identifier(bodyVariable))
+                    .WithType(SyntaxFactory.ParseTypeName(bodyType));
+                methodParams.Add(paramDeclare);
+                methodDocs.Add(GetParameterCommentStatement(body.Name, body.Description));
+                executeArgs.Add(SyntaxFactory.Argument(SyntaxFactory.IdentifierName(bodyVariable)));
             }
+            //get statements which add optional uri parameters to the rest call
             if (parameterType != null)
             {
                 //add method parameter for the parameter setter function;
-                var funcType = new CodeTypeReference("Func");
-                funcType.TypeArguments.Add(parameterType);
-                funcType.TypeArguments.Add(parameterType);
-                const string parameters = "parameters";
+                var funcType = SyntaxFactory.GenericName(SyntaxFactory.Identifier("Func"),
+                    SyntaxFactory.TypeArgumentList(SyntaxFactory.SeparatedList<TypeSyntax>(
+                        new[]
+                        {
+                            SyntaxFactory.IdentifierName(parameterType),
+                            SyntaxFactory.IdentifierName(parameterType)
+                        })));
                 const string options = "options";
-                method.Parameters.Add(new CodeParameterDeclarationExpression(funcType, options + " = null"));
-                method.Comments.Add(GetParameterCommentStatement("options",
+                methodParams.Add(SyntaxFactory.Parameter(SyntaxFactory.Identifier(options))
+                    .WithType(funcType)
+                    .WithDefault(SyntaxFactory.EqualsValueClause(SyntaxFactory.LiteralExpression(
+                        SyntaxKind.NullLiteralExpression))));
+                methodDocs.Add(GetParameterCommentStatement(options,
                     "The function to set optional url parameters."));
                 //create the params object and pass it to the function.
-                var nullCheck = new CodeBinaryOperatorExpression(new CodeVariableReferenceExpression("options"),
-                    CodeBinaryOperatorType.IdentityInequality, new CodePrimitiveExpression(null));
-                var ifStatement = new CodeConditionStatement(nullCheck,
-                    new CodeVariableDeclarationStatement(parameterType, parameters,
-                        new CodeMethodInvokeExpression(new CodeVariableReferenceExpression(options),
-                            "Invoke", new CodeObjectCreateExpression(parameterType))),
-                    new CodeAssignStatement(new CodeVariableReferenceExpression("uri"),
-                        new CodeMethodInvokeExpression(new CodeVariableReferenceExpression(parameters), "GetUri",
-                            new CodeVariableReferenceExpression("uri"))));
-                method.Statements.Add(ifStatement);
+                var ifStatement = SyntaxFactory.IfStatement(SyntaxFactory.BinaryExpression(
+                    SyntaxKind.NotEqualsExpression, SyntaxFactory.IdentifierName(options),
+                    SyntaxFactory.LiteralExpression(SyntaxKind.NullLiteralExpression)),
+                    SyntaxFactory.Block(SyntaxFactory.SingletonList<StatementSyntax>(
+                        SyntaxFactory.ExpressionStatement(
+                            SyntaxFactory.AssignmentExpression(
+                                SyntaxKind.SimpleAssignmentExpression,
+                                SyntaxFactory.IdentifierName("uri"),
+                                SyntaxFactory.InvocationExpression(
+                                    SyntaxFactory.MemberAccessExpression(
+                                        SyntaxKind.SimpleMemberAccessExpression,
+                                        SyntaxFactory.InvocationExpression(
+                                            SyntaxFactory.MemberAccessExpression(
+                                                SyntaxKind.SimpleMemberAccessExpression,
+                                                SyntaxFactory.IdentifierName(options),
+                                                SyntaxFactory.IdentifierName("Invoke")))
+                                            .WithArgumentList(SyntaxFactory.Argument(
+                                                SyntaxFactory.ObjectCreationExpression(
+                                                    SyntaxFactory.IdentifierName(parameterType))
+                                                    .WithArgumentList(SyntaxFactory.ArgumentList()))
+                                                .AsArgumentList()),
+                                        SyntaxFactory.IdentifierName("GetUri")))
+                                    .WithArgumentList(SyntaxFactory.Argument(
+                                        SyntaxFactory.IdentifierName("uri")).AsArgumentList()))))));
+                methodStatements.Add(ifStatement);
             }
-            method.Statements.Add(new CodeMethodReturnStatement(executeInvoke));
-            return method;
+            //add return statement
+            var executeRef = SyntaxFactory.MemberAccessExpression(SyntaxKind.SimpleMemberAccessExpression,
+                SyntaxFactory.IdentifierName("mConnection"),
+                async ? SyntaxFactory.IdentifierName("ExecuteAsync") : SyntaxFactory.IdentifierName("Execute"));
+            if (async)
+            {
+                methodStatements.Add(SyntaxFactory.ReturnStatement(SyntaxFactory.AwaitExpression(
+                    SyntaxFactory.InvocationExpression(executeRef,
+                        SyntaxFactory.ArgumentList(SyntaxFactory.SeparatedList(executeArgs))))));
+            }
+            else
+            {
+                methodStatements.Add(SyntaxFactory.ReturnStatement(
+                    SyntaxFactory.InvocationExpression(executeRef,
+                        SyntaxFactory.ArgumentList(SyntaxFactory.SeparatedList(executeArgs)))));
+            }
+            return async
+                ? GetAsyncApiMethod(name, methodDocs, methodStatements, methodParams)
+                : GetSyncApiMethod(name, methodDocs, methodStatements, methodParams);
         }
 
-        private static MethodDescription ReadMethod(JsonReader reader)
+        private static MethodDeclarationSyntax GetAsyncApiMethod(string name, 
+            IList<SyntaxTrivia> trivia, IList<StatementSyntax> statements, IList<ParameterSyntax> parameters)
         {
-            var method = new MethodDescription
-            {
-                Name = (string) reader.Value
-            };
-            while (reader.Read())
-            {
-                if (reader.TokenType == JsonToken.PropertyName)
-                {
-                    var property = (string) reader.Value;
-                    switch (property)
-                    {
-                        case "documentation":
-                            method.DocumentationLink = reader.ReadAsString();
-                            break;
-                        case "methods":
-                            method.Methods = ReadStringArray(reader).ToList();
-                            break;
-                        case "paths":
-                            method.UrlPaths = ReadStringArray(reader).ToList();
-                            break;
-                        case "parts":
-                            method.UrlParts = ReadParameters(reader).ToList();
-                            break;
-                        case "params":
-                            method.UrlParams = ReadParameters(reader).ToList();
-                            break;
-                        case "body":
-                            method.Body = ReadParameter(reader);
-                            break;
-                    }
-                }
-            }
-            return method;
+            return SyntaxFactory.MethodDeclaration(SyntaxFactory.GenericName(SyntaxFactory.Identifier("Task"),
+                SyntaxFactory.TypeArgumentList(
+                    SyntaxFactory.SingletonSeparatedList<TypeSyntax>(
+                        SyntaxFactory.IdentifierName("HttpResponseMessage")))),
+                SyntaxFactory.Identifier(name + "Async"))
+                .WithParameterList(SyntaxFactory.ParameterList(SyntaxFactory.SeparatedList(parameters)))
+                .WithBody(SyntaxFactory.Block(statements))
+                .WithModifiers(SyntaxFactory.TokenList(
+                    SyntaxFactory.Token(SyntaxKind.PublicKeyword),
+                    SyntaxFactory.Token(SyntaxKind.AsyncKeyword)))
+                .WithLeadingTrivia(trivia);
         }
 
-        private static IEnumerable<Parameter> ReadParameters(JsonReader reader)
+        private static MethodDeclarationSyntax GetSyncApiMethod(string name,
+            IList<SyntaxTrivia> trivia, IList<StatementSyntax> statements, IList<ParameterSyntax> parameters)
         {
-            var parameters = new Dictionary<string, Parameter>();
-            var depth = reader.Depth;
-            reader.Read();
-            while (reader.Read() && reader.Depth > depth)
-            {
-                switch (reader.TokenType)
-                {
-                    case JsonToken.PropertyName:
-                        var p = ReadParameter(reader);
-                        //last in wins on duplicates...
-                        parameters[p.Name] = p; 
-                        break;
-                }
-            }
-            return parameters.Values;
-        }
-
-        private static Parameter ReadParameter(JsonReader reader)
-        {
-            var parameter = new Parameter
-            {
-                Name = (string) reader.Value
-            };
-            while (reader.Read())
-            {
-                switch (reader.TokenType)
-                {
-                    case JsonToken.Null:
-                        return null;
-                    case JsonToken.PropertyName:
-                        var propertyName = (string) reader.Value;
-                        switch (propertyName)
-                        {
-                            case "type":
-                                parameter.Type = reader.ReadAsString();
-                                break;
-                            case "description":
-                                parameter.Description = reader.ReadAsString();
-                                break;
-                            case "required":
-                                parameter.Required = reader.ReadAsBoolean().GetValueOrDefault();
-                                break;
-                            case "options":
-                                parameter.Options = ReadStringArray(reader).ToList();
-                                break;
-                            case "default":
-                                parameter.Default = ReadDefaultValue(reader);
-                                break;
-                            case "serialize":
-                                parameter.Serialize = reader.ReadAsString();
-                                break;
-                        }
-                        break;
-                    case JsonToken.EndObject:
-                        return parameter;
-                }
-            }
-            throw new InvalidDataException("Could not parse Parameter");
-        }
-
-        private static object ReadDefaultValue(JsonReader reader)
-        {
-            bool isArray = false;
-            List<string> strings = new List<string>();
-            while (reader.Read())
-            {
-                switch (reader.TokenType)
-                {
-                    case JsonToken.StartArray:
-                        isArray = true;
-                        break;
-                    case JsonToken.String:
-                        if (isArray)
-                        {
-                            strings.Add((string) reader.Value);
-                        }
-                        else
-                        {
-                            return (string) reader.Value;
-                        }
-                        break;
-                    case JsonToken.Boolean:
-                        return (bool) reader.Value;
-                    case JsonToken.Integer:
-                        return Convert.ToInt32(reader.Value);
-                    case JsonToken.Float:
-                        return Convert.ToDouble(reader.Value);
-                    case JsonToken.Null:
-                        return null;
-                    case JsonToken.EndArray:
-                        return strings;
-                    default:
-                        throw new InvalidDataException("Unknown default value type: " + reader.TokenType);
-                }
-            }
-            throw new InvalidDataException("Could not parse default value");
-        }
-
-        private static IEnumerable<string> ReadStringArray(JsonReader reader)
-        {
-            bool isArray = false;
-            while (reader.Read())
-            {
-                switch (reader.TokenType)
-                {
-                    case JsonToken.StartArray:
-                        isArray = true;
-                        break;
-                    case JsonToken.String:
-                        yield return (string) reader.Value;
-                        if (!isArray)
-                        {
-                            yield break;
-                        }
-                        break;
-                    case JsonToken.EndArray:
-                        yield break;
-                }
-            }
+            return SyntaxFactory.MethodDeclaration(SyntaxFactory.IdentifierName("HttpResponseMessage"),
+                SyntaxFactory.Identifier(name))
+                .WithParameterList(SyntaxFactory.ParameterList(SyntaxFactory.SeparatedList(parameters)))
+                .WithBody(SyntaxFactory.Block(statements))
+                .WithModifiers(SyntaxFactory.TokenList(
+                    SyntaxFactory.Token(SyntaxKind.PublicKeyword)))
+                .WithLeadingTrivia(trivia);
         }
 
         private static string GetMethodName(string name)
         {
             //todo use regex, but who likes regex...
             var methodName = name.Replace("_", " ").Replace(".", " ");
-            methodName = methodName.ToCamelCase().Replace(" ", string.Empty);
+            methodName = ToCamelCase(methodName).Replace(" ", string.Empty);
             return methodName;
         }
 
-        private static CodeCommentStatement GetSummaryComment(string summary)
+        private static SyntaxTrivia GetSummaryComment(string summary)
         {
-            return new CodeCommentStatement($"<summary>{summary}</summary>", true);
+            return SyntaxFactory.Comment($"///<summary>{summary}</summary>{Environment.NewLine}");
         }
 
-        private static CodeCommentStatement GetDocumentationComment(string documentationLink)
+        private static SyntaxTrivia GetDocumentationComment(string documentationLink)
         {
             return GetSummaryComment($"<see href=\"{documentationLink}\"/>");
         }
 
-        private static CodeCommentStatement GetParameterCommentStatement(string parameter, string description)
+        private static SyntaxTrivia GetParameterTrivia(RestParameter parameter)
         {
-            return new CodeCommentStatement($"<param name=\"{parameter}\">{description}</param>", true);
-        }
-
-        private static string ToCamelCase(this string input)
-        {
-            return TextInfo.ToTitleCase(input);
-        }
-
-        private class MethodDescription
-        {
-            public MethodDescription()
+            var paramDescription = "";
+            if (parameter.Options != null && parameter.Options.Count > 0)
             {
-                UrlParts = new List<Parameter>();
-                UrlParams = new List<Parameter>();                    
+                paramDescription += $"<para>Options: {string.Join(",", parameter.Options)}</para>";
             }
-
-            public string Name { get; set; }
-            public string DocumentationLink { get; set; }
-            public List<string> Methods { get; set; }
-            public List<string> UrlPaths { get; set; }
-            public List<Parameter> UrlParts { get; set; }
-            public List<Parameter> UrlParams { get; set; }
-            public Parameter Body { get; set; }
+            if (parameter.Default != null)
+            {
+                paramDescription += $"<para>Default: {parameter.Default}</para>";
+            }
+            return GetParameterCommentStatement("value", paramDescription);
         }
 
-        private class Parameter
+        private static SyntaxTrivia GetParameterCommentStatement(string parameter, string description)
         {
-            public string Name { get; set; }
-            public string Type { get; set; }
-            public string Description { get; set; }
-            public List<string> Options { get; set; }
-            public object Default { get; set; }
-            public bool Required { get; set; }
-            public string Serialize { get; set; }
+            return SyntaxFactory.Comment($"///<param name=\"{parameter}\">{description}</param>{Environment.NewLine}");
+        }
+
+        private static string ToCamelCase(string input)
+        {
+            var tokens = input.Split(new[] {" "}, StringSplitOptions.RemoveEmptyEntries);
+            for (var i = 0; i < tokens.Length; i++)
+            {
+                var token = tokens[i];
+                tokens[i] = token.Substring(0, 1).ToUpper() + token.Substring(1);
+            }
+            return string.Join(" ", tokens);
+        }
+
+        public void Dispose()
+        {
+            mWorkspace.Dispose();
         }
     }
 }
