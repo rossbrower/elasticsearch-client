@@ -6,7 +6,7 @@
     "packOptions": {
     "projectUrl": "https://github.com/rossbrower/elasticsearch-client",
     "tags": [ "elasticsearch" ],
-    "licenseUrl": "https://raw.github.com/rossbrower/elasticsearch-client/master/LICENSE.md",
+    "licenseUrl": "https://github.com/rossbrower/elasticsearch-client/raw/master/license.txt",
     "repository": {
       "type": "git",
       "url": "git://github.com/rossbrower/elasticsearch-client"
