@@ -25,13 +25,5 @@ namespace Elasticsearch.Client
             SetValue("timeout", value);
             return this;
         }
-
-        ///<summary>Whether to return all default clusters setting.</summary>
-        ///<param name="value"><para>Default: False</para></param>
-        public virtual ClusterGetSettingsParameters include_defaults(bool value)
-        {
-            SetValue("include_defaults", value.ToString().ToLower());
-            return this;
-        }
     }
 }

@@ -19,7 +19,7 @@ namespace Elasticsearch.Client
         }
 
         ///<summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
-        ///<param name="value"><para>Options: open,closed,none,all</para><para>Default: all</para></param>
+        ///<param name="value"><para>Options: open,closed,none,all</para><para>Default: open</para></param>
         public virtual IndicesGetAliasParameters expand_wildcards(string value)
         {
             SetValue("expand_wildcards", value);

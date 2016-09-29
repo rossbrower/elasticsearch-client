@@ -2,22 +2,6 @@ namespace Elasticsearch.Client
 {
     public class CatThreadPoolParameters : Parameters
     {
-        ///<summary>a short version of the Accept header, e.g. json, yaml</summary>
-        ///<param name="value"></param>
-        public virtual CatThreadPoolParameters format(string value)
-        {
-            SetValue("format", value);
-            return this;
-        }
-
-        ///<summary>The multiplier in which to display values</summary>
-        ///<param name="value"><para>Options: ,k,m,g,t,p</para></param>
-        public virtual CatThreadPoolParameters size(string value)
-        {
-            SetValue("size", value);
-            return this;
-        }
-
         ///<summary>Return local information, do not retrieve the state from master node (default: false)</summary>
         ///<param name="value"></param>
         public virtual CatThreadPoolParameters local(bool value)
@@ -58,11 +42,11 @@ namespace Elasticsearch.Client
             return this;
         }
 
-        ///<summary>A comma-separated list of regular-expressions to filter the thread pools in the output</summary>
-        ///<param name="value"></param>
-        public virtual CatThreadPoolParameters thread_pool_patterns(string value)
+        ///<summary>Enables displaying the complete node ids</summary>
+        ///<param name="value"><para>Default: False</para></param>
+        public virtual CatThreadPoolParameters full_id(bool value)
         {
-            SetValue("thread_pool_patterns", value);
+            SetValue("full_id", value.ToString().ToLower());
             return this;
         }
     }

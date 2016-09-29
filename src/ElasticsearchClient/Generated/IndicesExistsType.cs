@@ -13,7 +13,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesExistsType(string index, string type, Func<IndicesExistsTypeParameters, IndicesExistsTypeParameters> options = null)
         {
-            var uri = string.Format("/{0}/_mapping/{1}", index, type);
+            var uri = string.Format("/{0}/{1}", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesExistsTypeParameters()).GetUri(uri);
@@ -28,7 +28,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesExistsTypeAsync(string index, string type, Func<IndicesExistsTypeParameters, IndicesExistsTypeParameters> options = null)
         {
-            var uri = string.Format("/{0}/_mapping/{1}", index, type);
+            var uri = string.Format("/{0}/{1}", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesExistsTypeParameters()).GetUri(uri);

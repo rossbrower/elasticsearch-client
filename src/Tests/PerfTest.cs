@@ -25,7 +25,7 @@ namespace Elasticsearch.Client.Tests
                         }
                     }
                 }
-                using (var resp = await client.IndicesCreateAsync("foo"))
+                using (var resp = await client.IndicesCreatePostAsync("foo"))
                 {
                     Debug.WriteLine(await resp.Content.ReadAsStringAsync());
                     Assert.IsTrue(resp.IsSuccessStatusCode);

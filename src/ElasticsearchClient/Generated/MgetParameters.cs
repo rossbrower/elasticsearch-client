@@ -2,11 +2,11 @@ namespace Elasticsearch.Client
 {
     public class MgetParameters : Parameters
     {
-        ///<summary>A comma-separated list of stored fields to return in the response</summary>
+        ///<summary>A comma-separated list of fields to return in the response</summary>
         ///<param name="value"></param>
-        public virtual MgetParameters stored_fields(string value)
+        public virtual MgetParameters fields(string value)
         {
-            SetValue("stored_fields", value);
+            SetValue("fields", value);
             return this;
         }
 

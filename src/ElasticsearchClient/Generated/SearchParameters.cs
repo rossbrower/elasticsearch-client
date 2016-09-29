@@ -42,23 +42,15 @@ namespace Elasticsearch.Client
             return this;
         }
 
-        ///<summary>A comma-separated list of stored fields to return as part of a hit</summary>
+        ///<summary>A comma-separated list of fields to return as part of a hit</summary>
         ///<param name="value"></param>
-        public virtual SearchParameters stored_fields(string value)
+        public virtual SearchParameters fields(string value)
         {
-            SetValue("stored_fields", value);
+            SetValue("fields", value);
             return this;
         }
 
-        ///<summary>A comma-separated list of fields to return as the docvalue representation of a field for each hit</summary>
-        ///<param name="value"></param>
-        public virtual SearchParameters docvalue_fields(string value)
-        {
-            SetValue("docvalue_fields", value);
-            return this;
-        }
-
-        ///<summary>A comma-separated list of fields to return as the docvalue representation of a field for each hit</summary>
+        ///<summary>A comma-separated list of fields to return as the field data representation of a field for each hit</summary>
         ///<param name="value"></param>
         public virtual SearchParameters fielddata_fields(string value)
         {
@@ -147,7 +139,7 @@ namespace Elasticsearch.Client
         }
 
         ///<summary>Search operation type</summary>
-        ///<param name="value"><para>Options: query_then_fetch,dfs_query_then_fetch</para></param>
+        ///<param name="value"><para>Options: query_then_fetch,dfs_query_then_fetch,count,scan</para></param>
         public virtual SearchParameters search_type(string value)
         {
             SetValue("search_type", value);

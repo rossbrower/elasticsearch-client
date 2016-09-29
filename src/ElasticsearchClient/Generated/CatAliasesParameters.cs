@@ -2,14 +2,6 @@ namespace Elasticsearch.Client
 {
     public class CatAliasesParameters : Parameters
     {
-        ///<summary>a short version of the Accept header, e.g. json, yaml</summary>
-        ///<param name="value"></param>
-        public virtual CatAliasesParameters format(string value)
-        {
-            SetValue("format", value);
-            return this;
-        }
-
         ///<summary>Return local information, do not retrieve the state from master node (default: false)</summary>
         ///<param name="value"></param>
         public virtual CatAliasesParameters local(bool value)

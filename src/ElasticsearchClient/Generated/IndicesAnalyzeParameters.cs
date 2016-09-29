@@ -10,6 +10,14 @@ namespace Elasticsearch.Client
             return this;
         }
 
+        ///<summary>Deprecated : A comma-separated list of character filters to use for the analysis</summary>
+        ///<param name="value"></param>
+        public virtual IndicesAnalyzeParameters char_filters(string value)
+        {
+            SetValue("char_filters", value);
+            return this;
+        }
+
         ///<summary>A comma-separated list of character filters to use for the analysis</summary>
         ///<param name="value"></param>
         public virtual IndicesAnalyzeParameters char_filter(string value)
@@ -23,6 +31,14 @@ namespace Elasticsearch.Client
         public virtual IndicesAnalyzeParameters field(string value)
         {
             SetValue("field", value);
+            return this;
+        }
+
+        ///<summary>Deprecated : A comma-separated list of filters to use for the analysis</summary>
+        ///<param name="value"></param>
+        public virtual IndicesAnalyzeParameters filters(string value)
+        {
+            SetValue("filters", value);
             return this;
         }
 
