@@ -64,7 +64,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesClearCachePost(string index, Func<IndicesClearCacheParameters, IndicesClearCacheParameters> options = null)
         {
-            var uri = $"{"/{0}/_cache/clear"}";
+            var uri = string.Format("/{0}/_cache/clear", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesClearCacheParameters()).GetUri(uri);
@@ -78,7 +78,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesClearCachePostAsync(string index, Func<IndicesClearCacheParameters, IndicesClearCacheParameters> options = null)
         {
-            var uri = $"{"/{0}/_cache/clear"}";
+            var uri = string.Format("/{0}/_cache/clear", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesClearCacheParameters()).GetUri(uri);
@@ -92,7 +92,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesClearCacheGet(string index, Func<IndicesClearCacheParameters, IndicesClearCacheParameters> options = null)
         {
-            var uri = $"{"/{0}/_cache/clear"}";
+            var uri = string.Format("/{0}/_cache/clear", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesClearCacheParameters()).GetUri(uri);
@@ -106,7 +106,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesClearCacheGetAsync(string index, Func<IndicesClearCacheParameters, IndicesClearCacheParameters> options = null)
         {
-            var uri = $"{"/{0}/_cache/clear"}";
+            var uri = string.Format("/{0}/_cache/clear", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesClearCacheParameters()).GetUri(uri);

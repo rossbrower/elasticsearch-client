@@ -38,7 +38,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesRecovery(string index, Func<IndicesRecoveryParameters, IndicesRecoveryParameters> options = null)
         {
-            var uri = $"{"/{0}/_recovery"}";
+            var uri = string.Format("/{0}/_recovery", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesRecoveryParameters()).GetUri(uri);
@@ -52,7 +52,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesRecoveryAsync(string index, Func<IndicesRecoveryParameters, IndicesRecoveryParameters> options = null)
         {
-            var uri = $"{"/{0}/_recovery"}";
+            var uri = string.Format("/{0}/_recovery", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesRecoveryParameters()).GetUri(uri);

@@ -34,11 +34,11 @@ namespace Elasticsearch.Client
             return this;
         }
 
-        ///<summary>A comma-separated list of fields to return in the response</summary>
+        ///<summary>A comma-separated list of stored fields to return in the response</summary>
         ///<param name="value"></param>
-        public virtual ExplainParameters fields(string value)
+        public virtual ExplainParameters stored_fields(string value)
         {
-            SetValue("fields", value);
+            SetValue("stored_fields", value);
             return this;
         }
 

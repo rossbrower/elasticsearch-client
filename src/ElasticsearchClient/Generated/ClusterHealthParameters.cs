@@ -36,7 +36,7 @@ namespace Elasticsearch.Client
 
         ///<summary>Wait until the specified number of shards is active</summary>
         ///<param name="value"></param>
-        public virtual ClusterHealthParameters wait_for_active_shards(long value)
+        public virtual ClusterHealthParameters wait_for_active_shards(string value)
         {
             SetValue("wait_for_active_shards", value);
             return this;
@@ -50,11 +50,19 @@ namespace Elasticsearch.Client
             return this;
         }
 
-        ///<summary>Wait until the specified number of relocating shards is finished</summary>
-        ///<param name="value"></param>
-        public virtual ClusterHealthParameters wait_for_relocating_shards(long value)
+        ///<summary>Wait until all currently queued events with the given priorty are processed</summary>
+        ///<param name="value"><para>Options: immediate,urgent,high,normal,low,languid</para></param>
+        public virtual ClusterHealthParameters wait_for_events(string value)
         {
-            SetValue("wait_for_relocating_shards", value);
+            SetValue("wait_for_events", value);
+            return this;
+        }
+
+        ///<summary>Whether to wait until there are no relocating shards in the cluster</summary>
+        ///<param name="value"></param>
+        public virtual ClusterHealthParameters wait_for_no_relocating_shards(bool value)
+        {
+            SetValue("wait_for_no_relocating_shards", value.ToString().ToLower());
             return this;
         }
 

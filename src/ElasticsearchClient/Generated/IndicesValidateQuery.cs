@@ -232,7 +232,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesValidateQueryGet(string index, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options = null)
         {
-            var uri = $"{"/{0}/_validate/query"}";
+            var uri = string.Format("/{0}/_validate/query", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesValidateQueryParameters()).GetUri(uri);
@@ -246,7 +246,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(string index, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options = null)
         {
-            var uri = $"{"/{0}/_validate/query"}";
+            var uri = string.Format("/{0}/_validate/query", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesValidateQueryParameters()).GetUri(uri);
@@ -261,7 +261,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesValidateQueryGet(string index, Stream body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options = null)
         {
-            var uri = $"{"/{0}/_validate/query"}";
+            var uri = string.Format("/{0}/_validate/query", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesValidateQueryParameters()).GetUri(uri);
@@ -276,7 +276,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(string index, Stream body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options = null)
         {
-            var uri = $"{"/{0}/_validate/query"}";
+            var uri = string.Format("/{0}/_validate/query", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesValidateQueryParameters()).GetUri(uri);
@@ -291,7 +291,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesValidateQueryGet(string index, byte[] body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options = null)
         {
-            var uri = $"{"/{0}/_validate/query"}";
+            var uri = string.Format("/{0}/_validate/query", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesValidateQueryParameters()).GetUri(uri);
@@ -306,7 +306,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(string index, byte[] body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options = null)
         {
-            var uri = $"{"/{0}/_validate/query"}";
+            var uri = string.Format("/{0}/_validate/query", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesValidateQueryParameters()).GetUri(uri);
@@ -321,7 +321,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesValidateQueryGetString(string index, string body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options = null)
         {
-            var uri = $"{"/{0}/_validate/query"}";
+            var uri = string.Format("/{0}/_validate/query", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesValidateQueryParameters()).GetUri(uri);
@@ -336,7 +336,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesValidateQueryGetStringAsync(string index, string body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options = null)
         {
-            var uri = $"{"/{0}/_validate/query"}";
+            var uri = string.Format("/{0}/_validate/query", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesValidateQueryParameters()).GetUri(uri);
@@ -350,7 +350,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesValidateQueryPost(string index, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options = null)
         {
-            var uri = $"{"/{0}/_validate/query"}";
+            var uri = string.Format("/{0}/_validate/query", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesValidateQueryParameters()).GetUri(uri);
@@ -364,7 +364,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(string index, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options = null)
         {
-            var uri = $"{"/{0}/_validate/query"}";
+            var uri = string.Format("/{0}/_validate/query", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesValidateQueryParameters()).GetUri(uri);
@@ -379,7 +379,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesValidateQueryPost(string index, Stream body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options = null)
         {
-            var uri = $"{"/{0}/_validate/query"}";
+            var uri = string.Format("/{0}/_validate/query", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesValidateQueryParameters()).GetUri(uri);
@@ -394,7 +394,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(string index, Stream body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options = null)
         {
-            var uri = $"{"/{0}/_validate/query"}";
+            var uri = string.Format("/{0}/_validate/query", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesValidateQueryParameters()).GetUri(uri);
@@ -409,7 +409,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesValidateQueryPost(string index, byte[] body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options = null)
         {
-            var uri = $"{"/{0}/_validate/query"}";
+            var uri = string.Format("/{0}/_validate/query", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesValidateQueryParameters()).GetUri(uri);
@@ -424,7 +424,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(string index, byte[] body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options = null)
         {
-            var uri = $"{"/{0}/_validate/query"}";
+            var uri = string.Format("/{0}/_validate/query", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesValidateQueryParameters()).GetUri(uri);
@@ -439,7 +439,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesValidateQueryPostString(string index, string body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options = null)
         {
-            var uri = $"{"/{0}/_validate/query"}";
+            var uri = string.Format("/{0}/_validate/query", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesValidateQueryParameters()).GetUri(uri);
@@ -454,7 +454,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesValidateQueryPostStringAsync(string index, string body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options = null)
         {
-            var uri = $"{"/{0}/_validate/query"}";
+            var uri = string.Format("/{0}/_validate/query", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesValidateQueryParameters()).GetUri(uri);
@@ -469,7 +469,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesValidateQueryGet(string index, string type, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_validate/query"}";
+            var uri = string.Format("/{0}/{1}/_validate/query", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesValidateQueryParameters()).GetUri(uri);
@@ -484,7 +484,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(string index, string type, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_validate/query"}";
+            var uri = string.Format("/{0}/{1}/_validate/query", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesValidateQueryParameters()).GetUri(uri);
@@ -500,7 +500,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesValidateQueryGet(string index, string type, Stream body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_validate/query"}";
+            var uri = string.Format("/{0}/{1}/_validate/query", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesValidateQueryParameters()).GetUri(uri);
@@ -516,7 +516,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(string index, string type, Stream body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_validate/query"}";
+            var uri = string.Format("/{0}/{1}/_validate/query", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesValidateQueryParameters()).GetUri(uri);
@@ -532,7 +532,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesValidateQueryGet(string index, string type, byte[] body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_validate/query"}";
+            var uri = string.Format("/{0}/{1}/_validate/query", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesValidateQueryParameters()).GetUri(uri);
@@ -548,7 +548,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesValidateQueryGetAsync(string index, string type, byte[] body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_validate/query"}";
+            var uri = string.Format("/{0}/{1}/_validate/query", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesValidateQueryParameters()).GetUri(uri);
@@ -564,7 +564,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesValidateQueryGetString(string index, string type, string body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_validate/query"}";
+            var uri = string.Format("/{0}/{1}/_validate/query", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesValidateQueryParameters()).GetUri(uri);
@@ -580,7 +580,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesValidateQueryGetStringAsync(string index, string type, string body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_validate/query"}";
+            var uri = string.Format("/{0}/{1}/_validate/query", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesValidateQueryParameters()).GetUri(uri);
@@ -595,7 +595,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesValidateQueryPost(string index, string type, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_validate/query"}";
+            var uri = string.Format("/{0}/{1}/_validate/query", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesValidateQueryParameters()).GetUri(uri);
@@ -610,7 +610,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(string index, string type, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_validate/query"}";
+            var uri = string.Format("/{0}/{1}/_validate/query", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesValidateQueryParameters()).GetUri(uri);
@@ -626,7 +626,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesValidateQueryPost(string index, string type, Stream body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_validate/query"}";
+            var uri = string.Format("/{0}/{1}/_validate/query", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesValidateQueryParameters()).GetUri(uri);
@@ -642,7 +642,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(string index, string type, Stream body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_validate/query"}";
+            var uri = string.Format("/{0}/{1}/_validate/query", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesValidateQueryParameters()).GetUri(uri);
@@ -658,7 +658,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesValidateQueryPost(string index, string type, byte[] body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_validate/query"}";
+            var uri = string.Format("/{0}/{1}/_validate/query", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesValidateQueryParameters()).GetUri(uri);
@@ -674,7 +674,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesValidateQueryPostAsync(string index, string type, byte[] body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_validate/query"}";
+            var uri = string.Format("/{0}/{1}/_validate/query", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesValidateQueryParameters()).GetUri(uri);
@@ -690,7 +690,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesValidateQueryPostString(string index, string type, string body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_validate/query"}";
+            var uri = string.Format("/{0}/{1}/_validate/query", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesValidateQueryParameters()).GetUri(uri);
@@ -706,7 +706,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesValidateQueryPostStringAsync(string index, string type, string body, Func<IndicesValidateQueryParameters, IndicesValidateQueryParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_validate/query"}";
+            var uri = string.Format("/{0}/{1}/_validate/query", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesValidateQueryParameters()).GetUri(uri);

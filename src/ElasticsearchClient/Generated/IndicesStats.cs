@@ -38,7 +38,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesStats(string metric, Func<IndicesStatsParameters, IndicesStatsParameters> options = null)
         {
-            var uri = $"{"/_stats/{0}"}";
+            var uri = string.Format("/_stats/{0}", metric);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesStatsParameters()).GetUri(uri);
@@ -52,7 +52,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesStatsAsync(string metric, Func<IndicesStatsParameters, IndicesStatsParameters> options = null)
         {
-            var uri = $"{"/_stats/{0}"}";
+            var uri = string.Format("/_stats/{0}", metric);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesStatsParameters()).GetUri(uri);
@@ -67,7 +67,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesStats(string index, string metric, Func<IndicesStatsParameters, IndicesStatsParameters> options = null)
         {
-            var uri = $"{"/{0}/_stats/{1}"}";
+            var uri = string.Format("/{0}/_stats/{1}", index, metric);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesStatsParameters()).GetUri(uri);
@@ -82,7 +82,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesStatsAsync(string index, string metric, Func<IndicesStatsParameters, IndicesStatsParameters> options = null)
         {
-            var uri = $"{"/{0}/_stats/{1}"}";
+            var uri = string.Format("/{0}/_stats/{1}", index, metric);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesStatsParameters()).GetUri(uri);

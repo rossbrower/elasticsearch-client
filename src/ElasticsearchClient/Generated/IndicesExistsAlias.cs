@@ -12,7 +12,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesExistsAlias(string name, Func<IndicesExistsAliasParameters, IndicesExistsAliasParameters> options = null)
         {
-            var uri = $"{"/_alias/{0}"}";
+            var uri = string.Format("/_alias/{0}", name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesExistsAliasParameters()).GetUri(uri);
@@ -26,7 +26,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesExistsAliasAsync(string name, Func<IndicesExistsAliasParameters, IndicesExistsAliasParameters> options = null)
         {
-            var uri = $"{"/_alias/{0}"}";
+            var uri = string.Format("/_alias/{0}", name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesExistsAliasParameters()).GetUri(uri);
@@ -41,7 +41,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesExistsAlias(string index, string name, Func<IndicesExistsAliasParameters, IndicesExistsAliasParameters> options = null)
         {
-            var uri = $"{"/{0}/_alias/{1}"}";
+            var uri = string.Format("/{0}/_alias/{1}", index, name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesExistsAliasParameters()).GetUri(uri);
@@ -56,7 +56,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesExistsAliasAsync(string index, string name, Func<IndicesExistsAliasParameters, IndicesExistsAliasParameters> options = null)
         {
-            var uri = $"{"/{0}/_alias/{1}"}";
+            var uri = string.Format("/{0}/_alias/{1}", index, name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesExistsAliasParameters()).GetUri(uri);

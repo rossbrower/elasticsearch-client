@@ -12,7 +12,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesOpen(string index, Func<IndicesOpenParameters, IndicesOpenParameters> options = null)
         {
-            var uri = $"{"/{0}/_open"}";
+            var uri = string.Format("/{0}/_open", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesOpenParameters()).GetUri(uri);
@@ -26,7 +26,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesOpenAsync(string index, Func<IndicesOpenParameters, IndicesOpenParameters> options = null)
         {
-            var uri = $"{"/{0}/_open"}";
+            var uri = string.Format("/{0}/_open", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesOpenParameters()).GetUri(uri);

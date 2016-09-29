@@ -64,7 +64,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesFlushSyncedPost(string index, Func<IndicesFlushSyncedParameters, IndicesFlushSyncedParameters> options = null)
         {
-            var uri = $"{"/{0}/_flush/synced"}";
+            var uri = string.Format("/{0}/_flush/synced", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesFlushSyncedParameters()).GetUri(uri);
@@ -78,7 +78,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesFlushSyncedPostAsync(string index, Func<IndicesFlushSyncedParameters, IndicesFlushSyncedParameters> options = null)
         {
-            var uri = $"{"/{0}/_flush/synced"}";
+            var uri = string.Format("/{0}/_flush/synced", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesFlushSyncedParameters()).GetUri(uri);
@@ -92,7 +92,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesFlushSyncedGet(string index, Func<IndicesFlushSyncedParameters, IndicesFlushSyncedParameters> options = null)
         {
-            var uri = $"{"/{0}/_flush/synced"}";
+            var uri = string.Format("/{0}/_flush/synced", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesFlushSyncedParameters()).GetUri(uri);
@@ -106,7 +106,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesFlushSyncedGetAsync(string index, Func<IndicesFlushSyncedParameters, IndicesFlushSyncedParameters> options = null)
         {
-            var uri = $"{"/{0}/_flush/synced"}";
+            var uri = string.Format("/{0}/_flush/synced", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesFlushSyncedParameters()).GetUri(uri);

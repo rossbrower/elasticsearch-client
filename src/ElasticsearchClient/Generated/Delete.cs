@@ -14,7 +14,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage Delete(string index, string type, string id, Func<DeleteParameters, DeleteParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}"}";
+            var uri = string.Format("/{0}/{1}/{2}", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new DeleteParameters()).GetUri(uri);
@@ -30,7 +30,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> DeleteAsync(string index, string type, string id, Func<DeleteParameters, DeleteParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}"}";
+            var uri = string.Format("/{0}/{1}/{2}", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new DeleteParameters()).GetUri(uri);

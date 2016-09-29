@@ -64,7 +64,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage SearchShardsGet(string index, Func<SearchShardsParameters, SearchShardsParameters> options = null)
         {
-            var uri = $"{"/{0}/_search_shards"}";
+            var uri = string.Format("/{0}/_search_shards", index);
             if (options != null)
             {
                 uri = options.Invoke(new SearchShardsParameters()).GetUri(uri);
@@ -78,7 +78,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> SearchShardsGetAsync(string index, Func<SearchShardsParameters, SearchShardsParameters> options = null)
         {
-            var uri = $"{"/{0}/_search_shards"}";
+            var uri = string.Format("/{0}/_search_shards", index);
             if (options != null)
             {
                 uri = options.Invoke(new SearchShardsParameters()).GetUri(uri);
@@ -92,7 +92,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage SearchShardsPost(string index, Func<SearchShardsParameters, SearchShardsParameters> options = null)
         {
-            var uri = $"{"/{0}/_search_shards"}";
+            var uri = string.Format("/{0}/_search_shards", index);
             if (options != null)
             {
                 uri = options.Invoke(new SearchShardsParameters()).GetUri(uri);
@@ -106,7 +106,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> SearchShardsPostAsync(string index, Func<SearchShardsParameters, SearchShardsParameters> options = null)
         {
-            var uri = $"{"/{0}/_search_shards"}";
+            var uri = string.Format("/{0}/_search_shards", index);
             if (options != null)
             {
                 uri = options.Invoke(new SearchShardsParameters()).GetUri(uri);
@@ -121,7 +121,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage SearchShardsGet(string index, string type, Func<SearchShardsParameters, SearchShardsParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_search_shards"}";
+            var uri = string.Format("/{0}/{1}/_search_shards", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new SearchShardsParameters()).GetUri(uri);
@@ -136,7 +136,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> SearchShardsGetAsync(string index, string type, Func<SearchShardsParameters, SearchShardsParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_search_shards"}";
+            var uri = string.Format("/{0}/{1}/_search_shards", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new SearchShardsParameters()).GetUri(uri);
@@ -151,7 +151,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage SearchShardsPost(string index, string type, Func<SearchShardsParameters, SearchShardsParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_search_shards"}";
+            var uri = string.Format("/{0}/{1}/_search_shards", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new SearchShardsParameters()).GetUri(uri);
@@ -166,7 +166,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> SearchShardsPostAsync(string index, string type, Func<SearchShardsParameters, SearchShardsParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_search_shards"}";
+            var uri = string.Format("/{0}/{1}/_search_shards", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new SearchShardsParameters()).GetUri(uri);

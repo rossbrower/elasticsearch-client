@@ -38,7 +38,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage CatAllocation(string node_id, Func<CatAllocationParameters, CatAllocationParameters> options = null)
         {
-            var uri = $"{"/_cat/allocation/{0}"}";
+            var uri = string.Format("/_cat/allocation/{0}", node_id);
             if (options != null)
             {
                 uri = options.Invoke(new CatAllocationParameters()).GetUri(uri);
@@ -52,7 +52,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> CatAllocationAsync(string node_id, Func<CatAllocationParameters, CatAllocationParameters> options = null)
         {
-            var uri = $"{"/_cat/allocation/{0}"}";
+            var uri = string.Format("/_cat/allocation/{0}", node_id);
             if (options != null)
             {
                 uri = options.Invoke(new CatAllocationParameters()).GetUri(uri);

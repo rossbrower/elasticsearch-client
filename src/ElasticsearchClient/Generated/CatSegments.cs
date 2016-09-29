@@ -38,7 +38,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage CatSegments(string index, Func<CatSegmentsParameters, CatSegmentsParameters> options = null)
         {
-            var uri = $"{"/_cat/segments/{0}"}";
+            var uri = string.Format("/_cat/segments/{0}", index);
             if (options != null)
             {
                 uri = options.Invoke(new CatSegmentsParameters()).GetUri(uri);
@@ -52,7 +52,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> CatSegmentsAsync(string index, Func<CatSegmentsParameters, CatSegmentsParameters> options = null)
         {
-            var uri = $"{"/_cat/segments/{0}"}";
+            var uri = string.Format("/_cat/segments/{0}", index);
             if (options != null)
             {
                 uri = options.Invoke(new CatSegmentsParameters()).GetUri(uri);

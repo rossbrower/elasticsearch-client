@@ -38,7 +38,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesGetSettings(string index, Func<IndicesGetSettingsParameters, IndicesGetSettingsParameters> options = null)
         {
-            var uri = $"{"/{0}/_settings"}";
+            var uri = string.Format("/{0}/_settings", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesGetSettingsParameters()).GetUri(uri);
@@ -52,7 +52,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesGetSettingsAsync(string index, Func<IndicesGetSettingsParameters, IndicesGetSettingsParameters> options = null)
         {
-            var uri = $"{"/{0}/_settings"}";
+            var uri = string.Format("/{0}/_settings", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesGetSettingsParameters()).GetUri(uri);
@@ -67,7 +67,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesGetSettings(string index, string name, Func<IndicesGetSettingsParameters, IndicesGetSettingsParameters> options = null)
         {
-            var uri = $"{"/{0}/_settings/{1}"}";
+            var uri = string.Format("/{0}/_settings/{1}", index, name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesGetSettingsParameters()).GetUri(uri);
@@ -82,7 +82,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesGetSettingsAsync(string index, string name, Func<IndicesGetSettingsParameters, IndicesGetSettingsParameters> options = null)
         {
-            var uri = $"{"/{0}/_settings/{1}"}";
+            var uri = string.Format("/{0}/_settings/{1}", index, name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesGetSettingsParameters()).GetUri(uri);

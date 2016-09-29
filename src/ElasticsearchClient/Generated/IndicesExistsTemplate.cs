@@ -12,7 +12,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesExistsTemplate(string name, Func<IndicesExistsTemplateParameters, IndicesExistsTemplateParameters> options = null)
         {
-            var uri = $"{"/_template/{0}"}";
+            var uri = string.Format("/_template/{0}", name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesExistsTemplateParameters()).GetUri(uri);
@@ -26,7 +26,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesExistsTemplateAsync(string name, Func<IndicesExistsTemplateParameters, IndicesExistsTemplateParameters> options = null)
         {
-            var uri = $"{"/_template/{0}"}";
+            var uri = string.Format("/_template/{0}", name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesExistsTemplateParameters()).GetUri(uri);

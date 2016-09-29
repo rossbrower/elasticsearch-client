@@ -232,7 +232,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage CountPost(string index, Func<CountParameters, CountParameters> options = null)
         {
-            var uri = $"{"/{0}/_count"}";
+            var uri = string.Format("/{0}/_count", index);
             if (options != null)
             {
                 uri = options.Invoke(new CountParameters()).GetUri(uri);
@@ -246,7 +246,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> CountPostAsync(string index, Func<CountParameters, CountParameters> options = null)
         {
-            var uri = $"{"/{0}/_count"}";
+            var uri = string.Format("/{0}/_count", index);
             if (options != null)
             {
                 uri = options.Invoke(new CountParameters()).GetUri(uri);
@@ -261,7 +261,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage CountPost(string index, Stream body, Func<CountParameters, CountParameters> options = null)
         {
-            var uri = $"{"/{0}/_count"}";
+            var uri = string.Format("/{0}/_count", index);
             if (options != null)
             {
                 uri = options.Invoke(new CountParameters()).GetUri(uri);
@@ -276,7 +276,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> CountPostAsync(string index, Stream body, Func<CountParameters, CountParameters> options = null)
         {
-            var uri = $"{"/{0}/_count"}";
+            var uri = string.Format("/{0}/_count", index);
             if (options != null)
             {
                 uri = options.Invoke(new CountParameters()).GetUri(uri);
@@ -291,7 +291,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage CountPost(string index, byte[] body, Func<CountParameters, CountParameters> options = null)
         {
-            var uri = $"{"/{0}/_count"}";
+            var uri = string.Format("/{0}/_count", index);
             if (options != null)
             {
                 uri = options.Invoke(new CountParameters()).GetUri(uri);
@@ -306,7 +306,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> CountPostAsync(string index, byte[] body, Func<CountParameters, CountParameters> options = null)
         {
-            var uri = $"{"/{0}/_count"}";
+            var uri = string.Format("/{0}/_count", index);
             if (options != null)
             {
                 uri = options.Invoke(new CountParameters()).GetUri(uri);
@@ -321,7 +321,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage CountPostString(string index, string body, Func<CountParameters, CountParameters> options = null)
         {
-            var uri = $"{"/{0}/_count"}";
+            var uri = string.Format("/{0}/_count", index);
             if (options != null)
             {
                 uri = options.Invoke(new CountParameters()).GetUri(uri);
@@ -336,7 +336,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> CountPostStringAsync(string index, string body, Func<CountParameters, CountParameters> options = null)
         {
-            var uri = $"{"/{0}/_count"}";
+            var uri = string.Format("/{0}/_count", index);
             if (options != null)
             {
                 uri = options.Invoke(new CountParameters()).GetUri(uri);
@@ -350,7 +350,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage CountGet(string index, Func<CountParameters, CountParameters> options = null)
         {
-            var uri = $"{"/{0}/_count"}";
+            var uri = string.Format("/{0}/_count", index);
             if (options != null)
             {
                 uri = options.Invoke(new CountParameters()).GetUri(uri);
@@ -364,7 +364,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> CountGetAsync(string index, Func<CountParameters, CountParameters> options = null)
         {
-            var uri = $"{"/{0}/_count"}";
+            var uri = string.Format("/{0}/_count", index);
             if (options != null)
             {
                 uri = options.Invoke(new CountParameters()).GetUri(uri);
@@ -379,7 +379,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage CountGet(string index, Stream body, Func<CountParameters, CountParameters> options = null)
         {
-            var uri = $"{"/{0}/_count"}";
+            var uri = string.Format("/{0}/_count", index);
             if (options != null)
             {
                 uri = options.Invoke(new CountParameters()).GetUri(uri);
@@ -394,7 +394,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> CountGetAsync(string index, Stream body, Func<CountParameters, CountParameters> options = null)
         {
-            var uri = $"{"/{0}/_count"}";
+            var uri = string.Format("/{0}/_count", index);
             if (options != null)
             {
                 uri = options.Invoke(new CountParameters()).GetUri(uri);
@@ -409,7 +409,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage CountGet(string index, byte[] body, Func<CountParameters, CountParameters> options = null)
         {
-            var uri = $"{"/{0}/_count"}";
+            var uri = string.Format("/{0}/_count", index);
             if (options != null)
             {
                 uri = options.Invoke(new CountParameters()).GetUri(uri);
@@ -424,7 +424,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> CountGetAsync(string index, byte[] body, Func<CountParameters, CountParameters> options = null)
         {
-            var uri = $"{"/{0}/_count"}";
+            var uri = string.Format("/{0}/_count", index);
             if (options != null)
             {
                 uri = options.Invoke(new CountParameters()).GetUri(uri);
@@ -439,7 +439,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage CountGetString(string index, string body, Func<CountParameters, CountParameters> options = null)
         {
-            var uri = $"{"/{0}/_count"}";
+            var uri = string.Format("/{0}/_count", index);
             if (options != null)
             {
                 uri = options.Invoke(new CountParameters()).GetUri(uri);
@@ -454,7 +454,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> CountGetStringAsync(string index, string body, Func<CountParameters, CountParameters> options = null)
         {
-            var uri = $"{"/{0}/_count"}";
+            var uri = string.Format("/{0}/_count", index);
             if (options != null)
             {
                 uri = options.Invoke(new CountParameters()).GetUri(uri);
@@ -469,7 +469,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage CountPost(string index, string type, Func<CountParameters, CountParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_count"}";
+            var uri = string.Format("/{0}/{1}/_count", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new CountParameters()).GetUri(uri);
@@ -484,7 +484,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> CountPostAsync(string index, string type, Func<CountParameters, CountParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_count"}";
+            var uri = string.Format("/{0}/{1}/_count", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new CountParameters()).GetUri(uri);
@@ -500,7 +500,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage CountPost(string index, string type, Stream body, Func<CountParameters, CountParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_count"}";
+            var uri = string.Format("/{0}/{1}/_count", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new CountParameters()).GetUri(uri);
@@ -516,7 +516,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> CountPostAsync(string index, string type, Stream body, Func<CountParameters, CountParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_count"}";
+            var uri = string.Format("/{0}/{1}/_count", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new CountParameters()).GetUri(uri);
@@ -532,7 +532,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage CountPost(string index, string type, byte[] body, Func<CountParameters, CountParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_count"}";
+            var uri = string.Format("/{0}/{1}/_count", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new CountParameters()).GetUri(uri);
@@ -548,7 +548,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> CountPostAsync(string index, string type, byte[] body, Func<CountParameters, CountParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_count"}";
+            var uri = string.Format("/{0}/{1}/_count", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new CountParameters()).GetUri(uri);
@@ -564,7 +564,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage CountPostString(string index, string type, string body, Func<CountParameters, CountParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_count"}";
+            var uri = string.Format("/{0}/{1}/_count", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new CountParameters()).GetUri(uri);
@@ -580,7 +580,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> CountPostStringAsync(string index, string type, string body, Func<CountParameters, CountParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_count"}";
+            var uri = string.Format("/{0}/{1}/_count", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new CountParameters()).GetUri(uri);
@@ -595,7 +595,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage CountGet(string index, string type, Func<CountParameters, CountParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_count"}";
+            var uri = string.Format("/{0}/{1}/_count", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new CountParameters()).GetUri(uri);
@@ -610,7 +610,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> CountGetAsync(string index, string type, Func<CountParameters, CountParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_count"}";
+            var uri = string.Format("/{0}/{1}/_count", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new CountParameters()).GetUri(uri);
@@ -626,7 +626,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage CountGet(string index, string type, Stream body, Func<CountParameters, CountParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_count"}";
+            var uri = string.Format("/{0}/{1}/_count", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new CountParameters()).GetUri(uri);
@@ -642,7 +642,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> CountGetAsync(string index, string type, Stream body, Func<CountParameters, CountParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_count"}";
+            var uri = string.Format("/{0}/{1}/_count", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new CountParameters()).GetUri(uri);
@@ -658,7 +658,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage CountGet(string index, string type, byte[] body, Func<CountParameters, CountParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_count"}";
+            var uri = string.Format("/{0}/{1}/_count", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new CountParameters()).GetUri(uri);
@@ -674,7 +674,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> CountGetAsync(string index, string type, byte[] body, Func<CountParameters, CountParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_count"}";
+            var uri = string.Format("/{0}/{1}/_count", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new CountParameters()).GetUri(uri);
@@ -690,7 +690,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage CountGetString(string index, string type, string body, Func<CountParameters, CountParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_count"}";
+            var uri = string.Format("/{0}/{1}/_count", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new CountParameters()).GetUri(uri);
@@ -706,7 +706,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> CountGetStringAsync(string index, string type, string body, Func<CountParameters, CountParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_count"}";
+            var uri = string.Format("/{0}/{1}/_count", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new CountParameters()).GetUri(uri);

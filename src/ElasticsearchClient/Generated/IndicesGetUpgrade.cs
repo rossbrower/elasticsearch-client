@@ -38,7 +38,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesGetUpgrade(string index, Func<IndicesGetUpgradeParameters, IndicesGetUpgradeParameters> options = null)
         {
-            var uri = $"{"/{0}/_upgrade"}";
+            var uri = string.Format("/{0}/_upgrade", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesGetUpgradeParameters()).GetUri(uri);
@@ -52,7 +52,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesGetUpgradeAsync(string index, Func<IndicesGetUpgradeParameters, IndicesGetUpgradeParameters> options = null)
         {
-            var uri = $"{"/{0}/_upgrade"}";
+            var uri = string.Format("/{0}/_upgrade", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesGetUpgradeParameters()).GetUri(uri);

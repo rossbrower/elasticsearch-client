@@ -38,7 +38,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage SnapshotGetRepository(string repository, Func<SnapshotGetRepositoryParameters, SnapshotGetRepositoryParameters> options = null)
         {
-            var uri = $"{"/_snapshot/{0}"}";
+            var uri = string.Format("/_snapshot/{0}", repository);
             if (options != null)
             {
                 uri = options.Invoke(new SnapshotGetRepositoryParameters()).GetUri(uri);
@@ -52,7 +52,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> SnapshotGetRepositoryAsync(string repository, Func<SnapshotGetRepositoryParameters, SnapshotGetRepositoryParameters> options = null)
         {
-            var uri = $"{"/_snapshot/{0}"}";
+            var uri = string.Format("/_snapshot/{0}", repository);
             if (options != null)
             {
                 uri = options.Invoke(new SnapshotGetRepositoryParameters()).GetUri(uri);

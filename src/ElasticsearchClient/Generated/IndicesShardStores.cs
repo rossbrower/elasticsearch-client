@@ -38,7 +38,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesShardStores(string index, Func<IndicesShardStoresParameters, IndicesShardStoresParameters> options = null)
         {
-            var uri = $"{"/{0}/_shard_stores"}";
+            var uri = string.Format("/{0}/_shard_stores", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesShardStoresParameters()).GetUri(uri);
@@ -52,7 +52,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesShardStoresAsync(string index, Func<IndicesShardStoresParameters, IndicesShardStoresParameters> options = null)
         {
-            var uri = $"{"/{0}/_shard_stores"}";
+            var uri = string.Format("/{0}/_shard_stores", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesShardStoresParameters()).GetUri(uri);

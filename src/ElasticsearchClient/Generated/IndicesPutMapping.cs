@@ -14,7 +14,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesPutMappingPut(string index, string type, Stream body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mapping"}";
+            var uri = string.Format("/{0}/{1}/_mapping", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutMappingParameters()).GetUri(uri);
@@ -30,7 +30,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesPutMappingPutAsync(string index, string type, Stream body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mapping"}";
+            var uri = string.Format("/{0}/{1}/_mapping", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutMappingParameters()).GetUri(uri);
@@ -46,7 +46,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesPutMappingPut(string index, string type, byte[] body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mapping"}";
+            var uri = string.Format("/{0}/{1}/_mapping", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutMappingParameters()).GetUri(uri);
@@ -62,7 +62,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesPutMappingPutAsync(string index, string type, byte[] body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mapping"}";
+            var uri = string.Format("/{0}/{1}/_mapping", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutMappingParameters()).GetUri(uri);
@@ -78,7 +78,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesPutMappingPutString(string index, string type, string body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mapping"}";
+            var uri = string.Format("/{0}/{1}/_mapping", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutMappingParameters()).GetUri(uri);
@@ -94,7 +94,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesPutMappingPutStringAsync(string index, string type, string body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mapping"}";
+            var uri = string.Format("/{0}/{1}/_mapping", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutMappingParameters()).GetUri(uri);
@@ -110,7 +110,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesPutMappingPost(string index, string type, Stream body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mapping"}";
+            var uri = string.Format("/{0}/{1}/_mapping", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutMappingParameters()).GetUri(uri);
@@ -126,7 +126,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesPutMappingPostAsync(string index, string type, Stream body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mapping"}";
+            var uri = string.Format("/{0}/{1}/_mapping", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutMappingParameters()).GetUri(uri);
@@ -142,7 +142,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesPutMappingPost(string index, string type, byte[] body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mapping"}";
+            var uri = string.Format("/{0}/{1}/_mapping", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutMappingParameters()).GetUri(uri);
@@ -158,7 +158,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesPutMappingPostAsync(string index, string type, byte[] body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mapping"}";
+            var uri = string.Format("/{0}/{1}/_mapping", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutMappingParameters()).GetUri(uri);
@@ -174,7 +174,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesPutMappingPostString(string index, string type, string body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mapping"}";
+            var uri = string.Format("/{0}/{1}/_mapping", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutMappingParameters()).GetUri(uri);
@@ -190,7 +190,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesPutMappingPostStringAsync(string index, string type, string body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mapping"}";
+            var uri = string.Format("/{0}/{1}/_mapping", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutMappingParameters()).GetUri(uri);
@@ -205,7 +205,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesPutMappingPut(string type, Stream body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options = null)
         {
-            var uri = $"{"/_mapping/{0}"}";
+            var uri = string.Format("/_mapping/{0}", type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutMappingParameters()).GetUri(uri);
@@ -220,7 +220,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesPutMappingPutAsync(string type, Stream body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options = null)
         {
-            var uri = $"{"/_mapping/{0}"}";
+            var uri = string.Format("/_mapping/{0}", type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutMappingParameters()).GetUri(uri);
@@ -235,7 +235,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesPutMappingPut(string type, byte[] body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options = null)
         {
-            var uri = $"{"/_mapping/{0}"}";
+            var uri = string.Format("/_mapping/{0}", type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutMappingParameters()).GetUri(uri);
@@ -250,7 +250,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesPutMappingPutAsync(string type, byte[] body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options = null)
         {
-            var uri = $"{"/_mapping/{0}"}";
+            var uri = string.Format("/_mapping/{0}", type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutMappingParameters()).GetUri(uri);
@@ -265,7 +265,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesPutMappingPutString(string type, string body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options = null)
         {
-            var uri = $"{"/_mapping/{0}"}";
+            var uri = string.Format("/_mapping/{0}", type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutMappingParameters()).GetUri(uri);
@@ -280,7 +280,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesPutMappingPutStringAsync(string type, string body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options = null)
         {
-            var uri = $"{"/_mapping/{0}"}";
+            var uri = string.Format("/_mapping/{0}", type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutMappingParameters()).GetUri(uri);
@@ -295,7 +295,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesPutMappingPost(string type, Stream body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options = null)
         {
-            var uri = $"{"/_mapping/{0}"}";
+            var uri = string.Format("/_mapping/{0}", type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutMappingParameters()).GetUri(uri);
@@ -310,7 +310,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesPutMappingPostAsync(string type, Stream body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options = null)
         {
-            var uri = $"{"/_mapping/{0}"}";
+            var uri = string.Format("/_mapping/{0}", type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutMappingParameters()).GetUri(uri);
@@ -325,7 +325,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesPutMappingPost(string type, byte[] body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options = null)
         {
-            var uri = $"{"/_mapping/{0}"}";
+            var uri = string.Format("/_mapping/{0}", type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutMappingParameters()).GetUri(uri);
@@ -340,7 +340,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesPutMappingPostAsync(string type, byte[] body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options = null)
         {
-            var uri = $"{"/_mapping/{0}"}";
+            var uri = string.Format("/_mapping/{0}", type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutMappingParameters()).GetUri(uri);
@@ -355,7 +355,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesPutMappingPostString(string type, string body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options = null)
         {
-            var uri = $"{"/_mapping/{0}"}";
+            var uri = string.Format("/_mapping/{0}", type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutMappingParameters()).GetUri(uri);
@@ -370,7 +370,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesPutMappingPostStringAsync(string type, string body, Func<IndicesPutMappingParameters, IndicesPutMappingParameters> options = null)
         {
-            var uri = $"{"/_mapping/{0}"}";
+            var uri = string.Format("/_mapping/{0}", type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutMappingParameters()).GetUri(uri);

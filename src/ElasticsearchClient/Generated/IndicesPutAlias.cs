@@ -13,7 +13,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesPutAliasPut(string index, string name, Func<IndicesPutAliasParameters, IndicesPutAliasParameters> options = null)
         {
-            var uri = $"{"/{0}/_alias/{1}"}";
+            var uri = string.Format("/{0}/_alias/{1}", index, name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutAliasParameters()).GetUri(uri);
@@ -28,7 +28,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesPutAliasPutAsync(string index, string name, Func<IndicesPutAliasParameters, IndicesPutAliasParameters> options = null)
         {
-            var uri = $"{"/{0}/_alias/{1}"}";
+            var uri = string.Format("/{0}/_alias/{1}", index, name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutAliasParameters()).GetUri(uri);
@@ -44,7 +44,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesPutAliasPut(string index, string name, Stream body, Func<IndicesPutAliasParameters, IndicesPutAliasParameters> options = null)
         {
-            var uri = $"{"/{0}/_alias/{1}"}";
+            var uri = string.Format("/{0}/_alias/{1}", index, name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutAliasParameters()).GetUri(uri);
@@ -60,7 +60,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesPutAliasPutAsync(string index, string name, Stream body, Func<IndicesPutAliasParameters, IndicesPutAliasParameters> options = null)
         {
-            var uri = $"{"/{0}/_alias/{1}"}";
+            var uri = string.Format("/{0}/_alias/{1}", index, name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutAliasParameters()).GetUri(uri);
@@ -76,7 +76,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesPutAliasPut(string index, string name, byte[] body, Func<IndicesPutAliasParameters, IndicesPutAliasParameters> options = null)
         {
-            var uri = $"{"/{0}/_alias/{1}"}";
+            var uri = string.Format("/{0}/_alias/{1}", index, name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutAliasParameters()).GetUri(uri);
@@ -92,7 +92,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesPutAliasPutAsync(string index, string name, byte[] body, Func<IndicesPutAliasParameters, IndicesPutAliasParameters> options = null)
         {
-            var uri = $"{"/{0}/_alias/{1}"}";
+            var uri = string.Format("/{0}/_alias/{1}", index, name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutAliasParameters()).GetUri(uri);
@@ -108,7 +108,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesPutAliasPutString(string index, string name, string body, Func<IndicesPutAliasParameters, IndicesPutAliasParameters> options = null)
         {
-            var uri = $"{"/{0}/_alias/{1}"}";
+            var uri = string.Format("/{0}/_alias/{1}", index, name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutAliasParameters()).GetUri(uri);
@@ -124,7 +124,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesPutAliasPutStringAsync(string index, string name, string body, Func<IndicesPutAliasParameters, IndicesPutAliasParameters> options = null)
         {
-            var uri = $"{"/{0}/_alias/{1}"}";
+            var uri = string.Format("/{0}/_alias/{1}", index, name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutAliasParameters()).GetUri(uri);
@@ -139,7 +139,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesPutAliasPost(string index, string name, Func<IndicesPutAliasParameters, IndicesPutAliasParameters> options = null)
         {
-            var uri = $"{"/{0}/_alias/{1}"}";
+            var uri = string.Format("/{0}/_alias/{1}", index, name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutAliasParameters()).GetUri(uri);
@@ -154,7 +154,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesPutAliasPostAsync(string index, string name, Func<IndicesPutAliasParameters, IndicesPutAliasParameters> options = null)
         {
-            var uri = $"{"/{0}/_alias/{1}"}";
+            var uri = string.Format("/{0}/_alias/{1}", index, name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutAliasParameters()).GetUri(uri);
@@ -170,7 +170,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesPutAliasPost(string index, string name, Stream body, Func<IndicesPutAliasParameters, IndicesPutAliasParameters> options = null)
         {
-            var uri = $"{"/{0}/_alias/{1}"}";
+            var uri = string.Format("/{0}/_alias/{1}", index, name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutAliasParameters()).GetUri(uri);
@@ -186,7 +186,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesPutAliasPostAsync(string index, string name, Stream body, Func<IndicesPutAliasParameters, IndicesPutAliasParameters> options = null)
         {
-            var uri = $"{"/{0}/_alias/{1}"}";
+            var uri = string.Format("/{0}/_alias/{1}", index, name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutAliasParameters()).GetUri(uri);
@@ -202,7 +202,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesPutAliasPost(string index, string name, byte[] body, Func<IndicesPutAliasParameters, IndicesPutAliasParameters> options = null)
         {
-            var uri = $"{"/{0}/_alias/{1}"}";
+            var uri = string.Format("/{0}/_alias/{1}", index, name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutAliasParameters()).GetUri(uri);
@@ -218,7 +218,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesPutAliasPostAsync(string index, string name, byte[] body, Func<IndicesPutAliasParameters, IndicesPutAliasParameters> options = null)
         {
-            var uri = $"{"/{0}/_alias/{1}"}";
+            var uri = string.Format("/{0}/_alias/{1}", index, name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutAliasParameters()).GetUri(uri);
@@ -234,7 +234,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesPutAliasPostString(string index, string name, string body, Func<IndicesPutAliasParameters, IndicesPutAliasParameters> options = null)
         {
-            var uri = $"{"/{0}/_alias/{1}"}";
+            var uri = string.Format("/{0}/_alias/{1}", index, name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutAliasParameters()).GetUri(uri);
@@ -250,7 +250,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesPutAliasPostStringAsync(string index, string name, string body, Func<IndicesPutAliasParameters, IndicesPutAliasParameters> options = null)
         {
-            var uri = $"{"/{0}/_alias/{1}"}";
+            var uri = string.Format("/{0}/_alias/{1}", index, name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutAliasParameters()).GetUri(uri);

@@ -38,7 +38,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage CatAliases(string name, Func<CatAliasesParameters, CatAliasesParameters> options = null)
         {
-            var uri = $"{"/_cat/aliases/{0}"}";
+            var uri = string.Format("/_cat/aliases/{0}", name);
             if (options != null)
             {
                 uri = options.Invoke(new CatAliasesParameters()).GetUri(uri);
@@ -52,7 +52,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> CatAliasesAsync(string name, Func<CatAliasesParameters, CatAliasesParameters> options = null)
         {
-            var uri = $"{"/_cat/aliases/{0}"}";
+            var uri = string.Format("/_cat/aliases/{0}", name);
             if (options != null)
             {
                 uri = options.Invoke(new CatAliasesParameters()).GetUri(uri);

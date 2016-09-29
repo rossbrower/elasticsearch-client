@@ -135,7 +135,7 @@ namespace Elasticsearch.Client
         ///<param name="id">The id of the stored search template</param>
         public HttpResponseMessage RenderSearchTemplateGet(string id)
         {
-            var uri = $"{"/_render/template/{0}"}";
+            var uri = string.Format("/_render/template/{0}", id);
             return mConnection.Execute("GET", uri);
         }
 
@@ -143,7 +143,7 @@ namespace Elasticsearch.Client
         ///<param name="id">The id of the stored search template</param>
         public async Task<HttpResponseMessage> RenderSearchTemplateGetAsync(string id)
         {
-            var uri = $"{"/_render/template/{0}"}";
+            var uri = string.Format("/_render/template/{0}", id);
             return await mConnection.ExecuteAsync("GET", uri);
         }
 
@@ -152,7 +152,7 @@ namespace Elasticsearch.Client
         ///<param name="body">The search definition template and its params</param>
         public HttpResponseMessage RenderSearchTemplateGet(string id, Stream body)
         {
-            var uri = $"{"/_render/template/{0}"}";
+            var uri = string.Format("/_render/template/{0}", id);
             return mConnection.Execute("GET", uri, body);
         }
 
@@ -161,7 +161,7 @@ namespace Elasticsearch.Client
         ///<param name="body">The search definition template and its params</param>
         public async Task<HttpResponseMessage> RenderSearchTemplateGetAsync(string id, Stream body)
         {
-            var uri = $"{"/_render/template/{0}"}";
+            var uri = string.Format("/_render/template/{0}", id);
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
 
@@ -170,7 +170,7 @@ namespace Elasticsearch.Client
         ///<param name="body">The search definition template and its params</param>
         public HttpResponseMessage RenderSearchTemplateGet(string id, byte[] body)
         {
-            var uri = $"{"/_render/template/{0}"}";
+            var uri = string.Format("/_render/template/{0}", id);
             return mConnection.Execute("GET", uri, body);
         }
 
@@ -179,7 +179,7 @@ namespace Elasticsearch.Client
         ///<param name="body">The search definition template and its params</param>
         public async Task<HttpResponseMessage> RenderSearchTemplateGetAsync(string id, byte[] body)
         {
-            var uri = $"{"/_render/template/{0}"}";
+            var uri = string.Format("/_render/template/{0}", id);
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
 
@@ -188,7 +188,7 @@ namespace Elasticsearch.Client
         ///<param name="body">The search definition template and its params</param>
         public HttpResponseMessage RenderSearchTemplateGetString(string id, string body)
         {
-            var uri = $"{"/_render/template/{0}"}";
+            var uri = string.Format("/_render/template/{0}", id);
             return mConnection.Execute("GET", uri, body);
         }
 
@@ -197,7 +197,7 @@ namespace Elasticsearch.Client
         ///<param name="body">The search definition template and its params</param>
         public async Task<HttpResponseMessage> RenderSearchTemplateGetStringAsync(string id, string body)
         {
-            var uri = $"{"/_render/template/{0}"}";
+            var uri = string.Format("/_render/template/{0}", id);
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
 
@@ -205,7 +205,7 @@ namespace Elasticsearch.Client
         ///<param name="id">The id of the stored search template</param>
         public HttpResponseMessage RenderSearchTemplatePost(string id)
         {
-            var uri = $"{"/_render/template/{0}"}";
+            var uri = string.Format("/_render/template/{0}", id);
             return mConnection.Execute("POST", uri);
         }
 
@@ -213,7 +213,7 @@ namespace Elasticsearch.Client
         ///<param name="id">The id of the stored search template</param>
         public async Task<HttpResponseMessage> RenderSearchTemplatePostAsync(string id)
         {
-            var uri = $"{"/_render/template/{0}"}";
+            var uri = string.Format("/_render/template/{0}", id);
             return await mConnection.ExecuteAsync("POST", uri);
         }
 
@@ -222,7 +222,7 @@ namespace Elasticsearch.Client
         ///<param name="body">The search definition template and its params</param>
         public HttpResponseMessage RenderSearchTemplatePost(string id, Stream body)
         {
-            var uri = $"{"/_render/template/{0}"}";
+            var uri = string.Format("/_render/template/{0}", id);
             return mConnection.Execute("POST", uri, body);
         }
 
@@ -231,7 +231,7 @@ namespace Elasticsearch.Client
         ///<param name="body">The search definition template and its params</param>
         public async Task<HttpResponseMessage> RenderSearchTemplatePostAsync(string id, Stream body)
         {
-            var uri = $"{"/_render/template/{0}"}";
+            var uri = string.Format("/_render/template/{0}", id);
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
@@ -240,7 +240,7 @@ namespace Elasticsearch.Client
         ///<param name="body">The search definition template and its params</param>
         public HttpResponseMessage RenderSearchTemplatePost(string id, byte[] body)
         {
-            var uri = $"{"/_render/template/{0}"}";
+            var uri = string.Format("/_render/template/{0}", id);
             return mConnection.Execute("POST", uri, body);
         }
 
@@ -249,7 +249,7 @@ namespace Elasticsearch.Client
         ///<param name="body">The search definition template and its params</param>
         public async Task<HttpResponseMessage> RenderSearchTemplatePostAsync(string id, byte[] body)
         {
-            var uri = $"{"/_render/template/{0}"}";
+            var uri = string.Format("/_render/template/{0}", id);
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
@@ -258,7 +258,7 @@ namespace Elasticsearch.Client
         ///<param name="body">The search definition template and its params</param>
         public HttpResponseMessage RenderSearchTemplatePostString(string id, string body)
         {
-            var uri = $"{"/_render/template/{0}"}";
+            var uri = string.Format("/_render/template/{0}", id);
             return mConnection.Execute("POST", uri, body);
         }
 
@@ -267,7 +267,7 @@ namespace Elasticsearch.Client
         ///<param name="body">The search definition template and its params</param>
         public async Task<HttpResponseMessage> RenderSearchTemplatePostStringAsync(string id, string body)
         {
-            var uri = $"{"/_render/template/{0}"}";
+            var uri = string.Format("/_render/template/{0}", id);
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
     }

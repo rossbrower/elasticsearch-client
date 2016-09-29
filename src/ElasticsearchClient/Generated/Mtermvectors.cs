@@ -232,7 +232,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MtermvectorsGet(string index, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
         {
-            var uri = $"{"/{0}/_mtermvectors"}";
+            var uri = string.Format("/{0}/_mtermvectors", index);
             if (options != null)
             {
                 uri = options.Invoke(new MtermvectorsParameters()).GetUri(uri);
@@ -246,7 +246,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MtermvectorsGetAsync(string index, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
         {
-            var uri = $"{"/{0}/_mtermvectors"}";
+            var uri = string.Format("/{0}/_mtermvectors", index);
             if (options != null)
             {
                 uri = options.Invoke(new MtermvectorsParameters()).GetUri(uri);
@@ -261,7 +261,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MtermvectorsGet(string index, Stream body, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
         {
-            var uri = $"{"/{0}/_mtermvectors"}";
+            var uri = string.Format("/{0}/_mtermvectors", index);
             if (options != null)
             {
                 uri = options.Invoke(new MtermvectorsParameters()).GetUri(uri);
@@ -276,7 +276,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MtermvectorsGetAsync(string index, Stream body, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
         {
-            var uri = $"{"/{0}/_mtermvectors"}";
+            var uri = string.Format("/{0}/_mtermvectors", index);
             if (options != null)
             {
                 uri = options.Invoke(new MtermvectorsParameters()).GetUri(uri);
@@ -291,7 +291,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MtermvectorsGet(string index, byte[] body, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
         {
-            var uri = $"{"/{0}/_mtermvectors"}";
+            var uri = string.Format("/{0}/_mtermvectors", index);
             if (options != null)
             {
                 uri = options.Invoke(new MtermvectorsParameters()).GetUri(uri);
@@ -306,7 +306,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MtermvectorsGetAsync(string index, byte[] body, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
         {
-            var uri = $"{"/{0}/_mtermvectors"}";
+            var uri = string.Format("/{0}/_mtermvectors", index);
             if (options != null)
             {
                 uri = options.Invoke(new MtermvectorsParameters()).GetUri(uri);
@@ -321,7 +321,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MtermvectorsGetString(string index, string body, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
         {
-            var uri = $"{"/{0}/_mtermvectors"}";
+            var uri = string.Format("/{0}/_mtermvectors", index);
             if (options != null)
             {
                 uri = options.Invoke(new MtermvectorsParameters()).GetUri(uri);
@@ -336,7 +336,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MtermvectorsGetStringAsync(string index, string body, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
         {
-            var uri = $"{"/{0}/_mtermvectors"}";
+            var uri = string.Format("/{0}/_mtermvectors", index);
             if (options != null)
             {
                 uri = options.Invoke(new MtermvectorsParameters()).GetUri(uri);
@@ -350,7 +350,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MtermvectorsPost(string index, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
         {
-            var uri = $"{"/{0}/_mtermvectors"}";
+            var uri = string.Format("/{0}/_mtermvectors", index);
             if (options != null)
             {
                 uri = options.Invoke(new MtermvectorsParameters()).GetUri(uri);
@@ -364,7 +364,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MtermvectorsPostAsync(string index, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
         {
-            var uri = $"{"/{0}/_mtermvectors"}";
+            var uri = string.Format("/{0}/_mtermvectors", index);
             if (options != null)
             {
                 uri = options.Invoke(new MtermvectorsParameters()).GetUri(uri);
@@ -379,7 +379,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MtermvectorsPost(string index, Stream body, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
         {
-            var uri = $"{"/{0}/_mtermvectors"}";
+            var uri = string.Format("/{0}/_mtermvectors", index);
             if (options != null)
             {
                 uri = options.Invoke(new MtermvectorsParameters()).GetUri(uri);
@@ -394,7 +394,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MtermvectorsPostAsync(string index, Stream body, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
         {
-            var uri = $"{"/{0}/_mtermvectors"}";
+            var uri = string.Format("/{0}/_mtermvectors", index);
             if (options != null)
             {
                 uri = options.Invoke(new MtermvectorsParameters()).GetUri(uri);
@@ -409,7 +409,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MtermvectorsPost(string index, byte[] body, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
         {
-            var uri = $"{"/{0}/_mtermvectors"}";
+            var uri = string.Format("/{0}/_mtermvectors", index);
             if (options != null)
             {
                 uri = options.Invoke(new MtermvectorsParameters()).GetUri(uri);
@@ -424,7 +424,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MtermvectorsPostAsync(string index, byte[] body, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
         {
-            var uri = $"{"/{0}/_mtermvectors"}";
+            var uri = string.Format("/{0}/_mtermvectors", index);
             if (options != null)
             {
                 uri = options.Invoke(new MtermvectorsParameters()).GetUri(uri);
@@ -439,7 +439,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MtermvectorsPostString(string index, string body, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
         {
-            var uri = $"{"/{0}/_mtermvectors"}";
+            var uri = string.Format("/{0}/_mtermvectors", index);
             if (options != null)
             {
                 uri = options.Invoke(new MtermvectorsParameters()).GetUri(uri);
@@ -454,7 +454,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MtermvectorsPostStringAsync(string index, string body, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
         {
-            var uri = $"{"/{0}/_mtermvectors"}";
+            var uri = string.Format("/{0}/_mtermvectors", index);
             if (options != null)
             {
                 uri = options.Invoke(new MtermvectorsParameters()).GetUri(uri);
@@ -469,7 +469,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MtermvectorsGet(string index, string type, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mtermvectors"}";
+            var uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new MtermvectorsParameters()).GetUri(uri);
@@ -484,7 +484,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MtermvectorsGetAsync(string index, string type, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mtermvectors"}";
+            var uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new MtermvectorsParameters()).GetUri(uri);
@@ -500,7 +500,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MtermvectorsGet(string index, string type, Stream body, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mtermvectors"}";
+            var uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new MtermvectorsParameters()).GetUri(uri);
@@ -516,7 +516,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MtermvectorsGetAsync(string index, string type, Stream body, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mtermvectors"}";
+            var uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new MtermvectorsParameters()).GetUri(uri);
@@ -532,7 +532,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MtermvectorsGet(string index, string type, byte[] body, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mtermvectors"}";
+            var uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new MtermvectorsParameters()).GetUri(uri);
@@ -548,7 +548,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MtermvectorsGetAsync(string index, string type, byte[] body, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mtermvectors"}";
+            var uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new MtermvectorsParameters()).GetUri(uri);
@@ -564,7 +564,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MtermvectorsGetString(string index, string type, string body, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mtermvectors"}";
+            var uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new MtermvectorsParameters()).GetUri(uri);
@@ -580,7 +580,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MtermvectorsGetStringAsync(string index, string type, string body, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mtermvectors"}";
+            var uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new MtermvectorsParameters()).GetUri(uri);
@@ -595,7 +595,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MtermvectorsPost(string index, string type, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mtermvectors"}";
+            var uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new MtermvectorsParameters()).GetUri(uri);
@@ -610,7 +610,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MtermvectorsPostAsync(string index, string type, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mtermvectors"}";
+            var uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new MtermvectorsParameters()).GetUri(uri);
@@ -626,7 +626,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MtermvectorsPost(string index, string type, Stream body, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mtermvectors"}";
+            var uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new MtermvectorsParameters()).GetUri(uri);
@@ -642,7 +642,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MtermvectorsPostAsync(string index, string type, Stream body, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mtermvectors"}";
+            var uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new MtermvectorsParameters()).GetUri(uri);
@@ -658,7 +658,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MtermvectorsPost(string index, string type, byte[] body, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mtermvectors"}";
+            var uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new MtermvectorsParameters()).GetUri(uri);
@@ -674,7 +674,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MtermvectorsPostAsync(string index, string type, byte[] body, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mtermvectors"}";
+            var uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new MtermvectorsParameters()).GetUri(uri);
@@ -690,7 +690,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MtermvectorsPostString(string index, string type, string body, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mtermvectors"}";
+            var uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new MtermvectorsParameters()).GetUri(uri);
@@ -706,7 +706,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MtermvectorsPostStringAsync(string index, string type, string body, Func<MtermvectorsParameters, MtermvectorsParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mtermvectors"}";
+            var uri = string.Format("/{0}/{1}/_mtermvectors", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new MtermvectorsParameters()).GetUri(uri);

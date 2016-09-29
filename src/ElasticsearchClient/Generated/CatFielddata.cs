@@ -38,7 +38,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage CatFielddata(string fields, Func<CatFielddataParameters, CatFielddataParameters> options = null)
         {
-            var uri = $"{"/_cat/fielddata/{0}"}";
+            var uri = string.Format("/_cat/fielddata/{0}", fields);
             if (options != null)
             {
                 uri = options.Invoke(new CatFielddataParameters()).GetUri(uri);
@@ -52,7 +52,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> CatFielddataAsync(string fields, Func<CatFielddataParameters, CatFielddataParameters> options = null)
         {
-            var uri = $"{"/_cat/fielddata/{0}"}";
+            var uri = string.Format("/_cat/fielddata/{0}", fields);
             if (options != null)
             {
                 uri = options.Invoke(new CatFielddataParameters()).GetUri(uri);

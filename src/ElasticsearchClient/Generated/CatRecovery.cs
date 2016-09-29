@@ -38,7 +38,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage CatRecovery(string index, Func<CatRecoveryParameters, CatRecoveryParameters> options = null)
         {
-            var uri = $"{"/_cat/recovery/{0}"}";
+            var uri = string.Format("/_cat/recovery/{0}", index);
             if (options != null)
             {
                 uri = options.Invoke(new CatRecoveryParameters()).GetUri(uri);
@@ -52,7 +52,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> CatRecoveryAsync(string index, Func<CatRecoveryParameters, CatRecoveryParameters> options = null)
         {
-            var uri = $"{"/_cat/recovery/{0}"}";
+            var uri = string.Format("/_cat/recovery/{0}", index);
             if (options != null)
             {
                 uri = options.Invoke(new CatRecoveryParameters()).GetUri(uri);

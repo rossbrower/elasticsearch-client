@@ -38,7 +38,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesGetMapping(string index, Func<IndicesGetMappingParameters, IndicesGetMappingParameters> options = null)
         {
-            var uri = $"{"/{0}/_mapping"}";
+            var uri = string.Format("/{0}/_mapping", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesGetMappingParameters()).GetUri(uri);
@@ -52,7 +52,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesGetMappingAsync(string index, Func<IndicesGetMappingParameters, IndicesGetMappingParameters> options = null)
         {
-            var uri = $"{"/{0}/_mapping"}";
+            var uri = string.Format("/{0}/_mapping", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesGetMappingParameters()).GetUri(uri);
@@ -67,7 +67,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesGetMapping(string index, string type, Func<IndicesGetMappingParameters, IndicesGetMappingParameters> options = null)
         {
-            var uri = $"{"/{0}/_mapping/{1}"}";
+            var uri = string.Format("/{0}/_mapping/{1}", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesGetMappingParameters()).GetUri(uri);
@@ -82,7 +82,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesGetMappingAsync(string index, string type, Func<IndicesGetMappingParameters, IndicesGetMappingParameters> options = null)
         {
-            var uri = $"{"/{0}/_mapping/{1}"}";
+            var uri = string.Format("/{0}/_mapping/{1}", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesGetMappingParameters()).GetUri(uri);

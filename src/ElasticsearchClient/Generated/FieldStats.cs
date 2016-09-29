@@ -232,7 +232,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage FieldStatsGet(string index, Func<FieldStatsParameters, FieldStatsParameters> options = null)
         {
-            var uri = $"{"/{0}/_field_stats"}";
+            var uri = string.Format("/{0}/_field_stats", index);
             if (options != null)
             {
                 uri = options.Invoke(new FieldStatsParameters()).GetUri(uri);
@@ -246,7 +246,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> FieldStatsGetAsync(string index, Func<FieldStatsParameters, FieldStatsParameters> options = null)
         {
-            var uri = $"{"/{0}/_field_stats"}";
+            var uri = string.Format("/{0}/_field_stats", index);
             if (options != null)
             {
                 uri = options.Invoke(new FieldStatsParameters()).GetUri(uri);
@@ -261,7 +261,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage FieldStatsGet(string index, Stream body, Func<FieldStatsParameters, FieldStatsParameters> options = null)
         {
-            var uri = $"{"/{0}/_field_stats"}";
+            var uri = string.Format("/{0}/_field_stats", index);
             if (options != null)
             {
                 uri = options.Invoke(new FieldStatsParameters()).GetUri(uri);
@@ -276,7 +276,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> FieldStatsGetAsync(string index, Stream body, Func<FieldStatsParameters, FieldStatsParameters> options = null)
         {
-            var uri = $"{"/{0}/_field_stats"}";
+            var uri = string.Format("/{0}/_field_stats", index);
             if (options != null)
             {
                 uri = options.Invoke(new FieldStatsParameters()).GetUri(uri);
@@ -291,7 +291,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage FieldStatsGet(string index, byte[] body, Func<FieldStatsParameters, FieldStatsParameters> options = null)
         {
-            var uri = $"{"/{0}/_field_stats"}";
+            var uri = string.Format("/{0}/_field_stats", index);
             if (options != null)
             {
                 uri = options.Invoke(new FieldStatsParameters()).GetUri(uri);
@@ -306,7 +306,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> FieldStatsGetAsync(string index, byte[] body, Func<FieldStatsParameters, FieldStatsParameters> options = null)
         {
-            var uri = $"{"/{0}/_field_stats"}";
+            var uri = string.Format("/{0}/_field_stats", index);
             if (options != null)
             {
                 uri = options.Invoke(new FieldStatsParameters()).GetUri(uri);
@@ -321,7 +321,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage FieldStatsGetString(string index, string body, Func<FieldStatsParameters, FieldStatsParameters> options = null)
         {
-            var uri = $"{"/{0}/_field_stats"}";
+            var uri = string.Format("/{0}/_field_stats", index);
             if (options != null)
             {
                 uri = options.Invoke(new FieldStatsParameters()).GetUri(uri);
@@ -336,7 +336,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> FieldStatsGetStringAsync(string index, string body, Func<FieldStatsParameters, FieldStatsParameters> options = null)
         {
-            var uri = $"{"/{0}/_field_stats"}";
+            var uri = string.Format("/{0}/_field_stats", index);
             if (options != null)
             {
                 uri = options.Invoke(new FieldStatsParameters()).GetUri(uri);
@@ -350,7 +350,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage FieldStatsPost(string index, Func<FieldStatsParameters, FieldStatsParameters> options = null)
         {
-            var uri = $"{"/{0}/_field_stats"}";
+            var uri = string.Format("/{0}/_field_stats", index);
             if (options != null)
             {
                 uri = options.Invoke(new FieldStatsParameters()).GetUri(uri);
@@ -364,7 +364,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> FieldStatsPostAsync(string index, Func<FieldStatsParameters, FieldStatsParameters> options = null)
         {
-            var uri = $"{"/{0}/_field_stats"}";
+            var uri = string.Format("/{0}/_field_stats", index);
             if (options != null)
             {
                 uri = options.Invoke(new FieldStatsParameters()).GetUri(uri);
@@ -379,7 +379,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage FieldStatsPost(string index, Stream body, Func<FieldStatsParameters, FieldStatsParameters> options = null)
         {
-            var uri = $"{"/{0}/_field_stats"}";
+            var uri = string.Format("/{0}/_field_stats", index);
             if (options != null)
             {
                 uri = options.Invoke(new FieldStatsParameters()).GetUri(uri);
@@ -394,7 +394,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> FieldStatsPostAsync(string index, Stream body, Func<FieldStatsParameters, FieldStatsParameters> options = null)
         {
-            var uri = $"{"/{0}/_field_stats"}";
+            var uri = string.Format("/{0}/_field_stats", index);
             if (options != null)
             {
                 uri = options.Invoke(new FieldStatsParameters()).GetUri(uri);
@@ -409,7 +409,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage FieldStatsPost(string index, byte[] body, Func<FieldStatsParameters, FieldStatsParameters> options = null)
         {
-            var uri = $"{"/{0}/_field_stats"}";
+            var uri = string.Format("/{0}/_field_stats", index);
             if (options != null)
             {
                 uri = options.Invoke(new FieldStatsParameters()).GetUri(uri);
@@ -424,7 +424,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> FieldStatsPostAsync(string index, byte[] body, Func<FieldStatsParameters, FieldStatsParameters> options = null)
         {
-            var uri = $"{"/{0}/_field_stats"}";
+            var uri = string.Format("/{0}/_field_stats", index);
             if (options != null)
             {
                 uri = options.Invoke(new FieldStatsParameters()).GetUri(uri);
@@ -439,7 +439,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage FieldStatsPostString(string index, string body, Func<FieldStatsParameters, FieldStatsParameters> options = null)
         {
-            var uri = $"{"/{0}/_field_stats"}";
+            var uri = string.Format("/{0}/_field_stats", index);
             if (options != null)
             {
                 uri = options.Invoke(new FieldStatsParameters()).GetUri(uri);
@@ -454,7 +454,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> FieldStatsPostStringAsync(string index, string body, Func<FieldStatsParameters, FieldStatsParameters> options = null)
         {
-            var uri = $"{"/{0}/_field_stats"}";
+            var uri = string.Format("/{0}/_field_stats", index);
             if (options != null)
             {
                 uri = options.Invoke(new FieldStatsParameters()).GetUri(uri);

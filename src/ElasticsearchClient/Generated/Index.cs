@@ -14,7 +14,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndexPost(string index, string type, Stream body, Func<IndexParameters, IndexParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}"}";
+            var uri = string.Format("/{0}/{1}", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndexParameters()).GetUri(uri);
@@ -30,7 +30,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndexPostAsync(string index, string type, Stream body, Func<IndexParameters, IndexParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}"}";
+            var uri = string.Format("/{0}/{1}", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndexParameters()).GetUri(uri);
@@ -46,7 +46,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndexPost(string index, string type, byte[] body, Func<IndexParameters, IndexParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}"}";
+            var uri = string.Format("/{0}/{1}", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndexParameters()).GetUri(uri);
@@ -62,7 +62,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndexPostAsync(string index, string type, byte[] body, Func<IndexParameters, IndexParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}"}";
+            var uri = string.Format("/{0}/{1}", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndexParameters()).GetUri(uri);
@@ -78,7 +78,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndexPostString(string index, string type, string body, Func<IndexParameters, IndexParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}"}";
+            var uri = string.Format("/{0}/{1}", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndexParameters()).GetUri(uri);
@@ -94,7 +94,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndexPostStringAsync(string index, string type, string body, Func<IndexParameters, IndexParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}"}";
+            var uri = string.Format("/{0}/{1}", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndexParameters()).GetUri(uri);
@@ -110,7 +110,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndexPut(string index, string type, Stream body, Func<IndexParameters, IndexParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}"}";
+            var uri = string.Format("/{0}/{1}", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndexParameters()).GetUri(uri);
@@ -126,7 +126,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndexPutAsync(string index, string type, Stream body, Func<IndexParameters, IndexParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}"}";
+            var uri = string.Format("/{0}/{1}", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndexParameters()).GetUri(uri);
@@ -142,7 +142,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndexPut(string index, string type, byte[] body, Func<IndexParameters, IndexParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}"}";
+            var uri = string.Format("/{0}/{1}", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndexParameters()).GetUri(uri);
@@ -158,7 +158,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndexPutAsync(string index, string type, byte[] body, Func<IndexParameters, IndexParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}"}";
+            var uri = string.Format("/{0}/{1}", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndexParameters()).GetUri(uri);
@@ -174,7 +174,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndexPutString(string index, string type, string body, Func<IndexParameters, IndexParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}"}";
+            var uri = string.Format("/{0}/{1}", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndexParameters()).GetUri(uri);
@@ -190,7 +190,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndexPutStringAsync(string index, string type, string body, Func<IndexParameters, IndexParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}"}";
+            var uri = string.Format("/{0}/{1}", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new IndexParameters()).GetUri(uri);
@@ -207,7 +207,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndexPost(string index, string type, string id, Stream body, Func<IndexParameters, IndexParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}"}";
+            var uri = string.Format("/{0}/{1}/{2}", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new IndexParameters()).GetUri(uri);
@@ -224,7 +224,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndexPostAsync(string index, string type, string id, Stream body, Func<IndexParameters, IndexParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}"}";
+            var uri = string.Format("/{0}/{1}/{2}", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new IndexParameters()).GetUri(uri);
@@ -241,7 +241,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndexPost(string index, string type, string id, byte[] body, Func<IndexParameters, IndexParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}"}";
+            var uri = string.Format("/{0}/{1}/{2}", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new IndexParameters()).GetUri(uri);
@@ -258,7 +258,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndexPostAsync(string index, string type, string id, byte[] body, Func<IndexParameters, IndexParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}"}";
+            var uri = string.Format("/{0}/{1}/{2}", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new IndexParameters()).GetUri(uri);
@@ -275,7 +275,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndexPostString(string index, string type, string id, string body, Func<IndexParameters, IndexParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}"}";
+            var uri = string.Format("/{0}/{1}/{2}", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new IndexParameters()).GetUri(uri);
@@ -292,7 +292,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndexPostStringAsync(string index, string type, string id, string body, Func<IndexParameters, IndexParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}"}";
+            var uri = string.Format("/{0}/{1}/{2}", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new IndexParameters()).GetUri(uri);
@@ -309,7 +309,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndexPut(string index, string type, string id, Stream body, Func<IndexParameters, IndexParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}"}";
+            var uri = string.Format("/{0}/{1}/{2}", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new IndexParameters()).GetUri(uri);
@@ -326,7 +326,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndexPutAsync(string index, string type, string id, Stream body, Func<IndexParameters, IndexParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}"}";
+            var uri = string.Format("/{0}/{1}/{2}", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new IndexParameters()).GetUri(uri);
@@ -343,7 +343,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndexPut(string index, string type, string id, byte[] body, Func<IndexParameters, IndexParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}"}";
+            var uri = string.Format("/{0}/{1}/{2}", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new IndexParameters()).GetUri(uri);
@@ -360,7 +360,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndexPutAsync(string index, string type, string id, byte[] body, Func<IndexParameters, IndexParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}"}";
+            var uri = string.Format("/{0}/{1}/{2}", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new IndexParameters()).GetUri(uri);
@@ -377,7 +377,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndexPutString(string index, string type, string id, string body, Func<IndexParameters, IndexParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}"}";
+            var uri = string.Format("/{0}/{1}/{2}", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new IndexParameters()).GetUri(uri);
@@ -394,7 +394,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndexPutStringAsync(string index, string type, string id, string body, Func<IndexParameters, IndexParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}"}";
+            var uri = string.Format("/{0}/{1}/{2}", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new IndexParameters()).GetUri(uri);

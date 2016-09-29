@@ -18,6 +18,14 @@ namespace Elasticsearch.Client
             return this;
         }
 
+        ///<summary>Retries allocation of shards that are blocked due to too many subsequent allocation failures</summary>
+        ///<param name="value"></param>
+        public virtual ClusterRerouteParameters retry_failed(bool value)
+        {
+            SetValue("retry_failed", value.ToString().ToLower());
+            return this;
+        }
+
         ///<summary>Limit the information returned to the specified metrics. Defaults to all but metadata</summary>
         ///<param name="value"><para>Options: _all,blocks,metadata,nodes,routing_table,master_node,version</para></param>
         public virtual ClusterRerouteParameters metric(string value)

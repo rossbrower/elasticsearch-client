@@ -12,7 +12,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesGet(string index, Func<IndicesGetParameters, IndicesGetParameters> options = null)
         {
-            var uri = $"{"/{0}"}";
+            var uri = string.Format("/{0}", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesGetParameters()).GetUri(uri);
@@ -26,7 +26,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesGetAsync(string index, Func<IndicesGetParameters, IndicesGetParameters> options = null)
         {
-            var uri = $"{"/{0}"}";
+            var uri = string.Format("/{0}", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesGetParameters()).GetUri(uri);
@@ -41,7 +41,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesGet(string index, string feature, Func<IndicesGetParameters, IndicesGetParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}"}";
+            var uri = string.Format("/{0}/{1}", index, feature);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesGetParameters()).GetUri(uri);
@@ -56,7 +56,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesGetAsync(string index, string feature, Func<IndicesGetParameters, IndicesGetParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}"}";
+            var uri = string.Format("/{0}/{1}", index, feature);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesGetParameters()).GetUri(uri);

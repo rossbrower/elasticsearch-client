@@ -13,7 +13,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesPutTemplatePut(string name, Stream body, Func<IndicesPutTemplateParameters, IndicesPutTemplateParameters> options = null)
         {
-            var uri = $"{"/_template/{0}"}";
+            var uri = string.Format("/_template/{0}", name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutTemplateParameters()).GetUri(uri);
@@ -28,7 +28,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesPutTemplatePutAsync(string name, Stream body, Func<IndicesPutTemplateParameters, IndicesPutTemplateParameters> options = null)
         {
-            var uri = $"{"/_template/{0}"}";
+            var uri = string.Format("/_template/{0}", name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutTemplateParameters()).GetUri(uri);
@@ -43,7 +43,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesPutTemplatePut(string name, byte[] body, Func<IndicesPutTemplateParameters, IndicesPutTemplateParameters> options = null)
         {
-            var uri = $"{"/_template/{0}"}";
+            var uri = string.Format("/_template/{0}", name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutTemplateParameters()).GetUri(uri);
@@ -58,7 +58,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesPutTemplatePutAsync(string name, byte[] body, Func<IndicesPutTemplateParameters, IndicesPutTemplateParameters> options = null)
         {
-            var uri = $"{"/_template/{0}"}";
+            var uri = string.Format("/_template/{0}", name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutTemplateParameters()).GetUri(uri);
@@ -73,7 +73,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesPutTemplatePutString(string name, string body, Func<IndicesPutTemplateParameters, IndicesPutTemplateParameters> options = null)
         {
-            var uri = $"{"/_template/{0}"}";
+            var uri = string.Format("/_template/{0}", name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutTemplateParameters()).GetUri(uri);
@@ -88,7 +88,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesPutTemplatePutStringAsync(string name, string body, Func<IndicesPutTemplateParameters, IndicesPutTemplateParameters> options = null)
         {
-            var uri = $"{"/_template/{0}"}";
+            var uri = string.Format("/_template/{0}", name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutTemplateParameters()).GetUri(uri);
@@ -103,7 +103,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesPutTemplatePost(string name, Stream body, Func<IndicesPutTemplateParameters, IndicesPutTemplateParameters> options = null)
         {
-            var uri = $"{"/_template/{0}"}";
+            var uri = string.Format("/_template/{0}", name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutTemplateParameters()).GetUri(uri);
@@ -118,7 +118,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesPutTemplatePostAsync(string name, Stream body, Func<IndicesPutTemplateParameters, IndicesPutTemplateParameters> options = null)
         {
-            var uri = $"{"/_template/{0}"}";
+            var uri = string.Format("/_template/{0}", name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutTemplateParameters()).GetUri(uri);
@@ -133,7 +133,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesPutTemplatePost(string name, byte[] body, Func<IndicesPutTemplateParameters, IndicesPutTemplateParameters> options = null)
         {
-            var uri = $"{"/_template/{0}"}";
+            var uri = string.Format("/_template/{0}", name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutTemplateParameters()).GetUri(uri);
@@ -148,7 +148,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesPutTemplatePostAsync(string name, byte[] body, Func<IndicesPutTemplateParameters, IndicesPutTemplateParameters> options = null)
         {
-            var uri = $"{"/_template/{0}"}";
+            var uri = string.Format("/_template/{0}", name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutTemplateParameters()).GetUri(uri);
@@ -163,7 +163,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesPutTemplatePostString(string name, string body, Func<IndicesPutTemplateParameters, IndicesPutTemplateParameters> options = null)
         {
-            var uri = $"{"/_template/{0}"}";
+            var uri = string.Format("/_template/{0}", name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutTemplateParameters()).GetUri(uri);
@@ -178,7 +178,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesPutTemplatePostStringAsync(string name, string body, Func<IndicesPutTemplateParameters, IndicesPutTemplateParameters> options = null)
         {
-            var uri = $"{"/_template/{0}"}";
+            var uri = string.Format("/_template/{0}", name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesPutTemplateParameters()).GetUri(uri);

@@ -181,7 +181,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MgetGet(string index, Stream body, Func<MgetParameters, MgetParameters> options = null)
         {
-            var uri = $"{"/{0}/_mget"}";
+            var uri = string.Format("/{0}/_mget", index);
             if (options != null)
             {
                 uri = options.Invoke(new MgetParameters()).GetUri(uri);
@@ -196,7 +196,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MgetGetAsync(string index, Stream body, Func<MgetParameters, MgetParameters> options = null)
         {
-            var uri = $"{"/{0}/_mget"}";
+            var uri = string.Format("/{0}/_mget", index);
             if (options != null)
             {
                 uri = options.Invoke(new MgetParameters()).GetUri(uri);
@@ -211,7 +211,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MgetGet(string index, byte[] body, Func<MgetParameters, MgetParameters> options = null)
         {
-            var uri = $"{"/{0}/_mget"}";
+            var uri = string.Format("/{0}/_mget", index);
             if (options != null)
             {
                 uri = options.Invoke(new MgetParameters()).GetUri(uri);
@@ -226,7 +226,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MgetGetAsync(string index, byte[] body, Func<MgetParameters, MgetParameters> options = null)
         {
-            var uri = $"{"/{0}/_mget"}";
+            var uri = string.Format("/{0}/_mget", index);
             if (options != null)
             {
                 uri = options.Invoke(new MgetParameters()).GetUri(uri);
@@ -241,7 +241,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MgetGetString(string index, string body, Func<MgetParameters, MgetParameters> options = null)
         {
-            var uri = $"{"/{0}/_mget"}";
+            var uri = string.Format("/{0}/_mget", index);
             if (options != null)
             {
                 uri = options.Invoke(new MgetParameters()).GetUri(uri);
@@ -256,7 +256,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MgetGetStringAsync(string index, string body, Func<MgetParameters, MgetParameters> options = null)
         {
-            var uri = $"{"/{0}/_mget"}";
+            var uri = string.Format("/{0}/_mget", index);
             if (options != null)
             {
                 uri = options.Invoke(new MgetParameters()).GetUri(uri);
@@ -271,7 +271,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MgetPost(string index, Stream body, Func<MgetParameters, MgetParameters> options = null)
         {
-            var uri = $"{"/{0}/_mget"}";
+            var uri = string.Format("/{0}/_mget", index);
             if (options != null)
             {
                 uri = options.Invoke(new MgetParameters()).GetUri(uri);
@@ -286,7 +286,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MgetPostAsync(string index, Stream body, Func<MgetParameters, MgetParameters> options = null)
         {
-            var uri = $"{"/{0}/_mget"}";
+            var uri = string.Format("/{0}/_mget", index);
             if (options != null)
             {
                 uri = options.Invoke(new MgetParameters()).GetUri(uri);
@@ -301,7 +301,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MgetPost(string index, byte[] body, Func<MgetParameters, MgetParameters> options = null)
         {
-            var uri = $"{"/{0}/_mget"}";
+            var uri = string.Format("/{0}/_mget", index);
             if (options != null)
             {
                 uri = options.Invoke(new MgetParameters()).GetUri(uri);
@@ -316,7 +316,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MgetPostAsync(string index, byte[] body, Func<MgetParameters, MgetParameters> options = null)
         {
-            var uri = $"{"/{0}/_mget"}";
+            var uri = string.Format("/{0}/_mget", index);
             if (options != null)
             {
                 uri = options.Invoke(new MgetParameters()).GetUri(uri);
@@ -331,7 +331,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MgetPostString(string index, string body, Func<MgetParameters, MgetParameters> options = null)
         {
-            var uri = $"{"/{0}/_mget"}";
+            var uri = string.Format("/{0}/_mget", index);
             if (options != null)
             {
                 uri = options.Invoke(new MgetParameters()).GetUri(uri);
@@ -346,7 +346,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MgetPostStringAsync(string index, string body, Func<MgetParameters, MgetParameters> options = null)
         {
-            var uri = $"{"/{0}/_mget"}";
+            var uri = string.Format("/{0}/_mget", index);
             if (options != null)
             {
                 uri = options.Invoke(new MgetParameters()).GetUri(uri);
@@ -362,7 +362,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MgetGet(string index, string type, Stream body, Func<MgetParameters, MgetParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mget"}";
+            var uri = string.Format("/{0}/{1}/_mget", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new MgetParameters()).GetUri(uri);
@@ -378,7 +378,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MgetGetAsync(string index, string type, Stream body, Func<MgetParameters, MgetParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mget"}";
+            var uri = string.Format("/{0}/{1}/_mget", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new MgetParameters()).GetUri(uri);
@@ -394,7 +394,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MgetGet(string index, string type, byte[] body, Func<MgetParameters, MgetParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mget"}";
+            var uri = string.Format("/{0}/{1}/_mget", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new MgetParameters()).GetUri(uri);
@@ -410,7 +410,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MgetGetAsync(string index, string type, byte[] body, Func<MgetParameters, MgetParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mget"}";
+            var uri = string.Format("/{0}/{1}/_mget", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new MgetParameters()).GetUri(uri);
@@ -426,7 +426,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MgetGetString(string index, string type, string body, Func<MgetParameters, MgetParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mget"}";
+            var uri = string.Format("/{0}/{1}/_mget", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new MgetParameters()).GetUri(uri);
@@ -442,7 +442,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MgetGetStringAsync(string index, string type, string body, Func<MgetParameters, MgetParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mget"}";
+            var uri = string.Format("/{0}/{1}/_mget", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new MgetParameters()).GetUri(uri);
@@ -458,7 +458,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MgetPost(string index, string type, Stream body, Func<MgetParameters, MgetParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mget"}";
+            var uri = string.Format("/{0}/{1}/_mget", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new MgetParameters()).GetUri(uri);
@@ -474,7 +474,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MgetPostAsync(string index, string type, Stream body, Func<MgetParameters, MgetParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mget"}";
+            var uri = string.Format("/{0}/{1}/_mget", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new MgetParameters()).GetUri(uri);
@@ -490,7 +490,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MgetPost(string index, string type, byte[] body, Func<MgetParameters, MgetParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mget"}";
+            var uri = string.Format("/{0}/{1}/_mget", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new MgetParameters()).GetUri(uri);
@@ -506,7 +506,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MgetPostAsync(string index, string type, byte[] body, Func<MgetParameters, MgetParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mget"}";
+            var uri = string.Format("/{0}/{1}/_mget", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new MgetParameters()).GetUri(uri);
@@ -522,7 +522,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MgetPostString(string index, string type, string body, Func<MgetParameters, MgetParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mget"}";
+            var uri = string.Format("/{0}/{1}/_mget", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new MgetParameters()).GetUri(uri);
@@ -538,7 +538,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MgetPostStringAsync(string index, string type, string body, Func<MgetParameters, MgetParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mget"}";
+            var uri = string.Format("/{0}/{1}/_mget", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new MgetParameters()).GetUri(uri);

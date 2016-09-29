@@ -2,6 +2,14 @@ namespace Elasticsearch.Client
 {
     public class IndicesCreateParameters : Parameters
     {
+        ///<summary>Set the number of active shards to wait for before the operation returns.</summary>
+        ///<param name="value"></param>
+        public virtual IndicesCreateParameters wait_for_active_shards(string value)
+        {
+            SetValue("wait_for_active_shards", value);
+            return this;
+        }
+
         ///<summary>Explicit operation timeout</summary>
         ///<param name="value"></param>
         public virtual IndicesCreateParameters timeout(string value)

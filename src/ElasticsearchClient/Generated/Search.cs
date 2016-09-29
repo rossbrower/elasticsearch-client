@@ -232,7 +232,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage SearchGet(string index, Func<SearchParameters, SearchParameters> options = null)
         {
-            var uri = $"{"/{0}/_search"}";
+            var uri = string.Format("/{0}/_search", index);
             if (options != null)
             {
                 uri = options.Invoke(new SearchParameters()).GetUri(uri);
@@ -246,7 +246,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> SearchGetAsync(string index, Func<SearchParameters, SearchParameters> options = null)
         {
-            var uri = $"{"/{0}/_search"}";
+            var uri = string.Format("/{0}/_search", index);
             if (options != null)
             {
                 uri = options.Invoke(new SearchParameters()).GetUri(uri);
@@ -261,7 +261,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage SearchGet(string index, Stream body, Func<SearchParameters, SearchParameters> options = null)
         {
-            var uri = $"{"/{0}/_search"}";
+            var uri = string.Format("/{0}/_search", index);
             if (options != null)
             {
                 uri = options.Invoke(new SearchParameters()).GetUri(uri);
@@ -276,7 +276,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> SearchGetAsync(string index, Stream body, Func<SearchParameters, SearchParameters> options = null)
         {
-            var uri = $"{"/{0}/_search"}";
+            var uri = string.Format("/{0}/_search", index);
             if (options != null)
             {
                 uri = options.Invoke(new SearchParameters()).GetUri(uri);
@@ -291,7 +291,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage SearchGet(string index, byte[] body, Func<SearchParameters, SearchParameters> options = null)
         {
-            var uri = $"{"/{0}/_search"}";
+            var uri = string.Format("/{0}/_search", index);
             if (options != null)
             {
                 uri = options.Invoke(new SearchParameters()).GetUri(uri);
@@ -306,7 +306,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> SearchGetAsync(string index, byte[] body, Func<SearchParameters, SearchParameters> options = null)
         {
-            var uri = $"{"/{0}/_search"}";
+            var uri = string.Format("/{0}/_search", index);
             if (options != null)
             {
                 uri = options.Invoke(new SearchParameters()).GetUri(uri);
@@ -321,7 +321,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage SearchGetString(string index, string body, Func<SearchParameters, SearchParameters> options = null)
         {
-            var uri = $"{"/{0}/_search"}";
+            var uri = string.Format("/{0}/_search", index);
             if (options != null)
             {
                 uri = options.Invoke(new SearchParameters()).GetUri(uri);
@@ -336,7 +336,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> SearchGetStringAsync(string index, string body, Func<SearchParameters, SearchParameters> options = null)
         {
-            var uri = $"{"/{0}/_search"}";
+            var uri = string.Format("/{0}/_search", index);
             if (options != null)
             {
                 uri = options.Invoke(new SearchParameters()).GetUri(uri);
@@ -350,7 +350,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage SearchPost(string index, Func<SearchParameters, SearchParameters> options = null)
         {
-            var uri = $"{"/{0}/_search"}";
+            var uri = string.Format("/{0}/_search", index);
             if (options != null)
             {
                 uri = options.Invoke(new SearchParameters()).GetUri(uri);
@@ -364,7 +364,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> SearchPostAsync(string index, Func<SearchParameters, SearchParameters> options = null)
         {
-            var uri = $"{"/{0}/_search"}";
+            var uri = string.Format("/{0}/_search", index);
             if (options != null)
             {
                 uri = options.Invoke(new SearchParameters()).GetUri(uri);
@@ -379,7 +379,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage SearchPost(string index, Stream body, Func<SearchParameters, SearchParameters> options = null)
         {
-            var uri = $"{"/{0}/_search"}";
+            var uri = string.Format("/{0}/_search", index);
             if (options != null)
             {
                 uri = options.Invoke(new SearchParameters()).GetUri(uri);
@@ -394,7 +394,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> SearchPostAsync(string index, Stream body, Func<SearchParameters, SearchParameters> options = null)
         {
-            var uri = $"{"/{0}/_search"}";
+            var uri = string.Format("/{0}/_search", index);
             if (options != null)
             {
                 uri = options.Invoke(new SearchParameters()).GetUri(uri);
@@ -409,7 +409,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage SearchPost(string index, byte[] body, Func<SearchParameters, SearchParameters> options = null)
         {
-            var uri = $"{"/{0}/_search"}";
+            var uri = string.Format("/{0}/_search", index);
             if (options != null)
             {
                 uri = options.Invoke(new SearchParameters()).GetUri(uri);
@@ -424,7 +424,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> SearchPostAsync(string index, byte[] body, Func<SearchParameters, SearchParameters> options = null)
         {
-            var uri = $"{"/{0}/_search"}";
+            var uri = string.Format("/{0}/_search", index);
             if (options != null)
             {
                 uri = options.Invoke(new SearchParameters()).GetUri(uri);
@@ -439,7 +439,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage SearchPostString(string index, string body, Func<SearchParameters, SearchParameters> options = null)
         {
-            var uri = $"{"/{0}/_search"}";
+            var uri = string.Format("/{0}/_search", index);
             if (options != null)
             {
                 uri = options.Invoke(new SearchParameters()).GetUri(uri);
@@ -454,7 +454,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> SearchPostStringAsync(string index, string body, Func<SearchParameters, SearchParameters> options = null)
         {
-            var uri = $"{"/{0}/_search"}";
+            var uri = string.Format("/{0}/_search", index);
             if (options != null)
             {
                 uri = options.Invoke(new SearchParameters()).GetUri(uri);
@@ -469,7 +469,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage SearchGet(string index, string type, Func<SearchParameters, SearchParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_search"}";
+            var uri = string.Format("/{0}/{1}/_search", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new SearchParameters()).GetUri(uri);
@@ -484,7 +484,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> SearchGetAsync(string index, string type, Func<SearchParameters, SearchParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_search"}";
+            var uri = string.Format("/{0}/{1}/_search", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new SearchParameters()).GetUri(uri);
@@ -500,7 +500,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage SearchGet(string index, string type, Stream body, Func<SearchParameters, SearchParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_search"}";
+            var uri = string.Format("/{0}/{1}/_search", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new SearchParameters()).GetUri(uri);
@@ -516,7 +516,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> SearchGetAsync(string index, string type, Stream body, Func<SearchParameters, SearchParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_search"}";
+            var uri = string.Format("/{0}/{1}/_search", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new SearchParameters()).GetUri(uri);
@@ -532,7 +532,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage SearchGet(string index, string type, byte[] body, Func<SearchParameters, SearchParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_search"}";
+            var uri = string.Format("/{0}/{1}/_search", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new SearchParameters()).GetUri(uri);
@@ -548,7 +548,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> SearchGetAsync(string index, string type, byte[] body, Func<SearchParameters, SearchParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_search"}";
+            var uri = string.Format("/{0}/{1}/_search", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new SearchParameters()).GetUri(uri);
@@ -564,7 +564,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage SearchGetString(string index, string type, string body, Func<SearchParameters, SearchParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_search"}";
+            var uri = string.Format("/{0}/{1}/_search", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new SearchParameters()).GetUri(uri);
@@ -580,7 +580,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> SearchGetStringAsync(string index, string type, string body, Func<SearchParameters, SearchParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_search"}";
+            var uri = string.Format("/{0}/{1}/_search", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new SearchParameters()).GetUri(uri);
@@ -595,7 +595,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage SearchPost(string index, string type, Func<SearchParameters, SearchParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_search"}";
+            var uri = string.Format("/{0}/{1}/_search", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new SearchParameters()).GetUri(uri);
@@ -610,7 +610,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> SearchPostAsync(string index, string type, Func<SearchParameters, SearchParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_search"}";
+            var uri = string.Format("/{0}/{1}/_search", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new SearchParameters()).GetUri(uri);
@@ -626,7 +626,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage SearchPost(string index, string type, Stream body, Func<SearchParameters, SearchParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_search"}";
+            var uri = string.Format("/{0}/{1}/_search", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new SearchParameters()).GetUri(uri);
@@ -642,7 +642,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> SearchPostAsync(string index, string type, Stream body, Func<SearchParameters, SearchParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_search"}";
+            var uri = string.Format("/{0}/{1}/_search", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new SearchParameters()).GetUri(uri);
@@ -658,7 +658,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage SearchPost(string index, string type, byte[] body, Func<SearchParameters, SearchParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_search"}";
+            var uri = string.Format("/{0}/{1}/_search", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new SearchParameters()).GetUri(uri);
@@ -674,7 +674,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> SearchPostAsync(string index, string type, byte[] body, Func<SearchParameters, SearchParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_search"}";
+            var uri = string.Format("/{0}/{1}/_search", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new SearchParameters()).GetUri(uri);
@@ -690,7 +690,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage SearchPostString(string index, string type, string body, Func<SearchParameters, SearchParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_search"}";
+            var uri = string.Format("/{0}/{1}/_search", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new SearchParameters()).GetUri(uri);
@@ -706,7 +706,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> SearchPostStringAsync(string index, string type, string body, Func<SearchParameters, SearchParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_search"}";
+            var uri = string.Format("/{0}/{1}/_search", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new SearchParameters()).GetUri(uri);

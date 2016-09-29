@@ -64,7 +64,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesFlushPost(string index, Func<IndicesFlushParameters, IndicesFlushParameters> options = null)
         {
-            var uri = $"{"/{0}/_flush"}";
+            var uri = string.Format("/{0}/_flush", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesFlushParameters()).GetUri(uri);
@@ -78,7 +78,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesFlushPostAsync(string index, Func<IndicesFlushParameters, IndicesFlushParameters> options = null)
         {
-            var uri = $"{"/{0}/_flush"}";
+            var uri = string.Format("/{0}/_flush", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesFlushParameters()).GetUri(uri);
@@ -92,7 +92,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesFlushGet(string index, Func<IndicesFlushParameters, IndicesFlushParameters> options = null)
         {
-            var uri = $"{"/{0}/_flush"}";
+            var uri = string.Format("/{0}/_flush", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesFlushParameters()).GetUri(uri);
@@ -106,7 +106,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesFlushGetAsync(string index, Func<IndicesFlushParameters, IndicesFlushParameters> options = null)
         {
-            var uri = $"{"/{0}/_flush"}";
+            var uri = string.Format("/{0}/_flush", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesFlushParameters()).GetUri(uri);

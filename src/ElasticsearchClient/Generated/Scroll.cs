@@ -232,7 +232,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage ScrollGet(string scroll_id, Func<ScrollParameters, ScrollParameters> options = null)
         {
-            var uri = $"{"/_search/scroll/{0}"}";
+            var uri = string.Format("/_search/scroll/{0}", scroll_id);
             if (options != null)
             {
                 uri = options.Invoke(new ScrollParameters()).GetUri(uri);
@@ -246,7 +246,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> ScrollGetAsync(string scroll_id, Func<ScrollParameters, ScrollParameters> options = null)
         {
-            var uri = $"{"/_search/scroll/{0}"}";
+            var uri = string.Format("/_search/scroll/{0}", scroll_id);
             if (options != null)
             {
                 uri = options.Invoke(new ScrollParameters()).GetUri(uri);
@@ -261,7 +261,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage ScrollGet(string scroll_id, Stream body, Func<ScrollParameters, ScrollParameters> options = null)
         {
-            var uri = $"{"/_search/scroll/{0}"}";
+            var uri = string.Format("/_search/scroll/{0}", scroll_id);
             if (options != null)
             {
                 uri = options.Invoke(new ScrollParameters()).GetUri(uri);
@@ -276,7 +276,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> ScrollGetAsync(string scroll_id, Stream body, Func<ScrollParameters, ScrollParameters> options = null)
         {
-            var uri = $"{"/_search/scroll/{0}"}";
+            var uri = string.Format("/_search/scroll/{0}", scroll_id);
             if (options != null)
             {
                 uri = options.Invoke(new ScrollParameters()).GetUri(uri);
@@ -291,7 +291,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage ScrollGet(string scroll_id, byte[] body, Func<ScrollParameters, ScrollParameters> options = null)
         {
-            var uri = $"{"/_search/scroll/{0}"}";
+            var uri = string.Format("/_search/scroll/{0}", scroll_id);
             if (options != null)
             {
                 uri = options.Invoke(new ScrollParameters()).GetUri(uri);
@@ -306,7 +306,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> ScrollGetAsync(string scroll_id, byte[] body, Func<ScrollParameters, ScrollParameters> options = null)
         {
-            var uri = $"{"/_search/scroll/{0}"}";
+            var uri = string.Format("/_search/scroll/{0}", scroll_id);
             if (options != null)
             {
                 uri = options.Invoke(new ScrollParameters()).GetUri(uri);
@@ -321,7 +321,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage ScrollGetString(string scroll_id, string body, Func<ScrollParameters, ScrollParameters> options = null)
         {
-            var uri = $"{"/_search/scroll/{0}"}";
+            var uri = string.Format("/_search/scroll/{0}", scroll_id);
             if (options != null)
             {
                 uri = options.Invoke(new ScrollParameters()).GetUri(uri);
@@ -336,7 +336,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> ScrollGetStringAsync(string scroll_id, string body, Func<ScrollParameters, ScrollParameters> options = null)
         {
-            var uri = $"{"/_search/scroll/{0}"}";
+            var uri = string.Format("/_search/scroll/{0}", scroll_id);
             if (options != null)
             {
                 uri = options.Invoke(new ScrollParameters()).GetUri(uri);
@@ -350,7 +350,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage ScrollPost(string scroll_id, Func<ScrollParameters, ScrollParameters> options = null)
         {
-            var uri = $"{"/_search/scroll/{0}"}";
+            var uri = string.Format("/_search/scroll/{0}", scroll_id);
             if (options != null)
             {
                 uri = options.Invoke(new ScrollParameters()).GetUri(uri);
@@ -364,7 +364,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> ScrollPostAsync(string scroll_id, Func<ScrollParameters, ScrollParameters> options = null)
         {
-            var uri = $"{"/_search/scroll/{0}"}";
+            var uri = string.Format("/_search/scroll/{0}", scroll_id);
             if (options != null)
             {
                 uri = options.Invoke(new ScrollParameters()).GetUri(uri);
@@ -379,7 +379,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage ScrollPost(string scroll_id, Stream body, Func<ScrollParameters, ScrollParameters> options = null)
         {
-            var uri = $"{"/_search/scroll/{0}"}";
+            var uri = string.Format("/_search/scroll/{0}", scroll_id);
             if (options != null)
             {
                 uri = options.Invoke(new ScrollParameters()).GetUri(uri);
@@ -394,7 +394,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> ScrollPostAsync(string scroll_id, Stream body, Func<ScrollParameters, ScrollParameters> options = null)
         {
-            var uri = $"{"/_search/scroll/{0}"}";
+            var uri = string.Format("/_search/scroll/{0}", scroll_id);
             if (options != null)
             {
                 uri = options.Invoke(new ScrollParameters()).GetUri(uri);
@@ -409,7 +409,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage ScrollPost(string scroll_id, byte[] body, Func<ScrollParameters, ScrollParameters> options = null)
         {
-            var uri = $"{"/_search/scroll/{0}"}";
+            var uri = string.Format("/_search/scroll/{0}", scroll_id);
             if (options != null)
             {
                 uri = options.Invoke(new ScrollParameters()).GetUri(uri);
@@ -424,7 +424,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> ScrollPostAsync(string scroll_id, byte[] body, Func<ScrollParameters, ScrollParameters> options = null)
         {
-            var uri = $"{"/_search/scroll/{0}"}";
+            var uri = string.Format("/_search/scroll/{0}", scroll_id);
             if (options != null)
             {
                 uri = options.Invoke(new ScrollParameters()).GetUri(uri);
@@ -439,7 +439,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage ScrollPostString(string scroll_id, string body, Func<ScrollParameters, ScrollParameters> options = null)
         {
-            var uri = $"{"/_search/scroll/{0}"}";
+            var uri = string.Format("/_search/scroll/{0}", scroll_id);
             if (options != null)
             {
                 uri = options.Invoke(new ScrollParameters()).GetUri(uri);
@@ -454,7 +454,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> ScrollPostStringAsync(string scroll_id, string body, Func<ScrollParameters, ScrollParameters> options = null)
         {
-            var uri = $"{"/_search/scroll/{0}"}";
+            var uri = string.Format("/_search/scroll/{0}", scroll_id);
             if (options != null)
             {
                 uri = options.Invoke(new ScrollParameters()).GetUri(uri);

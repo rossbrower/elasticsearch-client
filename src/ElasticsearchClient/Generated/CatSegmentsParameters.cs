@@ -2,6 +2,14 @@ namespace Elasticsearch.Client
 {
     public class CatSegmentsParameters : Parameters
     {
+        ///<summary>a short version of the Accept header, e.g. json, yaml</summary>
+        ///<param name="value"></param>
+        public virtual CatSegmentsParameters format(string value)
+        {
+            SetValue("format", value);
+            return this;
+        }
+
         ///<summary>Comma-separated list of column names to display</summary>
         ///<param name="value"></param>
         public virtual CatSegmentsParameters h(string value)

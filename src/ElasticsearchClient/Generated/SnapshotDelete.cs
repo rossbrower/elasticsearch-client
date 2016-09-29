@@ -13,7 +13,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage SnapshotDelete(string snapshot, string repository, Func<SnapshotDeleteParameters, SnapshotDeleteParameters> options = null)
         {
-            var uri = $"{"/_0/{1}/{0}"}";
+            var uri = string.Format("/_0/{1}/{0}", snapshot, repository);
             if (options != null)
             {
                 uri = options.Invoke(new SnapshotDeleteParameters()).GetUri(uri);
@@ -28,7 +28,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> SnapshotDeleteAsync(string snapshot, string repository, Func<SnapshotDeleteParameters, SnapshotDeleteParameters> options = null)
         {
-            var uri = $"{"/_0/{1}/{0}"}";
+            var uri = string.Format("/_0/{1}/{0}", snapshot, repository);
             if (options != null)
             {
                 uri = options.Invoke(new SnapshotDeleteParameters()).GetUri(uri);

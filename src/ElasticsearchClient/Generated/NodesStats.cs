@@ -38,7 +38,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage NodesStats(string node_id, Func<NodesStatsParameters, NodesStatsParameters> options = null)
         {
-            var uri = $"{"/_nodes/{0}/stats"}";
+            var uri = string.Format("/_nodes/{0}/stats", node_id);
             if (options != null)
             {
                 uri = options.Invoke(new NodesStatsParameters()).GetUri(uri);
@@ -52,7 +52,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> NodesStatsAsync(string node_id, Func<NodesStatsParameters, NodesStatsParameters> options = null)
         {
-            var uri = $"{"/_nodes/{0}/stats"}";
+            var uri = string.Format("/_nodes/{0}/stats", node_id);
             if (options != null)
             {
                 uri = options.Invoke(new NodesStatsParameters()).GetUri(uri);
@@ -67,7 +67,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage NodesStats(string node_id, string metric, Func<NodesStatsParameters, NodesStatsParameters> options = null)
         {
-            var uri = $"{"/_nodes/{0}/stats/{1}"}";
+            var uri = string.Format("/_nodes/{0}/stats/{1}", node_id, metric);
             if (options != null)
             {
                 uri = options.Invoke(new NodesStatsParameters()).GetUri(uri);
@@ -82,7 +82,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> NodesStatsAsync(string node_id, string metric, Func<NodesStatsParameters, NodesStatsParameters> options = null)
         {
-            var uri = $"{"/_nodes/{0}/stats/{1}"}";
+            var uri = string.Format("/_nodes/{0}/stats/{1}", node_id, metric);
             if (options != null)
             {
                 uri = options.Invoke(new NodesStatsParameters()).GetUri(uri);
@@ -98,7 +98,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage NodesStats(string node_id, string metric, string index_metric, Func<NodesStatsParameters, NodesStatsParameters> options = null)
         {
-            var uri = $"{"/_nodes/{0}/stats/{1}/{index_1}"}";
+            var uri = string.Format("/_nodes/{0}/stats/{1}/{index_1}", node_id, metric, index_metric);
             if (options != null)
             {
                 uri = options.Invoke(new NodesStatsParameters()).GetUri(uri);
@@ -114,7 +114,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> NodesStatsAsync(string node_id, string metric, string index_metric, Func<NodesStatsParameters, NodesStatsParameters> options = null)
         {
-            var uri = $"{"/_nodes/{0}/stats/{1}/{index_1}"}";
+            var uri = string.Format("/_nodes/{0}/stats/{1}/{index_1}", node_id, metric, index_metric);
             if (options != null)
             {
                 uri = options.Invoke(new NodesStatsParameters()).GetUri(uri);

@@ -42,15 +42,23 @@ namespace Elasticsearch.Client
             return this;
         }
 
-        ///<summary>A comma-separated list of fields to return as part of a hit</summary>
+        ///<summary>A comma-separated list of stored fields to return as part of a hit</summary>
         ///<param name="value"></param>
-        public virtual UpdateByQueryParameters fields(string value)
+        public virtual UpdateByQueryParameters stored_fields(string value)
         {
-            SetValue("fields", value);
+            SetValue("stored_fields", value);
             return this;
         }
 
-        ///<summary>A comma-separated list of fields to return as the field data representation of a field for each hit</summary>
+        ///<summary>A comma-separated list of fields to return as the docvalue representation of a field for each hit</summary>
+        ///<param name="value"></param>
+        public virtual UpdateByQueryParameters docvalue_fields(string value)
+        {
+            SetValue("docvalue_fields", value);
+            return this;
+        }
+
+        ///<summary>A comma-separated list of fields to return as the docvalue representation of a field for each hit</summary>
         ///<param name="value"></param>
         public virtual UpdateByQueryParameters fielddata_fields(string value)
         {
@@ -111,6 +119,14 @@ namespace Elasticsearch.Client
         public virtual UpdateByQueryParameters lowercase_expanded_terms(bool value)
         {
             SetValue("lowercase_expanded_terms", value.ToString().ToLower());
+            return this;
+        }
+
+        ///<summary>Ingest pipeline to set on index requests made by this action. (default: none)</summary>
+        ///<param name="value"></param>
+        public virtual UpdateByQueryParameters pipeline(string value)
+        {
+            SetValue("pipeline", value);
             return this;
         }
 
@@ -298,17 +314,17 @@ namespace Elasticsearch.Client
             return this;
         }
 
-        ///<summary>Explicit write consistency setting for the operation</summary>
-        ///<param name="value"><para>Options: one,quorum,all</para></param>
-        public virtual UpdateByQueryParameters consistency(string value)
+        ///<summary>Sets the number of shard copies that must be active before proceeding with the update by query operation. Defaults to 1, meaning the primary shard only. Set to `all` for all shard copies, otherwise set to any non-negative value less than or equal to the total number of copies for the shard (number of replicas + 1)</summary>
+        ///<param name="value"></param>
+        public virtual UpdateByQueryParameters wait_for_active_shards(string value)
         {
-            SetValue("consistency", value);
+            SetValue("wait_for_active_shards", value);
             return this;
         }
 
         ///<summary>Size on the scroll request powering the update_by_query</summary>
         ///<param name="value"></param>
-        public virtual UpdateByQueryParameters scroll_size(long value)
+        public virtual UpdateByQueryParameters scroll_size(int value)
         {
             SetValue("scroll_size", value);
             return this;
@@ -322,9 +338,9 @@ namespace Elasticsearch.Client
             return this;
         }
 
-        ///<summary>The throttle for this request in sub-requests per second. 0 means set no throttle.</summary>
+        ///<summary>The throttle to set on this request in sub-requests per second. -1 means set no throttle as does "unlimited" which is the only non-float this accepts.</summary>
         ///<param name="value"><para>Default: 0</para></param>
-        public virtual UpdateByQueryParameters requests_per_second(long value)
+        public virtual UpdateByQueryParameters requests_per_second(double value)
         {
             SetValue("requests_per_second", value);
             return this;

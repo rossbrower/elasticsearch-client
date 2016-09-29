@@ -14,7 +14,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage GetSource(string index, string type, string id, Func<GetSourceParameters, GetSourceParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}/_source"}";
+            var uri = string.Format("/{0}/{1}/{2}/_source", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new GetSourceParameters()).GetUri(uri);
@@ -30,7 +30,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> GetSourceAsync(string index, string type, string id, Func<GetSourceParameters, GetSourceParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}/_source"}";
+            var uri = string.Format("/{0}/{1}/{2}/_source", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new GetSourceParameters()).GetUri(uri);

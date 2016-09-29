@@ -2,6 +2,14 @@ namespace Elasticsearch.Client
 {
     public class CatIndicesParameters : Parameters
     {
+        ///<summary>a short version of the Accept header, e.g. json, yaml</summary>
+        ///<param name="value"></param>
+        public virtual CatIndicesParameters format(string value)
+        {
+            SetValue("format", value);
+            return this;
+        }
+
         ///<summary>The unit in which to display byte values</summary>
         ///<param name="value"><para>Options: b,k,m,g</para></param>
         public virtual CatIndicesParameters bytes(string value)
@@ -31,6 +39,14 @@ namespace Elasticsearch.Client
         public virtual CatIndicesParameters h(string value)
         {
             SetValue("h", value);
+            return this;
+        }
+
+        ///<summary>A health status ("green", "yellow", or "red" to filter only indices matching the specified health status</summary>
+        ///<param name="value"></param>
+        public virtual CatIndicesParameters health(string value)
+        {
+            SetValue("health", value);
             return this;
         }
 

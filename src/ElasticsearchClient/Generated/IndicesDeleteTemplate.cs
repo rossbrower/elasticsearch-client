@@ -12,7 +12,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesDeleteTemplate(string name, Func<IndicesDeleteTemplateParameters, IndicesDeleteTemplateParameters> options = null)
         {
-            var uri = $"{"/_template/{0}"}";
+            var uri = string.Format("/_template/{0}", name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesDeleteTemplateParameters()).GetUri(uri);
@@ -26,7 +26,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesDeleteTemplateAsync(string name, Func<IndicesDeleteTemplateParameters, IndicesDeleteTemplateParameters> options = null)
         {
-            var uri = $"{"/_template/{0}"}";
+            var uri = string.Format("/_template/{0}", name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesDeleteTemplateParameters()).GetUri(uri);

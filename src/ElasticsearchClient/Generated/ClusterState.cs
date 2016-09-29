@@ -38,7 +38,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage ClusterState(string metric, Func<ClusterStateParameters, ClusterStateParameters> options = null)
         {
-            var uri = $"{"/_cluster/state/{0}"}";
+            var uri = string.Format("/_cluster/state/{0}", metric);
             if (options != null)
             {
                 uri = options.Invoke(new ClusterStateParameters()).GetUri(uri);
@@ -52,7 +52,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> ClusterStateAsync(string metric, Func<ClusterStateParameters, ClusterStateParameters> options = null)
         {
-            var uri = $"{"/_cluster/state/{0}"}";
+            var uri = string.Format("/_cluster/state/{0}", metric);
             if (options != null)
             {
                 uri = options.Invoke(new ClusterStateParameters()).GetUri(uri);
@@ -67,7 +67,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage ClusterState(string metric, string index, Func<ClusterStateParameters, ClusterStateParameters> options = null)
         {
-            var uri = $"{"/_cluster/state/{0}/{1}"}";
+            var uri = string.Format("/_cluster/state/{0}/{1}", metric, index);
             if (options != null)
             {
                 uri = options.Invoke(new ClusterStateParameters()).GetUri(uri);
@@ -82,7 +82,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> ClusterStateAsync(string metric, string index, Func<ClusterStateParameters, ClusterStateParameters> options = null)
         {
-            var uri = $"{"/_cluster/state/{0}/{1}"}";
+            var uri = string.Format("/_cluster/state/{0}/{1}", metric, index);
             if (options != null)
             {
                 uri = options.Invoke(new ClusterStateParameters()).GetUri(uri);

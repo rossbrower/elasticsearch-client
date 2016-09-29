@@ -64,7 +64,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesRefreshPost(string index, Func<IndicesRefreshParameters, IndicesRefreshParameters> options = null)
         {
-            var uri = $"{"/{0}/_refresh"}";
+            var uri = string.Format("/{0}/_refresh", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesRefreshParameters()).GetUri(uri);
@@ -78,7 +78,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesRefreshPostAsync(string index, Func<IndicesRefreshParameters, IndicesRefreshParameters> options = null)
         {
-            var uri = $"{"/{0}/_refresh"}";
+            var uri = string.Format("/{0}/_refresh", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesRefreshParameters()).GetUri(uri);
@@ -92,7 +92,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesRefreshGet(string index, Func<IndicesRefreshParameters, IndicesRefreshParameters> options = null)
         {
-            var uri = $"{"/{0}/_refresh"}";
+            var uri = string.Format("/{0}/_refresh", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesRefreshParameters()).GetUri(uri);
@@ -106,7 +106,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesRefreshGetAsync(string index, Func<IndicesRefreshParameters, IndicesRefreshParameters> options = null)
         {
-            var uri = $"{"/{0}/_refresh"}";
+            var uri = string.Format("/{0}/_refresh", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesRefreshParameters()).GetUri(uri);

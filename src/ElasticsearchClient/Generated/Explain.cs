@@ -14,7 +14,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage ExplainGet(string index, string type, string id, Func<ExplainParameters, ExplainParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}/_explain"}";
+            var uri = string.Format("/{0}/{1}/{2}/_explain", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new ExplainParameters()).GetUri(uri);
@@ -30,7 +30,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> ExplainGetAsync(string index, string type, string id, Func<ExplainParameters, ExplainParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}/_explain"}";
+            var uri = string.Format("/{0}/{1}/{2}/_explain", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new ExplainParameters()).GetUri(uri);
@@ -47,7 +47,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage ExplainGet(string index, string type, string id, Stream body, Func<ExplainParameters, ExplainParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}/_explain"}";
+            var uri = string.Format("/{0}/{1}/{2}/_explain", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new ExplainParameters()).GetUri(uri);
@@ -64,7 +64,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> ExplainGetAsync(string index, string type, string id, Stream body, Func<ExplainParameters, ExplainParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}/_explain"}";
+            var uri = string.Format("/{0}/{1}/{2}/_explain", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new ExplainParameters()).GetUri(uri);
@@ -81,7 +81,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage ExplainGet(string index, string type, string id, byte[] body, Func<ExplainParameters, ExplainParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}/_explain"}";
+            var uri = string.Format("/{0}/{1}/{2}/_explain", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new ExplainParameters()).GetUri(uri);
@@ -98,7 +98,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> ExplainGetAsync(string index, string type, string id, byte[] body, Func<ExplainParameters, ExplainParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}/_explain"}";
+            var uri = string.Format("/{0}/{1}/{2}/_explain", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new ExplainParameters()).GetUri(uri);
@@ -115,7 +115,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage ExplainGetString(string index, string type, string id, string body, Func<ExplainParameters, ExplainParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}/_explain"}";
+            var uri = string.Format("/{0}/{1}/{2}/_explain", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new ExplainParameters()).GetUri(uri);
@@ -132,7 +132,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> ExplainGetStringAsync(string index, string type, string id, string body, Func<ExplainParameters, ExplainParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}/_explain"}";
+            var uri = string.Format("/{0}/{1}/{2}/_explain", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new ExplainParameters()).GetUri(uri);
@@ -148,7 +148,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage ExplainPost(string index, string type, string id, Func<ExplainParameters, ExplainParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}/_explain"}";
+            var uri = string.Format("/{0}/{1}/{2}/_explain", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new ExplainParameters()).GetUri(uri);
@@ -164,7 +164,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> ExplainPostAsync(string index, string type, string id, Func<ExplainParameters, ExplainParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}/_explain"}";
+            var uri = string.Format("/{0}/{1}/{2}/_explain", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new ExplainParameters()).GetUri(uri);
@@ -181,7 +181,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage ExplainPost(string index, string type, string id, Stream body, Func<ExplainParameters, ExplainParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}/_explain"}";
+            var uri = string.Format("/{0}/{1}/{2}/_explain", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new ExplainParameters()).GetUri(uri);
@@ -198,7 +198,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> ExplainPostAsync(string index, string type, string id, Stream body, Func<ExplainParameters, ExplainParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}/_explain"}";
+            var uri = string.Format("/{0}/{1}/{2}/_explain", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new ExplainParameters()).GetUri(uri);
@@ -215,7 +215,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage ExplainPost(string index, string type, string id, byte[] body, Func<ExplainParameters, ExplainParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}/_explain"}";
+            var uri = string.Format("/{0}/{1}/{2}/_explain", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new ExplainParameters()).GetUri(uri);
@@ -232,7 +232,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> ExplainPostAsync(string index, string type, string id, byte[] body, Func<ExplainParameters, ExplainParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}/_explain"}";
+            var uri = string.Format("/{0}/{1}/{2}/_explain", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new ExplainParameters()).GetUri(uri);
@@ -249,7 +249,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage ExplainPostString(string index, string type, string id, string body, Func<ExplainParameters, ExplainParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}/_explain"}";
+            var uri = string.Format("/{0}/{1}/{2}/_explain", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new ExplainParameters()).GetUri(uri);
@@ -266,7 +266,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> ExplainPostStringAsync(string index, string type, string id, string body, Func<ExplainParameters, ExplainParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}/_explain"}";
+            var uri = string.Format("/{0}/{1}/{2}/_explain", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new ExplainParameters()).GetUri(uri);

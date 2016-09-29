@@ -14,7 +14,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage Update(string index, string type, string id, Func<UpdateParameters, UpdateParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}/_update"}";
+            var uri = string.Format("/{0}/{1}/{2}/_update", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new UpdateParameters()).GetUri(uri);
@@ -30,7 +30,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> UpdateAsync(string index, string type, string id, Func<UpdateParameters, UpdateParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}/_update"}";
+            var uri = string.Format("/{0}/{1}/{2}/_update", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new UpdateParameters()).GetUri(uri);
@@ -47,7 +47,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage Update(string index, string type, string id, Stream body, Func<UpdateParameters, UpdateParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}/_update"}";
+            var uri = string.Format("/{0}/{1}/{2}/_update", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new UpdateParameters()).GetUri(uri);
@@ -64,7 +64,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> UpdateAsync(string index, string type, string id, Stream body, Func<UpdateParameters, UpdateParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}/_update"}";
+            var uri = string.Format("/{0}/{1}/{2}/_update", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new UpdateParameters()).GetUri(uri);
@@ -81,7 +81,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage Update(string index, string type, string id, byte[] body, Func<UpdateParameters, UpdateParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}/_update"}";
+            var uri = string.Format("/{0}/{1}/{2}/_update", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new UpdateParameters()).GetUri(uri);
@@ -98,7 +98,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> UpdateAsync(string index, string type, string id, byte[] body, Func<UpdateParameters, UpdateParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}/_update"}";
+            var uri = string.Format("/{0}/{1}/{2}/_update", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new UpdateParameters()).GetUri(uri);
@@ -115,7 +115,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage UpdateString(string index, string type, string id, string body, Func<UpdateParameters, UpdateParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}/_update"}";
+            var uri = string.Format("/{0}/{1}/{2}/_update", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new UpdateParameters()).GetUri(uri);
@@ -132,7 +132,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> UpdateStringAsync(string index, string type, string id, string body, Func<UpdateParameters, UpdateParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}/_update"}";
+            var uri = string.Format("/{0}/{1}/{2}/_update", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new UpdateParameters()).GetUri(uri);

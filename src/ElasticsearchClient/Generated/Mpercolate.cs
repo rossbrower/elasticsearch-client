@@ -181,7 +181,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MpercolateGet(string index, Stream body, Func<MpercolateParameters, MpercolateParameters> options = null)
         {
-            var uri = $"{"/{0}/_mpercolate"}";
+            var uri = string.Format("/{0}/_mpercolate", index);
             if (options != null)
             {
                 uri = options.Invoke(new MpercolateParameters()).GetUri(uri);
@@ -196,7 +196,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MpercolateGetAsync(string index, Stream body, Func<MpercolateParameters, MpercolateParameters> options = null)
         {
-            var uri = $"{"/{0}/_mpercolate"}";
+            var uri = string.Format("/{0}/_mpercolate", index);
             if (options != null)
             {
                 uri = options.Invoke(new MpercolateParameters()).GetUri(uri);
@@ -211,7 +211,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MpercolateGet(string index, byte[] body, Func<MpercolateParameters, MpercolateParameters> options = null)
         {
-            var uri = $"{"/{0}/_mpercolate"}";
+            var uri = string.Format("/{0}/_mpercolate", index);
             if (options != null)
             {
                 uri = options.Invoke(new MpercolateParameters()).GetUri(uri);
@@ -226,7 +226,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MpercolateGetAsync(string index, byte[] body, Func<MpercolateParameters, MpercolateParameters> options = null)
         {
-            var uri = $"{"/{0}/_mpercolate"}";
+            var uri = string.Format("/{0}/_mpercolate", index);
             if (options != null)
             {
                 uri = options.Invoke(new MpercolateParameters()).GetUri(uri);
@@ -241,7 +241,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MpercolateGetString(string index, string body, Func<MpercolateParameters, MpercolateParameters> options = null)
         {
-            var uri = $"{"/{0}/_mpercolate"}";
+            var uri = string.Format("/{0}/_mpercolate", index);
             if (options != null)
             {
                 uri = options.Invoke(new MpercolateParameters()).GetUri(uri);
@@ -256,7 +256,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MpercolateGetStringAsync(string index, string body, Func<MpercolateParameters, MpercolateParameters> options = null)
         {
-            var uri = $"{"/{0}/_mpercolate"}";
+            var uri = string.Format("/{0}/_mpercolate", index);
             if (options != null)
             {
                 uri = options.Invoke(new MpercolateParameters()).GetUri(uri);
@@ -271,7 +271,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MpercolatePost(string index, Stream body, Func<MpercolateParameters, MpercolateParameters> options = null)
         {
-            var uri = $"{"/{0}/_mpercolate"}";
+            var uri = string.Format("/{0}/_mpercolate", index);
             if (options != null)
             {
                 uri = options.Invoke(new MpercolateParameters()).GetUri(uri);
@@ -286,7 +286,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MpercolatePostAsync(string index, Stream body, Func<MpercolateParameters, MpercolateParameters> options = null)
         {
-            var uri = $"{"/{0}/_mpercolate"}";
+            var uri = string.Format("/{0}/_mpercolate", index);
             if (options != null)
             {
                 uri = options.Invoke(new MpercolateParameters()).GetUri(uri);
@@ -301,7 +301,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MpercolatePost(string index, byte[] body, Func<MpercolateParameters, MpercolateParameters> options = null)
         {
-            var uri = $"{"/{0}/_mpercolate"}";
+            var uri = string.Format("/{0}/_mpercolate", index);
             if (options != null)
             {
                 uri = options.Invoke(new MpercolateParameters()).GetUri(uri);
@@ -316,7 +316,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MpercolatePostAsync(string index, byte[] body, Func<MpercolateParameters, MpercolateParameters> options = null)
         {
-            var uri = $"{"/{0}/_mpercolate"}";
+            var uri = string.Format("/{0}/_mpercolate", index);
             if (options != null)
             {
                 uri = options.Invoke(new MpercolateParameters()).GetUri(uri);
@@ -331,7 +331,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MpercolatePostString(string index, string body, Func<MpercolateParameters, MpercolateParameters> options = null)
         {
-            var uri = $"{"/{0}/_mpercolate"}";
+            var uri = string.Format("/{0}/_mpercolate", index);
             if (options != null)
             {
                 uri = options.Invoke(new MpercolateParameters()).GetUri(uri);
@@ -346,7 +346,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MpercolatePostStringAsync(string index, string body, Func<MpercolateParameters, MpercolateParameters> options = null)
         {
-            var uri = $"{"/{0}/_mpercolate"}";
+            var uri = string.Format("/{0}/_mpercolate", index);
             if (options != null)
             {
                 uri = options.Invoke(new MpercolateParameters()).GetUri(uri);
@@ -362,7 +362,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MpercolateGet(string index, string type, Stream body, Func<MpercolateParameters, MpercolateParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mpercolate"}";
+            var uri = string.Format("/{0}/{1}/_mpercolate", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new MpercolateParameters()).GetUri(uri);
@@ -378,7 +378,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MpercolateGetAsync(string index, string type, Stream body, Func<MpercolateParameters, MpercolateParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mpercolate"}";
+            var uri = string.Format("/{0}/{1}/_mpercolate", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new MpercolateParameters()).GetUri(uri);
@@ -394,7 +394,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MpercolateGet(string index, string type, byte[] body, Func<MpercolateParameters, MpercolateParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mpercolate"}";
+            var uri = string.Format("/{0}/{1}/_mpercolate", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new MpercolateParameters()).GetUri(uri);
@@ -410,7 +410,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MpercolateGetAsync(string index, string type, byte[] body, Func<MpercolateParameters, MpercolateParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mpercolate"}";
+            var uri = string.Format("/{0}/{1}/_mpercolate", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new MpercolateParameters()).GetUri(uri);
@@ -426,7 +426,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MpercolateGetString(string index, string type, string body, Func<MpercolateParameters, MpercolateParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mpercolate"}";
+            var uri = string.Format("/{0}/{1}/_mpercolate", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new MpercolateParameters()).GetUri(uri);
@@ -442,7 +442,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MpercolateGetStringAsync(string index, string type, string body, Func<MpercolateParameters, MpercolateParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mpercolate"}";
+            var uri = string.Format("/{0}/{1}/_mpercolate", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new MpercolateParameters()).GetUri(uri);
@@ -458,7 +458,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MpercolatePost(string index, string type, Stream body, Func<MpercolateParameters, MpercolateParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mpercolate"}";
+            var uri = string.Format("/{0}/{1}/_mpercolate", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new MpercolateParameters()).GetUri(uri);
@@ -474,7 +474,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MpercolatePostAsync(string index, string type, Stream body, Func<MpercolateParameters, MpercolateParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mpercolate"}";
+            var uri = string.Format("/{0}/{1}/_mpercolate", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new MpercolateParameters()).GetUri(uri);
@@ -490,7 +490,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MpercolatePost(string index, string type, byte[] body, Func<MpercolateParameters, MpercolateParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mpercolate"}";
+            var uri = string.Format("/{0}/{1}/_mpercolate", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new MpercolateParameters()).GetUri(uri);
@@ -506,7 +506,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MpercolatePostAsync(string index, string type, byte[] body, Func<MpercolateParameters, MpercolateParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mpercolate"}";
+            var uri = string.Format("/{0}/{1}/_mpercolate", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new MpercolateParameters()).GetUri(uri);
@@ -522,7 +522,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MpercolatePostString(string index, string type, string body, Func<MpercolateParameters, MpercolateParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mpercolate"}";
+            var uri = string.Format("/{0}/{1}/_mpercolate", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new MpercolateParameters()).GetUri(uri);
@@ -538,7 +538,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MpercolatePostStringAsync(string index, string type, string body, Func<MpercolateParameters, MpercolateParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_mpercolate"}";
+            var uri = string.Format("/{0}/{1}/_mpercolate", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new MpercolateParameters()).GetUri(uri);

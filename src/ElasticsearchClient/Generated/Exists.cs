@@ -14,7 +14,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage Exists(string index, string type, string id, Func<ExistsParameters, ExistsParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}"}";
+            var uri = string.Format("/{0}/{1}/{2}", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new ExistsParameters()).GetUri(uri);
@@ -30,7 +30,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> ExistsAsync(string index, string type, string id, Func<ExistsParameters, ExistsParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/{2}"}";
+            var uri = string.Format("/{0}/{1}/{2}", index, type, id);
             if (options != null)
             {
                 uri = options.Invoke(new ExistsParameters()).GetUri(uri);

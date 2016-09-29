@@ -38,7 +38,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesSegments(string index, Func<IndicesSegmentsParameters, IndicesSegmentsParameters> options = null)
         {
-            var uri = $"{"/{0}/_segments"}";
+            var uri = string.Format("/{0}/_segments", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesSegmentsParameters()).GetUri(uri);
@@ -52,7 +52,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesSegmentsAsync(string index, Func<IndicesSegmentsParameters, IndicesSegmentsParameters> options = null)
         {
-            var uri = $"{"/{0}/_segments"}";
+            var uri = string.Format("/{0}/_segments", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesSegmentsParameters()).GetUri(uri);

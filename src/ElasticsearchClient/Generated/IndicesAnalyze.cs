@@ -232,7 +232,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesAnalyzeGet(string index, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
-            var uri = $"{"/{0}/_analyze"}";
+            var uri = string.Format("/{0}/_analyze", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesAnalyzeParameters()).GetUri(uri);
@@ -246,7 +246,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesAnalyzeGetAsync(string index, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
-            var uri = $"{"/{0}/_analyze"}";
+            var uri = string.Format("/{0}/_analyze", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesAnalyzeParameters()).GetUri(uri);
@@ -261,7 +261,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesAnalyzeGet(string index, Stream body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
-            var uri = $"{"/{0}/_analyze"}";
+            var uri = string.Format("/{0}/_analyze", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesAnalyzeParameters()).GetUri(uri);
@@ -276,7 +276,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesAnalyzeGetAsync(string index, Stream body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
-            var uri = $"{"/{0}/_analyze"}";
+            var uri = string.Format("/{0}/_analyze", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesAnalyzeParameters()).GetUri(uri);
@@ -291,7 +291,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesAnalyzeGet(string index, byte[] body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
-            var uri = $"{"/{0}/_analyze"}";
+            var uri = string.Format("/{0}/_analyze", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesAnalyzeParameters()).GetUri(uri);
@@ -306,7 +306,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesAnalyzeGetAsync(string index, byte[] body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
-            var uri = $"{"/{0}/_analyze"}";
+            var uri = string.Format("/{0}/_analyze", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesAnalyzeParameters()).GetUri(uri);
@@ -321,7 +321,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesAnalyzeGetString(string index, string body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
-            var uri = $"{"/{0}/_analyze"}";
+            var uri = string.Format("/{0}/_analyze", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesAnalyzeParameters()).GetUri(uri);
@@ -336,7 +336,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesAnalyzeGetStringAsync(string index, string body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
-            var uri = $"{"/{0}/_analyze"}";
+            var uri = string.Format("/{0}/_analyze", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesAnalyzeParameters()).GetUri(uri);
@@ -350,7 +350,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesAnalyzePost(string index, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
-            var uri = $"{"/{0}/_analyze"}";
+            var uri = string.Format("/{0}/_analyze", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesAnalyzeParameters()).GetUri(uri);
@@ -364,7 +364,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesAnalyzePostAsync(string index, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
-            var uri = $"{"/{0}/_analyze"}";
+            var uri = string.Format("/{0}/_analyze", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesAnalyzeParameters()).GetUri(uri);
@@ -379,7 +379,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesAnalyzePost(string index, Stream body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
-            var uri = $"{"/{0}/_analyze"}";
+            var uri = string.Format("/{0}/_analyze", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesAnalyzeParameters()).GetUri(uri);
@@ -394,7 +394,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesAnalyzePostAsync(string index, Stream body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
-            var uri = $"{"/{0}/_analyze"}";
+            var uri = string.Format("/{0}/_analyze", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesAnalyzeParameters()).GetUri(uri);
@@ -409,7 +409,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesAnalyzePost(string index, byte[] body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
-            var uri = $"{"/{0}/_analyze"}";
+            var uri = string.Format("/{0}/_analyze", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesAnalyzeParameters()).GetUri(uri);
@@ -424,7 +424,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesAnalyzePostAsync(string index, byte[] body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
-            var uri = $"{"/{0}/_analyze"}";
+            var uri = string.Format("/{0}/_analyze", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesAnalyzeParameters()).GetUri(uri);
@@ -439,7 +439,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesAnalyzePostString(string index, string body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
-            var uri = $"{"/{0}/_analyze"}";
+            var uri = string.Format("/{0}/_analyze", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesAnalyzeParameters()).GetUri(uri);
@@ -454,7 +454,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesAnalyzePostStringAsync(string index, string body, Func<IndicesAnalyzeParameters, IndicesAnalyzeParameters> options = null)
         {
-            var uri = $"{"/{0}/_analyze"}";
+            var uri = string.Format("/{0}/_analyze", index);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesAnalyzeParameters()).GetUri(uri);

@@ -49,5 +49,13 @@ namespace Elasticsearch.Client
             SetValue("wait_for_completion", value.ToString().ToLower());
             return this;
         }
+
+        ///<summary>Group tasks by nodes or parent/child relationships</summary>
+        ///<param name="value"><para>Options: nodes,parents</para><para>Default: nodes</para></param>
+        public virtual TasksListParameters group_by(string value)
+        {
+            SetValue("group_by", value);
+            return this;
+        }
     }
 }

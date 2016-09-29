@@ -38,7 +38,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage NodesHotThreads(string node_id, Func<NodesHotThreadsParameters, NodesHotThreadsParameters> options = null)
         {
-            var uri = $"{"/_cluster/nodes/{0}/hotthreads"}";
+            var uri = string.Format("/_cluster/nodes/{0}/hotthreads", node_id);
             if (options != null)
             {
                 uri = options.Invoke(new NodesHotThreadsParameters()).GetUri(uri);
@@ -52,7 +52,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> NodesHotThreadsAsync(string node_id, Func<NodesHotThreadsParameters, NodesHotThreadsParameters> options = null)
         {
-            var uri = $"{"/_cluster/nodes/{0}/hotthreads"}";
+            var uri = string.Format("/_cluster/nodes/{0}/hotthreads", node_id);
             if (options != null)
             {
                 uri = options.Invoke(new NodesHotThreadsParameters()).GetUri(uri);

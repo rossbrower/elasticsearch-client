@@ -38,7 +38,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesGetAlias(string name, Func<IndicesGetAliasParameters, IndicesGetAliasParameters> options = null)
         {
-            var uri = $"{"/_alias/{0}"}";
+            var uri = string.Format("/_alias/{0}", name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesGetAliasParameters()).GetUri(uri);
@@ -52,7 +52,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesGetAliasAsync(string name, Func<IndicesGetAliasParameters, IndicesGetAliasParameters> options = null)
         {
-            var uri = $"{"/_alias/{0}"}";
+            var uri = string.Format("/_alias/{0}", name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesGetAliasParameters()).GetUri(uri);
@@ -67,7 +67,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesGetAlias(string index, string name, Func<IndicesGetAliasParameters, IndicesGetAliasParameters> options = null)
         {
-            var uri = $"{"/{0}/_alias/{1}"}";
+            var uri = string.Format("/{0}/_alias/{1}", index, name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesGetAliasParameters()).GetUri(uri);
@@ -82,7 +82,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesGetAliasAsync(string index, string name, Func<IndicesGetAliasParameters, IndicesGetAliasParameters> options = null)
         {
-            var uri = $"{"/{0}/_alias/{1}"}";
+            var uri = string.Format("/{0}/_alias/{1}", index, name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesGetAliasParameters()).GetUri(uri);

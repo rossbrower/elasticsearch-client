@@ -181,7 +181,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage BulkPost(string index, Stream body, Func<BulkParameters, BulkParameters> options = null)
         {
-            var uri = $"{"/{0}/_bulk"}";
+            var uri = string.Format("/{0}/_bulk", index);
             if (options != null)
             {
                 uri = options.Invoke(new BulkParameters()).GetUri(uri);
@@ -196,7 +196,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> BulkPostAsync(string index, Stream body, Func<BulkParameters, BulkParameters> options = null)
         {
-            var uri = $"{"/{0}/_bulk"}";
+            var uri = string.Format("/{0}/_bulk", index);
             if (options != null)
             {
                 uri = options.Invoke(new BulkParameters()).GetUri(uri);
@@ -211,7 +211,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage BulkPost(string index, byte[] body, Func<BulkParameters, BulkParameters> options = null)
         {
-            var uri = $"{"/{0}/_bulk"}";
+            var uri = string.Format("/{0}/_bulk", index);
             if (options != null)
             {
                 uri = options.Invoke(new BulkParameters()).GetUri(uri);
@@ -226,7 +226,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> BulkPostAsync(string index, byte[] body, Func<BulkParameters, BulkParameters> options = null)
         {
-            var uri = $"{"/{0}/_bulk"}";
+            var uri = string.Format("/{0}/_bulk", index);
             if (options != null)
             {
                 uri = options.Invoke(new BulkParameters()).GetUri(uri);
@@ -241,7 +241,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage BulkPostString(string index, string body, Func<BulkParameters, BulkParameters> options = null)
         {
-            var uri = $"{"/{0}/_bulk"}";
+            var uri = string.Format("/{0}/_bulk", index);
             if (options != null)
             {
                 uri = options.Invoke(new BulkParameters()).GetUri(uri);
@@ -256,7 +256,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> BulkPostStringAsync(string index, string body, Func<BulkParameters, BulkParameters> options = null)
         {
-            var uri = $"{"/{0}/_bulk"}";
+            var uri = string.Format("/{0}/_bulk", index);
             if (options != null)
             {
                 uri = options.Invoke(new BulkParameters()).GetUri(uri);
@@ -271,7 +271,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage BulkPut(string index, Stream body, Func<BulkParameters, BulkParameters> options = null)
         {
-            var uri = $"{"/{0}/_bulk"}";
+            var uri = string.Format("/{0}/_bulk", index);
             if (options != null)
             {
                 uri = options.Invoke(new BulkParameters()).GetUri(uri);
@@ -286,7 +286,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> BulkPutAsync(string index, Stream body, Func<BulkParameters, BulkParameters> options = null)
         {
-            var uri = $"{"/{0}/_bulk"}";
+            var uri = string.Format("/{0}/_bulk", index);
             if (options != null)
             {
                 uri = options.Invoke(new BulkParameters()).GetUri(uri);
@@ -301,7 +301,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage BulkPut(string index, byte[] body, Func<BulkParameters, BulkParameters> options = null)
         {
-            var uri = $"{"/{0}/_bulk"}";
+            var uri = string.Format("/{0}/_bulk", index);
             if (options != null)
             {
                 uri = options.Invoke(new BulkParameters()).GetUri(uri);
@@ -316,7 +316,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> BulkPutAsync(string index, byte[] body, Func<BulkParameters, BulkParameters> options = null)
         {
-            var uri = $"{"/{0}/_bulk"}";
+            var uri = string.Format("/{0}/_bulk", index);
             if (options != null)
             {
                 uri = options.Invoke(new BulkParameters()).GetUri(uri);
@@ -331,7 +331,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage BulkPutString(string index, string body, Func<BulkParameters, BulkParameters> options = null)
         {
-            var uri = $"{"/{0}/_bulk"}";
+            var uri = string.Format("/{0}/_bulk", index);
             if (options != null)
             {
                 uri = options.Invoke(new BulkParameters()).GetUri(uri);
@@ -346,7 +346,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> BulkPutStringAsync(string index, string body, Func<BulkParameters, BulkParameters> options = null)
         {
-            var uri = $"{"/{0}/_bulk"}";
+            var uri = string.Format("/{0}/_bulk", index);
             if (options != null)
             {
                 uri = options.Invoke(new BulkParameters()).GetUri(uri);
@@ -362,7 +362,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage BulkPost(string index, string type, Stream body, Func<BulkParameters, BulkParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_bulk"}";
+            var uri = string.Format("/{0}/{1}/_bulk", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new BulkParameters()).GetUri(uri);
@@ -378,7 +378,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> BulkPostAsync(string index, string type, Stream body, Func<BulkParameters, BulkParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_bulk"}";
+            var uri = string.Format("/{0}/{1}/_bulk", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new BulkParameters()).GetUri(uri);
@@ -394,7 +394,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage BulkPost(string index, string type, byte[] body, Func<BulkParameters, BulkParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_bulk"}";
+            var uri = string.Format("/{0}/{1}/_bulk", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new BulkParameters()).GetUri(uri);
@@ -410,7 +410,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> BulkPostAsync(string index, string type, byte[] body, Func<BulkParameters, BulkParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_bulk"}";
+            var uri = string.Format("/{0}/{1}/_bulk", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new BulkParameters()).GetUri(uri);
@@ -426,7 +426,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage BulkPostString(string index, string type, string body, Func<BulkParameters, BulkParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_bulk"}";
+            var uri = string.Format("/{0}/{1}/_bulk", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new BulkParameters()).GetUri(uri);
@@ -442,7 +442,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> BulkPostStringAsync(string index, string type, string body, Func<BulkParameters, BulkParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_bulk"}";
+            var uri = string.Format("/{0}/{1}/_bulk", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new BulkParameters()).GetUri(uri);
@@ -458,7 +458,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage BulkPut(string index, string type, Stream body, Func<BulkParameters, BulkParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_bulk"}";
+            var uri = string.Format("/{0}/{1}/_bulk", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new BulkParameters()).GetUri(uri);
@@ -474,7 +474,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> BulkPutAsync(string index, string type, Stream body, Func<BulkParameters, BulkParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_bulk"}";
+            var uri = string.Format("/{0}/{1}/_bulk", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new BulkParameters()).GetUri(uri);
@@ -490,7 +490,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage BulkPut(string index, string type, byte[] body, Func<BulkParameters, BulkParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_bulk"}";
+            var uri = string.Format("/{0}/{1}/_bulk", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new BulkParameters()).GetUri(uri);
@@ -506,7 +506,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> BulkPutAsync(string index, string type, byte[] body, Func<BulkParameters, BulkParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_bulk"}";
+            var uri = string.Format("/{0}/{1}/_bulk", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new BulkParameters()).GetUri(uri);
@@ -522,7 +522,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage BulkPutString(string index, string type, string body, Func<BulkParameters, BulkParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_bulk"}";
+            var uri = string.Format("/{0}/{1}/_bulk", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new BulkParameters()).GetUri(uri);
@@ -538,7 +538,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> BulkPutStringAsync(string index, string type, string body, Func<BulkParameters, BulkParameters> options = null)
         {
-            var uri = $"{"/{0}/{1}/_bulk"}";
+            var uri = string.Format("/{0}/{1}/_bulk", index, type);
             if (options != null)
             {
                 uri = options.Invoke(new BulkParameters()).GetUri(uri);

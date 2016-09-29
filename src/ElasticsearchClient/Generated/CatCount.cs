@@ -38,7 +38,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage CatCount(string index, Func<CatCountParameters, CatCountParameters> options = null)
         {
-            var uri = $"{"/_cat/count/{0}"}";
+            var uri = string.Format("/_cat/count/{0}", index);
             if (options != null)
             {
                 uri = options.Invoke(new CatCountParameters()).GetUri(uri);
@@ -52,7 +52,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> CatCountAsync(string index, Func<CatCountParameters, CatCountParameters> options = null)
         {
-            var uri = $"{"/_cat/count/{0}"}";
+            var uri = string.Format("/_cat/count/{0}", index);
             if (options != null)
             {
                 uri = options.Invoke(new CatCountParameters()).GetUri(uri);

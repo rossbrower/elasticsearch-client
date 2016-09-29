@@ -12,7 +12,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage CatSnapshots(string repository, Func<CatSnapshotsParameters, CatSnapshotsParameters> options = null)
         {
-            var uri = $"{"/_cat/snapshots/{0}"}";
+            var uri = string.Format("/_cat/snapshots/{0}", repository);
             if (options != null)
             {
                 uri = options.Invoke(new CatSnapshotsParameters()).GetUri(uri);
@@ -26,7 +26,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> CatSnapshotsAsync(string repository, Func<CatSnapshotsParameters, CatSnapshotsParameters> options = null)
         {
-            var uri = $"{"/_cat/snapshots/{0}"}";
+            var uri = string.Format("/_cat/snapshots/{0}", repository);
             if (options != null)
             {
                 uri = options.Invoke(new CatSnapshotsParameters()).GetUri(uri);

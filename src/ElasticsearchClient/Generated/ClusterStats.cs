@@ -38,7 +38,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage ClusterStats(string node_id, Func<ClusterStatsParameters, ClusterStatsParameters> options = null)
         {
-            var uri = $"{"/_cluster/stats/nodes/{0}"}";
+            var uri = string.Format("/_cluster/stats/nodes/{0}", node_id);
             if (options != null)
             {
                 uri = options.Invoke(new ClusterStatsParameters()).GetUri(uri);
@@ -52,7 +52,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> ClusterStatsAsync(string node_id, Func<ClusterStatsParameters, ClusterStatsParameters> options = null)
         {
-            var uri = $"{"/_cluster/stats/nodes/{0}"}";
+            var uri = string.Format("/_cluster/stats/nodes/{0}", node_id);
             if (options != null)
             {
                 uri = options.Invoke(new ClusterStatsParameters()).GetUri(uri);

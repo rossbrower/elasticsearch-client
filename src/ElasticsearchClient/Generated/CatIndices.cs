@@ -38,7 +38,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage CatIndices(string index, Func<CatIndicesParameters, CatIndicesParameters> options = null)
         {
-            var uri = $"{"/_cat/indices/{0}"}";
+            var uri = string.Format("/_cat/indices/{0}", index);
             if (options != null)
             {
                 uri = options.Invoke(new CatIndicesParameters()).GetUri(uri);
@@ -52,7 +52,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> CatIndicesAsync(string index, Func<CatIndicesParameters, CatIndicesParameters> options = null)
         {
-            var uri = $"{"/_cat/indices/{0}"}";
+            var uri = string.Format("/_cat/indices/{0}", index);
             if (options != null)
             {
                 uri = options.Invoke(new CatIndicesParameters()).GetUri(uri);

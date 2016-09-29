@@ -38,7 +38,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage CatShards(string index, Func<CatShardsParameters, CatShardsParameters> options = null)
         {
-            var uri = $"{"/_cat/shards/{0}"}";
+            var uri = string.Format("/_cat/shards/{0}", index);
             if (options != null)
             {
                 uri = options.Invoke(new CatShardsParameters()).GetUri(uri);
@@ -52,7 +52,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> CatShardsAsync(string index, Func<CatShardsParameters, CatShardsParameters> options = null)
         {
-            var uri = $"{"/_cat/shards/{0}"}";
+            var uri = string.Format("/_cat/shards/{0}", index);
             if (options != null)
             {
                 uri = options.Invoke(new CatShardsParameters()).GetUri(uri);

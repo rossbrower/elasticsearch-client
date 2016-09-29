@@ -38,7 +38,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesGetTemplate(string name, Func<IndicesGetTemplateParameters, IndicesGetTemplateParameters> options = null)
         {
-            var uri = $"{"/_template/{0}"}";
+            var uri = string.Format("/_template/{0}", name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesGetTemplateParameters()).GetUri(uri);
@@ -52,7 +52,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesGetTemplateAsync(string name, Func<IndicesGetTemplateParameters, IndicesGetTemplateParameters> options = null)
         {
-            var uri = $"{"/_template/{0}"}";
+            var uri = string.Format("/_template/{0}", name);
             if (options != null)
             {
                 uri = options.Invoke(new IndicesGetTemplateParameters()).GetUri(uri);

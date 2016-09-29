@@ -38,7 +38,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage NodesInfo(string node_id, Func<NodesInfoParameters, NodesInfoParameters> options = null)
         {
-            var uri = $"{"/_nodes/{0}"}";
+            var uri = string.Format("/_nodes/{0}", node_id);
             if (options != null)
             {
                 uri = options.Invoke(new NodesInfoParameters()).GetUri(uri);
@@ -52,7 +52,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> NodesInfoAsync(string node_id, Func<NodesInfoParameters, NodesInfoParameters> options = null)
         {
-            var uri = $"{"/_nodes/{0}"}";
+            var uri = string.Format("/_nodes/{0}", node_id);
             if (options != null)
             {
                 uri = options.Invoke(new NodesInfoParameters()).GetUri(uri);
@@ -67,7 +67,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage NodesInfo(string node_id, string metric, Func<NodesInfoParameters, NodesInfoParameters> options = null)
         {
-            var uri = $"{"/_nodes/{0}/{1}"}";
+            var uri = string.Format("/_nodes/{0}/{1}", node_id, metric);
             if (options != null)
             {
                 uri = options.Invoke(new NodesInfoParameters()).GetUri(uri);
@@ -82,7 +82,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> NodesInfoAsync(string node_id, string metric, Func<NodesInfoParameters, NodesInfoParameters> options = null)
         {
-            var uri = $"{"/_nodes/{0}/{1}"}";
+            var uri = string.Format("/_nodes/{0}/{1}", node_id, metric);
             if (options != null)
             {
                 uri = options.Invoke(new NodesInfoParameters()).GetUri(uri);

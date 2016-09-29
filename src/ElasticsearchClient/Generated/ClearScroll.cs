@@ -11,7 +11,7 @@ namespace Elasticsearch.Client
         ///<param name="scroll_id">A comma-separated list of scroll IDs to clear</param>
         public HttpResponseMessage ClearScroll(string scroll_id)
         {
-            var uri = $"{"/_search/scroll/{0}"}";
+            var uri = string.Format("/_search/scroll/{0}", scroll_id);
             return mConnection.Execute("DELETE", uri);
         }
 
@@ -19,7 +19,7 @@ namespace Elasticsearch.Client
         ///<param name="scroll_id">A comma-separated list of scroll IDs to clear</param>
         public async Task<HttpResponseMessage> ClearScrollAsync(string scroll_id)
         {
-            var uri = $"{"/_search/scroll/{0}"}";
+            var uri = string.Format("/_search/scroll/{0}", scroll_id);
             return await mConnection.ExecuteAsync("DELETE", uri);
         }
 
@@ -28,7 +28,7 @@ namespace Elasticsearch.Client
         ///<param name="body">A comma-separated list of scroll IDs to clear if none was specified via the scroll_id parameter</param>
         public HttpResponseMessage ClearScroll(string scroll_id, Stream body)
         {
-            var uri = $"{"/_search/scroll/{0}"}";
+            var uri = string.Format("/_search/scroll/{0}", scroll_id);
             return mConnection.Execute("DELETE", uri, body);
         }
 
@@ -37,7 +37,7 @@ namespace Elasticsearch.Client
         ///<param name="body">A comma-separated list of scroll IDs to clear if none was specified via the scroll_id parameter</param>
         public async Task<HttpResponseMessage> ClearScrollAsync(string scroll_id, Stream body)
         {
-            var uri = $"{"/_search/scroll/{0}"}";
+            var uri = string.Format("/_search/scroll/{0}", scroll_id);
             return await mConnection.ExecuteAsync("DELETE", uri, body);
         }
 
@@ -46,7 +46,7 @@ namespace Elasticsearch.Client
         ///<param name="body">A comma-separated list of scroll IDs to clear if none was specified via the scroll_id parameter</param>
         public HttpResponseMessage ClearScroll(string scroll_id, byte[] body)
         {
-            var uri = $"{"/_search/scroll/{0}"}";
+            var uri = string.Format("/_search/scroll/{0}", scroll_id);
             return mConnection.Execute("DELETE", uri, body);
         }
 
@@ -55,7 +55,7 @@ namespace Elasticsearch.Client
         ///<param name="body">A comma-separated list of scroll IDs to clear if none was specified via the scroll_id parameter</param>
         public async Task<HttpResponseMessage> ClearScrollAsync(string scroll_id, byte[] body)
         {
-            var uri = $"{"/_search/scroll/{0}"}";
+            var uri = string.Format("/_search/scroll/{0}", scroll_id);
             return await mConnection.ExecuteAsync("DELETE", uri, body);
         }
 
@@ -64,7 +64,7 @@ namespace Elasticsearch.Client
         ///<param name="body">A comma-separated list of scroll IDs to clear if none was specified via the scroll_id parameter</param>
         public HttpResponseMessage ClearScrollString(string scroll_id, string body)
         {
-            var uri = $"{"/_search/scroll/{0}"}";
+            var uri = string.Format("/_search/scroll/{0}", scroll_id);
             return mConnection.Execute("DELETE", uri, body);
         }
 
@@ -73,7 +73,7 @@ namespace Elasticsearch.Client
         ///<param name="body">A comma-separated list of scroll IDs to clear if none was specified via the scroll_id parameter</param>
         public async Task<HttpResponseMessage> ClearScrollStringAsync(string scroll_id, string body)
         {
-            var uri = $"{"/_search/scroll/{0}"}";
+            var uri = string.Format("/_search/scroll/{0}", scroll_id);
             return await mConnection.ExecuteAsync("DELETE", uri, body);
         }
 

@@ -181,7 +181,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage SuggestPost(string index, Stream body, Func<SuggestParameters, SuggestParameters> options = null)
         {
-            var uri = $"{"/{0}/_suggest"}";
+            var uri = string.Format("/{0}/_suggest", index);
             if (options != null)
             {
                 uri = options.Invoke(new SuggestParameters()).GetUri(uri);
@@ -196,7 +196,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> SuggestPostAsync(string index, Stream body, Func<SuggestParameters, SuggestParameters> options = null)
         {
-            var uri = $"{"/{0}/_suggest"}";
+            var uri = string.Format("/{0}/_suggest", index);
             if (options != null)
             {
                 uri = options.Invoke(new SuggestParameters()).GetUri(uri);
@@ -211,7 +211,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage SuggestPost(string index, byte[] body, Func<SuggestParameters, SuggestParameters> options = null)
         {
-            var uri = $"{"/{0}/_suggest"}";
+            var uri = string.Format("/{0}/_suggest", index);
             if (options != null)
             {
                 uri = options.Invoke(new SuggestParameters()).GetUri(uri);
@@ -226,7 +226,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> SuggestPostAsync(string index, byte[] body, Func<SuggestParameters, SuggestParameters> options = null)
         {
-            var uri = $"{"/{0}/_suggest"}";
+            var uri = string.Format("/{0}/_suggest", index);
             if (options != null)
             {
                 uri = options.Invoke(new SuggestParameters()).GetUri(uri);
@@ -241,7 +241,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage SuggestPostString(string index, string body, Func<SuggestParameters, SuggestParameters> options = null)
         {
-            var uri = $"{"/{0}/_suggest"}";
+            var uri = string.Format("/{0}/_suggest", index);
             if (options != null)
             {
                 uri = options.Invoke(new SuggestParameters()).GetUri(uri);
@@ -256,7 +256,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> SuggestPostStringAsync(string index, string body, Func<SuggestParameters, SuggestParameters> options = null)
         {
-            var uri = $"{"/{0}/_suggest"}";
+            var uri = string.Format("/{0}/_suggest", index);
             if (options != null)
             {
                 uri = options.Invoke(new SuggestParameters()).GetUri(uri);
@@ -271,7 +271,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage SuggestGet(string index, Stream body, Func<SuggestParameters, SuggestParameters> options = null)
         {
-            var uri = $"{"/{0}/_suggest"}";
+            var uri = string.Format("/{0}/_suggest", index);
             if (options != null)
             {
                 uri = options.Invoke(new SuggestParameters()).GetUri(uri);
@@ -286,7 +286,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> SuggestGetAsync(string index, Stream body, Func<SuggestParameters, SuggestParameters> options = null)
         {
-            var uri = $"{"/{0}/_suggest"}";
+            var uri = string.Format("/{0}/_suggest", index);
             if (options != null)
             {
                 uri = options.Invoke(new SuggestParameters()).GetUri(uri);
@@ -301,7 +301,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage SuggestGet(string index, byte[] body, Func<SuggestParameters, SuggestParameters> options = null)
         {
-            var uri = $"{"/{0}/_suggest"}";
+            var uri = string.Format("/{0}/_suggest", index);
             if (options != null)
             {
                 uri = options.Invoke(new SuggestParameters()).GetUri(uri);
@@ -316,7 +316,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> SuggestGetAsync(string index, byte[] body, Func<SuggestParameters, SuggestParameters> options = null)
         {
-            var uri = $"{"/{0}/_suggest"}";
+            var uri = string.Format("/{0}/_suggest", index);
             if (options != null)
             {
                 uri = options.Invoke(new SuggestParameters()).GetUri(uri);
@@ -331,7 +331,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage SuggestGetString(string index, string body, Func<SuggestParameters, SuggestParameters> options = null)
         {
-            var uri = $"{"/{0}/_suggest"}";
+            var uri = string.Format("/{0}/_suggest", index);
             if (options != null)
             {
                 uri = options.Invoke(new SuggestParameters()).GetUri(uri);
@@ -346,7 +346,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> SuggestGetStringAsync(string index, string body, Func<SuggestParameters, SuggestParameters> options = null)
         {
-            var uri = $"{"/{0}/_suggest"}";
+            var uri = string.Format("/{0}/_suggest", index);
             if (options != null)
             {
                 uri = options.Invoke(new SuggestParameters()).GetUri(uri);

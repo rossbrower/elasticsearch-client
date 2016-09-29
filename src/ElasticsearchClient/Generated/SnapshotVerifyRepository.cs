@@ -12,7 +12,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage SnapshotVerifyRepository(string repository, Func<SnapshotVerifyRepositoryParameters, SnapshotVerifyRepositoryParameters> options = null)
         {
-            var uri = $"{"/_snapshot/{0}/_verify"}";
+            var uri = string.Format("/_snapshot/{0}/_verify", repository);
             if (options != null)
             {
                 uri = options.Invoke(new SnapshotVerifyRepositoryParameters()).GetUri(uri);
@@ -26,7 +26,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> SnapshotVerifyRepositoryAsync(string repository, Func<SnapshotVerifyRepositoryParameters, SnapshotVerifyRepositoryParameters> options = null)
         {
-            var uri = $"{"/_snapshot/{0}/_verify"}";
+            var uri = string.Format("/_snapshot/{0}/_verify", repository);
             if (options != null)
             {
                 uri = options.Invoke(new SnapshotVerifyRepositoryParameters()).GetUri(uri);

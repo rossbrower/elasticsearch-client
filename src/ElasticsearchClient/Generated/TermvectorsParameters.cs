@@ -18,14 +18,6 @@ namespace Elasticsearch.Client
             return this;
         }
 
-        ///<summary>Specifies if distributed frequencies should be returned instead shard frequencies.</summary>
-        ///<param name="value"><para>Default: False</para></param>
-        public virtual TermvectorsParameters dfs(bool value)
-        {
-            SetValue("dfs", value.ToString().ToLower());
-            return this;
-        }
-
         ///<summary>A comma-separated list of fields to return.</summary>
         ///<param name="value"></param>
         public virtual TermvectorsParameters fields(string value)

@@ -12,7 +12,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage SnapshotStatus(string snapshot, Func<SnapshotStatusParameters, SnapshotStatusParameters> options = null)
         {
-            var uri = $"{"/_0/_status"}";
+            var uri = string.Format("/_0/_status", snapshot);
             if (options != null)
             {
                 uri = options.Invoke(new SnapshotStatusParameters()).GetUri(uri);
@@ -26,7 +26,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> SnapshotStatusAsync(string snapshot, Func<SnapshotStatusParameters, SnapshotStatusParameters> options = null)
         {
-            var uri = $"{"/_0/_status"}";
+            var uri = string.Format("/_0/_status", snapshot);
             if (options != null)
             {
                 uri = options.Invoke(new SnapshotStatusParameters()).GetUri(uri);
@@ -41,7 +41,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage SnapshotStatus(string snapshot, string repository, Func<SnapshotStatusParameters, SnapshotStatusParameters> options = null)
         {
-            var uri = $"{"/_0/{1}/_status"}";
+            var uri = string.Format("/_0/{1}/_status", snapshot, repository);
             if (options != null)
             {
                 uri = options.Invoke(new SnapshotStatusParameters()).GetUri(uri);
@@ -56,7 +56,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> SnapshotStatusAsync(string snapshot, string repository, Func<SnapshotStatusParameters, SnapshotStatusParameters> options = null)
         {
-            var uri = $"{"/_0/{1}/_status"}";
+            var uri = string.Format("/_0/{1}/_status", snapshot, repository);
             if (options != null)
             {
                 uri = options.Invoke(new SnapshotStatusParameters()).GetUri(uri);

@@ -13,7 +13,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage SnapshotRestore(string snapshot, string repository, Func<SnapshotRestoreParameters, SnapshotRestoreParameters> options = null)
         {
-            var uri = $"{"/_0/{1}/{0}/_restore"}";
+            var uri = string.Format("/_0/{1}/{0}/_restore", snapshot, repository);
             if (options != null)
             {
                 uri = options.Invoke(new SnapshotRestoreParameters()).GetUri(uri);
@@ -28,7 +28,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> SnapshotRestoreAsync(string snapshot, string repository, Func<SnapshotRestoreParameters, SnapshotRestoreParameters> options = null)
         {
-            var uri = $"{"/_0/{1}/{0}/_restore"}";
+            var uri = string.Format("/_0/{1}/{0}/_restore", snapshot, repository);
             if (options != null)
             {
                 uri = options.Invoke(new SnapshotRestoreParameters()).GetUri(uri);
@@ -44,7 +44,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage SnapshotRestore(string snapshot, string repository, Stream body, Func<SnapshotRestoreParameters, SnapshotRestoreParameters> options = null)
         {
-            var uri = $"{"/_0/{1}/{0}/_restore"}";
+            var uri = string.Format("/_0/{1}/{0}/_restore", snapshot, repository);
             if (options != null)
             {
                 uri = options.Invoke(new SnapshotRestoreParameters()).GetUri(uri);
@@ -60,7 +60,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> SnapshotRestoreAsync(string snapshot, string repository, Stream body, Func<SnapshotRestoreParameters, SnapshotRestoreParameters> options = null)
         {
-            var uri = $"{"/_0/{1}/{0}/_restore"}";
+            var uri = string.Format("/_0/{1}/{0}/_restore", snapshot, repository);
             if (options != null)
             {
                 uri = options.Invoke(new SnapshotRestoreParameters()).GetUri(uri);
@@ -76,7 +76,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage SnapshotRestore(string snapshot, string repository, byte[] body, Func<SnapshotRestoreParameters, SnapshotRestoreParameters> options = null)
         {
-            var uri = $"{"/_0/{1}/{0}/_restore"}";
+            var uri = string.Format("/_0/{1}/{0}/_restore", snapshot, repository);
             if (options != null)
             {
                 uri = options.Invoke(new SnapshotRestoreParameters()).GetUri(uri);
@@ -92,7 +92,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> SnapshotRestoreAsync(string snapshot, string repository, byte[] body, Func<SnapshotRestoreParameters, SnapshotRestoreParameters> options = null)
         {
-            var uri = $"{"/_0/{1}/{0}/_restore"}";
+            var uri = string.Format("/_0/{1}/{0}/_restore", snapshot, repository);
             if (options != null)
             {
                 uri = options.Invoke(new SnapshotRestoreParameters()).GetUri(uri);
@@ -108,7 +108,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage SnapshotRestoreString(string snapshot, string repository, string body, Func<SnapshotRestoreParameters, SnapshotRestoreParameters> options = null)
         {
-            var uri = $"{"/_0/{1}/{0}/_restore"}";
+            var uri = string.Format("/_0/{1}/{0}/_restore", snapshot, repository);
             if (options != null)
             {
                 uri = options.Invoke(new SnapshotRestoreParameters()).GetUri(uri);
@@ -124,7 +124,7 @@ namespace Elasticsearch.Client
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> SnapshotRestoreStringAsync(string snapshot, string repository, string body, Func<SnapshotRestoreParameters, SnapshotRestoreParameters> options = null)
         {
-            var uri = $"{"/_0/{1}/{0}/_restore"}";
+            var uri = string.Format("/_0/{1}/{0}/_restore", snapshot, repository);
             if (options != null)
             {
                 uri = options.Invoke(new SnapshotRestoreParameters()).GetUri(uri);
