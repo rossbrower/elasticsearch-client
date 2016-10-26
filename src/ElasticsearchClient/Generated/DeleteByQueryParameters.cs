@@ -300,7 +300,7 @@ namespace Elasticsearch.Client
 
         ///<summary>Size on the scroll request powering the update_by_query</summary>
         ///<param name="value"></param>
-        public virtual DeleteByQueryParameters scroll_size(int value)
+        public virtual DeleteByQueryParameters scroll_size(long value)
         {
             SetValue("scroll_size", value);
             return this;
@@ -316,7 +316,7 @@ namespace Elasticsearch.Client
 
         ///<summary>The throttle for this request in sub-requests per second. -1 means set no throttle.</summary>
         ///<param name="value"><para>Default: 0</para></param>
-        public virtual DeleteByQueryParameters requests_per_second(double value)
+        public virtual DeleteByQueryParameters requests_per_second(long value)
         {
             SetValue("requests_per_second", value);
             return this;

@@ -43,7 +43,7 @@ namespace Elasticsearch.Client
         }
 
         ///<summary>A health status ("green", "yellow", or "red" to filter only indices matching the specified health status</summary>
-        ///<param name="value"></param>
+        ///<param name="value"><para>Options: green,yellow,red</para></param>
         public virtual CatIndicesParameters health(string value)
         {
             SetValue("health", value);

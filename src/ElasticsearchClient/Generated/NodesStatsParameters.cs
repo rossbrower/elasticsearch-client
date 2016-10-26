@@ -42,8 +42,8 @@ namespace Elasticsearch.Client
             return this;
         }
 
-        ///<summary>Return indices stats aggregated at node, index or shard level</summary>
-        ///<param name="value"><para>Options: node,indices,shards</para><para>Default: node</para></param>
+        ///<summary>Return indices stats aggregated at index, node or shard level</summary>
+        ///<param name="value"><para>Options: indices,node,shards</para><para>Default: node</para></param>
         public virtual NodesStatsParameters level(string value)
         {
             SetValue("level", value);

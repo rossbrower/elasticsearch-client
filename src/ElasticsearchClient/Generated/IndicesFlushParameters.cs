@@ -10,7 +10,7 @@ namespace Elasticsearch.Client
             return this;
         }
 
-        ///<summary>If set to true the flush operation will block until the flush can be executed if another flush operation is already executing. The default is false and will cause an exception to be thrown on the shard level if another flush operation is already running.</summary>
+        ///<summary>If set to true the flush operation will block until the flush can be executed if another flush operation is already executing. The default is true. If set to false the flush will be skipped iff if another flush operation is already running.</summary>
         ///<param name="value"></param>
         public virtual IndicesFlushParameters wait_if_ongoing(bool value)
         {

@@ -36,7 +36,7 @@ namespace Elasticsearch.Client
 
         ///<summary>The throttle to set on this request in sub-requests per second. -1 means set no throttle as does "unlimited" which is the only non-float this accepts.</summary>
         ///<param name="value"><para>Default: 0</para></param>
-        public virtual ReindexParameters requests_per_second(double value)
+        public virtual ReindexParameters requests_per_second(long value)
         {
             SetValue("requests_per_second", value);
             return this;
