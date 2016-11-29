@@ -7,7 +7,7 @@ namespace Elasticsearch.Client
 {
     public partial class ElasticsearchClient
     {
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-pending.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/cluster-pending.html"/></summary>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage ClusterPendingTasks(Func<ClusterPendingTasksParameters, ClusterPendingTasksParameters> options = null)
         {
@@ -20,7 +20,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-pending.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/cluster-pending.html"/></summary>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> ClusterPendingTasksAsync(Func<ClusterPendingTasksParameters, ClusterPendingTasksParameters> options = null)
         {

@@ -10,6 +10,14 @@ namespace Elasticsearch.Client
             return this;
         }
 
+        ///<summary>If set to true the rollover action will only be validated but not actually performed even if a condition matches. The default is false</summary>
+        ///<param name="value"></param>
+        public virtual IndicesRolloverParameters dry_run(bool value)
+        {
+            SetValue("dry_run", value.ToString().ToLower());
+            return this;
+        }
+
         ///<summary>Specify timeout for connection to master</summary>
         ///<param name="value"></param>
         public virtual IndicesRolloverParameters master_timeout(string value)

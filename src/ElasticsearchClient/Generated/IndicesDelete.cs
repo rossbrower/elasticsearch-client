@@ -7,7 +7,7 @@ namespace Elasticsearch.Client
 {
     public partial class ElasticsearchClient
     {
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-delete-index.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-delete-index.html"/></summary>
         ///<param name="index">A comma-separated list of indices to delete; use `_all` or `*` string to delete all indices</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesDelete(string index, Func<IndicesDeleteParameters, IndicesDeleteParameters> options = null)
@@ -21,7 +21,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("DELETE", uri);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-delete-index.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-delete-index.html"/></summary>
         ///<param name="index">A comma-separated list of indices to delete; use `_all` or `*` string to delete all indices</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesDeleteAsync(string index, Func<IndicesDeleteParameters, IndicesDeleteParameters> options = null)

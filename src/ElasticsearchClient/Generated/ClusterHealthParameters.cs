@@ -50,7 +50,7 @@ namespace Elasticsearch.Client
             return this;
         }
 
-        ///<summary>Wait until all currently queued events with the given priorty are processed</summary>
+        ///<summary>Wait until all currently queued events with the given priority are processed</summary>
         ///<param name="value"><para>Options: immediate,urgent,high,normal,low,languid</para></param>
         public virtual ClusterHealthParameters wait_for_events(string value)
         {

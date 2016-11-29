@@ -34,6 +34,14 @@ namespace Elasticsearch.Client
             return this;
         }
 
+        ///<summary>Specific routing value</summary>
+        ///<param name="value"></param>
+        public virtual MgetParameters routing(string value)
+        {
+            SetValue("routing", value);
+            return this;
+        }
+
         ///<summary>True or false to return the _source field or not, or a list of fields to return</summary>
         ///<param name="value"></param>
         public virtual MgetParameters _source(string value)

@@ -7,7 +7,7 @@ namespace Elasticsearch.Client
 {
     public partial class ElasticsearchClient
     {
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage CountPost(Func<CountParameters, CountParameters> options = null)
         {
@@ -20,7 +20,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> CountPostAsync(Func<CountParameters, CountParameters> options = null)
         {
@@ -33,7 +33,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage CountPost(Stream body, Func<CountParameters, CountParameters> options = null)
@@ -47,7 +47,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> CountPostAsync(Stream body, Func<CountParameters, CountParameters> options = null)
@@ -61,7 +61,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage CountPost(byte[] body, Func<CountParameters, CountParameters> options = null)
@@ -75,7 +75,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> CountPostAsync(byte[] body, Func<CountParameters, CountParameters> options = null)
@@ -89,7 +89,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage CountPostString(string body, Func<CountParameters, CountParameters> options = null)
@@ -103,7 +103,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> CountPostStringAsync(string body, Func<CountParameters, CountParameters> options = null)
@@ -117,7 +117,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage CountGet(Func<CountParameters, CountParameters> options = null)
         {
@@ -130,7 +130,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> CountGetAsync(Func<CountParameters, CountParameters> options = null)
         {
@@ -143,7 +143,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage CountGet(Stream body, Func<CountParameters, CountParameters> options = null)
@@ -157,7 +157,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> CountGetAsync(Stream body, Func<CountParameters, CountParameters> options = null)
@@ -171,7 +171,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage CountGet(byte[] body, Func<CountParameters, CountParameters> options = null)
@@ -185,7 +185,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> CountGetAsync(byte[] body, Func<CountParameters, CountParameters> options = null)
@@ -199,7 +199,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage CountGetString(string body, Func<CountParameters, CountParameters> options = null)
@@ -213,7 +213,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> CountGetStringAsync(string body, Func<CountParameters, CountParameters> options = null)
@@ -227,7 +227,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="index">A comma-separated list of indices to restrict the results</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage CountPost(string index, Func<CountParameters, CountParameters> options = null)
@@ -241,7 +241,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="index">A comma-separated list of indices to restrict the results</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> CountPostAsync(string index, Func<CountParameters, CountParameters> options = null)
@@ -255,7 +255,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="index">A comma-separated list of indices to restrict the results</param>
         ///<param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -270,7 +270,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="index">A comma-separated list of indices to restrict the results</param>
         ///<param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -285,7 +285,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="index">A comma-separated list of indices to restrict the results</param>
         ///<param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -300,7 +300,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="index">A comma-separated list of indices to restrict the results</param>
         ///<param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -315,7 +315,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="index">A comma-separated list of indices to restrict the results</param>
         ///<param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -330,7 +330,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="index">A comma-separated list of indices to restrict the results</param>
         ///<param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -345,7 +345,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="index">A comma-separated list of indices to restrict the results</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage CountGet(string index, Func<CountParameters, CountParameters> options = null)
@@ -359,7 +359,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="index">A comma-separated list of indices to restrict the results</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> CountGetAsync(string index, Func<CountParameters, CountParameters> options = null)
@@ -373,7 +373,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="index">A comma-separated list of indices to restrict the results</param>
         ///<param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -388,7 +388,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="index">A comma-separated list of indices to restrict the results</param>
         ///<param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -403,7 +403,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="index">A comma-separated list of indices to restrict the results</param>
         ///<param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -418,7 +418,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="index">A comma-separated list of indices to restrict the results</param>
         ///<param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -433,7 +433,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="index">A comma-separated list of indices to restrict the results</param>
         ///<param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -448,7 +448,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="index">A comma-separated list of indices to restrict the results</param>
         ///<param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -463,7 +463,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="index">A comma-separated list of indices to restrict the results</param>
         ///<param name="type">A comma-separated list of types to restrict the results</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -478,7 +478,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="index">A comma-separated list of indices to restrict the results</param>
         ///<param name="type">A comma-separated list of types to restrict the results</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -493,7 +493,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="index">A comma-separated list of indices to restrict the results</param>
         ///<param name="type">A comma-separated list of types to restrict the results</param>
         ///<param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
@@ -509,7 +509,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="index">A comma-separated list of indices to restrict the results</param>
         ///<param name="type">A comma-separated list of types to restrict the results</param>
         ///<param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
@@ -525,7 +525,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="index">A comma-separated list of indices to restrict the results</param>
         ///<param name="type">A comma-separated list of types to restrict the results</param>
         ///<param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
@@ -541,7 +541,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="index">A comma-separated list of indices to restrict the results</param>
         ///<param name="type">A comma-separated list of types to restrict the results</param>
         ///<param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
@@ -557,7 +557,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="index">A comma-separated list of indices to restrict the results</param>
         ///<param name="type">A comma-separated list of types to restrict the results</param>
         ///<param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
@@ -573,7 +573,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="index">A comma-separated list of indices to restrict the results</param>
         ///<param name="type">A comma-separated list of types to restrict the results</param>
         ///<param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
@@ -589,7 +589,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="index">A comma-separated list of indices to restrict the results</param>
         ///<param name="type">A comma-separated list of types to restrict the results</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -604,7 +604,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="index">A comma-separated list of indices to restrict the results</param>
         ///<param name="type">A comma-separated list of types to restrict the results</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -619,7 +619,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="index">A comma-separated list of indices to restrict the results</param>
         ///<param name="type">A comma-separated list of types to restrict the results</param>
         ///<param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
@@ -635,7 +635,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="index">A comma-separated list of indices to restrict the results</param>
         ///<param name="type">A comma-separated list of types to restrict the results</param>
         ///<param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
@@ -651,7 +651,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="index">A comma-separated list of indices to restrict the results</param>
         ///<param name="type">A comma-separated list of types to restrict the results</param>
         ///<param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
@@ -667,7 +667,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="index">A comma-separated list of indices to restrict the results</param>
         ///<param name="type">A comma-separated list of types to restrict the results</param>
         ///<param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
@@ -683,7 +683,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="index">A comma-separated list of indices to restrict the results</param>
         ///<param name="type">A comma-separated list of types to restrict the results</param>
         ///<param name="body">A query to restrict the results specified with the Query DSL (optional)</param>
@@ -699,7 +699,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-count.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
         ///<param name="index">A comma-separated list of indices to restrict the results</param>
         ///<param name="type">A comma-separated list of types to restrict the results</param>
         ///<param name="body">A query to restrict the results specified with the Query DSL (optional)</param>

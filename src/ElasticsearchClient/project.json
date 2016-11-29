@@ -1,5 +1,5 @@
 {
-  "version": "5.0.0",
+  "version": "5.0.2",
   "title": "ElasticsearchClient",
   "description": "Unofficial low-level .Net client for Elasticsearch built from the REST API spec and HttpClient.",  
   "authors": ["Ross Brower"],
@@ -26,13 +26,16 @@
         ]
       },
       "dependencies": {
-        "System.Threading": "4.0.11",
-        "System.Threading.Tasks": "4.0.11",
-        "System.Net.Http": "4.1.0",
-        "System.IO": "4.1.0",
-        "System.Linq": "4.1.0",
-        "System.Runtime.Extensions": "4.1.0"
+        "System.IO": "4.3.0",
+        "System.Linq": "4.3.0",
+        "System.Net.Http": "4.3.0",
+        "System.Runtime.Extensions": "4.3.0",
+        "System.Threading": "4.3.0",
+        "System.Threading.Tasks": "4.3.0"
       }
     }
+  },
+  "buildOptions": {
+    "xmlDoc": true
   }
 }

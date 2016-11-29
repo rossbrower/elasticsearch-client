@@ -34,30 +34,6 @@ namespace Elasticsearch.Client
             return this;
         }
 
-        ///<summary>Specify whether to return detailed information about score computation as part of a hit</summary>
-        ///<param name="value"></param>
-        public virtual DeleteByQueryParameters explain(bool value)
-        {
-            SetValue("explain", value.ToString().ToLower());
-            return this;
-        }
-
-        ///<summary>A comma-separated list of stored fields to return as part of a hit</summary>
-        ///<param name="value"></param>
-        public virtual DeleteByQueryParameters stored_fields(string value)
-        {
-            SetValue("stored_fields", value);
-            return this;
-        }
-
-        ///<summary>A comma-separated list of fields to return as the docvalue representation of a field for each hit</summary>
-        ///<param name="value"></param>
-        public virtual DeleteByQueryParameters docvalue_fields(string value)
-        {
-            SetValue("docvalue_fields", value);
-            return this;
-        }
-
         ///<summary>Starting offset (default: 0)</summary>
         ///<param name="value"></param>
         public virtual DeleteByQueryParameters from(long value)
@@ -218,54 +194,6 @@ namespace Elasticsearch.Client
             return this;
         }
 
-        ///<summary>Specify which field to use for suggestions</summary>
-        ///<param name="value"></param>
-        public virtual DeleteByQueryParameters suggest_field(string value)
-        {
-            SetValue("suggest_field", value);
-            return this;
-        }
-
-        ///<summary>Specify suggest mode</summary>
-        ///<param name="value"><para>Options: missing,popular,always</para><para>Default: missing</para></param>
-        public virtual DeleteByQueryParameters suggest_mode(string value)
-        {
-            SetValue("suggest_mode", value);
-            return this;
-        }
-
-        ///<summary>How many suggestions to return in response</summary>
-        ///<param name="value"></param>
-        public virtual DeleteByQueryParameters suggest_size(long value)
-        {
-            SetValue("suggest_size", value);
-            return this;
-        }
-
-        ///<summary>The source text for which the suggestions should be returned</summary>
-        ///<param name="value"></param>
-        public virtual DeleteByQueryParameters suggest_text(string value)
-        {
-            SetValue("suggest_text", value);
-            return this;
-        }
-
-        ///<summary>Time each individual bulk request should wait for shards that are unavailable.</summary>
-        ///<param name="value"><para>Default: 1m</para></param>
-        public virtual DeleteByQueryParameters timeout(string value)
-        {
-            SetValue("timeout", value);
-            return this;
-        }
-
-        ///<summary>Whether to calculate and return scores even if they are not used for sorting</summary>
-        ///<param name="value"></param>
-        public virtual DeleteByQueryParameters track_scores(bool value)
-        {
-            SetValue("track_scores", value.ToString().ToLower());
-            return this;
-        }
-
         ///<summary>Specify whether to return document version as part of a hit</summary>
         ///<param name="value"></param>
         public virtual DeleteByQueryParameters version(bool value)
@@ -287,6 +215,14 @@ namespace Elasticsearch.Client
         public virtual DeleteByQueryParameters refresh(bool value)
         {
             SetValue("refresh", value.ToString().ToLower());
+            return this;
+        }
+
+        ///<summary>Time each individual bulk request should wait for shards that are unavailable.</summary>
+        ///<param name="value"><para>Default: 1m</para></param>
+        public virtual DeleteByQueryParameters timeout(string value)
+        {
+            SetValue("timeout", value);
             return this;
         }
 
@@ -314,7 +250,7 @@ namespace Elasticsearch.Client
             return this;
         }
 
-        ///<summary>The throttle for this request in sub-requests per second. -1 means set no throttle.</summary>
+        ///<summary>The throttle to set on this request in sub-requests per second. -1 means set no throttle as does "unlimited" which is the only non-float this accepts.</summary>
         ///<param name="value"><para>Default: 0</para></param>
         public virtual DeleteByQueryParameters requests_per_second(long value)
         {

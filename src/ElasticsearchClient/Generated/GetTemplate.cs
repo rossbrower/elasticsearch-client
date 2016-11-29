@@ -7,7 +7,7 @@ namespace Elasticsearch.Client
 {
     public partial class ElasticsearchClient
     {
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-template.html"/></summary>
         ///<param name="id">Template ID</param>
         public HttpResponseMessage GetTemplate(string id)
         {
@@ -15,7 +15,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-template.html"/></summary>
         ///<param name="id">Template ID</param>
         public async Task<HttpResponseMessage> GetTemplateAsync(string id)
         {

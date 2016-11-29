@@ -10,6 +10,14 @@ namespace Elasticsearch.Client
             return this;
         }
 
+        ///<summary>Return the full node ID instead of the shortened version (default: false)</summary>
+        ///<param name="value"></param>
+        public virtual CatNodesParameters full_id(bool value)
+        {
+            SetValue("full_id", value.ToString().ToLower());
+            return this;
+        }
+
         ///<summary>Return local information, do not retrieve the state from master node (default: false)</summary>
         ///<param name="value"></param>
         public virtual CatNodesParameters local(bool value)

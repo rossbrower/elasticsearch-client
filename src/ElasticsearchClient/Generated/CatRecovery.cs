@@ -7,7 +7,7 @@ namespace Elasticsearch.Client
 {
     public partial class ElasticsearchClient
     {
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-recovery.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/cat-recovery.html"/></summary>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage CatRecovery(Func<CatRecoveryParameters, CatRecoveryParameters> options = null)
         {
@@ -20,7 +20,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-recovery.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/cat-recovery.html"/></summary>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> CatRecoveryAsync(Func<CatRecoveryParameters, CatRecoveryParameters> options = null)
         {
@@ -33,7 +33,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-recovery.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/cat-recovery.html"/></summary>
         ///<param name="index">A comma-separated list of index names to limit the returned information</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage CatRecovery(string index, Func<CatRecoveryParameters, CatRecoveryParameters> options = null)
@@ -47,7 +47,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-recovery.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/cat-recovery.html"/></summary>
         ///<param name="index">A comma-separated list of index names to limit the returned information</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> CatRecoveryAsync(string index, Func<CatRecoveryParameters, CatRecoveryParameters> options = null)

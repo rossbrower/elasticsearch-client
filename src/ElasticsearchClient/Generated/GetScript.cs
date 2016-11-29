@@ -7,7 +7,7 @@ namespace Elasticsearch.Client
 {
     public partial class ElasticsearchClient
     {
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-scripting.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/modules-scripting.html"/></summary>
         ///<param name="lang">Script language</param>
         ///<param name="id">Script ID</param>
         public HttpResponseMessage GetScript(string lang, string id)
@@ -16,7 +16,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-scripting.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/modules-scripting.html"/></summary>
         ///<param name="lang">Script language</param>
         ///<param name="id">Script ID</param>
         public async Task<HttpResponseMessage> GetScriptAsync(string lang, string id)

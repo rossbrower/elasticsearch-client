@@ -7,14 +7,14 @@ namespace Elasticsearch.Client
 {
     public partial class ElasticsearchClient
     {
-        ///<summary><see href="http://www.elastic.co/guide/"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/"/></summary>
         public HttpResponseMessage Ping()
         {
             var uri = "/";
             return mConnection.Execute("HEAD", uri);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/"/></summary>
         public async Task<HttpResponseMessage> PingAsync()
         {
             var uri = "/";

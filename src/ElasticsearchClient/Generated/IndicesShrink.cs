@@ -7,7 +7,7 @@ namespace Elasticsearch.Client
 {
     public partial class ElasticsearchClient
     {
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-shrink-index.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-shrink-index.html"/></summary>
         ///<param name="index">The name of the source index to shrink</param>
         ///<param name="target">The name of the target index to shrink into</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -22,7 +22,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("PUT", uri);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-shrink-index.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-shrink-index.html"/></summary>
         ///<param name="index">The name of the source index to shrink</param>
         ///<param name="target">The name of the target index to shrink into</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -37,7 +37,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("PUT", uri);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-shrink-index.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-shrink-index.html"/></summary>
         ///<param name="index">The name of the source index to shrink</param>
         ///<param name="target">The name of the target index to shrink into</param>
         ///<param name="body">The configuration for the target index (`settings` and `aliases`)</param>
@@ -53,7 +53,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("PUT", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-shrink-index.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-shrink-index.html"/></summary>
         ///<param name="index">The name of the source index to shrink</param>
         ///<param name="target">The name of the target index to shrink into</param>
         ///<param name="body">The configuration for the target index (`settings` and `aliases`)</param>
@@ -69,7 +69,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("PUT", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-shrink-index.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-shrink-index.html"/></summary>
         ///<param name="index">The name of the source index to shrink</param>
         ///<param name="target">The name of the target index to shrink into</param>
         ///<param name="body">The configuration for the target index (`settings` and `aliases`)</param>
@@ -85,7 +85,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("PUT", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-shrink-index.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-shrink-index.html"/></summary>
         ///<param name="index">The name of the source index to shrink</param>
         ///<param name="target">The name of the target index to shrink into</param>
         ///<param name="body">The configuration for the target index (`settings` and `aliases`)</param>
@@ -101,7 +101,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("PUT", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-shrink-index.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-shrink-index.html"/></summary>
         ///<param name="index">The name of the source index to shrink</param>
         ///<param name="target">The name of the target index to shrink into</param>
         ///<param name="body">The configuration for the target index (`settings` and `aliases`)</param>
@@ -117,7 +117,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("PUT", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-shrink-index.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-shrink-index.html"/></summary>
         ///<param name="index">The name of the source index to shrink</param>
         ///<param name="target">The name of the target index to shrink into</param>
         ///<param name="body">The configuration for the target index (`settings` and `aliases`)</param>
@@ -133,7 +133,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("PUT", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-shrink-index.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-shrink-index.html"/></summary>
         ///<param name="index">The name of the source index to shrink</param>
         ///<param name="target">The name of the target index to shrink into</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -148,7 +148,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-shrink-index.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-shrink-index.html"/></summary>
         ///<param name="index">The name of the source index to shrink</param>
         ///<param name="target">The name of the target index to shrink into</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -163,7 +163,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-shrink-index.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-shrink-index.html"/></summary>
         ///<param name="index">The name of the source index to shrink</param>
         ///<param name="target">The name of the target index to shrink into</param>
         ///<param name="body">The configuration for the target index (`settings` and `aliases`)</param>
@@ -179,7 +179,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-shrink-index.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-shrink-index.html"/></summary>
         ///<param name="index">The name of the source index to shrink</param>
         ///<param name="target">The name of the target index to shrink into</param>
         ///<param name="body">The configuration for the target index (`settings` and `aliases`)</param>
@@ -195,7 +195,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-shrink-index.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-shrink-index.html"/></summary>
         ///<param name="index">The name of the source index to shrink</param>
         ///<param name="target">The name of the target index to shrink into</param>
         ///<param name="body">The configuration for the target index (`settings` and `aliases`)</param>
@@ -211,7 +211,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-shrink-index.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-shrink-index.html"/></summary>
         ///<param name="index">The name of the source index to shrink</param>
         ///<param name="target">The name of the target index to shrink into</param>
         ///<param name="body">The configuration for the target index (`settings` and `aliases`)</param>
@@ -227,7 +227,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-shrink-index.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-shrink-index.html"/></summary>
         ///<param name="index">The name of the source index to shrink</param>
         ///<param name="target">The name of the target index to shrink into</param>
         ///<param name="body">The configuration for the target index (`settings` and `aliases`)</param>
@@ -243,7 +243,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-shrink-index.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-shrink-index.html"/></summary>
         ///<param name="index">The name of the source index to shrink</param>
         ///<param name="target">The name of the target index to shrink into</param>
         ///<param name="body">The configuration for the target index (`settings` and `aliases`)</param>

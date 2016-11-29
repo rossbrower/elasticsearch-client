@@ -57,13 +57,5 @@ namespace Elasticsearch.Client
             SetValue("v", value.ToString().ToLower());
             return this;
         }
-
-        ///<summary>A comma-separated list of regular-expressions to filter the thread pools in the output</summary>
-        ///<param name="value"></param>
-        public virtual CatThreadPoolParameters thread_pool_patterns(string value)
-        {
-            SetValue("thread_pool_patterns", value);
-            return this;
-        }
     }
 }

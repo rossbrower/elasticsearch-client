@@ -7,7 +7,7 @@ namespace Elasticsearch.Client
 {
     public partial class ElasticsearchClient
     {
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-template.html"/></summary>
         ///<param name="id">Template ID</param>
         ///<param name="body">The document</param>
         public HttpResponseMessage PutTemplatePut(string id, Stream body)
@@ -16,7 +16,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("PUT", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-template.html"/></summary>
         ///<param name="id">Template ID</param>
         ///<param name="body">The document</param>
         public async Task<HttpResponseMessage> PutTemplatePutAsync(string id, Stream body)
@@ -25,7 +25,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("PUT", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-template.html"/></summary>
         ///<param name="id">Template ID</param>
         ///<param name="body">The document</param>
         public HttpResponseMessage PutTemplatePut(string id, byte[] body)
@@ -34,7 +34,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("PUT", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-template.html"/></summary>
         ///<param name="id">Template ID</param>
         ///<param name="body">The document</param>
         public async Task<HttpResponseMessage> PutTemplatePutAsync(string id, byte[] body)
@@ -43,7 +43,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("PUT", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-template.html"/></summary>
         ///<param name="id">Template ID</param>
         ///<param name="body">The document</param>
         public HttpResponseMessage PutTemplatePutString(string id, string body)
@@ -52,7 +52,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("PUT", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-template.html"/></summary>
         ///<param name="id">Template ID</param>
         ///<param name="body">The document</param>
         public async Task<HttpResponseMessage> PutTemplatePutStringAsync(string id, string body)
@@ -61,7 +61,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("PUT", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-template.html"/></summary>
         ///<param name="id">Template ID</param>
         ///<param name="body">The document</param>
         public HttpResponseMessage PutTemplatePost(string id, Stream body)
@@ -70,7 +70,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-template.html"/></summary>
         ///<param name="id">Template ID</param>
         ///<param name="body">The document</param>
         public async Task<HttpResponseMessage> PutTemplatePostAsync(string id, Stream body)
@@ -79,7 +79,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-template.html"/></summary>
         ///<param name="id">Template ID</param>
         ///<param name="body">The document</param>
         public HttpResponseMessage PutTemplatePost(string id, byte[] body)
@@ -88,7 +88,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-template.html"/></summary>
         ///<param name="id">Template ID</param>
         ///<param name="body">The document</param>
         public async Task<HttpResponseMessage> PutTemplatePostAsync(string id, byte[] body)
@@ -97,7 +97,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-template.html"/></summary>
         ///<param name="id">Template ID</param>
         ///<param name="body">The document</param>
         public HttpResponseMessage PutTemplatePostString(string id, string body)
@@ -106,7 +106,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-template.html"/></summary>
         ///<param name="id">Template ID</param>
         ///<param name="body">The document</param>
         public async Task<HttpResponseMessage> PutTemplatePostStringAsync(string id, string body)
