@@ -1,5 +1,6 @@
 namespace Elasticsearch.Client
 {
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/docs-reindex.html"/></summary>
     public class ReindexParameters : Parameters
     {
         ///<summary>Should the effected indexes be refreshed?</summary>

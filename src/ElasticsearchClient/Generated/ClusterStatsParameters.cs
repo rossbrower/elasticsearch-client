@@ -1,5 +1,6 @@
 namespace Elasticsearch.Client
 {
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/cluster-stats.html"/></summary>
     public class ClusterStatsParameters : Parameters
     {
         ///<summary>Return settings in flat format (default: false)</summary>

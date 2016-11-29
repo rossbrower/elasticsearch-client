@@ -1,5 +1,6 @@
 namespace Elasticsearch.Client
 {
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-explain.html"/></summary>
     public class ExplainParameters : Parameters
     {
         ///<summary>Specify whether wildcards and prefix queries in the query string query should be analyzed (default: false)</summary>

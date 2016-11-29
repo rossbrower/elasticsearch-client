@@ -1,5 +1,6 @@
 namespace Elasticsearch.Client
 {
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/cat-indices.html"/></summary>
     public class CatIndicesParameters : Parameters
     {
         ///<summary>a short version of the Accept header, e.g. json, yaml</summary>

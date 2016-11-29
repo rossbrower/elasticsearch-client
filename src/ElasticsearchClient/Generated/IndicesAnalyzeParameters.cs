@@ -1,5 +1,6 @@
 namespace Elasticsearch.Client
 {
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-analyze.html"/></summary>
     public class IndicesAnalyzeParameters : Parameters
     {
         ///<summary>The name of the analyzer to use</summary>

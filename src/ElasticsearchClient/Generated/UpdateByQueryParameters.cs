@@ -1,5 +1,6 @@
 namespace Elasticsearch.Client
 {
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/docs-update-by-query.html"/></summary>
     public class UpdateByQueryParameters : Parameters
     {
         ///<summary>The analyzer to use for the query string</summary>
@@ -154,7 +155,7 @@ namespace Elasticsearch.Client
             return this;
         }
 
-        ///<summary>A comma-separated list of <field>:<direction> pairs</summary>
+        ///<summary>A comma-separated list of &lt;field&gt;:&lt;direction&gt; pairs</summary>
         ///<param name="value"></param>
         public virtual UpdateByQueryParameters sort(string value)
         {

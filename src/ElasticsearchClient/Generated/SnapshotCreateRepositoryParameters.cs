@@ -1,5 +1,6 @@
 namespace Elasticsearch.Client
 {
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/modules-snapshots.html"/></summary>
     public class SnapshotCreateRepositoryParameters : Parameters
     {
         ///<summary>Explicit operation timeout for connection to master node</summary>

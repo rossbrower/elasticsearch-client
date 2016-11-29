@@ -59,11 +59,24 @@ namespace Elasticsearch.Client
             }
         }
 
+        /// <summary>
+        /// Send a message to the given URI using the specified HTTP method.
+        /// </summary>
+        /// <param name="httpMethod">The HTTP method to use.</param>
+        /// <param name="uri">The URI.</param>
+        /// <returns>A Task which contains the response.</returns>
         public async Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri)
         {
             return await ExecuteImpl(httpMethod, uri).ConfigureAwait(false);
         }
 
+        /// <summary>
+        /// Send a message to the given URI using the specified HTTP method and content.
+        /// </summary>
+        /// <param name="httpMethod">The HTTP method to use.</param>
+        /// <param name="uri">The URI.</param>
+        /// <param name="body">The content of the request as a Stream.</param>
+        /// <returns>A Task which contains the response.</returns>
         public async Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri, Stream body)
         {
             byte[] content;
@@ -76,36 +89,80 @@ namespace Elasticsearch.Client
             return await ExecuteAsync(httpMethod, uri, content).ConfigureAwait(false);
         }
 
+        /// <summary>
+        /// Send a message to the given URI using the specified HTTP method and content.
+        /// </summary>
+        /// <param name="httpMethod">The HTTP method to use.</param>
+        /// <param name="uri">The URI.</param>
+        /// <param name="body">The content of the request as a byte array.</param>
+        /// <returns>A Task which contains the response.</returns>
         public async Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri, byte[] body)
         {
             return await ExecuteImpl(httpMethod, uri, () => new ByteArrayContent(body)).ConfigureAwait(false);
         }
 
+        /// <summary>
+        /// Send a message to the given URI using the specified HTTP method and content.
+        /// </summary>
+        /// <param name="httpMethod">The HTTP method to use.</param>
+        /// <param name="uri">The URI.</param>
+        /// <param name="body">The content of the request as a string.</param>
+        /// <returns>A Task which contains the response.</returns>
         public async Task<HttpResponseMessage> ExecuteAsync(string httpMethod, string uri, string body)
         {
             return await ExecuteImpl(httpMethod, uri, () => new StringContent(body)).ConfigureAwait(false);
         }
 
+        /// <summary>
+        /// Send a message to the given URI using the specified HTTP method.
+        /// </summary>
+        /// <param name="httpMethod">The HTTP method to use.</param>
+        /// <param name="uri">The URI.</param>
+        /// <returns>A <see cref="Task"/> which contains the response.</returns>
         public HttpResponseMessage Execute(string httpMethod, string uri)
         {
             return ExecuteAsync(httpMethod, uri).Result;
         }
 
+        /// <summary>
+        /// Send a message to the given URI using the specified HTTP method and content.
+        /// </summary>
+        /// <param name="httpMethod">The HTTP method to use.</param>
+        /// <param name="uri">The URI.</param>
+        /// <param name="body">The content of the request as a <see cref="Stream"/>.</param>
+        /// <returns>The response.</returns>
         public HttpResponseMessage Execute(string httpMethod, string uri, Stream body)
         {
             return ExecuteAsync(httpMethod, uri, body).Result;
         }
 
+        /// <summary>
+        /// Send a message to the given URI using the specified HTTP method and content.
+        /// </summary>
+        /// <param name="httpMethod">The HTTP method to use.</param>
+        /// <param name="uri">The URI.</param>
+        /// <param name="body">The content of the request as a byte array.</param>
+        /// <returns>The response.</returns>
         public HttpResponseMessage Execute(string httpMethod, string uri, byte[] body)
         {
             return ExecuteAsync(httpMethod, uri, body).Result;
         }
 
+        /// <summary>
+        /// Send a message to the given URI using the specified HTTP method. and content.
+        /// </summary>
+        /// <param name="httpMethod">The HTTP method to use.</param>
+        /// <param name="uri">The URI.</param>
+        /// <param name="body">The content of the request as a string.</param>
+        /// <returns>The response.</returns>
         public HttpResponseMessage Execute(string httpMethod, string uri, string body)
         {
             return ExecuteAsync(httpMethod, uri, body).Result;
         }
 
+        /// <summary>
+        /// Dispose the pool and all of its resources.
+        /// </summary>
         public void Dispose()
         {
             mLock.Dispose();

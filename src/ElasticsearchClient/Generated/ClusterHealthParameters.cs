@@ -1,5 +1,6 @@
 namespace Elasticsearch.Client
 {
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/cluster-health.html"/></summary>
     public class ClusterHealthParameters : Parameters
     {
         ///<summary>Specify the level of detail for returned information</summary>

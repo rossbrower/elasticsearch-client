@@ -1,5 +1,6 @@
 namespace Elasticsearch.Client
 {
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/cluster-state.html"/></summary>
     public class ClusterStateParameters : Parameters
     {
         ///<summary>Return local information, do not retrieve the state from master node (default: false)</summary>
