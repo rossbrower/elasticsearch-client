@@ -43,6 +43,14 @@ namespace Elasticsearch.Client
             return this;
         }
 
+        ///<summary>Comma-separated list of column names or column aliases to sort by</summary>
+        ///<param name="value"></param>
+        public virtual CatHealthParameters s(string value)
+        {
+            SetValue("s", value);
+            return this;
+        }
+
         ///<summary>Set to false to disable timestamping</summary>
         ///<param name="value"><para>Default: True</para></param>
         public virtual CatHealthParameters ts(bool value)

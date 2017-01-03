@@ -107,14 +107,6 @@ namespace Elasticsearch.Client
             return this;
         }
 
-        ///<summary>Specify whether query terms should be lowercased</summary>
-        ///<param name="value"></param>
-        public virtual SearchParameters lowercase_expanded_terms(bool value)
-        {
-            SetValue("lowercase_expanded_terms", value.ToString().ToLower());
-            return this;
-        }
-
         ///<summary>Specify the node or shard the operation should be performed on (default: random)</summary>
         ///<param name="value"></param>
         public virtual SearchParameters preference(string value)

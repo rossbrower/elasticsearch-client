@@ -83,14 +83,6 @@ namespace Elasticsearch.Client
             return this;
         }
 
-        ///<summary>Specify whether query terms should be lowercased</summary>
-        ///<param name="value"></param>
-        public virtual DeleteByQueryParameters lowercase_expanded_terms(bool value)
-        {
-            SetValue("lowercase_expanded_terms", value.ToString().ToLower());
-            return this;
-        }
-
         ///<summary>Specify the node or shard the operation should be performed on (default: random)</summary>
         ///<param name="value"></param>
         public virtual DeleteByQueryParameters preference(string value)
@@ -251,11 +243,19 @@ namespace Elasticsearch.Client
             return this;
         }
 
-        ///<summary>The throttle to set on this request in sub-requests per second. -1 means set no throttle as does "unlimited" which is the only non-float this accepts.</summary>
+        ///<summary>The throttle for this request in sub-requests per second. -1 means no throttle.</summary>
         ///<param name="value"><para>Default: 0</para></param>
         public virtual DeleteByQueryParameters requests_per_second(long value)
         {
             SetValue("requests_per_second", value);
+            return this;
+        }
+
+        ///<summary>The number of slices this task should be divided into. Defaults to 1 meaning the task isn't sliced into subtasks.</summary>
+        ///<param name="value"><para>Default: 1</para></param>
+        public virtual DeleteByQueryParameters slices(int value)
+        {
+            SetValue("slices", value);
             return this;
         }
     }

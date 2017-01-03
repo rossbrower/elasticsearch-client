@@ -10,5 +10,13 @@ namespace Elasticsearch.Client
             SetValue("help", value.ToString().ToLower());
             return this;
         }
+
+        ///<summary>Comma-separated list of column names or column aliases to sort by</summary>
+        ///<param name="value"></param>
+        public virtual CatHelpParameters s(string value)
+        {
+            SetValue("s", value);
+            return this;
+        }
     }
 }

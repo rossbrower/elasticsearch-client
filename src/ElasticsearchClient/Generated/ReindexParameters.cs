@@ -35,11 +35,19 @@ namespace Elasticsearch.Client
             return this;
         }
 
-        ///<summary>The throttle to set on this request in sub-requests per second. -1 means set no throttle as does "unlimited" which is the only non-float this accepts.</summary>
+        ///<summary>The throttle to set on this request in sub-requests per second. -1 means no throttle.</summary>
         ///<param name="value"><para>Default: 0</para></param>
         public virtual ReindexParameters requests_per_second(long value)
         {
             SetValue("requests_per_second", value);
+            return this;
+        }
+
+        ///<summary>The number of slices this task should be divided into. Defaults to 1 meaning the task isn't sliced into subtasks.</summary>
+        ///<param name="value"><para>Default: 1</para></param>
+        public virtual ReindexParameters slices(int value)
+        {
+            SetValue("slices", value);
             return this;
         }
     }

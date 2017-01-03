@@ -43,7 +43,7 @@ namespace Elasticsearch.Client
             return this;
         }
 
-        ///<summary>The script language (default: groovy)</summary>
+        ///<summary>The script language (default: painless)</summary>
         ///<param name="value"></param>
         public virtual UpdateParameters lang(string value)
         {

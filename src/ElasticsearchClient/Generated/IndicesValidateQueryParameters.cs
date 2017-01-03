@@ -83,14 +83,6 @@ namespace Elasticsearch.Client
             return this;
         }
 
-        ///<summary>Specify whether query terms should be lowercased</summary>
-        ///<param name="value"></param>
-        public virtual IndicesValidateQueryParameters lowercase_expanded_terms(bool value)
-        {
-            SetValue("lowercase_expanded_terms", value.ToString().ToLower());
-            return this;
-        }
-
         ///<summary>Provide a more detailed explanation showing the actual Lucene query that will be executed.</summary>
         ///<param name="value"></param>
         public virtual IndicesValidateQueryParameters rewrite(bool value)

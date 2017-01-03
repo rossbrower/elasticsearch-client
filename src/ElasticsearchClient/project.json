@@ -1,5 +1,5 @@
 {
-  "version": "5.0.2",
+  "version": "5.1.1",
   "title": "ElasticsearchClient",
   "description": "Unofficial low-level .Net client for Elasticsearch built from the REST API spec and HttpClient.",  
   "authors": ["Ross Brower"],

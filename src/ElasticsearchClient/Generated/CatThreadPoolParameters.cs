@@ -51,6 +51,14 @@ namespace Elasticsearch.Client
             return this;
         }
 
+        ///<summary>Comma-separated list of column names or column aliases to sort by</summary>
+        ///<param name="value"></param>
+        public virtual CatThreadPoolParameters s(string value)
+        {
+            SetValue("s", value);
+            return this;
+        }
+
         ///<summary>Verbose mode. Display column headers</summary>
         ///<param name="value"><para>Default: False</para></param>
         public virtual CatThreadPoolParameters v(bool value)

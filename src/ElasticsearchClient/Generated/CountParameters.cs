@@ -98,13 +98,5 @@ namespace Elasticsearch.Client
             SetValue("lenient", value.ToString().ToLower());
             return this;
         }
-
-        ///<summary>Specify whether query terms should be lowercased</summary>
-        ///<param name="value"></param>
-        public virtual CountParameters lowercase_expanded_terms(bool value)
-        {
-            SetValue("lowercase_expanded_terms", value.ToString().ToLower());
-            return this;
-        }
     }
 }

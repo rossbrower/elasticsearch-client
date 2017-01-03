@@ -51,14 +51,6 @@ namespace Elasticsearch.Client
             return this;
         }
 
-        ///<summary>Specify whether query terms should be lowercased</summary>
-        ///<param name="value"></param>
-        public virtual ExplainParameters lowercase_expanded_terms(bool value)
-        {
-            SetValue("lowercase_expanded_terms", value.ToString().ToLower());
-            return this;
-        }
-
         ///<summary>The ID of the parent document</summary>
         ///<param name="value"></param>
         public virtual ExplainParameters parent(string value)
