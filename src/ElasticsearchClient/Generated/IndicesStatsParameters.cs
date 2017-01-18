@@ -58,5 +58,13 @@ namespace Elasticsearch.Client
             SetValue("types", value);
             return this;
         }
+
+        ///<summary>Whether to report the aggregated disk usage of each one of the Lucene index files (only applies if segment stats are requested)</summary>
+        ///<param name="value"><para>Default: False</para></param>
+        public virtual IndicesStatsParameters include_segment_file_sizes(bool value)
+        {
+            SetValue("include_segment_file_sizes", value.ToString().ToLower());
+            return this;
+        }
     }
 }
