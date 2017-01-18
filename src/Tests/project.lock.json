@@ -2605,7 +2605,7 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
-      "ElasticsearchClient/5.0.2": {
+      "ElasticsearchClient/2.4.4-rc1": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.1",
         "dependencies": {
@@ -2636,7 +2636,7 @@
           "lib/net45/Microsoft.VisualStudio.TestPlatform.TestFramework.dll": {}
         }
       },
-      "ElasticsearchClient/5.0.2": {
+      "ElasticsearchClient/2.4.4-rc1": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5",
         "frameworkAssemblies": [
@@ -7720,7 +7720,7 @@
         "ref/xamarinwatchos10/_._"
       ]
     },
-    "ElasticsearchClient/5.0.2": {
+    "ElasticsearchClient/2.4.4-rc1": {
       "type": "project",
       "path": "../ElasticsearchClient/project.json",
       "msbuildProject": "../ElasticsearchClient/ElasticsearchClient.xproj"

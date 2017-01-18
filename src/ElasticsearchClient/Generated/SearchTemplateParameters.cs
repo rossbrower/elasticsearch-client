@@ -58,21 +58,5 @@ namespace Elasticsearch.Client
             SetValue("search_type", value);
             return this;
         }
-
-        ///<summary>Specify whether to return detailed information about score computation as part of a hit</summary>
-        ///<param name="value"></param>
-        public virtual SearchTemplateParameters explain(bool value)
-        {
-            SetValue("explain", value.ToString().ToLower());
-            return this;
-        }
-
-        ///<summary>Specify whether to profile the query execution</summary>
-        ///<param name="value"></param>
-        public virtual SearchTemplateParameters profile(bool value)
-        {
-            SetValue("profile", value.ToString().ToLower());
-            return this;
-        }
     }
 }

@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/docs-get.html"/></summary>
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-get.html"/></summary>
     public class GetSourceParameters : Parameters
     {
         ///<summary>The ID of the parent document</summary>

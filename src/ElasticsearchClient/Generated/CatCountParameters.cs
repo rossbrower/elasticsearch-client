@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/cat-count.html"/></summary>
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/cat-count.html"/></summary>
     public class CatCountParameters : Parameters
     {
         ///<summary>Return local information, do not retrieve the state from master node (default: false)</summary>
@@ -32,14 +32,6 @@ namespace Elasticsearch.Client
         public virtual CatCountParameters help(bool value)
         {
             SetValue("help", value.ToString().ToLower());
-            return this;
-        }
-
-        ///<summary>Comma-separated list of column names or column aliases to sort by</summary>
-        ///<param name="value"></param>
-        public virtual CatCountParameters s(string value)
-        {
-            SetValue("s", value);
             return this;
         }
 

@@ -7,7 +7,7 @@ namespace Elasticsearch.Client
 {
     public partial class ElasticsearchClient
     {
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being percolated.</param>
         ///<param name="type">The type of the document being percolated.</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -22,7 +22,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being percolated.</param>
         ///<param name="type">The type of the document being percolated.</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -37,7 +37,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being percolated.</param>
         ///<param name="type">The type of the document being percolated.</param>
         ///<param name="body">The percolator request definition using the percolate DSL</param>
@@ -53,7 +53,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being percolated.</param>
         ///<param name="type">The type of the document being percolated.</param>
         ///<param name="body">The percolator request definition using the percolate DSL</param>
@@ -69,7 +69,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being percolated.</param>
         ///<param name="type">The type of the document being percolated.</param>
         ///<param name="body">The percolator request definition using the percolate DSL</param>
@@ -85,7 +85,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being percolated.</param>
         ///<param name="type">The type of the document being percolated.</param>
         ///<param name="body">The percolator request definition using the percolate DSL</param>
@@ -101,7 +101,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being percolated.</param>
         ///<param name="type">The type of the document being percolated.</param>
         ///<param name="body">The percolator request definition using the percolate DSL</param>
@@ -117,7 +117,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being percolated.</param>
         ///<param name="type">The type of the document being percolated.</param>
         ///<param name="body">The percolator request definition using the percolate DSL</param>
@@ -133,7 +133,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being percolated.</param>
         ///<param name="type">The type of the document being percolated.</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -148,7 +148,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being percolated.</param>
         ///<param name="type">The type of the document being percolated.</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -163,7 +163,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being percolated.</param>
         ///<param name="type">The type of the document being percolated.</param>
         ///<param name="body">The percolator request definition using the percolate DSL</param>
@@ -179,7 +179,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being percolated.</param>
         ///<param name="type">The type of the document being percolated.</param>
         ///<param name="body">The percolator request definition using the percolate DSL</param>
@@ -195,7 +195,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being percolated.</param>
         ///<param name="type">The type of the document being percolated.</param>
         ///<param name="body">The percolator request definition using the percolate DSL</param>
@@ -211,7 +211,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being percolated.</param>
         ///<param name="type">The type of the document being percolated.</param>
         ///<param name="body">The percolator request definition using the percolate DSL</param>
@@ -227,7 +227,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being percolated.</param>
         ///<param name="type">The type of the document being percolated.</param>
         ///<param name="body">The percolator request definition using the percolate DSL</param>
@@ -243,7 +243,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being percolated.</param>
         ///<param name="type">The type of the document being percolated.</param>
         ///<param name="body">The percolator request definition using the percolate DSL</param>
@@ -259,7 +259,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being percolated.</param>
         ///<param name="type">The type of the document being percolated.</param>
         ///<param name="id">Substitute the document in the request body with a document that is known by the specified id. On top of the id, the index and type parameter will be used to retrieve the document from within the cluster.</param>
@@ -275,7 +275,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being percolated.</param>
         ///<param name="type">The type of the document being percolated.</param>
         ///<param name="id">Substitute the document in the request body with a document that is known by the specified id. On top of the id, the index and type parameter will be used to retrieve the document from within the cluster.</param>
@@ -291,7 +291,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being percolated.</param>
         ///<param name="type">The type of the document being percolated.</param>
         ///<param name="id">Substitute the document in the request body with a document that is known by the specified id. On top of the id, the index and type parameter will be used to retrieve the document from within the cluster.</param>
@@ -308,7 +308,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being percolated.</param>
         ///<param name="type">The type of the document being percolated.</param>
         ///<param name="id">Substitute the document in the request body with a document that is known by the specified id. On top of the id, the index and type parameter will be used to retrieve the document from within the cluster.</param>
@@ -325,7 +325,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being percolated.</param>
         ///<param name="type">The type of the document being percolated.</param>
         ///<param name="id">Substitute the document in the request body with a document that is known by the specified id. On top of the id, the index and type parameter will be used to retrieve the document from within the cluster.</param>
@@ -342,7 +342,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being percolated.</param>
         ///<param name="type">The type of the document being percolated.</param>
         ///<param name="id">Substitute the document in the request body with a document that is known by the specified id. On top of the id, the index and type parameter will be used to retrieve the document from within the cluster.</param>
@@ -359,7 +359,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being percolated.</param>
         ///<param name="type">The type of the document being percolated.</param>
         ///<param name="id">Substitute the document in the request body with a document that is known by the specified id. On top of the id, the index and type parameter will be used to retrieve the document from within the cluster.</param>
@@ -376,7 +376,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being percolated.</param>
         ///<param name="type">The type of the document being percolated.</param>
         ///<param name="id">Substitute the document in the request body with a document that is known by the specified id. On top of the id, the index and type parameter will be used to retrieve the document from within the cluster.</param>
@@ -393,7 +393,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being percolated.</param>
         ///<param name="type">The type of the document being percolated.</param>
         ///<param name="id">Substitute the document in the request body with a document that is known by the specified id. On top of the id, the index and type parameter will be used to retrieve the document from within the cluster.</param>
@@ -409,7 +409,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being percolated.</param>
         ///<param name="type">The type of the document being percolated.</param>
         ///<param name="id">Substitute the document in the request body with a document that is known by the specified id. On top of the id, the index and type parameter will be used to retrieve the document from within the cluster.</param>
@@ -425,7 +425,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being percolated.</param>
         ///<param name="type">The type of the document being percolated.</param>
         ///<param name="id">Substitute the document in the request body with a document that is known by the specified id. On top of the id, the index and type parameter will be used to retrieve the document from within the cluster.</param>
@@ -442,7 +442,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being percolated.</param>
         ///<param name="type">The type of the document being percolated.</param>
         ///<param name="id">Substitute the document in the request body with a document that is known by the specified id. On top of the id, the index and type parameter will be used to retrieve the document from within the cluster.</param>
@@ -459,7 +459,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being percolated.</param>
         ///<param name="type">The type of the document being percolated.</param>
         ///<param name="id">Substitute the document in the request body with a document that is known by the specified id. On top of the id, the index and type parameter will be used to retrieve the document from within the cluster.</param>
@@ -476,7 +476,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being percolated.</param>
         ///<param name="type">The type of the document being percolated.</param>
         ///<param name="id">Substitute the document in the request body with a document that is known by the specified id. On top of the id, the index and type parameter will be used to retrieve the document from within the cluster.</param>
@@ -493,7 +493,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being percolated.</param>
         ///<param name="type">The type of the document being percolated.</param>
         ///<param name="id">Substitute the document in the request body with a document that is known by the specified id. On top of the id, the index and type parameter will be used to retrieve the document from within the cluster.</param>
@@ -510,7 +510,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being percolated.</param>
         ///<param name="type">The type of the document being percolated.</param>
         ///<param name="id">Substitute the document in the request body with a document that is known by the specified id. On top of the id, the index and type parameter will be used to retrieve the document from within the cluster.</param>

@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/cluster-nodes-hot-threads.html"/></summary>
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/cluster-nodes-hot-threads.html"/></summary>
     public class NodesHotThreadsParameters : Parameters
     {
         ///<summary>The interval for the second sampling of threads</summary>

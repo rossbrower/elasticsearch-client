@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-count.html"/></summary>
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-count.html"/></summary>
     public class CountParameters : Parameters
     {
         ///<summary>Whether specified concrete indices should be ignored when unavailable (missing or closed)</summary>
@@ -96,6 +96,14 @@ namespace Elasticsearch.Client
         public virtual CountParameters lenient(bool value)
         {
             SetValue("lenient", value.ToString().ToLower());
+            return this;
+        }
+
+        ///<summary>Specify whether query terms should be lowercased</summary>
+        ///<param name="value"></param>
+        public virtual CountParameters lowercase_expanded_terms(bool value)
+        {
+            SetValue("lowercase_expanded_terms", value.ToString().ToLower());
             return this;
         }
     }

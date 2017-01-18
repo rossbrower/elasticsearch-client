@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/docs-update-by-query.html"/></summary>
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-update-by-query.html"/></summary>
     public class UpdateByQueryParameters : Parameters
     {
         ///<summary>The analyzer to use for the query string</summary>
@@ -35,6 +35,30 @@ namespace Elasticsearch.Client
             return this;
         }
 
+        ///<summary>Specify whether to return detailed information about score computation as part of a hit</summary>
+        ///<param name="value"></param>
+        public virtual UpdateByQueryParameters explain(bool value)
+        {
+            SetValue("explain", value.ToString().ToLower());
+            return this;
+        }
+
+        ///<summary>A comma-separated list of fields to return as part of a hit</summary>
+        ///<param name="value"></param>
+        public virtual UpdateByQueryParameters fields(string value)
+        {
+            SetValue("fields", value);
+            return this;
+        }
+
+        ///<summary>A comma-separated list of fields to return as the field data representation of a field for each hit</summary>
+        ///<param name="value"></param>
+        public virtual UpdateByQueryParameters fielddata_fields(string value)
+        {
+            SetValue("fielddata_fields", value);
+            return this;
+        }
+
         ///<summary>Starting offset (default: 0)</summary>
         ///<param name="value"></param>
         public virtual UpdateByQueryParameters from(long value)
@@ -59,7 +83,7 @@ namespace Elasticsearch.Client
             return this;
         }
 
-        ///<summary>What to do when the update by query hits version conflicts?</summary>
+        ///<summary>What to do when the reindex hits version conflicts?</summary>
         ///<param name="value"><para>Options: abort,proceed</para><para>Default: abort</para></param>
         public virtual UpdateByQueryParameters conflicts(string value)
         {
@@ -83,11 +107,11 @@ namespace Elasticsearch.Client
             return this;
         }
 
-        ///<summary>Ingest pipeline to set on index requests made by this action. (default: none)</summary>
+        ///<summary>Specify whether query terms should be lowercased</summary>
         ///<param name="value"></param>
-        public virtual UpdateByQueryParameters pipeline(string value)
+        public virtual UpdateByQueryParameters lowercase_expanded_terms(bool value)
         {
-            SetValue("pipeline", value);
+            SetValue("lowercase_expanded_terms", value.ToString().ToLower());
             return this;
         }
 
@@ -195,6 +219,54 @@ namespace Elasticsearch.Client
             return this;
         }
 
+        ///<summary>Specify which field to use for suggestions</summary>
+        ///<param name="value"></param>
+        public virtual UpdateByQueryParameters suggest_field(string value)
+        {
+            SetValue("suggest_field", value);
+            return this;
+        }
+
+        ///<summary>Specify suggest mode</summary>
+        ///<param name="value"><para>Options: missing,popular,always</para><para>Default: missing</para></param>
+        public virtual UpdateByQueryParameters suggest_mode(string value)
+        {
+            SetValue("suggest_mode", value);
+            return this;
+        }
+
+        ///<summary>How many suggestions to return in response</summary>
+        ///<param name="value"></param>
+        public virtual UpdateByQueryParameters suggest_size(long value)
+        {
+            SetValue("suggest_size", value);
+            return this;
+        }
+
+        ///<summary>The source text for which the suggestions should be returned</summary>
+        ///<param name="value"></param>
+        public virtual UpdateByQueryParameters suggest_text(string value)
+        {
+            SetValue("suggest_text", value);
+            return this;
+        }
+
+        ///<summary>Time each individual bulk request should wait for shards that are unavailable.</summary>
+        ///<param name="value"><para>Default: 1m</para></param>
+        public virtual UpdateByQueryParameters timeout(string value)
+        {
+            SetValue("timeout", value);
+            return this;
+        }
+
+        ///<summary>Whether to calculate and return scores even if they are not used for sorting</summary>
+        ///<param name="value"></param>
+        public virtual UpdateByQueryParameters track_scores(bool value)
+        {
+            SetValue("track_scores", value.ToString().ToLower());
+            return this;
+        }
+
         ///<summary>Specify whether to return document version as part of a hit</summary>
         ///<param name="value"></param>
         public virtual UpdateByQueryParameters version(bool value)
@@ -227,19 +299,11 @@ namespace Elasticsearch.Client
             return this;
         }
 
-        ///<summary>Time each individual bulk request should wait for shards that are unavailable.</summary>
-        ///<param name="value"><para>Default: 1m</para></param>
-        public virtual UpdateByQueryParameters timeout(string value)
+        ///<summary>Explicit write consistency setting for the operation</summary>
+        ///<param name="value"><para>Options: one,quorum,all</para></param>
+        public virtual UpdateByQueryParameters consistency(string value)
         {
-            SetValue("timeout", value);
-            return this;
-        }
-
-        ///<summary>Sets the number of shard copies that must be active before proceeding with the update by query operation. Defaults to 1, meaning the primary shard only. Set to `all` for all shard copies, otherwise set to any non-negative value less than or equal to the total number of copies for the shard (number of replicas + 1)</summary>
-        ///<param name="value"></param>
-        public virtual UpdateByQueryParameters wait_for_active_shards(string value)
-        {
-            SetValue("wait_for_active_shards", value);
+            SetValue("consistency", value);
             return this;
         }
 
@@ -251,7 +315,7 @@ namespace Elasticsearch.Client
             return this;
         }
 
-        ///<summary>Should the request should block until the update by query operation is complete.</summary>
+        ///<summary>Should the request should block until the reindex is complete.</summary>
         ///<param name="value"><para>Default: False</para></param>
         public virtual UpdateByQueryParameters wait_for_completion(bool value)
         {
@@ -259,19 +323,11 @@ namespace Elasticsearch.Client
             return this;
         }
 
-        ///<summary>The throttle to set on this request in sub-requests per second. -1 means no throttle.</summary>
+        ///<summary>The throttle for this request in sub-requests per second. 0 means set no throttle.</summary>
         ///<param name="value"><para>Default: 0</para></param>
         public virtual UpdateByQueryParameters requests_per_second(long value)
         {
             SetValue("requests_per_second", value);
-            return this;
-        }
-
-        ///<summary>The number of slices this task should be divided into. Defaults to 1 meaning the task isn't sliced into subtasks.</summary>
-        ///<param name="value"><para>Default: 1</para></param>
-        public virtual UpdateByQueryParameters slices(int value)
-        {
-            SetValue("slices", value);
             return this;
         }
     }

@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-shards.html"/></summary>
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-shards.html"/></summary>
     public class SearchShardsParameters : Parameters
     {
         ///<summary>Specify the node or shard the operation should be performed on (default: random)</summary>

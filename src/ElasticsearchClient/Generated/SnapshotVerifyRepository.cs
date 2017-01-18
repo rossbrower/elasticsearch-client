@@ -7,7 +7,7 @@ namespace Elasticsearch.Client
 {
     public partial class ElasticsearchClient
     {
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/modules-snapshots.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/modules-snapshots.html"/></summary>
         ///<param name="repository">A repository name</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage SnapshotVerifyRepository(string repository, Func<SnapshotVerifyRepositoryParameters, SnapshotVerifyRepositoryParameters> options = null)
@@ -21,7 +21,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/modules-snapshots.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/modules-snapshots.html"/></summary>
         ///<param name="repository">A repository name</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> SnapshotVerifyRepositoryAsync(string repository, Func<SnapshotVerifyRepositoryParameters, SnapshotVerifyRepositoryParameters> options = null)

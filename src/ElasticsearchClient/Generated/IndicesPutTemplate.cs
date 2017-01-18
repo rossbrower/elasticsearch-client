@@ -7,7 +7,7 @@ namespace Elasticsearch.Client
 {
     public partial class ElasticsearchClient
     {
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-templates.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-templates.html"/></summary>
         ///<param name="name">The name of the template</param>
         ///<param name="body">The template definition</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -22,7 +22,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("PUT", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-templates.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-templates.html"/></summary>
         ///<param name="name">The name of the template</param>
         ///<param name="body">The template definition</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -37,7 +37,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("PUT", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-templates.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-templates.html"/></summary>
         ///<param name="name">The name of the template</param>
         ///<param name="body">The template definition</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -52,7 +52,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("PUT", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-templates.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-templates.html"/></summary>
         ///<param name="name">The name of the template</param>
         ///<param name="body">The template definition</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -67,7 +67,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("PUT", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-templates.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-templates.html"/></summary>
         ///<param name="name">The name of the template</param>
         ///<param name="body">The template definition</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -82,7 +82,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("PUT", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-templates.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-templates.html"/></summary>
         ///<param name="name">The name of the template</param>
         ///<param name="body">The template definition</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -97,7 +97,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("PUT", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-templates.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-templates.html"/></summary>
         ///<param name="name">The name of the template</param>
         ///<param name="body">The template definition</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -112,7 +112,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-templates.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-templates.html"/></summary>
         ///<param name="name">The name of the template</param>
         ///<param name="body">The template definition</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -127,7 +127,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-templates.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-templates.html"/></summary>
         ///<param name="name">The name of the template</param>
         ///<param name="body">The template definition</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -142,7 +142,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-templates.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-templates.html"/></summary>
         ///<param name="name">The name of the template</param>
         ///<param name="body">The template definition</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -157,7 +157,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-templates.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-templates.html"/></summary>
         ///<param name="name">The name of the template</param>
         ///<param name="body">The template definition</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -172,7 +172,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-templates.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-templates.html"/></summary>
         ///<param name="name">The name of the template</param>
         ///<param name="body">The template definition</param>
         ///<param name="options">The function to set optional url parameters.</param>

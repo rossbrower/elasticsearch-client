@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/cluster-pending.html"/></summary>
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/cluster-pending.html"/></summary>
     public class ClusterPendingTasksParameters : Parameters
     {
         ///<summary>Return local information, do not retrieve the state from master node (default: false)</summary>

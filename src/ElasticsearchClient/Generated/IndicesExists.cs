@@ -7,7 +7,7 @@ namespace Elasticsearch.Client
 {
     public partial class ElasticsearchClient
     {
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-exists.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-exists.html"/></summary>
         ///<param name="index">A comma-separated list of indices to check</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesExists(string index, Func<IndicesExistsParameters, IndicesExistsParameters> options = null)
@@ -21,7 +21,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("HEAD", uri);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-exists.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-exists.html"/></summary>
         ///<param name="index">A comma-separated list of indices to check</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesExistsAsync(string index, Func<IndicesExistsParameters, IndicesExistsParameters> options = null)

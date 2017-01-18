@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-multi-search.html"/></summary>
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-multi-search.html"/></summary>
     public class MsearchParameters : Parameters
     {
         ///<summary>Search operation type</summary>

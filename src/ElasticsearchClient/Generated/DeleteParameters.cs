@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/docs-delete.html"/></summary>
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-delete.html"/></summary>
     public class DeleteParameters : Parameters
     {
         ///<summary>Specific write consistency setting for the operation</summary>

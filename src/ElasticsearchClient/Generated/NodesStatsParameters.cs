@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/cluster-nodes-stats.html"/></summary>
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/cluster-nodes-stats.html"/></summary>
     public class NodesStatsParameters : Parameters
     {
         ///<summary>A comma-separated list of fields for `fielddata` and `suggest` index metric (supports wildcards)</summary>
@@ -43,8 +43,8 @@ namespace Elasticsearch.Client
             return this;
         }
 
-        ///<summary>Return indices stats aggregated at index, node or shard level</summary>
-        ///<param name="value"><para>Options: indices,node,shards</para><para>Default: node</para></param>
+        ///<summary>Return indices stats aggregated at node, index or shard level</summary>
+        ///<param name="value"><para>Options: node,indices,shards</para><para>Default: node</para></param>
         public virtual NodesStatsParameters level(string value)
         {
             SetValue("level", value);
@@ -64,14 +64,6 @@ namespace Elasticsearch.Client
         public virtual NodesStatsParameters timeout(string value)
         {
             SetValue("timeout", value);
-            return this;
-        }
-
-        ///<summary>Whether to report the aggregated disk usage of each one of the Lucene index files (only applies if segment stats are requested)</summary>
-        ///<param name="value"><para>Default: False</para></param>
-        public virtual NodesStatsParameters include_segment_file_sizes(bool value)
-        {
-            SetValue("include_segment_file_sizes", value.ToString().ToLower());
             return this;
         }
     }

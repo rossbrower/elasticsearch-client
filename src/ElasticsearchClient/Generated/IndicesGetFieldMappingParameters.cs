@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-get-field-mapping.html"/></summary>
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-get-field-mapping.html"/></summary>
     public class IndicesGetFieldMappingParameters : Parameters
     {
         ///<summary>Whether the default mapping values should be returned as well</summary>

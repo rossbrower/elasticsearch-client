@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-recovery.html"/></summary>
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-recovery.html"/></summary>
     public class IndicesRecoveryParameters : Parameters
     {
         ///<summary>Whether to display detailed information about shard recovery</summary>

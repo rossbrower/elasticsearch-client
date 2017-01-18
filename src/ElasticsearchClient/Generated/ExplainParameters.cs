@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-explain.html"/></summary>
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-explain.html"/></summary>
     public class ExplainParameters : Parameters
     {
         ///<summary>Specify whether wildcards and prefix queries in the query string query should be analyzed (default: false)</summary>
@@ -48,6 +48,14 @@ namespace Elasticsearch.Client
         public virtual ExplainParameters lenient(bool value)
         {
             SetValue("lenient", value.ToString().ToLower());
+            return this;
+        }
+
+        ///<summary>Specify whether query terms should be lowercased</summary>
+        ///<param name="value"></param>
+        public virtual ExplainParameters lowercase_expanded_terms(bool value)
+        {
+            SetValue("lowercase_expanded_terms", value.ToString().ToLower());
             return this;
         }
 

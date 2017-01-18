@@ -7,7 +7,7 @@ namespace Elasticsearch.Client
 {
     public partial class ElasticsearchClient
     {
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-segments.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-segments.html"/></summary>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesSegments(Func<IndicesSegmentsParameters, IndicesSegmentsParameters> options = null)
         {
@@ -20,7 +20,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-segments.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-segments.html"/></summary>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesSegmentsAsync(Func<IndicesSegmentsParameters, IndicesSegmentsParameters> options = null)
         {
@@ -33,7 +33,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-segments.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-segments.html"/></summary>
         ///<param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesSegments(string index, Func<IndicesSegmentsParameters, IndicesSegmentsParameters> options = null)
@@ -47,7 +47,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-segments.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-segments.html"/></summary>
         ///<param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesSegmentsAsync(string index, Func<IndicesSegmentsParameters, IndicesSegmentsParameters> options = null)

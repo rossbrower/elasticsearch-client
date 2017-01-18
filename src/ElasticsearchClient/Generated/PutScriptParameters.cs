@@ -1,5 +1,6 @@
 namespace Elasticsearch.Client
 {
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/modules-scripting.html"/></summary>
     public class PutScriptParameters : Parameters
     {
         ///<summary>Explicit operation type</summary>

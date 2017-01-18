@@ -7,7 +7,7 @@ namespace Elasticsearch.Client
 {
     public partial class ElasticsearchClient
     {
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/tasks.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/tasks.html#_task_cancellation"/></summary>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage TasksCancel(Func<TasksCancelParameters, TasksCancelParameters> options = null)
         {
@@ -20,7 +20,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/tasks.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/tasks.html#_task_cancellation"/></summary>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> TasksCancelAsync(Func<TasksCancelParameters, TasksCancelParameters> options = null)
         {
@@ -33,8 +33,8 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/tasks.html"/></summary>
-        ///<param name="task_id">Cancel the task with specified task id (node_id:task_number)</param>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/tasks.html#_task_cancellation"/></summary>
+        ///<param name="task_id">Cancel the task with specified id</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage TasksCancel(string task_id, Func<TasksCancelParameters, TasksCancelParameters> options = null)
         {
@@ -47,8 +47,8 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/tasks.html"/></summary>
-        ///<param name="task_id">Cancel the task with specified task id (node_id:task_number)</param>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/tasks.html#_task_cancellation"/></summary>
+        ///<param name="task_id">Cancel the task with specified id</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> TasksCancelAsync(string task_id, Func<TasksCancelParameters, TasksCancelParameters> options = null)
         {

@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/cat-recovery.html"/></summary>
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/cat-recovery.html"/></summary>
     public class CatRecoveryParameters : Parameters
     {
         ///<summary>The unit in which to display byte values</summary>
@@ -32,14 +32,6 @@ namespace Elasticsearch.Client
         public virtual CatRecoveryParameters help(bool value)
         {
             SetValue("help", value.ToString().ToLower());
-            return this;
-        }
-
-        ///<summary>Comma-separated list of column names or column aliases to sort by</summary>
-        ///<param name="value"></param>
-        public virtual CatRecoveryParameters s(string value)
-        {
-            SetValue("s", value);
             return this;
         }
 

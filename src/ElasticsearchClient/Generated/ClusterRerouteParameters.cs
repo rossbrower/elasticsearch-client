@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/cluster-reroute.html"/></summary>
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/cluster-reroute.html"/></summary>
     public class ClusterRerouteParameters : Parameters
     {
         ///<summary>Simulate the operation only and return the resulting state</summary>

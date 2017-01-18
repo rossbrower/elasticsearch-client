@@ -7,7 +7,7 @@ namespace Elasticsearch.Client
 {
     public partial class ElasticsearchClient
     {
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesGetWarmer(Func<IndicesGetWarmerParameters, IndicesGetWarmerParameters> options = null)
         {
@@ -20,7 +20,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesGetWarmerAsync(Func<IndicesGetWarmerParameters, IndicesGetWarmerParameters> options = null)
         {
@@ -33,7 +33,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="index">A comma-separated list of index names to restrict the operation; use `_all` to perform the operation on all indices</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesGetWarmer(string index, Func<IndicesGetWarmerParameters, IndicesGetWarmerParameters> options = null)
@@ -47,7 +47,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="index">A comma-separated list of index names to restrict the operation; use `_all` to perform the operation on all indices</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesGetWarmerAsync(string index, Func<IndicesGetWarmerParameters, IndicesGetWarmerParameters> options = null)
@@ -61,7 +61,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="index">A comma-separated list of index names to restrict the operation; use `_all` to perform the operation on all indices</param>
         ///<param name="name">The name of the warmer (supports wildcards); leave empty to get all warmers</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -76,7 +76,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="index">A comma-separated list of index names to restrict the operation; use `_all` to perform the operation on all indices</param>
         ///<param name="name">The name of the warmer (supports wildcards); leave empty to get all warmers</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -91,7 +91,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="index">A comma-separated list of index names to restrict the operation; use `_all` to perform the operation on all indices</param>
         ///<param name="type">A comma-separated list of document types to restrict the operation; leave empty to perform the operation on all types</param>
         ///<param name="name">The name of the warmer (supports wildcards); leave empty to get all warmers</param>
@@ -107,7 +107,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="index">A comma-separated list of index names to restrict the operation; use `_all` to perform the operation on all indices</param>
         ///<param name="type">A comma-separated list of document types to restrict the operation; leave empty to perform the operation on all types</param>
         ///<param name="name">The name of the warmer (supports wildcards); leave empty to get all warmers</param>

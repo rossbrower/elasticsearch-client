@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-shards-stores.html"/></summary>
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-shards-stores.html"/></summary>
     public class IndicesShardStoresParameters : Parameters
     {
         ///<summary>A comma-separated list of statuses used to filter on shards to get store information for</summary>

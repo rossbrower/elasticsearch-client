@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-search.html"/></summary>
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-search.html"/></summary>
     public class SearchParameters : Parameters
     {
         ///<summary>The analyzer to use for the query string</summary>
@@ -96,6 +96,14 @@ namespace Elasticsearch.Client
         public virtual SearchParameters lenient(bool value)
         {
             SetValue("lenient", value.ToString().ToLower());
+            return this;
+        }
+
+        ///<summary>Specify whether query terms should be lowercased</summary>
+        ///<param name="value"></param>
+        public virtual SearchParameters lowercase_expanded_terms(bool value)
+        {
+            SetValue("lowercase_expanded_terms", value.ToString().ToLower());
             return this;
         }
 

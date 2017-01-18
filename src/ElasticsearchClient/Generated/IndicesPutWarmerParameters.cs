@@ -1,5 +1,6 @@
 namespace Elasticsearch.Client
 {
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
     public class IndicesPutWarmerParameters : Parameters
     {
         ///<summary>Specify timeout for connection to master</summary>

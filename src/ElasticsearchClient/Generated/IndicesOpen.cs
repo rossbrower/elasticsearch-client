@@ -7,7 +7,7 @@ namespace Elasticsearch.Client
 {
     public partial class ElasticsearchClient
     {
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-open-close.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-open-close.html"/></summary>
         ///<param name="index">A comma separated list of indices to open</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesOpen(string index, Func<IndicesOpenParameters, IndicesOpenParameters> options = null)
@@ -21,7 +21,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-open-close.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-open-close.html"/></summary>
         ///<param name="index">A comma separated list of indices to open</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesOpenAsync(string index, Func<IndicesOpenParameters, IndicesOpenParameters> options = null)

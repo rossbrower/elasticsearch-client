@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/cat-fielddata.html"/></summary>
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/cat-fielddata.html"/></summary>
     public class CatFielddataParameters : Parameters
     {
         ///<summary>The unit in which to display byte values</summary>
@@ -40,14 +40,6 @@ namespace Elasticsearch.Client
         public virtual CatFielddataParameters help(bool value)
         {
             SetValue("help", value.ToString().ToLower());
-            return this;
-        }
-
-        ///<summary>Comma-separated list of column names or column aliases to sort by</summary>
-        ///<param name="value"></param>
-        public virtual CatFielddataParameters s(string value)
-        {
-            SetValue("s", value);
             return this;
         }
 

@@ -7,7 +7,7 @@ namespace Elasticsearch.Client
 {
     public partial class ElasticsearchClient
     {
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-explain.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-explain.html"/></summary>
         ///<param name="index">The name of the index</param>
         ///<param name="type">The type of the document</param>
         ///<param name="id">The document ID</param>
@@ -23,7 +23,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-explain.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-explain.html"/></summary>
         ///<param name="index">The name of the index</param>
         ///<param name="type">The type of the document</param>
         ///<param name="id">The document ID</param>
@@ -39,7 +39,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-explain.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-explain.html"/></summary>
         ///<param name="index">The name of the index</param>
         ///<param name="type">The type of the document</param>
         ///<param name="id">The document ID</param>
@@ -56,7 +56,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-explain.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-explain.html"/></summary>
         ///<param name="index">The name of the index</param>
         ///<param name="type">The type of the document</param>
         ///<param name="id">The document ID</param>
@@ -73,7 +73,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-explain.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-explain.html"/></summary>
         ///<param name="index">The name of the index</param>
         ///<param name="type">The type of the document</param>
         ///<param name="id">The document ID</param>
@@ -90,7 +90,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-explain.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-explain.html"/></summary>
         ///<param name="index">The name of the index</param>
         ///<param name="type">The type of the document</param>
         ///<param name="id">The document ID</param>
@@ -107,7 +107,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-explain.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-explain.html"/></summary>
         ///<param name="index">The name of the index</param>
         ///<param name="type">The type of the document</param>
         ///<param name="id">The document ID</param>
@@ -124,7 +124,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-explain.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-explain.html"/></summary>
         ///<param name="index">The name of the index</param>
         ///<param name="type">The type of the document</param>
         ///<param name="id">The document ID</param>
@@ -141,7 +141,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-explain.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-explain.html"/></summary>
         ///<param name="index">The name of the index</param>
         ///<param name="type">The type of the document</param>
         ///<param name="id">The document ID</param>
@@ -157,7 +157,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-explain.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-explain.html"/></summary>
         ///<param name="index">The name of the index</param>
         ///<param name="type">The type of the document</param>
         ///<param name="id">The document ID</param>
@@ -173,7 +173,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-explain.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-explain.html"/></summary>
         ///<param name="index">The name of the index</param>
         ///<param name="type">The type of the document</param>
         ///<param name="id">The document ID</param>
@@ -190,7 +190,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-explain.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-explain.html"/></summary>
         ///<param name="index">The name of the index</param>
         ///<param name="type">The type of the document</param>
         ///<param name="id">The document ID</param>
@@ -207,7 +207,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-explain.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-explain.html"/></summary>
         ///<param name="index">The name of the index</param>
         ///<param name="type">The type of the document</param>
         ///<param name="id">The document ID</param>
@@ -224,7 +224,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-explain.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-explain.html"/></summary>
         ///<param name="index">The name of the index</param>
         ///<param name="type">The type of the document</param>
         ///<param name="id">The document ID</param>
@@ -241,7 +241,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-explain.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-explain.html"/></summary>
         ///<param name="index">The name of the index</param>
         ///<param name="type">The type of the document</param>
         ///<param name="id">The document ID</param>
@@ -258,7 +258,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-explain.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-explain.html"/></summary>
         ///<param name="index">The name of the index</param>
         ///<param name="type">The type of the document</param>
         ///<param name="id">The document ID</param>

@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-forcemerge.html"/></summary>
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-forcemerge.html"/></summary>
     public class IndicesForcemergeParameters : Parameters
     {
         ///<summary>Specify whether the index should be flushed after performing the operation (default: true)</summary>

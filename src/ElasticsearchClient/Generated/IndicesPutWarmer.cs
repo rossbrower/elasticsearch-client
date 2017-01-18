@@ -7,7 +7,7 @@ namespace Elasticsearch.Client
 {
     public partial class ElasticsearchClient
     {
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="name">The name of the warmer</param>
         ///<param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -22,7 +22,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("PUT", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="name">The name of the warmer</param>
         ///<param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -37,7 +37,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("PUT", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="name">The name of the warmer</param>
         ///<param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -52,7 +52,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("PUT", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="name">The name of the warmer</param>
         ///<param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -67,7 +67,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("PUT", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="name">The name of the warmer</param>
         ///<param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -82,7 +82,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("PUT", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="name">The name of the warmer</param>
         ///<param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -97,7 +97,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("PUT", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="name">The name of the warmer</param>
         ///<param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -112,7 +112,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="name">The name of the warmer</param>
         ///<param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -127,7 +127,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="name">The name of the warmer</param>
         ///<param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -142,7 +142,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="name">The name of the warmer</param>
         ///<param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -157,7 +157,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="name">The name of the warmer</param>
         ///<param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -172,7 +172,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="name">The name of the warmer</param>
         ///<param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -187,7 +187,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
         ///<param name="name">The name of the warmer</param>
         ///<param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
@@ -203,7 +203,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("PUT", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
         ///<param name="name">The name of the warmer</param>
         ///<param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
@@ -219,7 +219,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("PUT", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
         ///<param name="name">The name of the warmer</param>
         ///<param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
@@ -235,7 +235,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("PUT", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
         ///<param name="name">The name of the warmer</param>
         ///<param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
@@ -251,7 +251,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("PUT", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
         ///<param name="name">The name of the warmer</param>
         ///<param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
@@ -267,7 +267,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("PUT", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
         ///<param name="name">The name of the warmer</param>
         ///<param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
@@ -283,7 +283,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("PUT", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
         ///<param name="name">The name of the warmer</param>
         ///<param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
@@ -299,7 +299,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
         ///<param name="name">The name of the warmer</param>
         ///<param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
@@ -315,7 +315,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
         ///<param name="name">The name of the warmer</param>
         ///<param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
@@ -331,7 +331,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
         ///<param name="name">The name of the warmer</param>
         ///<param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
@@ -347,7 +347,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
         ///<param name="name">The name of the warmer</param>
         ///<param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
@@ -363,7 +363,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
         ///<param name="name">The name of the warmer</param>
         ///<param name="body">The search request definition for the warmer (query, filters, facets, sorting, etc)</param>
@@ -379,7 +379,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
         ///<param name="type">A comma-separated list of document types to register the warmer for; leave empty to perform the operation on all types</param>
         ///<param name="name">The name of the warmer</param>
@@ -396,7 +396,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("PUT", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
         ///<param name="type">A comma-separated list of document types to register the warmer for; leave empty to perform the operation on all types</param>
         ///<param name="name">The name of the warmer</param>
@@ -413,7 +413,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("PUT", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
         ///<param name="type">A comma-separated list of document types to register the warmer for; leave empty to perform the operation on all types</param>
         ///<param name="name">The name of the warmer</param>
@@ -430,7 +430,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("PUT", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
         ///<param name="type">A comma-separated list of document types to register the warmer for; leave empty to perform the operation on all types</param>
         ///<param name="name">The name of the warmer</param>
@@ -447,7 +447,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("PUT", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
         ///<param name="type">A comma-separated list of document types to register the warmer for; leave empty to perform the operation on all types</param>
         ///<param name="name">The name of the warmer</param>
@@ -464,7 +464,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("PUT", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
         ///<param name="type">A comma-separated list of document types to register the warmer for; leave empty to perform the operation on all types</param>
         ///<param name="name">The name of the warmer</param>
@@ -481,7 +481,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("PUT", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
         ///<param name="type">A comma-separated list of document types to register the warmer for; leave empty to perform the operation on all types</param>
         ///<param name="name">The name of the warmer</param>
@@ -498,7 +498,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
         ///<param name="type">A comma-separated list of document types to register the warmer for; leave empty to perform the operation on all types</param>
         ///<param name="name">The name of the warmer</param>
@@ -515,7 +515,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
         ///<param name="type">A comma-separated list of document types to register the warmer for; leave empty to perform the operation on all types</param>
         ///<param name="name">The name of the warmer</param>
@@ -532,7 +532,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
         ///<param name="type">A comma-separated list of document types to register the warmer for; leave empty to perform the operation on all types</param>
         ///<param name="name">The name of the warmer</param>
@@ -549,7 +549,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
         ///<param name="type">A comma-separated list of document types to register the warmer for; leave empty to perform the operation on all types</param>
         ///<param name="name">The name of the warmer</param>
@@ -566,7 +566,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-warmers.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-warmers.html"/></summary>
         ///<param name="index">A comma-separated list of index names to register the warmer for; use `_all` or omit to perform the operation on all indices</param>
         ///<param name="type">A comma-separated list of document types to register the warmer for; leave empty to perform the operation on all types</param>
         ///<param name="name">The name of the warmer</param>

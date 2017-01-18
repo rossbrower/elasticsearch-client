@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/docs-multi-termvectors.html"/></summary>
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/docs-multi-termvectors.html"/></summary>
     public class MtermvectorsParameters : Parameters
     {
         ///<summary>A comma-separated list of documents ids. You must define ids as parameter or set "ids" or "docs" in the request body</summary>

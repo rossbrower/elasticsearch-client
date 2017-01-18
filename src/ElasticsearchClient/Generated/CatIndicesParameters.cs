@@ -1,16 +1,8 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/cat-indices.html"/></summary>
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/cat-indices.html"/></summary>
     public class CatIndicesParameters : Parameters
     {
-        ///<summary>a short version of the Accept header, e.g. json, yaml</summary>
-        ///<param name="value"></param>
-        public virtual CatIndicesParameters format(string value)
-        {
-            SetValue("format", value);
-            return this;
-        }
-
         ///<summary>The unit in which to display byte values</summary>
         ///<param name="value"><para>Options: b,k,m,g</para></param>
         public virtual CatIndicesParameters bytes(string value)
@@ -43,14 +35,6 @@ namespace Elasticsearch.Client
             return this;
         }
 
-        ///<summary>A health status ("green", "yellow", or "red" to filter only indices matching the specified health status</summary>
-        ///<param name="value"><para>Options: green,yellow,red</para></param>
-        public virtual CatIndicesParameters health(string value)
-        {
-            SetValue("health", value);
-            return this;
-        }
-
         ///<summary>Return help information</summary>
         ///<param name="value"><para>Default: False</para></param>
         public virtual CatIndicesParameters help(bool value)
@@ -64,14 +48,6 @@ namespace Elasticsearch.Client
         public virtual CatIndicesParameters pri(bool value)
         {
             SetValue("pri", value.ToString().ToLower());
-            return this;
-        }
-
-        ///<summary>Comma-separated list of column names or column aliases to sort by</summary>
-        ///<param name="value"></param>
-        public virtual CatIndicesParameters s(string value)
-        {
-            SetValue("s", value);
             return this;
         }
 

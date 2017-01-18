@@ -7,7 +7,7 @@ namespace Elasticsearch.Client
 {
     public partial class ElasticsearchClient
     {
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="body">The percolate request definitions (header &amp; body pair), separated by newlines</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MpercolateGet(Stream body, Func<MpercolateParameters, MpercolateParameters> options = null)
@@ -21,7 +21,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="body">The percolate request definitions (header &amp; body pair), separated by newlines</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MpercolateGetAsync(Stream body, Func<MpercolateParameters, MpercolateParameters> options = null)
@@ -35,7 +35,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="body">The percolate request definitions (header &amp; body pair), separated by newlines</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MpercolateGet(byte[] body, Func<MpercolateParameters, MpercolateParameters> options = null)
@@ -49,7 +49,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="body">The percolate request definitions (header &amp; body pair), separated by newlines</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MpercolateGetAsync(byte[] body, Func<MpercolateParameters, MpercolateParameters> options = null)
@@ -63,7 +63,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="body">The percolate request definitions (header &amp; body pair), separated by newlines</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MpercolateGetString(string body, Func<MpercolateParameters, MpercolateParameters> options = null)
@@ -77,7 +77,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="body">The percolate request definitions (header &amp; body pair), separated by newlines</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MpercolateGetStringAsync(string body, Func<MpercolateParameters, MpercolateParameters> options = null)
@@ -91,7 +91,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="body">The percolate request definitions (header &amp; body pair), separated by newlines</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MpercolatePost(Stream body, Func<MpercolateParameters, MpercolateParameters> options = null)
@@ -105,7 +105,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="body">The percolate request definitions (header &amp; body pair), separated by newlines</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MpercolatePostAsync(Stream body, Func<MpercolateParameters, MpercolateParameters> options = null)
@@ -119,7 +119,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="body">The percolate request definitions (header &amp; body pair), separated by newlines</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MpercolatePost(byte[] body, Func<MpercolateParameters, MpercolateParameters> options = null)
@@ -133,7 +133,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="body">The percolate request definitions (header &amp; body pair), separated by newlines</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MpercolatePostAsync(byte[] body, Func<MpercolateParameters, MpercolateParameters> options = null)
@@ -147,7 +147,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="body">The percolate request definitions (header &amp; body pair), separated by newlines</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage MpercolatePostString(string body, Func<MpercolateParameters, MpercolateParameters> options = null)
@@ -161,7 +161,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="body">The percolate request definitions (header &amp; body pair), separated by newlines</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> MpercolatePostStringAsync(string body, Func<MpercolateParameters, MpercolateParameters> options = null)
@@ -175,7 +175,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being count percolated to use as default</param>
         ///<param name="body">The percolate request definitions (header &amp; body pair), separated by newlines</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -190,7 +190,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being count percolated to use as default</param>
         ///<param name="body">The percolate request definitions (header &amp; body pair), separated by newlines</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -205,7 +205,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being count percolated to use as default</param>
         ///<param name="body">The percolate request definitions (header &amp; body pair), separated by newlines</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -220,7 +220,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being count percolated to use as default</param>
         ///<param name="body">The percolate request definitions (header &amp; body pair), separated by newlines</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -235,7 +235,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being count percolated to use as default</param>
         ///<param name="body">The percolate request definitions (header &amp; body pair), separated by newlines</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -250,7 +250,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being count percolated to use as default</param>
         ///<param name="body">The percolate request definitions (header &amp; body pair), separated by newlines</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -265,7 +265,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being count percolated to use as default</param>
         ///<param name="body">The percolate request definitions (header &amp; body pair), separated by newlines</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -280,7 +280,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being count percolated to use as default</param>
         ///<param name="body">The percolate request definitions (header &amp; body pair), separated by newlines</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -295,7 +295,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being count percolated to use as default</param>
         ///<param name="body">The percolate request definitions (header &amp; body pair), separated by newlines</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -310,7 +310,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being count percolated to use as default</param>
         ///<param name="body">The percolate request definitions (header &amp; body pair), separated by newlines</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -325,7 +325,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being count percolated to use as default</param>
         ///<param name="body">The percolate request definitions (header &amp; body pair), separated by newlines</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -340,7 +340,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being count percolated to use as default</param>
         ///<param name="body">The percolate request definitions (header &amp; body pair), separated by newlines</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -355,7 +355,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being count percolated to use as default</param>
         ///<param name="type">The type of the document being percolated to use as default.</param>
         ///<param name="body">The percolate request definitions (header &amp; body pair), separated by newlines</param>
@@ -371,7 +371,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being count percolated to use as default</param>
         ///<param name="type">The type of the document being percolated to use as default.</param>
         ///<param name="body">The percolate request definitions (header &amp; body pair), separated by newlines</param>
@@ -387,7 +387,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being count percolated to use as default</param>
         ///<param name="type">The type of the document being percolated to use as default.</param>
         ///<param name="body">The percolate request definitions (header &amp; body pair), separated by newlines</param>
@@ -403,7 +403,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being count percolated to use as default</param>
         ///<param name="type">The type of the document being percolated to use as default.</param>
         ///<param name="body">The percolate request definitions (header &amp; body pair), separated by newlines</param>
@@ -419,7 +419,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being count percolated to use as default</param>
         ///<param name="type">The type of the document being percolated to use as default.</param>
         ///<param name="body">The percolate request definitions (header &amp; body pair), separated by newlines</param>
@@ -435,7 +435,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being count percolated to use as default</param>
         ///<param name="type">The type of the document being percolated to use as default.</param>
         ///<param name="body">The percolate request definitions (header &amp; body pair), separated by newlines</param>
@@ -451,7 +451,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being count percolated to use as default</param>
         ///<param name="type">The type of the document being percolated to use as default.</param>
         ///<param name="body">The percolate request definitions (header &amp; body pair), separated by newlines</param>
@@ -467,7 +467,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being count percolated to use as default</param>
         ///<param name="type">The type of the document being percolated to use as default.</param>
         ///<param name="body">The percolate request definitions (header &amp; body pair), separated by newlines</param>
@@ -483,7 +483,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being count percolated to use as default</param>
         ///<param name="type">The type of the document being percolated to use as default.</param>
         ///<param name="body">The percolate request definitions (header &amp; body pair), separated by newlines</param>
@@ -499,7 +499,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being count percolated to use as default</param>
         ///<param name="type">The type of the document being percolated to use as default.</param>
         ///<param name="body">The percolate request definitions (header &amp; body pair), separated by newlines</param>
@@ -515,7 +515,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being count percolated to use as default</param>
         ///<param name="type">The type of the document being percolated to use as default.</param>
         ///<param name="body">The percolate request definitions (header &amp; body pair), separated by newlines</param>
@@ -531,7 +531,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/search-percolate.html"/></summary>
         ///<param name="index">The index of the document being count percolated to use as default</param>
         ///<param name="type">The type of the document being percolated to use as default.</param>
         ///<param name="body">The percolate request definitions (header &amp; body pair), separated by newlines</param>

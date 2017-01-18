@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-refresh.html"/></summary>
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-refresh.html"/></summary>
     public class IndicesRefreshParameters : Parameters
     {
         ///<summary>Whether specified concrete indices should be ignored when unavailable (missing or closed)</summary>

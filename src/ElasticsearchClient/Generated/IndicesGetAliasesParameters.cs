@@ -1,5 +1,6 @@
 namespace Elasticsearch.Client
 {
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/2.4/indices-aliases.html"/></summary>
     public class IndicesGetAliasesParameters : Parameters
     {
         ///<summary>Explicit operation timeout</summary>
