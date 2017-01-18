@@ -82,13 +82,15 @@ namespace Elasticsearch.Client.Generator
                     SyntaxFactory.IdentifierName("Client")));
         }
 
-        private static ClassDeclarationSyntax GetParameterClass(string name)
+        private static ClassDeclarationSyntax GetParameterClass(string name, string helpLink)
         {
+            var trivia = SyntaxFactory.TriviaList(GetDocumentationComment(helpLink));
             return SyntaxFactory.ClassDeclaration(name)
                 .WithModifiers(SyntaxFactory.TokenList(SyntaxFactory.Token(SyntaxKind.PublicKeyword)))
                 .WithBaseList(SyntaxFactory.BaseList(
                     SyntaxFactory.SimpleBaseType(SyntaxFactory.IdentifierName(Parameters))
-                        .AsSeparatedList<BaseTypeSyntax>()));
+                        .AsSeparatedList<BaseTypeSyntax>()))
+                        .WithLeadingTrivia(trivia);
         }
 
         private static ClassDeclarationSyntax GetApiClass()
@@ -112,7 +114,7 @@ namespace Elasticsearch.Client.Generator
                 paramClassName = className + Parameters;
                 var paramMethods = GenerateParameterMethods(paramClassName, description).ToArray();
                 var paramFile = Path.Combine(outputPath, paramClassName + ".cs");
-                var paramClass = GetParameterClass(paramClassName).AddMembers(paramMethods);
+                var paramClass = GetParameterClass(paramClassName, description.DocumentationLink).AddMembers(paramMethods);
                 WriteClass(paramClass, paramFile, Enumerable.Empty<string>());
             }
             var file = Path.Combine(outputPath, className + ".cs");
@@ -474,12 +476,12 @@ namespace Elasticsearch.Client.Generator
 
         private static SyntaxTrivia GetSummaryComment(string summary)
         {
-            return SyntaxFactory.Comment($"///<summary>{summary}</summary>{Environment.NewLine}");
+            return SyntaxFactory.Comment($"///<summary>{summary.XmlEscape()}</summary>{Environment.NewLine}");
         }
 
         private static SyntaxTrivia GetDocumentationComment(string documentationLink)
         {
-            return GetSummaryComment($"<see href=\"{documentationLink}\"/>");
+            return SyntaxFactory.Comment($"///<summary><see href=\"{documentationLink}\"/></summary>{Environment.NewLine}");
         }
 
         private static SyntaxTrivia GetParameterTrivia(RestParameter parameter)
@@ -493,12 +495,12 @@ namespace Elasticsearch.Client.Generator
             {
                 paramDescription += $"<para>Default: {parameter.Default}</para>";
             }
-            return GetParameterCommentStatement("value", paramDescription);
+            return SyntaxFactory.Comment($"///<param name=\"value\">{paramDescription}</param>{Environment.NewLine}");
         }
 
         private static SyntaxTrivia GetParameterCommentStatement(string parameter, string description)
         {
-            return SyntaxFactory.Comment($"///<param name=\"{parameter}\">{description}</param>{Environment.NewLine}");
+            return SyntaxFactory.Comment($"///<param name=\"{parameter}\">{description.XmlEscape()}</param>{Environment.NewLine}");
         }
 
         private static string ToCamelCase(string input)

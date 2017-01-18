@@ -1,5 +1,6 @@
 namespace Elasticsearch.Client
 {
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-exists.html"/></summary>
     public class IndicesExistsParameters : Parameters
     {
         ///<summary>Whether specified concrete indices should be ignored when unavailable (missing or closed)</summary>

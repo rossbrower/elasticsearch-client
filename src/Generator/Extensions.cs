@@ -92,5 +92,10 @@ namespace Elasticsearch.Client.Generator
                 SyntaxFactory.MemberAccessExpression(SyntaxKind.SimpleMemberAccessExpression,
                     member, SyntaxFactory.IdentifierName(method)));
         }
+
+        public static string XmlEscape(this string str)
+        {
+            return new System.Xml.Linq.XText(str).ToString();
+        }
     }
 }

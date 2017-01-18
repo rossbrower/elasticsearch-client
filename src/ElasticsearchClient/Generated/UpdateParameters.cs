@@ -1,12 +1,13 @@
 namespace Elasticsearch.Client
 {
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/docs-update.html"/></summary>
     public class UpdateParameters : Parameters
     {
-        ///<summary>Explicit write consistency setting for the operation</summary>
-        ///<param name="value"><para>Options: one,quorum,all</para></param>
-        public virtual UpdateParameters consistency(string value)
+        ///<summary>Sets the number of shard copies that must be active before proceeding with the update operation. Defaults to 1, meaning the primary shard only. Set to `all` for all shard copies, otherwise set to any non-negative value less than or equal to the total number of copies for the shard (number of replicas + 1)</summary>
+        ///<param name="value"></param>
+        public virtual UpdateParameters wait_for_active_shards(string value)
         {
-            SetValue("consistency", value);
+            SetValue("wait_for_active_shards", value);
             return this;
         }
 
@@ -18,7 +19,31 @@ namespace Elasticsearch.Client
             return this;
         }
 
-        ///<summary>The script language (default: groovy)</summary>
+        ///<summary>True or false to return the _source field or not, or a list of fields to return</summary>
+        ///<param name="value"></param>
+        public virtual UpdateParameters _source(string value)
+        {
+            SetValue("_source", value);
+            return this;
+        }
+
+        ///<summary>A list of fields to exclude from the returned _source field</summary>
+        ///<param name="value"></param>
+        public virtual UpdateParameters _source_exclude(string value)
+        {
+            SetValue("_source_exclude", value);
+            return this;
+        }
+
+        ///<summary>A list of fields to extract and return from the _source field</summary>
+        ///<param name="value"></param>
+        public virtual UpdateParameters _source_include(string value)
+        {
+            SetValue("_source_include", value);
+            return this;
+        }
+
+        ///<summary>The script language (default: painless)</summary>
         ///<param name="value"></param>
         public virtual UpdateParameters lang(string value)
         {
@@ -34,11 +59,11 @@ namespace Elasticsearch.Client
             return this;
         }
 
-        ///<summary>Refresh the index after performing the operation</summary>
-        ///<param name="value"></param>
-        public virtual UpdateParameters refresh(bool value)
+        ///<summary>If `true` then refresh the effected shards to make this operation visible to search, if `wait_for` then wait for a refresh to make this operation visible to search, if `false` (the default) then do nothing with refreshes.</summary>
+        ///<param name="value"><para>Options: true,false,wait_for</para></param>
+        public virtual UpdateParameters refresh(string value)
         {
-            SetValue("refresh", value.ToString().ToLower());
+            SetValue("refresh", value);
             return this;
         }
 
@@ -55,30 +80,6 @@ namespace Elasticsearch.Client
         public virtual UpdateParameters routing(string value)
         {
             SetValue("routing", value);
-            return this;
-        }
-
-        ///<summary>The URL-encoded script definition (instead of using request body)</summary>
-        ///<param name="value"></param>
-        public virtual UpdateParameters script(string value)
-        {
-            SetValue("script", value);
-            return this;
-        }
-
-        ///<summary>The id of a stored script</summary>
-        ///<param name="value"></param>
-        public virtual UpdateParameters script_id(string value)
-        {
-            SetValue("script_id", value);
-            return this;
-        }
-
-        ///<summary>True if the script referenced in script or script_id should be called to perform inserts - defaults to false</summary>
-        ///<param name="value"></param>
-        public virtual UpdateParameters scripted_upsert(bool value)
-        {
-            SetValue("scripted_upsert", value.ToString().ToLower());
             return this;
         }
 

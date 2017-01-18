@@ -1,5 +1,6 @@
 namespace Elasticsearch.Client
 {
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-validate.html"/></summary>
     public class IndicesValidateQueryParameters : Parameters
     {
         ///<summary>Return detailed information about the error</summary>
@@ -79,14 +80,6 @@ namespace Elasticsearch.Client
         public virtual IndicesValidateQueryParameters lenient(bool value)
         {
             SetValue("lenient", value.ToString().ToLower());
-            return this;
-        }
-
-        ///<summary>Specify whether query terms should be lowercased</summary>
-        ///<param name="value"></param>
-        public virtual IndicesValidateQueryParameters lowercase_expanded_terms(bool value)
-        {
-            SetValue("lowercase_expanded_terms", value.ToString().ToLower());
             return this;
         }
 

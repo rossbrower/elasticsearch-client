@@ -1,5 +1,6 @@
 namespace Elasticsearch.Client
 {
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/docs-bulk.html"/></summary>
     public class BulkParameters : Parameters
     {
         ///<summary>Explicit write consistency setting for the operation</summary>

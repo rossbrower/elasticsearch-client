@@ -1,5 +1,6 @@
 namespace Elasticsearch.Client
 {
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-aliases.html"/></summary>
     public class IndicesPutAliasParameters : Parameters
     {
         ///<summary>Explicit timestamp for the document</summary>

@@ -1,5 +1,6 @@
 namespace Elasticsearch.Client
 {
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/cat-snapshots.html"/></summary>
     public class CatSnapshotsParameters : Parameters
     {
         ///<summary>Set to true to ignore unavailable snapshots</summary>
@@ -31,6 +32,14 @@ namespace Elasticsearch.Client
         public virtual CatSnapshotsParameters help(bool value)
         {
             SetValue("help", value.ToString().ToLower());
+            return this;
+        }
+
+        ///<summary>Comma-separated list of column names or column aliases to sort by</summary>
+        ///<param name="value"></param>
+        public virtual CatSnapshotsParameters s(string value)
+        {
+            SetValue("s", value);
             return this;
         }
 

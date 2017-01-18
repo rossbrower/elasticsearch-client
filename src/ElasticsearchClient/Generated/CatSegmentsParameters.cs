@@ -1,5 +1,6 @@
 namespace Elasticsearch.Client
 {
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/cat-segments.html"/></summary>
     public class CatSegmentsParameters : Parameters
     {
         ///<summary>Comma-separated list of column names to display</summary>
@@ -15,6 +16,14 @@ namespace Elasticsearch.Client
         public virtual CatSegmentsParameters help(bool value)
         {
             SetValue("help", value.ToString().ToLower());
+            return this;
+        }
+
+        ///<summary>Comma-separated list of column names or column aliases to sort by</summary>
+        ///<param name="value"></param>
+        public virtual CatSegmentsParameters s(string value)
+        {
+            SetValue("s", value);
             return this;
         }
 

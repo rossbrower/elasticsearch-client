@@ -1,5 +1,6 @@
 namespace Elasticsearch.Client
 {
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
     public class SearchTemplateParameters : Parameters
     {
         ///<summary>Whether specified concrete indices should be ignored when unavailable (missing or closed)</summary>
@@ -55,6 +56,22 @@ namespace Elasticsearch.Client
         public virtual SearchTemplateParameters search_type(string value)
         {
             SetValue("search_type", value);
+            return this;
+        }
+
+        ///<summary>Specify whether to return detailed information about score computation as part of a hit</summary>
+        ///<param name="value"></param>
+        public virtual SearchTemplateParameters explain(bool value)
+        {
+            SetValue("explain", value.ToString().ToLower());
+            return this;
+        }
+
+        ///<summary>Specify whether to profile the query execution</summary>
+        ///<param name="value"></param>
+        public virtual SearchTemplateParameters profile(bool value)
+        {
+            SetValue("profile", value.ToString().ToLower());
             return this;
         }
     }

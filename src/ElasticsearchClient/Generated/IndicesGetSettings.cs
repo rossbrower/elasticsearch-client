@@ -7,7 +7,7 @@ namespace Elasticsearch.Client
 {
     public partial class ElasticsearchClient
     {
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-settings.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-get-settings.html"/></summary>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesGetSettings(Func<IndicesGetSettingsParameters, IndicesGetSettingsParameters> options = null)
         {
@@ -20,7 +20,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-settings.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-get-settings.html"/></summary>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesGetSettingsAsync(Func<IndicesGetSettingsParameters, IndicesGetSettingsParameters> options = null)
         {
@@ -33,7 +33,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-settings.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-get-settings.html"/></summary>
         ///<param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesGetSettings(string index, Func<IndicesGetSettingsParameters, IndicesGetSettingsParameters> options = null)
@@ -47,7 +47,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-settings.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-get-settings.html"/></summary>
         ///<param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesGetSettingsAsync(string index, Func<IndicesGetSettingsParameters, IndicesGetSettingsParameters> options = null)
@@ -61,7 +61,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-settings.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-get-settings.html"/></summary>
         ///<param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         ///<param name="name">The name of the settings that should be included</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -76,7 +76,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-settings.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-get-settings.html"/></summary>
         ///<param name="index">A comma-separated list of index names; use `_all` or empty string to perform the operation on all indices</param>
         ///<param name="name">The name of the settings that should be included</param>
         ///<param name="options">The function to set optional url parameters.</param>

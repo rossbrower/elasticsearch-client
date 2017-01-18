@@ -1,5 +1,6 @@
 namespace Elasticsearch.Client
 {
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/docs-multi-get.html"/></summary>
     public class MgetParameters : Parameters
     {
         ///<summary>A comma-separated list of fields to return in the response</summary>
@@ -31,6 +32,14 @@ namespace Elasticsearch.Client
         public virtual MgetParameters refresh(bool value)
         {
             SetValue("refresh", value.ToString().ToLower());
+            return this;
+        }
+
+        ///<summary>Specific routing value</summary>
+        ///<param name="value"></param>
+        public virtual MgetParameters routing(string value)
+        {
+            SetValue("routing", value);
             return this;
         }
 

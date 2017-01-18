@@ -1,5 +1,6 @@
 namespace Elasticsearch.Client
 {
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/docs-reindex.html"/></summary>
     public class ReindexParameters : Parameters
     {
         ///<summary>Should the effected indexes be refreshed?</summary>
@@ -18,11 +19,11 @@ namespace Elasticsearch.Client
             return this;
         }
 
-        ///<summary>Explicit write consistency setting for the operation</summary>
-        ///<param name="value"><para>Options: one,quorum,all</para></param>
-        public virtual ReindexParameters consistency(string value)
+        ///<summary>Sets the number of shard copies that must be active before proceeding with the reindex operation. Defaults to 1, meaning the primary shard only. Set to `all` for all shard copies, otherwise set to any non-negative value less than or equal to the total number of copies for the shard (number of replicas + 1)</summary>
+        ///<param name="value"></param>
+        public virtual ReindexParameters wait_for_active_shards(string value)
         {
-            SetValue("consistency", value);
+            SetValue("wait_for_active_shards", value);
             return this;
         }
 
@@ -34,11 +35,19 @@ namespace Elasticsearch.Client
             return this;
         }
 
-        ///<summary>The throttle for this request in sub-requests per second. 0 means set no throttle.</summary>
+        ///<summary>The throttle to set on this request in sub-requests per second. -1 means no throttle.</summary>
         ///<param name="value"><para>Default: 0</para></param>
         public virtual ReindexParameters requests_per_second(long value)
         {
             SetValue("requests_per_second", value);
+            return this;
+        }
+
+        ///<summary>The number of slices this task should be divided into. Defaults to 1 meaning the task isn't sliced into subtasks.</summary>
+        ///<param name="value"><para>Default: 1</para></param>
+        public virtual ReindexParameters slices(int value)
+        {
+            SetValue("slices", value);
             return this;
         }
     }

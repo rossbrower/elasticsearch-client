@@ -1,5 +1,6 @@
 namespace Elasticsearch.Client
 {
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-stats.html"/></summary>
     public class IndicesStatsParameters : Parameters
     {
         ///<summary>A comma-separated list of fields for `fielddata` and `suggest` index metric (supports wildcards)</summary>
@@ -55,6 +56,14 @@ namespace Elasticsearch.Client
         public virtual IndicesStatsParameters types(string value)
         {
             SetValue("types", value);
+            return this;
+        }
+
+        ///<summary>Whether to report the aggregated disk usage of each one of the Lucene index files (only applies if segment stats are requested)</summary>
+        ///<param name="value"><para>Default: False</para></param>
+        public virtual IndicesStatsParameters include_segment_file_sizes(bool value)
+        {
+            SetValue("include_segment_file_sizes", value.ToString().ToLower());
             return this;
         }
     }

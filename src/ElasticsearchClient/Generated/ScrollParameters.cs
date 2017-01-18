@@ -1,5 +1,6 @@
 namespace Elasticsearch.Client
 {
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-request-scroll.html"/></summary>
     public class ScrollParameters : Parameters
     {
         ///<summary>Specify how long a consistent view of the index should be maintained for scrolled search</summary>

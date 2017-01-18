@@ -1,5 +1,6 @@
 namespace Elasticsearch.Client
 {
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-search.html"/></summary>
     public class SearchParameters : Parameters
     {
         ///<summary>The analyzer to use for the query string</summary>
@@ -98,14 +99,6 @@ namespace Elasticsearch.Client
             return this;
         }
 
-        ///<summary>Specify whether query terms should be lowercased</summary>
-        ///<param name="value"></param>
-        public virtual SearchParameters lowercase_expanded_terms(bool value)
-        {
-            SetValue("lowercase_expanded_terms", value.ToString().ToLower());
-            return this;
-        }
-
         ///<summary>Specify the node or shard the operation should be performed on (default: random)</summary>
         ///<param name="value"></param>
         public virtual SearchParameters preference(string value)
@@ -154,7 +147,7 @@ namespace Elasticsearch.Client
             return this;
         }
 
-        ///<summary>A comma-separated list of <field>:<direction> pairs</summary>
+        ///<summary>A comma-separated list of &lt;field&gt;:&lt;direction&gt; pairs</summary>
         ///<param name="value"></param>
         public virtual SearchParameters sort(string value)
         {

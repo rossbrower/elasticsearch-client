@@ -1,5 +1,6 @@
 namespace Elasticsearch.Client
 {
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-percolate.html"/></summary>
     public class PercolateParameters : Parameters
     {
         ///<summary>A comma-separated list of specific routing values</summary>

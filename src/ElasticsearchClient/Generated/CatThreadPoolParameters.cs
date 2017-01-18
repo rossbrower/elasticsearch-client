@@ -1,7 +1,24 @@
 namespace Elasticsearch.Client
 {
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/cat-thread-pool.html"/></summary>
     public class CatThreadPoolParameters : Parameters
     {
+        ///<summary>a short version of the Accept header, e.g. json, yaml</summary>
+        ///<param name="value"></param>
+        public virtual CatThreadPoolParameters format(string value)
+        {
+            SetValue("format", value);
+            return this;
+        }
+
+        ///<summary>The multiplier in which to display values</summary>
+        ///<param name="value"><para>Options: ,k,m,g,t,p</para></param>
+        public virtual CatThreadPoolParameters size(string value)
+        {
+            SetValue("size", value);
+            return this;
+        }
+
         ///<summary>Return local information, do not retrieve the state from master node (default: false)</summary>
         ///<param name="value"></param>
         public virtual CatThreadPoolParameters local(bool value)
@@ -34,19 +51,19 @@ namespace Elasticsearch.Client
             return this;
         }
 
+        ///<summary>Comma-separated list of column names or column aliases to sort by</summary>
+        ///<param name="value"></param>
+        public virtual CatThreadPoolParameters s(string value)
+        {
+            SetValue("s", value);
+            return this;
+        }
+
         ///<summary>Verbose mode. Display column headers</summary>
         ///<param name="value"><para>Default: False</para></param>
         public virtual CatThreadPoolParameters v(bool value)
         {
             SetValue("v", value.ToString().ToLower());
-            return this;
-        }
-
-        ///<summary>Enables displaying the complete node ids</summary>
-        ///<param name="value"><para>Default: False</para></param>
-        public virtual CatThreadPoolParameters full_id(bool value)
-        {
-            SetValue("full_id", value.ToString().ToLower());
             return this;
         }
     }

@@ -37,6 +37,15 @@ namespace Elasticsearch.Client
             mDelayBase = delayBase;
         }
 
+        /// <summary>
+        /// Send the request using the given client and return the response.
+        /// If the response is 429 (TooManyRequests) then exponentially back off.
+        /// </summary>
+        /// <param name="client">The client to use to send the request.</param>
+        /// <param name="httpMethod">The HTTP method to use for the request.</param>
+        /// <param name="uri">The URI to use for the request.</param>
+        /// <param name="content">The content (if any) to send with the request.</param>
+        /// <returns></returns>
         public async Task<HttpResponseMessage> ExecuteAsync(HttpClient client, string httpMethod, string uri,
             HttpContent content = null)
         {

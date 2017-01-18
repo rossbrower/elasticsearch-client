@@ -1,5 +1,6 @@
 namespace Elasticsearch.Client
 {
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-clearcache.html"/></summary>
     public class IndicesClearCacheParameters : Parameters
     {
         ///<summary>Clear field data</summary>
