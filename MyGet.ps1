@@ -1,1 +1,1 @@
-dotnet pack .\src\ElasticsearchClient\project.json
+dotnet pack .\src\ElasticsearchClient\ElasticsearchClient.csproj
