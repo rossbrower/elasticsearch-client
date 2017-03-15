@@ -45,7 +45,7 @@ namespace Elasticsearch.Client
 
         ///<summary>The number of slices this task should be divided into. Defaults to 1 meaning the task isn't sliced into subtasks.</summary>
         ///<param name="value"><para>Default: 1</para></param>
-        public virtual ReindexParameters slices(int value)
+        public virtual ReindexParameters slices(long value)
         {
             SetValue("slices", value);
             return this;

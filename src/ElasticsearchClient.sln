@@ -1,13 +1,13 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26114.2
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ElasticsearchClient", "ElasticsearchClient\ElasticsearchClient.xproj", "{81283CF8-D508-4F92-B154-36D3748A57C5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElasticsearchClient", "ElasticsearchClient\ElasticsearchClient.csproj", "{81283CF8-D508-4F92-B154-36D3748A57C5}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Generator", "Generator\Generator.xproj", "{C3ED87AF-8567-44C6-A4FB-6B0F8CC485E8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generator", "Generator\Generator.csproj", "{C3ED87AF-8567-44C6-A4FB-6B0F8CC485E8}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Tests", "Tests\Tests.xproj", "{45082C8D-26D8-4196-80E0-FDABAAB2146B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{45082C8D-26D8-4196-80E0-FDABAAB2146B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
