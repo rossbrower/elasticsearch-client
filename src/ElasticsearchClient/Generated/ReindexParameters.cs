@@ -28,7 +28,7 @@ namespace Elasticsearch.Client
         }
 
         ///<summary>Should the request should block until the reindex is complete.</summary>
-        ///<param name="value"><para>Default: False</para></param>
+        ///<param name="value"><para>Default: True</para></param>
         public virtual ReindexParameters wait_for_completion(bool value)
         {
             SetValue("wait_for_completion", value.ToString().ToLower());
@@ -48,6 +48,46 @@ namespace Elasticsearch.Client
         public virtual ReindexParameters slices(long value)
         {
             SetValue("slices", value);
+            return this;
+        }
+
+        ///<summary>Pretty format the returned JSON response.</summary>
+        ///<param name="value"><para>Default: False</para></param>
+        public virtual ReindexParameters pretty(bool value)
+        {
+            SetValue("pretty", value.ToString().ToLower());
+            return this;
+        }
+
+        ///<summary>Return human readable values for statistics.</summary>
+        ///<param name="value"><para>Default: True</para></param>
+        public virtual ReindexParameters human(bool value)
+        {
+            SetValue("human", value.ToString().ToLower());
+            return this;
+        }
+
+        ///<summary>Include the stack trace of returned errors.</summary>
+        ///<param name="value"><para>Default: False</para></param>
+        public virtual ReindexParameters error_trace(bool value)
+        {
+            SetValue("error_trace", value.ToString().ToLower());
+            return this;
+        }
+
+        ///<summary>The URL-encoded request definition. Useful for libraries that do not accept a request body for non-POST requests.</summary>
+        ///<param name="value"></param>
+        public virtual ReindexParameters source(string value)
+        {
+            SetValue("source", value);
+            return this;
+        }
+
+        ///<summary>A comma-separated list of filters used to reduce the respone.</summary>
+        ///<param name="value"></param>
+        public virtual ReindexParameters filter_path(string value)
+        {
+            SetValue("filter_path", value);
             return this;
         }
     }

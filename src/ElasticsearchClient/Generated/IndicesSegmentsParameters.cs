@@ -27,19 +27,51 @@ namespace Elasticsearch.Client
             return this;
         }
 
-        ///<summary>Whether to return time and byte values in human-readable format.</summary>
+        ///<summary>Includes detailed memory usage by Lucene.</summary>
         ///<param name="value"><para>Default: False</para></param>
+        public virtual IndicesSegmentsParameters verbose(bool value)
+        {
+            SetValue("verbose", value.ToString().ToLower());
+            return this;
+        }
+
+        ///<summary>Pretty format the returned JSON response.</summary>
+        ///<param name="value"><para>Default: False</para></param>
+        public virtual IndicesSegmentsParameters pretty(bool value)
+        {
+            SetValue("pretty", value.ToString().ToLower());
+            return this;
+        }
+
+        ///<summary>Return human readable values for statistics.</summary>
+        ///<param name="value"><para>Default: True</para></param>
         public virtual IndicesSegmentsParameters human(bool value)
         {
             SetValue("human", value.ToString().ToLower());
             return this;
         }
 
-        ///<summary>Includes detailed memory usage by Lucene.</summary>
+        ///<summary>Include the stack trace of returned errors.</summary>
         ///<param name="value"><para>Default: False</para></param>
-        public virtual IndicesSegmentsParameters verbose(bool value)
+        public virtual IndicesSegmentsParameters error_trace(bool value)
         {
-            SetValue("verbose", value.ToString().ToLower());
+            SetValue("error_trace", value.ToString().ToLower());
+            return this;
+        }
+
+        ///<summary>The URL-encoded request definition. Useful for libraries that do not accept a request body for non-POST requests.</summary>
+        ///<param name="value"></param>
+        public virtual IndicesSegmentsParameters source(string value)
+        {
+            SetValue("source", value);
+            return this;
+        }
+
+        ///<summary>A comma-separated list of filters used to reduce the respone.</summary>
+        ///<param name="value"></param>
+        public virtual IndicesSegmentsParameters filter_path(string value)
+        {
+            SetValue("filter_path", value);
             return this;
         }
     }

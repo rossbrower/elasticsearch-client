@@ -10,13 +10,16 @@ using Newtonsoft.Json;
 
 namespace Elasticsearch.Client.Generator
 {
-    public class Generator: IDisposable
+    internal class Generator: IDisposable
     {
         private const string ClassName = "ElasticsearchClient";
         private const string Parameters = "Parameters";
+        private const string CommonFile = "_common.json";
         private static readonly string[] BodyTypes;
         private static readonly string[] Usings;
         private readonly Workspace mWorkspace;
+        private readonly string mInputPath;
+        private readonly string mOutputPath;
 
         static Generator()
         {
@@ -36,27 +39,40 @@ namespace Elasticsearch.Client.Generator
             };
         }
 
-        public Generator()
+        public Generator(string inputPath, string outputPath)
         {
+            mInputPath = inputPath;
+            mOutputPath = outputPath;
             mWorkspace = new AdhocWorkspace();
         }
 
-        public void GenerateFromDirectory(string inputPath, string outputPath)
-        {
-            var directory = new DirectoryInfo(inputPath);
+        public void Generate()
+        {            
+            var common = ReadFile(Path.Combine(mInputPath, CommonFile));
+            var directory = new DirectoryInfo(mInputPath);
             foreach (var fileInfo in directory.EnumerateFiles("*.json"))
             {
-                GenerateFromFile(fileInfo.FullName, outputPath);
+                if(fileInfo.Name.Equals(CommonFile, StringComparison.OrdinalIgnoreCase))
+                {
+                    continue;
+                }
+                GenerateFromFile(fileInfo.FullName, mOutputPath, common.UrlParams);
             }
         }
 
-        public void GenerateFromFile(string inputFile, string outputPath)
+        private void GenerateFromFile(string inputFile, string outputPath, IEnumerable<RestParameter> commonParams)
         {
             if (!Directory.Exists(outputPath))
             {
                 Directory.CreateDirectory(outputPath);
             }
-            RestMethod description = null;
+            RestMethod description = ReadFile(inputFile);
+            description.UrlParams.AddRange(commonParams);
+            GenerateCode(description, outputPath);
+        }
+
+        private static RestMethod ReadFile(string inputFile)
+        {
             using (var sr = File.OpenText(inputFile))
             {
                 using (var reader = new JsonTextReader(sr))
@@ -65,12 +81,12 @@ namespace Elasticsearch.Client.Generator
                     {
                         if (reader.TokenType == JsonToken.PropertyName)
                         {
-                            description = RestReader.ReadMethod(reader);
+                            return RestReader.ReadMethod(reader);
                         }
                     }
                 }
             }
-            GenerateCode(description, outputPath);
+            throw new InvalidDataException("Input file must contain some json.");
         }
 
         private static NamespaceDeclarationSyntax GetNamespace()

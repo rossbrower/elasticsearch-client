@@ -9,17 +9,29 @@ namespace Elasticsearch.Client
     {
         ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-template.html"/></summary>
         ///<param name="id">Template ID</param>
-        public HttpResponseMessage DeleteTemplate(string id)
+        ///<param name="options">The function to set optional url parameters.</param>
+        public HttpResponseMessage DeleteTemplate(string id, Func<DeleteTemplateParameters, DeleteTemplateParameters> options = null)
         {
             var uri = string.Format("/_search/template/{0}", id);
+            if (options != null)
+            {
+                uri = options.Invoke(new DeleteTemplateParameters()).GetUri(uri);
+            }
+
             return mConnection.Execute("DELETE", uri);
         }
 
         ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-template.html"/></summary>
         ///<param name="id">Template ID</param>
-        public async Task<HttpResponseMessage> DeleteTemplateAsync(string id)
+        ///<param name="options">The function to set optional url parameters.</param>
+        public async Task<HttpResponseMessage> DeleteTemplateAsync(string id, Func<DeleteTemplateParameters, DeleteTemplateParameters> options = null)
         {
             var uri = string.Format("/_search/template/{0}", id);
+            if (options != null)
+            {
+                uri = options.Invoke(new DeleteTemplateParameters()).GetUri(uri);
+            }
+
             return await mConnection.ExecuteAsync("DELETE", uri);
         }
     }

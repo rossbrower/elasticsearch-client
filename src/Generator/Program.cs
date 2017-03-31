@@ -26,9 +26,9 @@ namespace Elasticsearch.Client.Generator
                     info.Delete();
                 }
             }
-            using (var generator = new Generator())
+            using (var generator = new Generator(inputPath, classPath))
             {
-               generator.GenerateFromDirectory(inputPath, classPath);
+               generator.Generate();
             }
         }
     }

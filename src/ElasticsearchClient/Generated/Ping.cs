@@ -8,16 +8,28 @@ namespace Elasticsearch.Client
     public partial class ElasticsearchClient
     {
         ///<summary><see href="https://www.elastic.co/guide/"/></summary>
-        public HttpResponseMessage Ping()
+        ///<param name="options">The function to set optional url parameters.</param>
+        public HttpResponseMessage Ping(Func<PingParameters, PingParameters> options = null)
         {
             var uri = "/";
+            if (options != null)
+            {
+                uri = options.Invoke(new PingParameters()).GetUri(uri);
+            }
+
             return mConnection.Execute("HEAD", uri);
         }
 
         ///<summary><see href="https://www.elastic.co/guide/"/></summary>
-        public async Task<HttpResponseMessage> PingAsync()
+        ///<param name="options">The function to set optional url parameters.</param>
+        public async Task<HttpResponseMessage> PingAsync(Func<PingParameters, PingParameters> options = null)
         {
             var uri = "/";
+            if (options != null)
+            {
+                uri = options.Invoke(new PingParameters()).GetUri(uri);
+            }
+
             return await mConnection.ExecuteAsync("HEAD", uri);
         }
     }

@@ -9,19 +9,59 @@ namespace Elasticsearch.Client
     {
         ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/modules-scripting.html"/></summary>
         ///<param name="lang">Script language</param>
+        ///<param name="options">The function to set optional url parameters.</param>
+        public HttpResponseMessage GetScript(string lang, Func<GetScriptParameters, GetScriptParameters> options = null)
+        {
+            var uri = string.Format("/_scripts/{0}", lang);
+            if (options != null)
+            {
+                uri = options.Invoke(new GetScriptParameters()).GetUri(uri);
+            }
+
+            return mConnection.Execute("GET", uri);
+        }
+
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/modules-scripting.html"/></summary>
+        ///<param name="lang">Script language</param>
+        ///<param name="options">The function to set optional url parameters.</param>
+        public async Task<HttpResponseMessage> GetScriptAsync(string lang, Func<GetScriptParameters, GetScriptParameters> options = null)
+        {
+            var uri = string.Format("/_scripts/{0}", lang);
+            if (options != null)
+            {
+                uri = options.Invoke(new GetScriptParameters()).GetUri(uri);
+            }
+
+            return await mConnection.ExecuteAsync("GET", uri);
+        }
+
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/modules-scripting.html"/></summary>
+        ///<param name="lang">Script language</param>
         ///<param name="id">Script ID</param>
-        public HttpResponseMessage GetScript(string lang, string id)
+        ///<param name="options">The function to set optional url parameters.</param>
+        public HttpResponseMessage GetScript(string lang, string id, Func<GetScriptParameters, GetScriptParameters> options = null)
         {
             var uri = string.Format("/_scripts/{0}/{1}", lang, id);
+            if (options != null)
+            {
+                uri = options.Invoke(new GetScriptParameters()).GetUri(uri);
+            }
+
             return mConnection.Execute("GET", uri);
         }
 
         ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/modules-scripting.html"/></summary>
         ///<param name="lang">Script language</param>
         ///<param name="id">Script ID</param>
-        public async Task<HttpResponseMessage> GetScriptAsync(string lang, string id)
+        ///<param name="options">The function to set optional url parameters.</param>
+        public async Task<HttpResponseMessage> GetScriptAsync(string lang, string id, Func<GetScriptParameters, GetScriptParameters> options = null)
         {
             var uri = string.Format("/_scripts/{0}/{1}", lang, id);
+            if (options != null)
+            {
+                uri = options.Invoke(new GetScriptParameters()).GetUri(uri);
+            }
+
             return await mConnection.ExecuteAsync("GET", uri);
         }
     }
