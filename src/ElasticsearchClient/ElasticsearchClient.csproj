@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Description>Unofficial low-level .Net client for Elasticsearch built from the REST API spec and HttpClient.</Description>
     <AssemblyTitle>ElasticsearchClient</AssemblyTitle>
-    <VersionPrefix>5.2.0</VersionPrefix>
+    <VersionPrefix>5.3.0</VersionPrefix>
     <Authors>Ross Brower</Authors>
     <TargetFrameworks>net45;netstandard1.1</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
