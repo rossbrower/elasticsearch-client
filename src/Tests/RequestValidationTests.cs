@@ -6,7 +6,7 @@ namespace Elasticsearch.Client.Tests
     public class RequestValidationTests
     {
         [TestMethod]
-        public static void TestIndex()
+        public void TestIndex()
         {
             RequestValidator.Validate(c => c
                 .IndexPostString("a", "b", "c", "{}", o => o.refresh("true").op_type("create")),
