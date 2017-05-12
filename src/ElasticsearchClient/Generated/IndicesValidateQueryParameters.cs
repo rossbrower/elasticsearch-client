@@ -91,6 +91,14 @@ namespace Elasticsearch.Client
             return this;
         }
 
+        ///<summary>Execute validation on all shards instead of one random shard per index</summary>
+        ///<param name="value"></param>
+        public virtual IndicesValidateQueryParameters all_shards(bool value)
+        {
+            SetValue("all_shards", value.ToString().ToLower());
+            return this;
+        }
+
         ///<summary>Pretty format the returned JSON response.</summary>
         ///<param name="value"><para>Default: False</para></param>
         public virtual IndicesValidateQueryParameters pretty(bool value)

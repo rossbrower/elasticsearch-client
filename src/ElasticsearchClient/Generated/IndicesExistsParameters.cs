@@ -1,9 +1,17 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-exists.html"/></summary>
+    ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-exists.html"/></summary>
     public class IndicesExistsParameters : Parameters
     {
-        ///<summary>Whether specified concrete indices should be ignored when unavailable (missing or closed)</summary>
+        ///<summary>Return local information, do not retrieve the state from master node (default: false)</summary>
+        ///<param name="value"></param>
+        public virtual IndicesExistsParameters local(bool value)
+        {
+            SetValue("local", value.ToString().ToLower());
+            return this;
+        }
+
+        ///<summary>Ignore unavailable indexes (default: false)</summary>
         ///<param name="value"></param>
         public virtual IndicesExistsParameters ignore_unavailable(bool value)
         {
@@ -11,7 +19,7 @@ namespace Elasticsearch.Client
             return this;
         }
 
-        ///<summary>Whether to ignore if a wildcard indices expression resolves into no concrete indices. (This includes `_all` string or when no indices have been specified)</summary>
+        ///<summary>Ignore if a wildcard expression resolves to no concrete indices (default: false)</summary>
         ///<param name="value"></param>
         public virtual IndicesExistsParameters allow_no_indices(bool value)
         {
@@ -19,7 +27,7 @@ namespace Elasticsearch.Client
             return this;
         }
 
-        ///<summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
+        ///<summary>Whether wildcard expressions should get expanded to open or closed indices (default: open)</summary>
         ///<param name="value"><para>Options: open,closed,none,all</para><para>Default: open</para></param>
         public virtual IndicesExistsParameters expand_wildcards(string value)
         {
@@ -27,11 +35,19 @@ namespace Elasticsearch.Client
             return this;
         }
 
-        ///<summary>Return local information, do not retrieve the state from master node (default: false)</summary>
+        ///<summary>Return settings in flat format (default: false)</summary>
         ///<param name="value"></param>
-        public virtual IndicesExistsParameters local(bool value)
+        public virtual IndicesExistsParameters flat_settings(bool value)
         {
-            SetValue("local", value.ToString().ToLower());
+            SetValue("flat_settings", value.ToString().ToLower());
+            return this;
+        }
+
+        ///<summary>Whether to return all default setting for each of the indices.</summary>
+        ///<param name="value"><para>Default: False</para></param>
+        public virtual IndicesExistsParameters include_defaults(bool value)
+        {
+            SetValue("include_defaults", value.ToString().ToLower());
             return this;
         }
 

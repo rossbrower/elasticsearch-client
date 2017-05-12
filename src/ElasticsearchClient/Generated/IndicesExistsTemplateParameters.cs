@@ -3,6 +3,14 @@ namespace Elasticsearch.Client
     ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-templates.html"/></summary>
     public class IndicesExistsTemplateParameters : Parameters
     {
+        ///<summary>Return settings in flat format (default: false)</summary>
+        ///<param name="value"></param>
+        public virtual IndicesExistsTemplateParameters flat_settings(bool value)
+        {
+            SetValue("flat_settings", value.ToString().ToLower());
+            return this;
+        }
+
         ///<summary>Explicit operation timeout for connection to master node</summary>
         ///<param name="value"></param>
         public virtual IndicesExistsTemplateParameters master_timeout(string value)

@@ -77,6 +77,14 @@ namespace Elasticsearch.Client
 
         ///<summary>Clear request cache</summary>
         ///<param name="value"></param>
+        public virtual IndicesClearCacheParameters request_cache(bool value)
+        {
+            SetValue("request_cache", value.ToString().ToLower());
+            return this;
+        }
+
+        ///<summary>Clear request cache</summary>
+        ///<param name="value"></param>
         public virtual IndicesClearCacheParameters request(bool value)
         {
             SetValue("request", value.ToString().ToLower());

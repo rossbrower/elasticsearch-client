@@ -10,8 +10,8 @@ namespace Elasticsearch.Client.Generator
             string classPath;
             if (args == null || args.Length == 0)
             {
-                inputPath = @"C:\elasticsearch-client\lib\rest-api-spec\src\main\resources\rest-api-spec\api";
-                classPath = @"C:\elasticsearch-client\src\ElasticsearchClient\Generated";
+                inputPath = @"..\..\lib\rest-api-spec\src\main\resources\rest-api-spec\api";
+                classPath = @"..\ElasticsearchClient\Generated";
             }
             else
             {

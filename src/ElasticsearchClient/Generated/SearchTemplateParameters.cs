@@ -75,6 +75,14 @@ namespace Elasticsearch.Client
             return this;
         }
 
+        ///<summary>Specify whether aggregation and suggester names should be prefixed by their respective types in the response</summary>
+        ///<param name="value"></param>
+        public virtual SearchTemplateParameters typed_keys(bool value)
+        {
+            SetValue("typed_keys", value.ToString().ToLower());
+            return this;
+        }
+
         ///<summary>Pretty format the returned JSON response.</summary>
         ///<param name="value"><para>Default: False</para></param>
         public virtual SearchTemplateParameters pretty(bool value)
