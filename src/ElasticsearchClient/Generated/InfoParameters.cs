@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/"/></summary>
+    ///<summary><see href="http://www.elastic.co/guide/"/></summary>
     public class InfoParameters : Parameters
     {
         ///<summary>Pretty format the returned JSON response.</summary>

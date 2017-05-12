@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-open-close.html"/></summary>
+    ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-open-close.html"/></summary>
     public class IndicesOpenParameters : Parameters
     {
         ///<summary>Explicit operation timeout</summary>

@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-templates.html"/></summary>
+    ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-templates.html"/></summary>
     public class IndicesGetTemplateParameters : Parameters
     {
         ///<summary>Return settings in flat format (default: false)</summary>

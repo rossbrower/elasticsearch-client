@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/5.x/ingest.html"/></summary>
+    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/master/ingest.html"/></summary>
     public class IngestPutPipelineParameters : Parameters
     {
         ///<summary>Explicit operation timeout for connection to master node</summary>

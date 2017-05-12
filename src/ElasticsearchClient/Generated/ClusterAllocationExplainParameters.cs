@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/cluster-allocation-explain.html"/></summary>
+    ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-allocation-explain.html"/></summary>
     public class ClusterAllocationExplainParameters : Parameters
     {
         ///<summary>Return 'YES' decisions in explanation (default: false)</summary>

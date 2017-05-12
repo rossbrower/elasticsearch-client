@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/modules-scripting.html"/></summary>
+    ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-scripting.html"/></summary>
     public class DeleteScriptParameters : Parameters
     {
         ///<summary>Pretty format the returned JSON response.</summary>

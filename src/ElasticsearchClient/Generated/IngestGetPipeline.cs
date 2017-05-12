@@ -7,7 +7,7 @@ namespace Elasticsearch.Client
 {
     public partial class ElasticsearchClient
     {
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/5.x/ingest.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/master/ingest.html"/></summary>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IngestGetPipeline(Func<IngestGetPipelineParameters, IngestGetPipelineParameters> options = null)
         {
@@ -20,7 +20,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/5.x/ingest.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/master/ingest.html"/></summary>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IngestGetPipelineAsync(Func<IngestGetPipelineParameters, IngestGetPipelineParameters> options = null)
         {
@@ -33,7 +33,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/5.x/ingest.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/master/ingest.html"/></summary>
         ///<param name="id">Comma separated list of pipeline ids. Wildcards supported</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IngestGetPipeline(string id, Func<IngestGetPipelineParameters, IngestGetPipelineParameters> options = null)
@@ -47,7 +47,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/5.x/ingest.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/master/ingest.html"/></summary>
         ///<param name="id">Comma separated list of pipeline ids. Wildcards supported</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IngestGetPipelineAsync(string id, Func<IngestGetPipelineParameters, IngestGetPipelineParameters> options = null)

@@ -7,7 +7,7 @@ namespace Elasticsearch.Client
 {
     public partial class ElasticsearchClient
     {
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/modules-snapshots.html"/></summary>
+        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
         ///<param name="snapshot">A comma-separated list of snapshot names</param>
         ///<param name="repository">A repository name</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -22,7 +22,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/modules-snapshots.html"/></summary>
+        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-snapshots.html"/></summary>
         ///<param name="snapshot">A comma-separated list of snapshot names</param>
         ///<param name="repository">A repository name</param>
         ///<param name="options">The function to set optional url parameters.</param>

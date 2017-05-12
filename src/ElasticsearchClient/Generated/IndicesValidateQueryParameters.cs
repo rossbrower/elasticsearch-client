@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-validate.html"/></summary>
+    ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-validate.html"/></summary>
     public class IndicesValidateQueryParameters : Parameters
     {
         ///<summary>Return detailed information about the error</summary>
@@ -88,6 +88,14 @@ namespace Elasticsearch.Client
         public virtual IndicesValidateQueryParameters rewrite(bool value)
         {
             SetValue("rewrite", value.ToString().ToLower());
+            return this;
+        }
+
+        ///<summary>Execute validation on all shards instead of one random shard per index</summary>
+        ///<param name="value"></param>
+        public virtual IndicesValidateQueryParameters all_shards(bool value)
+        {
+            SetValue("all_shards", value.ToString().ToLower());
             return this;
         }
 

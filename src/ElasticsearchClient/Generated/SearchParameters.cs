@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-search.html"/></summary>
+    ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-search.html"/></summary>
     public class SearchParameters : Parameters
     {
         ///<summary>The analyzer to use for the query string</summary>
@@ -251,6 +251,14 @@ namespace Elasticsearch.Client
             return this;
         }
 
+        ///<summary>Specify whether aggregation and suggester names should be prefixed by their respective types in the response</summary>
+        ///<param name="value"></param>
+        public virtual SearchParameters typed_keys(bool value)
+        {
+            SetValue("typed_keys", value.ToString().ToLower());
+            return this;
+        }
+
         ///<summary>Specify whether to return document version as part of a hit</summary>
         ///<param name="value"></param>
         public virtual SearchParameters version(bool value)
@@ -264,6 +272,14 @@ namespace Elasticsearch.Client
         public virtual SearchParameters request_cache(bool value)
         {
             SetValue("request_cache", value.ToString().ToLower());
+            return this;
+        }
+
+        ///<summary>The number of shard results that should be reduced at once on the coordinating node. This value should be used as a protection mechanism to reduce the memory overhead per search request if the potential number of shards in the request can be large.</summary>
+        ///<param name="value"><para>Default: 512</para></param>
+        public virtual SearchParameters batched_reduce_size(long value)
+        {
+            SetValue("batched_reduce_size", value);
             return this;
         }
 

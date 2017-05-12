@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-field-stats.html"/></summary>
+    ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-stats.html"/></summary>
     public class FieldStatsParameters : Parameters
     {
         ///<summary>A comma-separated list of fields for to get field statistics for (min value, max value, and more)</summary>

@@ -7,7 +7,7 @@ namespace Elasticsearch.Client
 {
     public partial class ElasticsearchClient
     {
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/5.x/ingest.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/master/ingest.html"/></summary>
         ///<param name="id">Pipeline ID</param>
         ///<param name="body">The ingest definition</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -22,7 +22,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("PUT", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/5.x/ingest.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/master/ingest.html"/></summary>
         ///<param name="id">Pipeline ID</param>
         ///<param name="body">The ingest definition</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -37,7 +37,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("PUT", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/5.x/ingest.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/master/ingest.html"/></summary>
         ///<param name="id">Pipeline ID</param>
         ///<param name="body">The ingest definition</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -52,7 +52,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("PUT", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/5.x/ingest.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/master/ingest.html"/></summary>
         ///<param name="id">Pipeline ID</param>
         ///<param name="body">The ingest definition</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -67,7 +67,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("PUT", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/5.x/ingest.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/master/ingest.html"/></summary>
         ///<param name="id">Pipeline ID</param>
         ///<param name="body">The ingest definition</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -82,7 +82,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("PUT", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/5.x/ingest.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/master/ingest.html"/></summary>
         ///<param name="id">Pipeline ID</param>
         ///<param name="body">The ingest definition</param>
         ///<param name="options">The function to set optional url parameters.</param>

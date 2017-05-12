@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-rollover-index.html"/></summary>
+    ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-rollover-index.html"/></summary>
     public class IndicesRolloverParameters : Parameters
     {
         ///<summary>Explicit operation timeout</summary>

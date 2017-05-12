@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-create-index.html"/></summary>
+    ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-create-index.html"/></summary>
     public class IndicesCreateParameters : Parameters
     {
         ///<summary>Set the number of active shards to wait for before the operation returns.</summary>

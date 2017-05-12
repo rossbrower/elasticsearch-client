@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-clearcache.html"/></summary>
+    ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-clearcache.html"/></summary>
     public class IndicesClearCacheParameters : Parameters
     {
         ///<summary>Clear field data</summary>
@@ -72,6 +72,14 @@ namespace Elasticsearch.Client
         public virtual IndicesClearCacheParameters recycler(bool value)
         {
             SetValue("recycler", value.ToString().ToLower());
+            return this;
+        }
+
+        ///<summary>Clear request cache</summary>
+        ///<param name="value"></param>
+        public virtual IndicesClearCacheParameters request_cache(bool value)
+        {
+            SetValue("request_cache", value.ToString().ToLower());
             return this;
         }
 

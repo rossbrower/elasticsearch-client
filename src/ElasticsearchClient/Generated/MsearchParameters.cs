@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-multi-search.html"/></summary>
+    ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-multi-search.html"/></summary>
     public class MsearchParameters : Parameters
     {
         ///<summary>Search operation type</summary>
@@ -16,6 +16,14 @@ namespace Elasticsearch.Client
         public virtual MsearchParameters max_concurrent_searches(long value)
         {
             SetValue("max_concurrent_searches", value);
+            return this;
+        }
+
+        ///<summary>Specify whether aggregation and suggester names should be prefixed by their respective types in the response</summary>
+        ///<param name="value"></param>
+        public virtual MsearchParameters typed_keys(bool value)
+        {
+            SetValue("typed_keys", value.ToString().ToLower());
             return this;
         }
 

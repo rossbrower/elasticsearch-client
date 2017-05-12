@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
+    ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-multi-search.html"/></summary>
     public class MsearchTemplateParameters : Parameters
     {
         ///<summary>Search operation type</summary>
@@ -8,6 +8,14 @@ namespace Elasticsearch.Client
         public virtual MsearchTemplateParameters search_type(string value)
         {
             SetValue("search_type", value);
+            return this;
+        }
+
+        ///<summary>Specify whether aggregation and suggester names should be prefixed by their respective types in the response</summary>
+        ///<param name="value"></param>
+        public virtual MsearchTemplateParameters typed_keys(bool value)
+        {
+            SetValue("typed_keys", value.ToString().ToLower());
             return this;
         }
 

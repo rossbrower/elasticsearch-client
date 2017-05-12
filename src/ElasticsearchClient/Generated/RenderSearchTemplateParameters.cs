@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/5.x/search-template.html"/></summary>
+    ///<summary><see href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/master/search-template.html"/></summary>
     public class RenderSearchTemplateParameters : Parameters
     {
         ///<summary>Pretty format the returned JSON response.</summary>

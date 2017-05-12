@@ -7,7 +7,7 @@ namespace Elasticsearch.Client
 {
     public partial class ElasticsearchClient
     {
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/modules-scripting.html"/></summary>
+        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-scripting.html"/></summary>
         ///<param name="lang">Script language</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage DeleteScript(string lang, Func<DeleteScriptParameters, DeleteScriptParameters> options = null)
@@ -21,7 +21,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("DELETE", uri);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/modules-scripting.html"/></summary>
+        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-scripting.html"/></summary>
         ///<param name="lang">Script language</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> DeleteScriptAsync(string lang, Func<DeleteScriptParameters, DeleteScriptParameters> options = null)
@@ -35,7 +35,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("DELETE", uri);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/modules-scripting.html"/></summary>
+        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-scripting.html"/></summary>
         ///<param name="lang">Script language</param>
         ///<param name="id">Script ID</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -50,7 +50,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("DELETE", uri);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/modules-scripting.html"/></summary>
+        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-scripting.html"/></summary>
         ///<param name="lang">Script language</param>
         ///<param name="id">Script ID</param>
         ///<param name="options">The function to set optional url parameters.</param>

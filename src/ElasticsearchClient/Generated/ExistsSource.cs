@@ -12,15 +12,15 @@ namespace Elasticsearch.Client
         ///<param name="type">The type of the document; use `_all` to fetch the first document matching the ID across all types</param>
         ///<param name="id">The document ID</param>
         ///<param name="options">The function to set optional url parameters.</param>
-        public HttpResponseMessage GetSource(string index, string type, string id, Func<GetSourceParameters, GetSourceParameters> options = null)
+        public HttpResponseMessage ExistsSource(string index, string type, string id, Func<ExistsSourceParameters, ExistsSourceParameters> options = null)
         {
             var uri = string.Format("/{0}/{1}/{2}/_source", index, type, id);
             if (options != null)
             {
-                uri = options.Invoke(new GetSourceParameters()).GetUri(uri);
+                uri = options.Invoke(new ExistsSourceParameters()).GetUri(uri);
             }
 
-            return mConnection.Execute("GET", uri);
+            return mConnection.Execute("HEAD", uri);
         }
 
         ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/docs-get.html"/></summary>
@@ -28,15 +28,15 @@ namespace Elasticsearch.Client
         ///<param name="type">The type of the document; use `_all` to fetch the first document matching the ID across all types</param>
         ///<param name="id">The document ID</param>
         ///<param name="options">The function to set optional url parameters.</param>
-        public async Task<HttpResponseMessage> GetSourceAsync(string index, string type, string id, Func<GetSourceParameters, GetSourceParameters> options = null)
+        public async Task<HttpResponseMessage> ExistsSourceAsync(string index, string type, string id, Func<ExistsSourceParameters, ExistsSourceParameters> options = null)
         {
             var uri = string.Format("/{0}/{1}/{2}/_source", index, type, id);
             if (options != null)
             {
-                uri = options.Invoke(new GetSourceParameters()).GetUri(uri);
+                uri = options.Invoke(new ExistsSourceParameters()).GetUri(uri);
             }
 
-            return await mConnection.ExecuteAsync("GET", uri);
+            return await mConnection.ExecuteAsync("HEAD", uri);
         }
     }
 }

@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-synced-flush.html"/></summary>
+    ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-synced-flush.html"/></summary>
     public class IndicesFlushSyncedParameters : Parameters
     {
         ///<summary>Whether specified concrete indices should be ignored when unavailable (missing or closed)</summary>

@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-put-mapping.html"/></summary>
+    ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-put-mapping.html"/></summary>
     public class IndicesPutMappingParameters : Parameters
     {
         ///<summary>Explicit operation timeout</summary>

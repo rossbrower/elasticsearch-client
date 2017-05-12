@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-aliases.html"/></summary>
+    ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-aliases.html"/></summary>
     public class IndicesExistsAliasParameters : Parameters
     {
         ///<summary>Whether specified concrete indices should be ignored when unavailable (missing or closed)</summary>
@@ -20,7 +20,7 @@ namespace Elasticsearch.Client
         }
 
         ///<summary>Whether to expand wildcard expression to concrete indices that are open, closed or both.</summary>
-        ///<param name="value"><para>Options: open,closed,none,all</para><para>Default: System.Collections.Generic.List`1[System.String]</para></param>
+        ///<param name="value"><para>Options: open,closed,none,all</para><para>Default: all</para></param>
         public virtual IndicesExistsAliasParameters expand_wildcards(string value)
         {
             SetValue("expand_wildcards", value);

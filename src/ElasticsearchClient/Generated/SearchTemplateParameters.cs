@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
+    ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/current/search-template.html"/></summary>
     public class SearchTemplateParameters : Parameters
     {
         ///<summary>Whether specified concrete indices should be ignored when unavailable (missing or closed)</summary>
@@ -72,6 +72,14 @@ namespace Elasticsearch.Client
         public virtual SearchTemplateParameters profile(bool value)
         {
             SetValue("profile", value.ToString().ToLower());
+            return this;
+        }
+
+        ///<summary>Specify whether aggregation and suggester names should be prefixed by their respective types in the response</summary>
+        ///<param name="value"></param>
+        public virtual SearchTemplateParameters typed_keys(bool value)
+        {
+            SetValue("typed_keys", value.ToString().ToLower());
             return this;
         }
 

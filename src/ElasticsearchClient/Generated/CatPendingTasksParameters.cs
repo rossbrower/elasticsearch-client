@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/cat-pending-tasks.html"/></summary>
+    ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cat-pending-tasks.html"/></summary>
     public class CatPendingTasksParameters : Parameters
     {
         ///<summary>a short version of the Accept header, e.g. json, yaml</summary>

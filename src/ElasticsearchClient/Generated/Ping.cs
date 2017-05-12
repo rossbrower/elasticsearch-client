@@ -7,7 +7,7 @@ namespace Elasticsearch.Client
 {
     public partial class ElasticsearchClient
     {
-        ///<summary><see href="https://www.elastic.co/guide/"/></summary>
+        ///<summary><see href="http://www.elastic.co/guide/"/></summary>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage Ping(Func<PingParameters, PingParameters> options = null)
         {
@@ -20,7 +20,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("HEAD", uri);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/"/></summary>
+        ///<summary><see href="http://www.elastic.co/guide/"/></summary>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> PingAsync(Func<PingParameters, PingParameters> options = null)
         {

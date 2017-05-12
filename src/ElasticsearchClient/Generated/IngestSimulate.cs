@@ -7,7 +7,7 @@ namespace Elasticsearch.Client
 {
     public partial class ElasticsearchClient
     {
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/5.x/ingest.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/master/ingest.html"/></summary>
         ///<param name="body">The simulate definition</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IngestSimulateGet(Stream body, Func<IngestSimulateParameters, IngestSimulateParameters> options = null)
@@ -21,7 +21,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/5.x/ingest.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/master/ingest.html"/></summary>
         ///<param name="body">The simulate definition</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IngestSimulateGetAsync(Stream body, Func<IngestSimulateParameters, IngestSimulateParameters> options = null)
@@ -35,7 +35,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/5.x/ingest.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/master/ingest.html"/></summary>
         ///<param name="body">The simulate definition</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IngestSimulateGet(byte[] body, Func<IngestSimulateParameters, IngestSimulateParameters> options = null)
@@ -49,7 +49,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/5.x/ingest.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/master/ingest.html"/></summary>
         ///<param name="body">The simulate definition</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IngestSimulateGetAsync(byte[] body, Func<IngestSimulateParameters, IngestSimulateParameters> options = null)
@@ -63,7 +63,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/5.x/ingest.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/master/ingest.html"/></summary>
         ///<param name="body">The simulate definition</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IngestSimulateGetString(string body, Func<IngestSimulateParameters, IngestSimulateParameters> options = null)
@@ -77,7 +77,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/5.x/ingest.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/master/ingest.html"/></summary>
         ///<param name="body">The simulate definition</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IngestSimulateGetStringAsync(string body, Func<IngestSimulateParameters, IngestSimulateParameters> options = null)
@@ -91,7 +91,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/5.x/ingest.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/master/ingest.html"/></summary>
         ///<param name="body">The simulate definition</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IngestSimulatePost(Stream body, Func<IngestSimulateParameters, IngestSimulateParameters> options = null)
@@ -105,7 +105,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/5.x/ingest.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/master/ingest.html"/></summary>
         ///<param name="body">The simulate definition</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IngestSimulatePostAsync(Stream body, Func<IngestSimulateParameters, IngestSimulateParameters> options = null)
@@ -119,7 +119,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/5.x/ingest.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/master/ingest.html"/></summary>
         ///<param name="body">The simulate definition</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IngestSimulatePost(byte[] body, Func<IngestSimulateParameters, IngestSimulateParameters> options = null)
@@ -133,7 +133,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/5.x/ingest.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/master/ingest.html"/></summary>
         ///<param name="body">The simulate definition</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IngestSimulatePostAsync(byte[] body, Func<IngestSimulateParameters, IngestSimulateParameters> options = null)
@@ -147,7 +147,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/5.x/ingest.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/master/ingest.html"/></summary>
         ///<param name="body">The simulate definition</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IngestSimulatePostString(string body, Func<IngestSimulateParameters, IngestSimulateParameters> options = null)
@@ -161,7 +161,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/5.x/ingest.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/master/ingest.html"/></summary>
         ///<param name="body">The simulate definition</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IngestSimulatePostStringAsync(string body, Func<IngestSimulateParameters, IngestSimulateParameters> options = null)
@@ -175,7 +175,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/5.x/ingest.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/master/ingest.html"/></summary>
         ///<param name="id">Pipeline ID</param>
         ///<param name="body">The simulate definition</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -190,7 +190,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/5.x/ingest.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/master/ingest.html"/></summary>
         ///<param name="id">Pipeline ID</param>
         ///<param name="body">The simulate definition</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -205,7 +205,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/5.x/ingest.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/master/ingest.html"/></summary>
         ///<param name="id">Pipeline ID</param>
         ///<param name="body">The simulate definition</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -220,7 +220,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/5.x/ingest.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/master/ingest.html"/></summary>
         ///<param name="id">Pipeline ID</param>
         ///<param name="body">The simulate definition</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -235,7 +235,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/5.x/ingest.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/master/ingest.html"/></summary>
         ///<param name="id">Pipeline ID</param>
         ///<param name="body">The simulate definition</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -250,7 +250,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/5.x/ingest.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/master/ingest.html"/></summary>
         ///<param name="id">Pipeline ID</param>
         ///<param name="body">The simulate definition</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -265,7 +265,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/5.x/ingest.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/master/ingest.html"/></summary>
         ///<param name="id">Pipeline ID</param>
         ///<param name="body">The simulate definition</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -280,7 +280,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/5.x/ingest.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/master/ingest.html"/></summary>
         ///<param name="id">Pipeline ID</param>
         ///<param name="body">The simulate definition</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -295,7 +295,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/5.x/ingest.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/master/ingest.html"/></summary>
         ///<param name="id">Pipeline ID</param>
         ///<param name="body">The simulate definition</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -310,7 +310,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/5.x/ingest.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/master/ingest.html"/></summary>
         ///<param name="id">Pipeline ID</param>
         ///<param name="body">The simulate definition</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -325,7 +325,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/5.x/ingest.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/master/ingest.html"/></summary>
         ///<param name="id">Pipeline ID</param>
         ///<param name="body">The simulate definition</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -340,7 +340,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("POST", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/5.x/ingest.html"/></summary>
+        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/plugins/master/ingest.html"/></summary>
         ///<param name="id">Pipeline ID</param>
         ///<param name="body">The simulate definition</param>
         ///<param name="options">The function to set optional url parameters.</param>

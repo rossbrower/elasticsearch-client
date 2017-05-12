@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-stats.html"/></summary>
+    ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-stats.html"/></summary>
     public class IndicesStatsParameters : Parameters
     {
         ///<summary>A comma-separated list of fields for `fielddata` and `suggest` index metric (supports wildcards)</summary>

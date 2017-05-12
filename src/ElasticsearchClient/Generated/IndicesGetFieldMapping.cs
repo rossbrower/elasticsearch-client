@@ -7,7 +7,7 @@ namespace Elasticsearch.Client
 {
     public partial class ElasticsearchClient
     {
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-get-field-mapping.html"/></summary>
+        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-field-mapping.html"/></summary>
         ///<param name="fields">A comma-separated list of fields</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage IndicesGetFieldMapping(string fields, Func<IndicesGetFieldMappingParameters, IndicesGetFieldMappingParameters> options = null)
@@ -21,7 +21,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-get-field-mapping.html"/></summary>
+        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-field-mapping.html"/></summary>
         ///<param name="fields">A comma-separated list of fields</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> IndicesGetFieldMappingAsync(string fields, Func<IndicesGetFieldMappingParameters, IndicesGetFieldMappingParameters> options = null)
@@ -35,7 +35,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-get-field-mapping.html"/></summary>
+        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-field-mapping.html"/></summary>
         ///<param name="index">A comma-separated list of index names</param>
         ///<param name="fields">A comma-separated list of fields</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -50,7 +50,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-get-field-mapping.html"/></summary>
+        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-field-mapping.html"/></summary>
         ///<param name="index">A comma-separated list of index names</param>
         ///<param name="fields">A comma-separated list of fields</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -65,7 +65,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("GET", uri);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-get-field-mapping.html"/></summary>
+        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-field-mapping.html"/></summary>
         ///<param name="index">A comma-separated list of index names</param>
         ///<param name="type">A comma-separated list of document types</param>
         ///<param name="fields">A comma-separated list of fields</param>
@@ -81,7 +81,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/indices-get-field-mapping.html"/></summary>
+        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-field-mapping.html"/></summary>
         ///<param name="index">A comma-separated list of index names</param>
         ///<param name="type">A comma-separated list of document types</param>
         ///<param name="fields">A comma-separated list of fields</param>

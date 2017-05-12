@@ -7,7 +7,7 @@ namespace Elasticsearch.Client
 {
     public partial class ElasticsearchClient
     {
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-request-scroll.html"/></summary>
+        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
         ///<param name="scroll_id">A comma-separated list of scroll IDs to clear</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage ClearScroll(string scroll_id, Func<ClearScrollParameters, ClearScrollParameters> options = null)
@@ -21,7 +21,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("DELETE", uri);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-request-scroll.html"/></summary>
+        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
         ///<param name="scroll_id">A comma-separated list of scroll IDs to clear</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> ClearScrollAsync(string scroll_id, Func<ClearScrollParameters, ClearScrollParameters> options = null)
@@ -35,7 +35,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("DELETE", uri);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-request-scroll.html"/></summary>
+        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
         ///<param name="scroll_id">A comma-separated list of scroll IDs to clear</param>
         ///<param name="body">A comma-separated list of scroll IDs to clear if none was specified via the scroll_id parameter</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -50,7 +50,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("DELETE", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-request-scroll.html"/></summary>
+        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
         ///<param name="scroll_id">A comma-separated list of scroll IDs to clear</param>
         ///<param name="body">A comma-separated list of scroll IDs to clear if none was specified via the scroll_id parameter</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -65,7 +65,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("DELETE", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-request-scroll.html"/></summary>
+        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
         ///<param name="scroll_id">A comma-separated list of scroll IDs to clear</param>
         ///<param name="body">A comma-separated list of scroll IDs to clear if none was specified via the scroll_id parameter</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -80,7 +80,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("DELETE", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-request-scroll.html"/></summary>
+        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
         ///<param name="scroll_id">A comma-separated list of scroll IDs to clear</param>
         ///<param name="body">A comma-separated list of scroll IDs to clear if none was specified via the scroll_id parameter</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -95,7 +95,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("DELETE", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-request-scroll.html"/></summary>
+        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
         ///<param name="scroll_id">A comma-separated list of scroll IDs to clear</param>
         ///<param name="body">A comma-separated list of scroll IDs to clear if none was specified via the scroll_id parameter</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -110,7 +110,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("DELETE", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-request-scroll.html"/></summary>
+        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
         ///<param name="scroll_id">A comma-separated list of scroll IDs to clear</param>
         ///<param name="body">A comma-separated list of scroll IDs to clear if none was specified via the scroll_id parameter</param>
         ///<param name="options">The function to set optional url parameters.</param>
@@ -125,7 +125,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("DELETE", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-request-scroll.html"/></summary>
+        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage ClearScroll(Func<ClearScrollParameters, ClearScrollParameters> options = null)
         {
@@ -138,7 +138,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("DELETE", uri);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-request-scroll.html"/></summary>
+        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> ClearScrollAsync(Func<ClearScrollParameters, ClearScrollParameters> options = null)
         {
@@ -151,7 +151,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("DELETE", uri);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-request-scroll.html"/></summary>
+        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
         ///<param name="body">A comma-separated list of scroll IDs to clear if none was specified via the scroll_id parameter</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage ClearScroll(Stream body, Func<ClearScrollParameters, ClearScrollParameters> options = null)
@@ -165,7 +165,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("DELETE", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-request-scroll.html"/></summary>
+        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
         ///<param name="body">A comma-separated list of scroll IDs to clear if none was specified via the scroll_id parameter</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> ClearScrollAsync(Stream body, Func<ClearScrollParameters, ClearScrollParameters> options = null)
@@ -179,7 +179,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("DELETE", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-request-scroll.html"/></summary>
+        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
         ///<param name="body">A comma-separated list of scroll IDs to clear if none was specified via the scroll_id parameter</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage ClearScroll(byte[] body, Func<ClearScrollParameters, ClearScrollParameters> options = null)
@@ -193,7 +193,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("DELETE", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-request-scroll.html"/></summary>
+        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
         ///<param name="body">A comma-separated list of scroll IDs to clear if none was specified via the scroll_id parameter</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> ClearScrollAsync(byte[] body, Func<ClearScrollParameters, ClearScrollParameters> options = null)
@@ -207,7 +207,7 @@ namespace Elasticsearch.Client
             return await mConnection.ExecuteAsync("DELETE", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-request-scroll.html"/></summary>
+        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
         ///<param name="body">A comma-separated list of scroll IDs to clear if none was specified via the scroll_id parameter</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage ClearScrollString(string body, Func<ClearScrollParameters, ClearScrollParameters> options = null)
@@ -221,7 +221,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("DELETE", uri, body);
         }
 
-        ///<summary><see href="https://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-request-scroll.html"/></summary>
+        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-request-scroll.html"/></summary>
         ///<param name="body">A comma-separated list of scroll IDs to clear if none was specified via the scroll_id parameter</param>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> ClearScrollStringAsync(string body, Func<ClearScrollParameters, ClearScrollParameters> options = null)
