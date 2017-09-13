@@ -7,7 +7,7 @@ namespace Elasticsearch.Client
 {
     public partial class ElasticsearchClient
     {
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/remote-info.html"/></summary>
+        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-remote-info.html"/></summary>
         ///<param name="options">The function to set optional url parameters.</param>
         public HttpResponseMessage RemoteInfo(Func<RemoteInfoParameters, RemoteInfoParameters> options = null)
         {
@@ -20,7 +20,7 @@ namespace Elasticsearch.Client
             return mConnection.Execute("GET", uri);
         }
 
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/remote-info.html"/></summary>
+        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/cluster-remote-info.html"/></summary>
         ///<param name="options">The function to set optional url parameters.</param>
         public async Task<HttpResponseMessage> RemoteInfoAsync(Func<RemoteInfoParameters, RemoteInfoParameters> options = null)
         {

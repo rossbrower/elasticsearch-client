@@ -34,35 +34,5 @@ namespace Elasticsearch.Client
 
             return await mConnection.ExecuteAsync("GET", uri);
         }
-
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-index.html"/></summary>
-        ///<param name="index">A comma-separated list of index names</param>
-        ///<param name="feature">A comma-separated list of features</param>
-        ///<param name="options">The function to set optional url parameters.</param>
-        public HttpResponseMessage IndicesGet(string index, string feature, Func<IndicesGetParameters, IndicesGetParameters> options = null)
-        {
-            var uri = string.Format("/{0}/{1}", index, feature);
-            if (options != null)
-            {
-                uri = options.Invoke(new IndicesGetParameters()).GetUri(uri);
-            }
-
-            return mConnection.Execute("GET", uri);
-        }
-
-        ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/indices-get-index.html"/></summary>
-        ///<param name="index">A comma-separated list of index names</param>
-        ///<param name="feature">A comma-separated list of features</param>
-        ///<param name="options">The function to set optional url parameters.</param>
-        public async Task<HttpResponseMessage> IndicesGetAsync(string index, string feature, Func<IndicesGetParameters, IndicesGetParameters> options = null)
-        {
-            var uri = string.Format("/{0}/{1}", index, feature);
-            if (options != null)
-            {
-                uri = options.Invoke(new IndicesGetParameters()).GetUri(uri);
-            }
-
-            return await mConnection.ExecuteAsync("GET", uri);
-        }
     }
 }

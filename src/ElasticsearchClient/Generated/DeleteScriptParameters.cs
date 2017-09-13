@@ -3,6 +3,22 @@ namespace Elasticsearch.Client
     ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/modules-scripting.html"/></summary>
     public class DeleteScriptParameters : Parameters
     {
+        ///<summary>Explicit operation timeout</summary>
+        ///<param name="value"></param>
+        public virtual DeleteScriptParameters timeout(string value)
+        {
+            SetValue("timeout", value);
+            return this;
+        }
+
+        ///<summary>Specify timeout for connection to master</summary>
+        ///<param name="value"></param>
+        public virtual DeleteScriptParameters master_timeout(string value)
+        {
+            SetValue("master_timeout", value);
+            return this;
+        }
+
         ///<summary>Pretty format the returned JSON response.</summary>
         ///<param name="value"><para>Default: False</para></param>
         public virtual DeleteScriptParameters pretty(bool value)

@@ -19,6 +19,14 @@ namespace Elasticsearch.Client
             return this;
         }
 
+        ///<summary>Controls the maximum number of concurrent searches the multi search api will execute</summary>
+        ///<param name="value"></param>
+        public virtual MsearchTemplateParameters max_concurrent_searches(long value)
+        {
+            SetValue("max_concurrent_searches", value);
+            return this;
+        }
+
         ///<summary>Pretty format the returned JSON response.</summary>
         ///<param name="value"><para>Default: False</para></param>
         public virtual MsearchTemplateParameters pretty(bool value)

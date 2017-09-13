@@ -19,6 +19,30 @@ namespace Elasticsearch.Client
             return this;
         }
 
+        ///<summary>Ignore unavailable indexes (default: false)</summary>
+        ///<param name="value"></param>
+        public virtual IndicesDeleteParameters ignore_unavailable(bool value)
+        {
+            SetValue("ignore_unavailable", value.ToString().ToLower());
+            return this;
+        }
+
+        ///<summary>Ignore if a wildcard expression resolves to no concrete indices (default: false)</summary>
+        ///<param name="value"></param>
+        public virtual IndicesDeleteParameters allow_no_indices(bool value)
+        {
+            SetValue("allow_no_indices", value.ToString().ToLower());
+            return this;
+        }
+
+        ///<summary>Whether wildcard expressions should get expanded to open or closed indices (default: open)</summary>
+        ///<param name="value"><para>Options: open,closed,none,all</para><para>Default: open</para></param>
+        public virtual IndicesDeleteParameters expand_wildcards(string value)
+        {
+            SetValue("expand_wildcards", value);
+            return this;
+        }
+
         ///<summary>Pretty format the returned JSON response.</summary>
         ///<param name="value"><para>Default: False</para></param>
         public virtual IndicesDeleteParameters pretty(bool value)
