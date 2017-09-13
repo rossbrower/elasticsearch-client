@@ -19,6 +19,14 @@ namespace Elasticsearch.Client
             return this;
         }
 
+        ///<summary>Whether to show verbose snapshot info or only show the basic info found in the repository index blob</summary>
+        ///<param name="value"></param>
+        public virtual SnapshotGetParameters verbose(bool value)
+        {
+            SetValue("verbose", value.ToString().ToLower());
+            return this;
+        }
+
         ///<summary>Pretty format the returned JSON response.</summary>
         ///<param name="value"><para>Default: False</para></param>
         public virtual SnapshotGetParameters pretty(bool value)

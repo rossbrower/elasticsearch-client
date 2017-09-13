@@ -27,14 +27,6 @@ namespace Elasticsearch.Client
             return this;
         }
 
-        ///<summary>Force a refresh even if not required</summary>
-        ///<param name="value"><para>Default: False</para></param>
-        public virtual IndicesRefreshParameters force(bool value)
-        {
-            SetValue("force", value.ToString().ToLower());
-            return this;
-        }
-
         ///<summary>Pretty format the returned JSON response.</summary>
         ///<param name="value"><para>Default: False</para></param>
         public virtual IndicesRefreshParameters pretty(bool value)

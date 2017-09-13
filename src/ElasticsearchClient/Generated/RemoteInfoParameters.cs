@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/remote-info.html"/></summary>
+    ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/5.x/cluster-remote-info.html"/></summary>
     public class RemoteInfoParameters : Parameters
     {
         ///<summary>Pretty format the returned JSON response.</summary>

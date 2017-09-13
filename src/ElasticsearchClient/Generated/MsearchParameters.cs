@@ -27,6 +27,14 @@ namespace Elasticsearch.Client
             return this;
         }
 
+        ///<summary>A threshold that enforces a pre-filter roundtrip to prefilter search shards based on query rewriting if the number of shards the search request expands to exceeds the threshold. This filter roundtrip can limit the number of shards significantly if for instance a shard can not match any documents based on it's rewrite method ie. if date filters are mandatory to match but the shard bounds and the query are disjoint.</summary>
+        ///<param name="value"><para>Default: 128</para></param>
+        public virtual MsearchParameters pre_filter_shard_size(long value)
+        {
+            SetValue("pre_filter_shard_size", value);
+            return this;
+        }
+
         ///<summary>Pretty format the returned JSON response.</summary>
         ///<param name="value"><para>Default: False</para></param>
         public virtual MsearchParameters pretty(bool value)

@@ -1,6 +1,6 @@
 namespace Elasticsearch.Client
 {
-    ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/master/search-field-caps.html"/></summary>
+    ///<summary><see href="http://www.elastic.co/guide/en/elasticsearch/reference/5.x/search-field-caps.html"/></summary>
     public class FieldCapsParameters : Parameters
     {
         ///<summary>A comma-separated list of field names</summary>

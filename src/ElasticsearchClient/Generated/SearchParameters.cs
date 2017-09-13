@@ -283,6 +283,22 @@ namespace Elasticsearch.Client
             return this;
         }
 
+        ///<summary>The number of concurrent shard requests this search executes concurrently. This value should be used to limit the impact of the search on the cluster in order to limit the number of concurrent shard requests</summary>
+        ///<param name="value"><para>Default: The default grows with the number of nodes in the cluster but is at most 256.</para></param>
+        public virtual SearchParameters max_concurrent_shard_requests(long value)
+        {
+            SetValue("max_concurrent_shard_requests", value);
+            return this;
+        }
+
+        ///<summary>A threshold that enforces a pre-filter roundtrip to prefilter search shards based on query rewriting if the number of shards the search request expands to exceeds the threshold. This filter roundtrip can limit the number of shards significantly if for instance a shard can not match any documents based on it's rewrite method ie. if date filters are mandatory to match but the shard bounds and the query are disjoint.</summary>
+        ///<param name="value"><para>Default: 128</para></param>
+        public virtual SearchParameters pre_filter_shard_size(long value)
+        {
+            SetValue("pre_filter_shard_size", value);
+            return this;
+        }
+
         ///<summary>Pretty format the returned JSON response.</summary>
         ///<param name="value"><para>Default: False</para></param>
         public virtual SearchParameters pretty(bool value)
