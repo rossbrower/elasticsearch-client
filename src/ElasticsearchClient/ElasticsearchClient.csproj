@@ -15,8 +15,8 @@
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>git://github.com/rossbrower/elasticsearch-client</RepositoryUrl>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>5.4.0</Version>
-    <FileVersion>5.4.0.0</FileVersion>
+    <Version>5.6.0</Version>
+    <FileVersion>5.6.0.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
