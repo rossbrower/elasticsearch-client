@@ -156,8 +156,18 @@ namespace Elasticsearch.Client.Generator
         private static IEnumerable<MemberDeclarationSyntax> GenerateParameterMethods(string className,
             RestMethod description)
         {
+            HashSet<string> knownParams = new HashSet<string>();
             foreach (var parameter in description.UrlParams)
             {
+                var paramKey = $"{parameter.Name}.{parameter.Type}";
+                if (knownParams.Contains(paramKey))
+                {
+                    continue;
+                }
+                else
+                {
+                    knownParams.Add(paramKey);
+                }
                 var statements = new List<StatementSyntax>();   
                 SyntaxKind paramType;
                 switch (parameter.Type)

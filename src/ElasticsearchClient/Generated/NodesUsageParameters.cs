@@ -27,14 +27,6 @@ namespace Elasticsearch.Client
             return this;
         }
 
-        ///<summary>Return human readable values for statistics.</summary>
-        ///<param name="value"><para>Default: True</para></param>
-        public virtual NodesUsageParameters human(bool value)
-        {
-            SetValue("human", value.ToString().ToLower());
-            return this;
-        }
-
         ///<summary>Include the stack trace of returned errors.</summary>
         ///<param name="value"><para>Default: False</para></param>
         public virtual NodesUsageParameters error_trace(bool value)
