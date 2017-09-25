@@ -49,6 +49,10 @@ namespace Elasticsearch.Client
         public async Task<HttpResponseMessage> ExecuteAsync(HttpClient client, string httpMethod, string uri,
             HttpContent content = null)
         {
+            if(content != null)
+            {
+                content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            }
             HttpResponseMessage response;
             int attempt = 0;
             do
